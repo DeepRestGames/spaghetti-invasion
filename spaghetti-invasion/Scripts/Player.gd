@@ -5,7 +5,6 @@ extends CharacterBody3D
 var speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
-const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Coyote effect
 @export var hang_time: float = .1
@@ -21,7 +20,7 @@ const SENSITIVITY = 0.001
 var mouse_captured = false
 # Head bob
 const BOB_FREQUENCY = 1.8
-const BOB_AMPLITUDE = 0.08
+const BOB_AMPLITUDE = 0.04
 var t_bob = 0.0
 # FOV
 const BASE_FOV = 75.0
@@ -35,16 +34,13 @@ var process_inputs = true
 var limit_inputs = false
 
 
-func _final_cutscenes(argument: String):
-	if argument == "start_choice_cinematic":
-		process_inputs = false
-		$HUD.disable_all(true)
-	if argument == "enable_final_choice":
-		process_inputs = true
-		limit_inputs = true
-	if argument == "choice_taken":
-		process_inputs = false
-		limit_inputs = false
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_close"):
+		get_tree().quit()
 
 
 func _unhandled_input(event):
@@ -76,10 +72,6 @@ func _physics_process(delta):
 			return
 		
 		hang_time_counter = hang_time
-	
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and hang_time_counter > 0:
-		velocity.y = JUMP_VELOCITY
 	
 	# Sprint
 	if Input.is_action_pressed("sprint") and is_on_floor():
