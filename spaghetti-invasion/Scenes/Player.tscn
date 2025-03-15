@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq4r28jv36sep"]
 
-[ext_resource type="Script" uid="uid://8cx08485esb2" path="res://Scripts/Player.gd" id="1_6d860"]
+[ext_resource type="Script" uid="uid://cj7iopi2ddotc" path="res://Scripts/Player.gd" id="1_6d860"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cyhp0"]
 
@@ -50,6 +50,7 @@ shape = SubResource("CapsuleShape3D_esyaj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+fov = 50.0
 
 [node name="WallDetectionRayCast3D" type="RayCast3D" parent="Head"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1, 0)
@@ -145,6 +146,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FPSLabel" type="Label" parent="HUD"]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.963542
@@ -181,6 +183,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="CinematicBandTop" type="ColorRect" parent="HUD/CinematicBands"]
+visible = false
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 1
 anchors_preset = -1
@@ -192,6 +195,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CinematicBandBottom" type="ColorRect" parent="HUD/CinematicBands"]
+visible = false
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 1
 anchors_preset = -1
@@ -243,9 +247,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 44
 theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
@@ -333,9 +337,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 44
 theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
@@ -360,9 +364,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 44
 theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
@@ -468,8 +472,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.545098, 0.545098, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_oc1ly")
@@ -485,8 +489,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.545098, 0.545098, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_oc1ly")
@@ -521,9 +525,9 @@ text = "MUSIC VOLUME:"
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.545098, 0.545098, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.545098, 0.545098, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.545098, 0.545098, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxFlat_oc1ly")

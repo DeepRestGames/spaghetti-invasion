@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://e1ucwsqmov58"]
+
+[ext_resource type="Shader" uid="uid://cdhqhp702xm4g" path="res://Shaders/CanvasItem/Vignette.gdshader" id="1_2gp3j"]
+
+[resource]
+shader = ExtResource("1_2gp3j")
+shader_parameter/outerRadius = 0.496
+shader_parameter/MainAlpha = 0.345

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dqmft70fp2n6l"]
+
+[ext_resource type="Texture2D" uid="uid://cb6jgpk3inxv4" path="res://Assets/Textures/coast_sand_rocks_02_1k/coast_sand_rocks_02_diff_1k.jpg" id="1_dqqp5"]
+[ext_resource type="Texture2D" uid="uid://btdeolya6icq2" path="res://Assets/Textures/coast_sand_rocks_02_1k/coast_sand_rocks_02_ao_1k.jpg" id="2_0ijae"]
+[ext_resource type="Texture2D" uid="uid://bxcvymspeauh8" path="res://Assets/Textures/coast_sand_rocks_02_1k/coast_sand_rocks_02_nor_gl_1k.jpg" id="3_xp54i"]
+[ext_resource type="Texture2D" uid="uid://rmgrd5n88acy" path="res://Assets/Textures/coast_sand_rocks_02_1k/coast_sand_rocks_02_rough_1k.jpg" id="4_paaic"]
+
+[resource]
+albedo_texture = ExtResource("1_dqqp5")
+roughness_texture = ExtResource("4_paaic")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_xp54i")
+ao_enabled = true
+ao_texture = ExtResource("2_0ijae")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
