@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq4r28jv36sep"]
+[gd_scene load_steps=9 format=3 uid="uid://bq4r28jv36sep"]
 
 [ext_resource type="Script" uid="uid://cj7iopi2ddotc" path="res://Scripts/Player.gd" id="1_6d860"]
+[ext_resource type="PackedScene" uid="uid://daywwo83xh0hg" path="res://Scenes/WhiteParticles.tscn" id="2_kyqiw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cyhp0"]
 
@@ -540,6 +541,8 @@ text = "BACK"
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 volume_db = -20.0
+
+[node name="Node3D" parent="." instance=ExtResource("2_kyqiw")]
 
 [connection signal="pressed" from="HUD/PauseMenu/Panel/ResumeButtonContainer/ResumeButton" to="HUD" method="_on_resume_button_pressed"]
 [connection signal="value_changed" from="HUD/PauseMenu/Panel/AudioButtonsContainer/AudioLabel/MusicLabel/MusicVolumeSlider" to="HUD" method="_on_music_volume_slider_value_changed"]

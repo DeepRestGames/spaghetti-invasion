@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://daywwo83xh0hg"]
+
+[ext_resource type="Material" uid="uid://3y8i13x8huym" path="res://Assets/Textures/Light/WhiteParticle.tres" id="1_fisxu"]
+
+[sub_resource type="Gradient" id="Gradient_y1vb4"]
+offsets = PackedFloat32Array(0, 0.248485, 0.521212, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0.376471, 0, 0, 0, 0.792157, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u4jfd"]
+gradient = SubResource("Gradient_y1vb4")
+
+[sub_resource type="Curve" id="Curve_offfn"]
+_data = [Vector2(0, 0.5), 0.0, 0.638365, 0, 1, Vector2(0.251232, 0.660377), 0.0, 0.0, 0, 0, Vector2(0.497537, 0.449057), 0.0, 0.0, 0, 0, Vector2(0.773399, 0.630189), 0.0, 0.0, 0, 0, Vector2(1, 0.5), -0.574528, 0.0, 1, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_s8wb0"]
+curve = SubResource("Curve_offfn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1pslu"]
+lifetime_randomness = 1.0
+emission_shape_offset = Vector3(0, 3, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 4.5
+emission_ring_radius = 25.0
+emission_ring_inner_radius = 6.0
+emission_ring_cone_angle = 90.0
+angle_min = -180.0
+angle_max = 180.0
+initial_velocity_max = 2.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 1, 0)
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_s8wb0")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_u4jfd")
+anim_speed_max = 3.0
+turbulence_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_y1vb4"]
+size = Vector2(0.15, 0.15)
+
+[node name="BlackParticles" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = ExtResource("1_fisxu")
+amount = 70
+lifetime = 10.0
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_1pslu")
+draw_pass_1 = SubResource("QuadMesh_y1vb4")
