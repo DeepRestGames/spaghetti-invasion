@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b85yqddc3ps0c"]
+
+[ext_resource type="PackedScene" uid="uid://c3hp1chlmxvg1" path="res://Assets/Models/2Valleys.glb" id="1_o7io3"]
+[ext_resource type="Material" uid="uid://dqmft70fp2n6l" path="res://Assets/Materials/ground.tres" id="2_l18xi"]
+
+[node name="2Valleys" instance=ExtResource("1_o7io3")]
+
+[node name="Landscape_001" parent="." index="0"]
+material_override = ExtResource("2_l18xi")
