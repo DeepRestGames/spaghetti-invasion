@@ -38,11 +38,6 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_close"):
-		get_tree().quit()
-
-
 func _unhandled_input(event):
 	# Camera movement
 	if event is InputEventMouseMotion and process_inputs:
