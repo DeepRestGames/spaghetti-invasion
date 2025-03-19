@@ -5,13 +5,6 @@ extends CharacterBody3D
 var speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-# Coyote effect
-@export var hang_time: float = .1
-var hang_time_counter: float
-# Fall damage simulation variables
-@export var fall_velocity_limit: float = -23
-var current_fall_velocity = 0.0
 
 # Camera variables
 @onready var head = $Head
@@ -26,48 +19,25 @@ var t_bob = 0.0
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.8
 
-# Stair stepping variables
-@onready var wall_detection = $Head/WallDetectionRayCast3D
-@onready var step_detection = $Head/StepDetectionRayCast3D
-
 var process_inputs = true
-var limit_inputs = false
 
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-func _unhandled_input(event):
+func _input(event):
+	if !mouse_captured:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	# Camera movement
 	if event is InputEventMouseMotion and process_inputs:
-		if limit_inputs:
-			head.rotate_y(-event.relative.x * SENSITIVITY)
-			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-30), deg_to_rad(30))
-		else:
-			head.rotate_y(-event.relative.x * SENSITIVITY)
-			camera.rotate_x(-event.relative.y * SENSITIVITY)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
+		head.rotate_y(-event.relative.x * SENSITIVITY)
+		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
 
 
 func _physics_process(delta):
-	if limit_inputs == true:
-		return
-	
-	# Add the gravity
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-		hang_time_counter -= delta
-		current_fall_velocity = velocity.y
-	else:
-		# Fall damage respawn
-		if current_fall_velocity <= fall_velocity_limit:
-			current_fall_velocity = 0.0
-			$HUD.respawn_player_animation()
-			return
-		
-		hang_time_counter = hang_time
-	
 	# Sprint
 	if Input.is_action_pressed("sprint") and is_on_floor():
 		speed = SPRINT_SPEED
@@ -107,8 +77,3 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
 	pos.x = cos(time * BOB_FREQUENCY / 2) * BOB_AMPLITUDE
 	return pos
-
-
-# Handle pickup items
-func pickup_item(item_name: String):
-	print("Picked up item " + item_name)
