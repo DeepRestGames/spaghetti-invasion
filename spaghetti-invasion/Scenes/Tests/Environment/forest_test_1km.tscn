@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfkas06uer33g"]
+[gd_scene load_steps=26 format=3 uid="uid://bfkas06uer33g"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_acag5"]
 [ext_resource type="Material" uid="uid://dqmft70fp2n6l" path="res://Assets/Materials/ground.tres" id="2_acag5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="11_lu3xp"]
 [ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="12_xt6p2"]
 [ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="13_k3b0t"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/HUD.tscn" id="16_w17lm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
 panorama = ExtResource("3_o04gx")
@@ -40,7 +41,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="Resource" id="Resource_lqpcb"]
+[sub_resource type="Resource" id="Resource_bxlrq"]
 script = ExtResource("6_6o4md")
 amount = 200000
 enabled = true
@@ -49,7 +50,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_o04gx"]
+[sub_resource type="Resource" id="Resource_xyotx"]
 script = ExtResource("7_p4wsu")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -60,7 +61,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_qm57l"]
+[sub_resource type="Resource" id="Resource_oyevm"]
 script = ExtResource("8_gpbsr")
 iterations = 3
 offset_step = 0.2
@@ -72,7 +73,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6o4md"]
+[sub_resource type="Resource" id="Resource_tiwl6"]
 script = ExtResource("9_oeopb")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -88,9 +89,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_p4wsu"]
+[sub_resource type="Resource" id="Resource_p2y2e"]
 script = ExtResource("4_o04gx")
-stack = Array[ExtResource("5_qm57l")]([SubResource("Resource_lqpcb"), SubResource("Resource_o04gx"), SubResource("Resource_qm57l"), SubResource("Resource_6o4md")])
+stack = Array[ExtResource("5_qm57l")]([SubResource("Resource_bxlrq"), SubResource("Resource_xyotx"), SubResource("Resource_oyevm"), SubResource("Resource_tiwl6")])
 
 [sub_resource type="Resource" id="Resource_tqcqb"]
 script = ExtResource("12_xt6p2")
@@ -138,7 +139,7 @@ size = Vector3(1000, 1, 1000)
 visible = false
 script = ExtResource("3_lqpcb")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_p4wsu")
+modifier_stack = SubResource("Resource_p2y2e")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -183,3 +184,6 @@ shape = SubResource("Resource_tqcqb")
 
 [node name="Player" parent="SubViewport/Forest" instance=ExtResource("13_k3b0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.782287, 0.5, 3.06961)
+
+[node name="HUD" parent="." instance=ExtResource("16_w17lm")]
+layout_mode = 2

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq4r28jv36sep"]
+[gd_scene load_steps=5 format=3 uid="uid://bq4r28jv36sep"]
 
 [ext_resource type="Script" uid="uid://8cx08485esb2" path="res://Scripts/Player.gd" id="1_6d860"]
-[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/HUD.tscn" id="2_gntrk"]
 [ext_resource type="PackedScene" uid="uid://daywwo83xh0hg" path="res://Scenes/Particles/WhiteParticles.tscn" id="2_kyqiw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cyhp0"]
@@ -44,5 +43,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 volume_db = -20.0
 
 [node name="Node3D" parent="." instance=ExtResource("2_kyqiw")]
-
-[node name="HUD" parent="." instance=ExtResource("2_gntrk")]

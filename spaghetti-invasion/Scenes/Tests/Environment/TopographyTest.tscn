@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://5vab1mwel7y"]
+[gd_scene load_steps=27 format=3 uid="uid://5vab1mwel7y"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_bqx7u"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_xg8pi"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="14_53lji"]
 [ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="15_13yw1"]
 [ext_resource type="PackedScene" uid="uid://b85yqddc3ps0c" path="res://Assets/Models/2_valleys.tscn" id="15_bqx7u"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/HUD.tscn" id="16_jokbg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
 panorama = ExtResource("3_pr3a3")
@@ -40,7 +41,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="Resource" id="Resource_gftfe"]
+[sub_resource type="Resource" id="Resource_ldl2a"]
 script = ExtResource("8_0al1e")
 amount = 120000
 enabled = true
@@ -49,7 +50,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_jokbg"]
+[sub_resource type="Resource" id="Resource_a3j6y"]
 script = ExtResource("9_35srd")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -60,7 +61,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ldl2a"]
+[sub_resource type="Resource" id="Resource_4ngdh"]
 script = ExtResource("10_bnbyp")
 iterations = 3
 offset_step = 0.2
@@ -72,7 +73,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_a3j6y"]
+[sub_resource type="Resource" id="Resource_8nw0j"]
 script = ExtResource("11_kn67e")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -88,7 +89,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4ngdh"]
+[sub_resource type="Resource" id="Resource_pu4g3"]
 script = ExtResource("11_kn67e")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 500.0
@@ -104,9 +105,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_8nw0j"]
+[sub_resource type="Resource" id="Resource_s7yrv"]
 script = ExtResource("6_i6d8i")
-stack = Array[ExtResource("7_no4b4")]([SubResource("Resource_gftfe"), SubResource("Resource_jokbg"), SubResource("Resource_ldl2a"), SubResource("Resource_a3j6y"), SubResource("Resource_4ngdh")])
+stack = Array[ExtResource("7_no4b4")]([SubResource("Resource_ldl2a"), SubResource("Resource_a3j6y"), SubResource("Resource_4ngdh"), SubResource("Resource_8nw0j"), SubResource("Resource_pu4g3")])
 
 [sub_resource type="Resource" id="Resource_tqcqb"]
 script = ExtResource("14_53lji")
@@ -148,7 +149,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.975, 86.437, -117.641)
 script = ExtResource("5_5qrfe")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_8nw0j")
+modifier_stack = SubResource("Resource_s7yrv")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -196,3 +197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.86, 66.6182, 37.7656)
 
 [node name="2Valleys" parent="SubViewport" instance=ExtResource("15_bqx7u")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -37.9976, 0)
+
+[node name="HUD" parent="." instance=ExtResource("16_jokbg")]
+layout_mode = 2

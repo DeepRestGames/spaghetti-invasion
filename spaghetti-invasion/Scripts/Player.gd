@@ -22,11 +22,11 @@ const FOV_CHANGE = 1.8
 var process_inputs = true
 
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _ready():
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if !mouse_captured:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
