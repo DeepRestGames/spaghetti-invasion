@@ -15,18 +15,18 @@
 [ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="14_53lji"]
 [ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="15_13yw1"]
 [ext_resource type="PackedScene" uid="uid://b85yqddc3ps0c" path="res://Assets/Models/2_valleys.tscn" id="15_bqx7u"]
-[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/HUD.tscn" id="16_jokbg"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="16_jokbg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
 panorama = ExtResource("3_pr3a3")
 energy_multiplier = 0.05
 
-[sub_resource type="Sky" id="Sky_i6n6y"]
+[sub_resource type="Sky" id="Sky_jokbg"]
 sky_material = SubResource("PanoramaSkyMaterial_i6n6y")
 
 [sub_resource type="Environment" id="Environment_8jrty"]
 background_mode = 2
-sky = SubResource("Sky_i6n6y")
+sky = SubResource("Sky_jokbg")
 ambient_light_source = 2
 ambient_light_color = Color(0.424, 0.599467, 0.8, 1)
 tonemap_mode = 3

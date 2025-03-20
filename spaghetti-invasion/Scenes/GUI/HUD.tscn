@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4uhany0u32p5"]
+[gd_scene load_steps=6 format=3 uid="uid://b4uhany0u32p5"]
 
-[ext_resource type="Script" uid="uid://huiybrknlxs1" path="res://Scripts/HUD/HUD.gd" id="1_sd512"]
+[ext_resource type="Script" uid="uid://huiybrknlxs1" path="res://Scripts/GUI/HUD.gd" id="1_sd512"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b7j0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnqb4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx2xf"]
+bg_color = Color(0.564706, 0, 0.329412, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6svr"]
+bg_color = Color(0.857534, 2.40654e-06, 0.511057, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="HUD" type="Control"]
 process_mode = 3
@@ -73,12 +90,13 @@ grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+[node name="RESUMEButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.857534, 2.40654e-06, 0.511057, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.564706, 0, 0.329412, 1)
+theme_override_colors/font_pressed_color = Color(0.403494, 2.88785e-07, 0.22941, 1)
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 44
 theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
@@ -87,7 +105,36 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
 text = "RESUME"
 
-[node name="OptionsButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+[node name="GAMMASliderContainer" type="VBoxContainer" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="GAMMA_Label" type="Label" parent="PauseMenu/Panel/VBoxContainer/GAMMASliderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.564706, 0, 0.329412, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_tnqb4")
+text = "GAMMA"
+horizontal_alignment = 1
+
+[node name="GAMMASlider" type="HSlider" parent="PauseMenu/Panel/VBoxContainer/GAMMASliderContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yx2xf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_x6svr")
+min_value = 0.5
+max_value = 5.0
+step = 0.1
+value = 2.0
+
+[node name="OPTIONSButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
@@ -103,7 +150,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
 text = "OPTIONS"
 
-[node name="MainMenuButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+[node name="MAINMENUButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
@@ -119,13 +166,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
 text = "MAIN MENU"
 
-[node name="CloseButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+[node name="QUITButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.857534, 2.40654e-06, 0.511057, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.564706, 0, 0.329412, 1)
+theme_override_colors/font_pressed_color = Color(0.403494, 2.88785e-07, 0.22941, 1)
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 44
 theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
@@ -134,8 +182,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
 text = "QUIT"
 
-[connection signal="focus_entered" from="PauseMenu/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_focus_entered"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="focus_entered" from="PauseMenu/Panel/VBoxContainer/RESUMEButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/RESUMEButton" to="." method="_on_resume_button_pressed"]
+[connection signal="value_changed" from="PauseMenu/Panel/VBoxContainer/GAMMASliderContainer/GAMMASlider" to="." method="_on_gamma_slider_value_changed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/OPTIONSButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MAINMENUButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/QUITButton" to="." method="_on_close_button_pressed"]

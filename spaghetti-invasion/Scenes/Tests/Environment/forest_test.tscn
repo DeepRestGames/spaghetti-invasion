@@ -15,22 +15,33 @@
 [ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="10_mtpqt"]
 [ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="11_ajk3i"]
 [ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="12_ajk3i"]
-[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/HUD.tscn" id="16_gdcd4"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="16_gdcd4"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gdcd4"]
 panorama = ExtResource("2_i6n6y")
-energy_multiplier = 0.1
+energy_multiplier = 0.05
 
 [sub_resource type="Sky" id="Sky_i6n6y"]
-sky_material = SubResource("PanoramaSkyMaterial_i6n6y")
+sky_material = SubResource("PanoramaSkyMaterial_gdcd4")
 
-[sub_resource type="Environment" id="Environment_8jrty"]
+[sub_resource type="Environment" id="Environment_vmkrk"]
 background_mode = 2
 sky = SubResource("Sky_i6n6y")
-tonemap_mode = 2
+ambient_light_source = 2
+ambient_light_color = Color(0.424, 0.599467, 0.8, 1)
+tonemap_mode = 3
+tonemap_exposure = 2.0
+tonemap_white = 7.0
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0.81, 0.949333, 1, 1)
+volumetric_fog_emission = Color(0, 0.0408333, 0.05, 1)
+volumetric_fog_anisotropy = -0.23
+volumetric_fog_length = 6.0
+volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="Resource" id="Resource_h122r"]
+[sub_resource type="Resource" id="Resource_gdcd4"]
 script = ExtResource("5_i6n6y")
 amount = 200
 enabled = true
@@ -39,7 +50,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_gdcd4"]
+[sub_resource type="Resource" id="Resource_vmkrk"]
 script = ExtResource("6_8jrty")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -50,7 +61,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_vmkrk"]
+[sub_resource type="Resource" id="Resource_sutxe"]
 script = ExtResource("7_i6bio")
 iterations = 3
 offset_step = 0.2
@@ -62,7 +73,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_sutxe"]
+[sub_resource type="Resource" id="Resource_g7lu2"]
 script = ExtResource("8_hdplj")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -78,16 +89,16 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_g7lu2"]
+[sub_resource type="Resource" id="Resource_n5l36"]
 script = ExtResource("3_ajk3i")
-stack = Array[ExtResource("4_6r737")]([SubResource("Resource_h122r"), SubResource("Resource_gdcd4"), SubResource("Resource_vmkrk"), SubResource("Resource_sutxe")])
+stack = Array[ExtResource("4_6r737")]([SubResource("Resource_gdcd4"), SubResource("Resource_vmkrk"), SubResource("Resource_sutxe"), SubResource("Resource_g7lu2")])
 
 [sub_resource type="Resource" id="Resource_tqcqb"]
 script = ExtResource("11_ajk3i")
 size = Vector3(30, 30, 30)
 metadata/_custom_type_script = "uid://ce817t51pnnfd"
 
-[sub_resource type="Resource" id="Resource_n5l36"]
+[sub_resource type="Resource" id="Resource_3qd1g"]
 script = ExtResource("5_i6n6y")
 amount = 200
 enabled = true
@@ -96,7 +107,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_3qd1g"]
+[sub_resource type="Resource" id="Resource_8ljcd"]
 script = ExtResource("6_8jrty")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -107,7 +118,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_8ljcd"]
+[sub_resource type="Resource" id="Resource_nan8v"]
 script = ExtResource("7_i6bio")
 iterations = 3
 offset_step = 0.2
@@ -119,7 +130,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_nan8v"]
+[sub_resource type="Resource" id="Resource_6uxkk"]
 script = ExtResource("8_hdplj")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -135,9 +146,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6uxkk"]
+[sub_resource type="Resource" id="Resource_106c8"]
 script = ExtResource("3_ajk3i")
-stack = Array[ExtResource("4_6r737")]([SubResource("Resource_n5l36"), SubResource("Resource_3qd1g"), SubResource("Resource_8ljcd"), SubResource("Resource_nan8v")])
+stack = Array[ExtResource("4_6r737")]([SubResource("Resource_3qd1g"), SubResource("Resource_8ljcd"), SubResource("Resource_nan8v"), SubResource("Resource_6uxkk")])
 
 [sub_resource type="Resource" id="Resource_jg43y"]
 script = ExtResource("11_ajk3i")
@@ -167,8 +178,8 @@ mouse_filter = 2
 
 [node name="Forest" type="Node3D" parent="SubViewport"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Forest"]
-environment = SubResource("Environment_8jrty")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Forest" groups=["WorldEnvironment"]]
+environment = SubResource("Environment_vmkrk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Forest"]
 transform = Transform3D(0.767741, 0.206226, -0.606666, -0.0300859, 0.95735, 0.28736, 0.640053, -0.202366, 0.741201, 0, 24.5093, 0)
@@ -190,7 +201,7 @@ size = Vector3(150, 1, 60)
 
 [node name="ProtonScatter" type="Node3D" parent="SubViewport/Forest"]
 script = ExtResource("2_s5n87")
-modifier_stack = SubResource("Resource_g7lu2")
+modifier_stack = SubResource("Resource_n5l36")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -229,7 +240,7 @@ shape = SubResource("Resource_tqcqb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44.8416)
 visible = false
 script = ExtResource("2_s5n87")
-modifier_stack = SubResource("Resource_6uxkk")
+modifier_stack = SubResource("Resource_106c8")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -269,3 +280,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03505, 0.5, 2.12393)
 
 [node name="HUD" parent="." instance=ExtResource("16_gdcd4")]
 layout_mode = 2
+
+[editable path="SubViewport/Forest/Player"]

@@ -1,0 +1,456 @@
+[gd_scene load_steps=12 format=3 uid="uid://doekc1fh2fvsm"]
+
+[ext_resource type="Script" uid="uid://cl7h6tbubvw2g" path="res://Scripts/GUI/MainMenu.gd" id="1_j6v32"]
+[ext_resource type="Texture2D" uid="uid://dkw7c428a7w2" path="res://Assets/Logos/240423_DRG_Full_Logo_white.png" id="2_xib41"]
+[ext_resource type="Texture2D" uid="uid://dho3co05kxway" path="res://Assets/Logos/Godin.png" id="3_vaoig"]
+
+[sub_resource type="Animation" id="Animation_xk87y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hwqeo"]
+resource_name = "loading_screen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lft38"]
+_data = {
+&"RESET": SubResource("Animation_xk87y"),
+&"loading_screen": SubResource("Animation_hwqeo")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wl68"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar8qn"]
+bg_color = Color(0.294118, 0.92549, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5h8x"]
+bg_color = Color(0.294118, 0.698039, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki6nt"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cihf"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j6v32")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../HUD")
+libraries = {
+&"": SubResource("AnimationLibrary_lft38")
+}
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="HUD"]
+modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DRG_Logo" type="TextureRect" parent="HUD"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.852459
+anchor_top = 0.775
+anchor_right = 0.97541
+anchor_bottom = 0.9625
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_xib41")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="HUD"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.202056
+anchor_top = 0.0375
+anchor_right = 0.797944
+anchor_bottom = 0.2875
+offset_right = 0.000732422
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.690196, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 120
+text = "MJÖLLNIR"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Godot_Logo" type="TextureRect" parent="HUD"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -362.0
+offset_right = 315.0
+grow_vertical = 0
+texture = ExtResource("3_vaoig")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MenuItems" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0393443
+anchor_top = 0.27625
+anchor_right = 0.963934
+anchor_bottom = 0.90125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NewGameButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="NEWGAME" type="Button" parent="HUD/MenuItems/NewGameButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
+text = "New Game"
+flat = true
+
+[node name="LevelSelectionButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
+visible = false
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="LEVEL_SELECTION" type="Button" parent="HUD/MenuItems/LevelSelectionButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
+text = "Level Selection"
+flat = true
+
+[node name="MUSICSliderContainer" type="VBoxContainer" parent="HUD/MenuItems"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MUSIC_Label" type="Label" parent="HUD/MenuItems/MUSICSliderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="HUD/MenuItems/MUSICSliderContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ar8qn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_l5h8x")
+min_value = -30.0
+max_value = 0.0
+value = -5.0
+
+[node name="CREDITSButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="CREDITS" type="Button" parent="HUD/MenuItems/CREDITSButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
+text = "Credits"
+flat = true
+
+[node name="CreditsPanel" type="Panel" parent="HUD"]
+visible = false
+custom_minimum_size = Vector2(530, 610)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282787
+anchor_top = 0.11875
+anchor_right = 0.717213
+anchor_bottom = 0.88125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ki6nt")
+metadata/_edit_use_anchors_ = true
+
+[node name="CreditsPanelMask" type="Button" parent="HUD/CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = -129.0
+offset_right = 355.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+flat = true
+
+[node name="Style" type="Control" parent="HUD/CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -38.0
+offset_right = 40.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BorderUP" type="Panel" parent="HUD/CreditsPanel/Style"]
+custom_minimum_size = Vector2(558, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0426229
+anchor_right = 0.957377
+anchor_bottom = 0.111732
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4cihf")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CreditsPanel/Style/BorderUP"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Corner1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Border1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(293.32, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner2" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="BorderDOWN" type="Panel" parent="HUD/CreditsPanel/Style"]
+custom_minimum_size = Vector2(558, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0426229
+anchor_top = 0.888268
+anchor_right = 0.957377
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4cihf")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CreditsPanel/Style/BorderDOWN"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Corner1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderDOWN/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Border1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderDOWN/HBoxContainer"]
+texture_repeat = 2
+custom_minimum_size = Vector2(290, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner2" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderDOWN/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/CreditsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -286.0
+offset_right = 232.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+text = "[center]
+
+[font_size={40}]Deep Rest Games is:[/font_size]
+
+[font_size={28}]DughiBoogie[/font_size]
+[font_size={24}]Programming[/font_size]
+
+[font_size={28}]enirfo[/font_size]
+[font_size={24}]Art[/font_size]
+
+[font_size={28}]DughiBoogie & Enirfo[/font_size]
+[font_size={24}]Everything else[/font_size]
+
+[font_size={24}]All audio was taken from open libraries (links in the description)[/font_size]
+
+[font_size={24}][url=https://deeprestgames.itch.io/mjolnir]Leave us a feedback on the game here[/url][/font_size]
+[font_size={20}]or[/font_size]
+[font_size={24}][url=https://discord.gg/9Ujv8xbX3H]Come say hi on our discord server[/url][/font_size]
+
+[/center]"
+scroll_active = false
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="HUD/MenuItems/NewGameButtonContainer/NEWGAME" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="HUD/MenuItems/LevelSelectionButtonContainer/LEVEL_SELECTION" to="." method="_on_level_selection_pressed"]
+[connection signal="value_changed" from="HUD/MenuItems/MUSICSliderContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="pressed" from="HUD/MenuItems/CREDITSButtonContainer/CREDITS" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="HUD/CreditsPanel/CreditsPanelMask" to="." method="_on_credits_panel_mask_pressed"]
+[connection signal="meta_clicked" from="HUD/CreditsPanel/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

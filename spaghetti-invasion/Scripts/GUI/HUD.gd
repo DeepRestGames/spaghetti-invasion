@@ -49,3 +49,7 @@ func _on_fps_check_button_toggled(toggled_on):
 
 func _on_options_back_button_pressed():
 	print("OPTIONS BUTTON BACK PRESSED!")
+
+
+func _on_gamma_slider_value_changed(value: float) -> void:
+	EventBus.emit_signal("gamma_value_changed", value)

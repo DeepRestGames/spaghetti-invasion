@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="11_lu3xp"]
 [ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="12_xt6p2"]
 [ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="13_k3b0t"]
-[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/HUD.tscn" id="16_w17lm"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="16_w17lm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
 panorama = ExtResource("3_o04gx")
