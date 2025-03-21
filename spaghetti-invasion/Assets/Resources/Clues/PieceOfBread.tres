@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" load_steps=2 format=3 uid="uid://bhum63nxjn2ib"]
+
+[ext_resource type="Script" uid="uid://b8ag16nve3l00" path="res://Scripts/Resources/Clue.gd" id="1_trkrf"]
+
+[resource]
+script = ExtResource("1_trkrf")
+clue_title = "PieceOfBread"
+clue_description = "It must be at least 3 days old"
+clue_picture_path = ""
+metadata/_custom_type_script = "uid://b8ag16nve3l00"
