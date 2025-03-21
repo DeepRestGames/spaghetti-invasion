@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dho3co05kxway"
-path="res://.godot/imported/Godin.png-ae63b7c7d32ece6ff46cc49bdf88655e.ctex"
+uid="uid://dkw7c428a7w2"
+path="res://.godot/imported/240423_DRG_Full_Logo_white.png-651f4b16c75d72def68ebc94877efd66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Logos/Godin.png"
-dest_files=["res://.godot/imported/Godin.png-ae63b7c7d32ece6ff46cc49bdf88655e.ctex"]
+source_file="res://Assets/2D/Logos/240423_DRG_Full_Logo_white.png"
+dest_files=["res://.godot/imported/240423_DRG_Full_Logo_white.png-651f4b16c75d72def68ebc94877efd66.ctex"]
 
 [params]
 

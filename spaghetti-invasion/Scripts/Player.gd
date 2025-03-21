@@ -22,14 +22,13 @@ const FOV_CHANGE = 1.8
 var process_inputs = true
 
 
-#func _ready():
+func _ready():
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	EventBus.connect("focus_on_diary", focus_on_diary)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if !mouse_captured:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 	# Camera movement
 	if event is InputEventMouseMotion and process_inputs:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -77,3 +76,10 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
 	pos.x = cos(time * BOB_FREQUENCY / 2) * BOB_AMPLITUDE
 	return pos
+
+
+func focus_on_diary(focus: bool) -> void:
+	if focus:
+		process_inputs = false
+	else:
+		process_inputs = true
