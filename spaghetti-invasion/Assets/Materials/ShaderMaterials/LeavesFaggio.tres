@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bhct3gehw3w4c"]
+
+[ext_resource type="Shader" uid="uid://brg37gq3ymld" path="res://addons/proton_scatter/demos/assets/materials/leaves.gdshader" id="1_25jgt"]
+[ext_resource type="Texture2D" uid="uid://dx3cy2fr7m4st" path="res://Assets/Textures/LeavesFaggio.png" id="2_kxvy8"]
+
+[sub_resource type="Gradient" id="Gradient_pookg"]
+offsets = PackedFloat32Array(0, 0.590164, 0.901639, 1)
+colors = PackedColorArray(0.099, 0.11, 0, 1, 0.246097, 0.362896, 0, 1, 0.616667, 1, 0, 1, 0.766667, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n86jv"]
+gradient = SubResource("Gradient_pookg")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t7o5y"]
+seed = 1
+frequency = 0.0068
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_56p0p"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.65
+noise = SubResource("FastNoiseLite_t7o5y")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_25jgt")
+shader_parameter/texture_albedo = ExtResource("2_kxvy8")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_n86jv")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_56p0p")
+shader_parameter/alpha_scissor_threshold = 0.3
+shader_parameter/transmission = Color(0.745098, 0.741176, 0, 1)
+shader_parameter/total_height = 15.611
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.2
+shader_parameter/wind_strength = 0.1
+shader_parameter/noise_scale = 120.0

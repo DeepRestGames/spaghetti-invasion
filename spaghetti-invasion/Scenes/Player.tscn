@@ -543,6 +543,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 volume_db = -20.0
 
 [node name="Node3D" parent="." instance=ExtResource("2_kyqiw")]
+visible = false
 
 [connection signal="pressed" from="HUD/PauseMenu/Panel/ResumeButtonContainer/ResumeButton" to="HUD" method="_on_resume_button_pressed"]
 [connection signal="value_changed" from="HUD/PauseMenu/Panel/AudioButtonsContainer/AudioLabel/MusicLabel/MusicVolumeSlider" to="HUD" method="_on_music_volume_slider_value_changed"]
