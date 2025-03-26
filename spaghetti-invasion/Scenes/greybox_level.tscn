@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://hj4jtxn24hqm"]
+
+[ext_resource type="PackedScene" uid="uid://cngo8jqcoi6c0" path="res://Assets/Models/IMPORT/GreyboxLevel.glb" id="1_n0d4q"]
+[ext_resource type="Material" uid="uid://dqmft70fp2n6l" path="res://Assets/Materials/ground.tres" id="2_ycoly"]
+[ext_resource type="Material" uid="uid://1h8kqs2mlhs7" path="res://Assets/Materials/rockWall.tres" id="3_8562i"]
+[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="4_tejou"]
+[ext_resource type="Texture2D" uid="uid://dxh366q534rop" path="res://Assets/Textures/Sky/sunflowers_puresky_2k.hdr" id="5_ycoly"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8562i"]
+panorama = ExtResource("5_ycoly")
+
+[sub_resource type="Sky" id="Sky_i6n6y"]
+sky_material = SubResource("PanoramaSkyMaterial_8562i")
+
+[sub_resource type="Environment" id="Environment_tejou"]
+background_mode = 2
+sky = SubResource("Sky_i6n6y")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0241
+volumetric_fog_emission = Color(0.69, 0.69, 0.69, 1)
+volumetric_fog_emission_energy = 0.5
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_ambient_inject = 0.01
+
+[node name="GreyboxLevel" instance=ExtResource("1_n0d4q")]
+
+[node name="Terreno" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Parete Rocciosa" parent="." index="3"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_009" parent="." index="10"]
+surface_material_override/0 = ExtResource("2_ycoly")
+surface_material_override/1 = ExtResource("3_8562i")
+
+[node name="Terreno_013" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73, -1.145, 0)
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_014" parent="." index="12"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_015" parent="." index="13"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_016" parent="." index="14"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_004" parent="." index="15"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_017" parent="." index="16"]
+surface_material_override/0 = ExtResource("2_ycoly")
+surface_material_override/1 = ExtResource("3_8562i")
+
+[node name="Terreno_018" parent="." index="17"]
+surface_material_override/0 = ExtResource("2_ycoly")
+surface_material_override/1 = ExtResource("3_8562i")
+
+[node name="Terreno_019" parent="." index="18"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_020" parent="." index="19"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_021" parent="." index="20"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_001" parent="." index="21"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Parete Rocciosa_001" parent="." index="23"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Parete Rocciosa_002" parent="." index="24"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_005" parent="." index="25"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Parete Rocciosa_003" parent="." index="26"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_003" parent="." index="27"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_006" parent="." index="28"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_007" parent="." index="29"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_010" parent="." index="30"]
+surface_material_override/0 = ExtResource("2_ycoly")
+surface_material_override/1 = ExtResource("3_8562i")
+
+[node name="Terreno_002" parent="." index="31"]
+surface_material_override/0 = ExtResource("2_ycoly")
+surface_material_override/1 = ExtResource("3_8562i")
+surface_material_override/2 = ExtResource("3_8562i")
+
+[node name="Parete Rocciosa_004" parent="." index="33"]
+surface_material_override/0 = ExtResource("3_8562i")
+surface_material_override/1 = ExtResource("3_8562i")
+
+[node name="Cylinder" parent="." index="35"]
+surface_material_override/0 = ExtResource("3_8562i")
+
+[node name="Terreno_012" parent="." index="36"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Terreno_011" parent="." index="37"]
+surface_material_override/0 = ExtResource("2_ycoly")
+
+[node name="Player" parent="." index="38" instance=ExtResource("4_tejou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.8325, 31.636, -94.599)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="39"]
+environment = SubResource("Environment_tejou")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="40"]
+transform = Transform3D(0.77384, 0.356013, -0.523857, 0, 0.827081, 0.562083, 0.633381, -0.434963, 0.640028, 0, 27.4388, 0)
+light_color = Color(0.8134, 0.868933, 0.98, 1)
+light_energy = 0.5
+shadow_enabled = true

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://rmgrd5n88acy" path="res://Assets/Textures/coast_sand_rocks_02_1k/coast_sand_rocks_02_rough_1k.jpg" id="4_paaic"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_dqqp5")
 roughness_texture = ExtResource("4_paaic")
 roughness_texture_channel = 4
