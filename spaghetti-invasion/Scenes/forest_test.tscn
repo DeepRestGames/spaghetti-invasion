@@ -28,9 +28,10 @@ sky = SubResource("Sky_i6n6y")
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.07
-volumetric_fog_emission = Color(0.7, 0.7, 0.7, 1)
+volumetric_fog_density = 0.0241
+volumetric_fog_emission = Color(0.69, 0.69, 0.69, 1)
 volumetric_fog_emission_energy = 0.5
+volumetric_fog_anisotropy = 0.9
 volumetric_fog_ambient_inject = 0.01
 
 [sub_resource type="Resource" id="Resource_8jrty"]
@@ -104,6 +105,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Vignette" type="ColorRect" parent="SubViewport"]
+visible = false
 material = ExtResource("2_8jrty")
 anchors_preset = 15
 anchor_right = 1.0
