@@ -20,10 +20,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func put_away():
 	animation_player.play_backwards("appear")
 	EventBus.emit_signal("focus_on_diary", false)
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func pull_out():
 	animation_player.play("appear")
 	EventBus.emit_signal("focus_on_diary", true)
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
