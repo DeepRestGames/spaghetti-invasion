@@ -23,7 +23,7 @@ var process_inputs = true
 
 
 func _ready():
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	EventBus.connect("focus_on_diary", focus_on_diary)
 
@@ -37,6 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta):
+	if !process_inputs:
+		return
+	
 	# Sprint
 	if Input.is_action_pressed("sprint") and is_on_floor():
 		speed = SPRINT_SPEED
