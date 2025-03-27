@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjwfw1trolcu2"]
+
+[ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_e7tkw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvud3"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7tkw"]
+material = SubResource("StandardMaterial3D_wvud3")
+
+[node name="Interactable" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_e7tkw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wvud3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e7tkw")

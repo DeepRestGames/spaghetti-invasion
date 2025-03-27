@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4uhany0u32p5"]
+[gd_scene load_steps=7 format=3 uid="uid://b4uhany0u32p5"]
 
 [ext_resource type="Script" uid="uid://huiybrknlxs1" path="res://Scripts/GUI/HUD.gd" id="1_sd512"]
+[ext_resource type="Texture2D" uid="uid://ci2e4xw5crqw6" path="res://Assets/2D/Sprites/E_key.png" id="2_yx2xf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b7j0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -48,6 +49,29 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 25
 text = "60"
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractionPrompt" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchor_left = 0.473958
+anchor_top = 0.848765
+anchor_right = 0.526042
+anchor_bottom = 0.941358
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InteractionPrompt"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yx2xf")
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" type="Control" parent="."]

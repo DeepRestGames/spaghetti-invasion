@@ -16,3 +16,8 @@ signal gamma_value_changed(new_value)
 # Input management
 @warning_ignore("unused_signal")
 signal focus_on_diary(focus)
+
+
+# Interaction system
+@warning_ignore("unused_signal")
+signal looking_at_interactable(is_looking)
