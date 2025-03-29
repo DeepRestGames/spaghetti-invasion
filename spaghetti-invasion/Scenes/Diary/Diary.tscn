@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://duhgac42d8866"]
+[gd_scene load_steps=16 format=3 uid="uid://duhgac42d8866"]
 
 [ext_resource type="Script" uid="uid://dj1o1o8vk4vf5" path="res://Scripts/Diary/Diary.gd" id="1_3gqoq"]
 [ext_resource type="Texture2D" uid="uid://turueybwu2kl" path="res://Assets/2D/Decals/book_texture.jpg" id="2_n00bc"]
 [ext_resource type="Texture2D" uid="uid://chyx7b4lttgmv" path="res://Assets/2D/Decals/old_paper.jpg" id="3_3vpsv"]
+[ext_resource type="Script" uid="uid://ds0mxc5yuyws4" path="res://Scripts/Diary/DiaryPage.gd" id="4_0vmqa"]
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="4_8ge5e"]
 
 [sub_resource type="Animation" id="Animation_rwdd7"]
 length = 0.001
@@ -78,9 +80,22 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OmniLight3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tnqc7"]
 resource_name = "appear"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,7 +148,7 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("Body:position")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -149,6 +164,18 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OmniLight3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.45, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -177,8 +204,14 @@ specular_mode = 1
 albedo_color = Color(0.454902, 0.454902, 0.454902, 1)
 albedo_texture = ExtResource("3_3vpsv")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_kau8f"]
+viewport_path = NodePath("Body/LeftCoverPivot/LeftPages/Content/SubViewport")
+
 [sub_resource type="BoxMesh" id="BoxMesh_lqut7"]
 size = Vector3(0.18, 0.01, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v7la2"]
+viewport_path = NodePath("Body/RightCoverPivot/RightPages/Content/SubViewport")
 
 [node name="Diary" type="Node3D"]
 visible = false
@@ -208,6 +241,38 @@ mesh = SubResource("BoxMesh_v7la2")
 skeleton = NodePath("../../RightCoverPivot")
 surface_material_override/0 = SubResource("StandardMaterial3D_da6ug")
 
+[node name="Content" type="Node3D" parent="Body/LeftCoverPivot/LeftPages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -8.88178e-16, 0, 1, 0.01, 0.055, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Body/LeftCoverPivot/LeftPages/Content"]
+transparent_bg = true
+size = Vector2i(510, 680)
+
+[node name="DiaryPage_ContradaAbbandonata" type="VBoxContainer" parent="Body/LeftCoverPivot/LeftPages/Content/SubViewport"]
+custom_minimum_size = Vector2(490, 660)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 670.0
+theme_override_constants/separation = 20
+script = ExtResource("4_0vmqa")
+
+[node name="PageTitle" type="Label" parent="Body/LeftCoverPivot/LeftPages/Content/SubViewport/DiaryPage_ContradaAbbandonata"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_8ge5e")
+theme_override_font_sizes/font_size = 25
+text = "CONTRADA ABBANDONATA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="Body/LeftCoverPivot/LeftPages/Content"]
+transform = Transform3D(-0.135, 1.18021e-08, 0, 5.15885e-16, 5.90104e-09, 0.135, 1.18021e-08, 0.135, -5.90104e-09, 0, 0, 0)
+texture = SubResource("ViewportTexture_kau8f")
+
 [node name="Stipite" type="MeshInstance3D" parent="Body"]
 mesh = SubResource("BoxMesh_lqut7")
 skeleton = NodePath("../..")
@@ -227,3 +292,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2l2db")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.06, 0)
 mesh = SubResource("BoxMesh_v7la2")
 surface_material_override/0 = SubResource("StandardMaterial3D_da6ug")
+
+[node name="Content" type="Node3D" parent="Body/RightCoverPivot/RightPages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -8.88178e-16, 0, 1, 0, -0.055, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Body/RightCoverPivot/RightPages/Content"]
+transparent_bg = true
+size = Vector2i(510, 680)
+
+[node name="Sprite3D" type="Sprite3D" parent="Body/RightCoverPivot/RightPages/Content"]
+transform = Transform3D(-0.135, -1.18021e-08, -5.15885e-16, 0, -5.90104e-09, 0.135, -1.18021e-08, 0.135, 5.90104e-09, 0, 0, 0)
+flip_h = true
+texture = SubResource("ViewportTexture_v7la2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+visible = false
+light_color = Color(1, 0.701961, 0, 1)
+light_size = 1.0
+omni_range = 1.5
+omni_attenuation = 0.5

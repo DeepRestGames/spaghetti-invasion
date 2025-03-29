@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cko8gqoj80u2r"]
+
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="1_lf8cg"]
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="2_wacws"]
+
+[node name="LiquidoGiallo" type="Label"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_lf8cg")
+theme_override_font_sizes/font_size = 18
+text = "Vicino agli alberi che delimitano la foresta ci sono delle macchie di un liquido giallo viscoso."
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_wacws")
+clue_ID = 1

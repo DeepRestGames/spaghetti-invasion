@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6vjtm81ni0lr"]
+
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="1_sc0ad"]
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="2_b0hqx"]
+
+[node name="ForiProiettili" type="Label"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_sc0ad")
+theme_override_font_sizes/font_size = 18
+text = "Negli alberi che danno sulla foresta ci sono dei fori di proiettili."
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_b0hqx")

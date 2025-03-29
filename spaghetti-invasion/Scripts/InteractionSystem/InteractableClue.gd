@@ -6,15 +6,10 @@ extends StaticBody3D
 
 
 func interact():
-	print("Clue activated!")
-	
 	if(clue_data == null):
 		printerr("The interactable is missing a ClueData object!")
-	else:
-		print("Clue Data:")
-		print(clue_data.clue_title)
-		print(clue_data.clue_description)
-		print(clue_data.clue_picture_path)
+	else:		
+		EventBus.emit_signal("clue_interacted", clue_data)
 	
 	EventBus.emit_signal("looking_at_interactable", false)
 	collision_layer = 0
