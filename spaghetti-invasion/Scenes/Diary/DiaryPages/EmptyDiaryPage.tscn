@@ -23,3 +23,7 @@ theme_override_font_sizes/font_size = 25
 text = "NEW_DIARY_PAGE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PageEntries" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15

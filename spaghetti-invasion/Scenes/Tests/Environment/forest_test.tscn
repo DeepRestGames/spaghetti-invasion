@@ -319,10 +319,22 @@ area_name = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Forest/Cascata"]
 shape = SubResource("BoxShape3D_n5l36")
 
+[node name="Ponte" type="Area3D" parent="SubViewport/Forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.293, 0, 15.3809)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("20_3qd1g")
+area_name = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Forest/Ponte"]
+shape = SubResource("BoxShape3D_n5l36")
+
 [node name="HUD" parent="." instance=ExtResource("16_gdcd4")]
 layout_mode = 2
 
 [connection signal="body_entered" from="SubViewport/Forest/ContradaAbbandonata" to="SubViewport/Forest/ContradaAbbandonata" method="_on_body_entered"]
 [connection signal="body_entered" from="SubViewport/Forest/Cascata" to="SubViewport/Forest/Cascata" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/Forest/Ponte" to="SubViewport/Forest/Ponte" method="_on_body_entered"]
 
 [editable path="SubViewport/Forest/Player"]
