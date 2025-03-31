@@ -6,9 +6,14 @@ extends Control
 @onready var interaction_prompt = $InteractionPrompt
 @onready var pause_menu = $PauseMenu
 
+@onready var new_diary_entry_message = $DiaryUpdateMessage/NewDiaryEntryMessage
+@onready var new_area_discovered_message = $DiaryUpdateMessage/NewAreaDiscoveredMessage
+
 
 func _ready() -> void:
 	EventBus.connect("looking_at_interactable", show_interaction_prompt)
+	EventBus.connect("clue_interacted", show_new_diary_entry_message)
+	EventBus.connect("new_area_discovered", show_new_area_discovered_message)
 
 
 func _process(_delta):
@@ -59,3 +64,17 @@ func show_interaction_prompt(show_prompt) -> void:
 		interaction_prompt.show()
 	else:
 		interaction_prompt.hide()
+
+
+func show_new_diary_entry_message(_clue_data) -> void:
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(new_diary_entry_message, "modulate", Color(1, 1, 1, 1), 1)
+	tween.chain().tween_interval(2)
+	tween.tween_property(new_diary_entry_message, "modulate", Color(1, 1, 1, 0), 1)
+
+
+func show_new_area_discovered_message(_area_name) -> void:
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(new_area_discovered_message, "modulate", Color(1, 1, 1, 1), 1)
+	tween.chain().tween_interval(2)
+	tween.tween_property(new_area_discovered_message, "modulate", Color(1, 1, 1, 0), 1)

@@ -8,7 +8,7 @@ extends StaticBody3D
 func interact():
 	if(clue_data == null):
 		printerr("The interactable is missing a ClueData object!")
-	else:		
+	else:
 		EventBus.emit_signal("clue_interacted", clue_data)
 	
 	EventBus.emit_signal("looking_at_interactable", false)
