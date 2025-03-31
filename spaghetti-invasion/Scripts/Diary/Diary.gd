@@ -9,11 +9,12 @@ enum LastPageWritten {
 }
 var last_page_written: LastPageWritten = LastPageWritten.BLANK
 @onready var left_pages_content = $Body/LeftCoverPivot/LeftPages/Content/SubViewport
-#@onready var right_pages_content = $BoBody/LeftCoverPivot/LeftPages/Content
-var diary_pages: Array[DiaryPage]
+@onready var right_pages_content = $Body/RightCoverPivot/RightPages/Content/SubViewport
+var discovered_diary_pages: Array[DiaryPage]
+@onready var empty_diary_page_scene = preload("res://Scenes/Diary/DiaryPages/EmptyDiaryPage.tscn")
 
-var diary_entries_path = "res://Scenes/Diary/DiaryPages/"
-var diary_entries: Array
+var all_diary_entries_path = "res://Scenes/Diary/DiaryPages/"
+var all_diary_entries: Array
 
 
 var is_diary_out = false
@@ -22,12 +23,10 @@ var is_diary_out = false
 
 func _ready() -> void:
 	# Load all clues entries scenes from folder
-	diary_entries = load_clues_entries(diary_entries_path)
-	
-	# TEST
-	diary_pages.append($Body/LeftCoverPivot/LeftPages/Content/SubViewport/DiaryPage_ContradaAbbandonata)
+	all_diary_entries = load_clues_entries(all_diary_entries_path)
 	
 	EventBus.connect("clue_interacted", add_clue_entry)
+	EventBus.connect("new_area_discovered", add_diary_page)
 
 
 func load_clues_entries(path):
@@ -74,29 +73,43 @@ func pull_out():
 	EventBus.emit_signal("focus_on_diary", true)
 
 
-#func add_diary_page()
+func add_diary_page(area_name: ClueData.DiaryPages):
+	# Add page to discovered diary pages
+	var new_diary_page = empty_diary_page_scene.instantiate()
+	discovered_diary_pages.append(new_diary_page)
+	
+	# Change DiaryPage Label text
+	new_diary_page.diary_page_ID = area_name
+	
+	 # Check add left or right page
+	if(last_page_written == LastPageWritten.BLANK or last_page_written == LastPageWritten.RIGHT):
+		left_pages_content.add_child(new_diary_page)
+		last_page_written = LastPageWritten.LEFT
+	else:
+		right_pages_content.add_child(new_diary_page)
+		last_page_written = LastPageWritten.RIGHT
 
 
 func add_clue_entry(clue_data: ClueData):
 	# Search for diary page
-	var diary_page: DiaryPage
-	var diary_entry: DiaryEntry
+	var new_entry_diary_page: DiaryPage
+	var new_diary_entry: DiaryEntry
 	
-	for page in diary_pages:
+	for page in discovered_diary_pages:
 		if page.diary_page_ID == clue_data.diary_page_ID:
-			diary_page = page
+			new_entry_diary_page = page
 			break
-	if diary_page == null:
+	if new_entry_diary_page == null:
 		printerr("No diary page found for interacted clue!")
 		return
 	
 	# Search for diary entry scene
-	for entry in diary_entries:		
+	for entry in all_diary_entries:
 		if entry.clue_ID == clue_data.clue_ID:
-			diary_entry = entry
+			new_diary_entry = entry
 			break
-	if diary_entry == null:
+	if new_diary_entry == null:
 		printerr("No diary entry found for interacted clue!")
 		return	
 	# Add entry to diary page
-	diary_page.add_child(diary_entry)
+	new_entry_diary_page.add_child(new_diary_entry)

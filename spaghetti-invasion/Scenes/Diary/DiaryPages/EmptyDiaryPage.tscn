@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://p3e7jbqjqi0d"]
+
+[ext_resource type="Script" uid="uid://ds0mxc5yuyws4" path="res://Scripts/Diary/DiaryPage.gd" id="1_076tr"]
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="2_nxnbg"]
+
+[node name="DiaryPage" type="VBoxContainer"]
+custom_minimum_size = Vector2(490, 660)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 670.0
+theme_override_constants/separation = 20
+script = ExtResource("1_076tr")
+
+[node name="PageTitle" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_nxnbg")
+theme_override_font_sizes/font_size = 25
+text = "NEW_DIARY_PAGE"
+horizontal_alignment = 1
+vertical_alignment = 1

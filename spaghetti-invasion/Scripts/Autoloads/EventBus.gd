@@ -25,3 +25,6 @@ signal looking_at_interactable(is_looking)
 # Diary entries
 @warning_ignore("unused_signal")
 signal clue_interacted(clue_data)
+
+@warning_ignore("unused_signal")
+signal new_area_discovered(area_name)
