@@ -3,7 +3,7 @@ extends Resource
 
 
 enum DiaryPages {
-	BORGO_ABBANDONATO,
+	CONTRADA_ABBANDONATA,
 	CASCATA,
 	VALLE_OSCURA,
 	PONTE,
