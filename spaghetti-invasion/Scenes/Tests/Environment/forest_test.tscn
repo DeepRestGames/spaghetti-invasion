@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cw6to5dywwr6b"]
+[gd_scene load_steps=40 format=3 uid="uid://cw6to5dywwr6b"]
 
 [ext_resource type="Material" uid="uid://dqmft70fp2n6l" path="res://Assets/Materials/ground.tres" id="1_442es"]
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_i6n6y"]
@@ -20,8 +20,9 @@
 [ext_resource type="Resource" uid="uid://bhum63nxjn2ib" path="res://Assets/Resources/Clues/BorgoAbbandonato/ForiProiettili.tres" id="18_sutxe"]
 [ext_resource type="Resource" uid="uid://1n0n5apc0l8f" path="res://Assets/Resources/Clues/BorgoAbbandonato/FotoFamiglia.tres" id="19_g7lu2"]
 [ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="20_3qd1g"]
-[ext_resource type="AudioStream" uid="uid://cfi71kodlp807" path="res://Assets/SFX/FliesBuzzing.mp3" id="20_8ljcd"]
+[ext_resource type="AudioStream" uid="uid://cq6rd6jpdvlws" path="res://Assets/SFX/Environment/FliesBuzzing.wav" id="20_8ljcd"]
 [ext_resource type="Resource" uid="uid://bb405lfpodma3" path="res://Assets/Resources/Clues/BorgoAbbandonato/LiquidoGiallo.tres" id="20_n5l36"]
+[ext_resource type="AudioStream" uid="uid://bomnjuwvjyv7w" path="res://Assets/SFX/Forest/ForestLoop.wav" id="22_nan8v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gdcd4"]
 panorama = ExtResource("2_i6n6y")
@@ -47,7 +48,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="Resource" id="Resource_8ljcd"]
+[sub_resource type="Resource" id="Resource_nan8v"]
 script = ExtResource("5_i6n6y")
 amount = 200
 enabled = true
@@ -56,7 +57,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_nan8v"]
+[sub_resource type="Resource" id="Resource_6uxkk"]
 script = ExtResource("6_8jrty")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -67,7 +68,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_6uxkk"]
+[sub_resource type="Resource" id="Resource_106c8"]
 script = ExtResource("7_i6bio")
 iterations = 3
 offset_step = 0.2
@@ -79,7 +80,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_106c8"]
+[sub_resource type="Resource" id="Resource_plrs7"]
 script = ExtResource("8_hdplj")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -95,16 +96,16 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_plrs7"]
+[sub_resource type="Resource" id="Resource_tq4bp"]
 script = ExtResource("3_ajk3i")
-stack = Array[ExtResource("4_6r737")]([SubResource("Resource_8ljcd"), SubResource("Resource_nan8v"), SubResource("Resource_6uxkk"), SubResource("Resource_106c8")])
+stack = Array[ExtResource("4_6r737")]([SubResource("Resource_nan8v"), SubResource("Resource_6uxkk"), SubResource("Resource_106c8"), SubResource("Resource_plrs7")])
 
 [sub_resource type="Resource" id="Resource_tqcqb"]
 script = ExtResource("11_ajk3i")
 size = Vector3(30, 30, 30)
 metadata/_custom_type_script = "uid://ce817t51pnnfd"
 
-[sub_resource type="Resource" id="Resource_tq4bp"]
+[sub_resource type="Resource" id="Resource_6pxti"]
 script = ExtResource("5_i6n6y")
 amount = 200
 enabled = true
@@ -113,7 +114,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_6pxti"]
+[sub_resource type="Resource" id="Resource_kuvjo"]
 script = ExtResource("6_8jrty")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -124,7 +125,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_kuvjo"]
+[sub_resource type="Resource" id="Resource_2wfkb"]
 script = ExtResource("7_i6bio")
 iterations = 3
 offset_step = 0.2
@@ -136,7 +137,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_2wfkb"]
+[sub_resource type="Resource" id="Resource_c0es4"]
 script = ExtResource("8_hdplj")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -152,9 +153,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_c0es4"]
+[sub_resource type="Resource" id="Resource_g764q"]
 script = ExtResource("3_ajk3i")
-stack = Array[ExtResource("4_6r737")]([SubResource("Resource_tq4bp"), SubResource("Resource_6pxti"), SubResource("Resource_kuvjo"), SubResource("Resource_2wfkb")])
+stack = Array[ExtResource("4_6r737")]([SubResource("Resource_6pxti"), SubResource("Resource_kuvjo"), SubResource("Resource_2wfkb"), SubResource("Resource_c0es4")])
 
 [sub_resource type="Resource" id="Resource_jg43y"]
 script = ExtResource("11_ajk3i")
@@ -211,7 +212,7 @@ size = Vector3(150, 1, 60)
 
 [node name="ProtonScatter" type="Node3D" parent="SubViewport/Forest"]
 script = ExtResource("2_s5n87")
-modifier_stack = SubResource("Resource_plrs7")
+modifier_stack = SubResource("Resource_tq4bp")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -250,7 +251,7 @@ shape = SubResource("Resource_tqcqb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44.8416)
 visible = false
 script = ExtResource("2_s5n87")
-modifier_stack = SubResource("Resource_c0es4")
+modifier_stack = SubResource("Resource_g764q")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -340,6 +341,14 @@ area_name = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Forest/Ponte"]
 shape = SubResource("BoxShape3D_n5l36")
+
+[node name="ForestAudio" type="AudioStreamPlayer3D" parent="SubViewport/Forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75475, 0)
+stream = ExtResource("22_nan8v")
+attenuation_model = 3
+autoplay = true
+max_distance = 30.0
+panning_strength = 0.0
 
 [node name="HUD" parent="." instance=ExtResource("16_gdcd4")]
 layout_mode = 2
