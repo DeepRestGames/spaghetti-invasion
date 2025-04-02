@@ -189,6 +189,7 @@ _data = {
 size = Vector3(0.7, 0.01, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l2db"]
+no_depth_test = true
 albedo_color = Color(0.34902, 0.219608, 0.0235294, 1)
 albedo_texture = ExtResource("2_n00bc")
 roughness = 0.5
@@ -197,6 +198,7 @@ roughness = 0.5
 size = Vector3(0.75, 0.1, 0.95)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da6ug"]
+no_depth_test = true
 diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0.454902, 0.454902, 0.454902, 1)
@@ -248,6 +250,7 @@ size = Vector2i(510, 680)
 
 [node name="Sprite3D" type="Sprite3D" parent="Body/LeftCoverPivot/LeftPages/Content"]
 transform = Transform3D(-0.135, 1.18021e-08, 0, 5.15885e-16, 5.90104e-09, 0.135, 1.18021e-08, 0.135, -5.90104e-09, 0, 0, 0)
+no_depth_test = true
 texture = SubResource("ViewportTexture_kau8f")
 
 [node name="Stipite" type="MeshInstance3D" parent="Body"]
@@ -280,6 +283,7 @@ size = Vector2i(510, 680)
 [node name="Sprite3D" type="Sprite3D" parent="Body/RightCoverPivot/RightPages/Content"]
 transform = Transform3D(-0.135, -1.18021e-08, -5.15885e-16, 0, -5.90104e-09, 0.135, -1.18021e-08, 0.135, 5.90104e-09, 0, 0, 0)
 flip_h = true
+no_depth_test = true
 texture = SubResource("ViewportTexture_v7la2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
