@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyiab0f4xfpgs"]
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_cc3gd"]
-[ext_resource type="Resource" uid="uid://bhum63nxjn2ib" path="res://Assets/Resources/Clues/BorgoAbbandonato/ForiProiettili.tres" id="2_hi6x3"]
+[ext_resource type="Resource" uid="uid://bhum63nxjn2ib" path="res://Assets/Resources/Clues/ContradaAbbandonata/ForiProiettili.tres" id="2_hi6x3"]
 [ext_resource type="Texture2D" uid="uid://1j28kqppshue" path="res://Assets/2D/Sprites/BulletHole.png" id="2_w8baf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
