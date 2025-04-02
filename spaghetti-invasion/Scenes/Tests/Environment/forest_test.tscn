@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="12_ajk3i"]
 [ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="16_gdcd4"]
 [ext_resource type="PackedScene" uid="uid://cjwfw1trolcu2" path="res://Scenes/Clues/InteractableClue.tscn" id="17_vmkrk"]
-[ext_resource type="Resource" uid="uid://1n0n5apc0l8f" path="res://Assets/Resources/Clues/BorgoAbbandonato/FotoFamiglia.tres" id="19_g7lu2"]
+[ext_resource type="PackedScene" uid="uid://i3b7e7ej14ly" path="res://Scenes/Clues/ContradaAbbandonata/LiquidoGiallo.tscn" id="18_3qd1g"]
+[ext_resource type="Resource" uid="uid://1n0n5apc0l8f" path="res://Assets/Resources/Clues/ContradaAbbandonata/FotoFamiglia.tres" id="19_g7lu2"]
 [ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="20_3qd1g"]
-[ext_resource type="Resource" uid="uid://bb405lfpodma3" path="res://Assets/Resources/Clues/BorgoAbbandonato/LiquidoGiallo.tres" id="20_n5l36"]
 [ext_resource type="PackedScene" uid="uid://dyiab0f4xfpgs" path="res://Scenes/Clues/ContradaAbbandonata/ForiProiettili.tscn" id="21_3qd1g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gdcd4"]
@@ -172,6 +172,7 @@ grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
@@ -290,12 +291,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03505, 0.5, 2.12393)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67475, 0.371019, -1.33281)
 clue_data = ExtResource("19_g7lu2")
 
+[node name="LiquidoGiallo" parent="SubViewport/Forest" instance=ExtResource("18_3qd1g")]
+transform = Transform3D(0.648988, 0.00454481, -0.262287, -0.00421369, 0.699985, 0.00170296, 0.262293, 0, 0.649001, 12.0688, -0.502243, -8.20316)
+
 [node name="ForiProiettili" parent="SubViewport/Forest" instance=ExtResource("21_3qd1g")]
 transform = Transform3D(0.299472, 0.0101242, 0.0146218, -0.00913041, 0.299183, -0.0201538, -0.0152621, 0.0196734, 0.298965, 12.3086, 1.2, -7.02817)
-
-[node name="LiquidoGiallo" parent="SubViewport/Forest" instance=ExtResource("17_vmkrk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8769, -0.350324, -7.77296)
-clue_data = ExtResource("20_n5l36")
 
 [node name="ContradaAbbandonata" type="Area3D" parent="SubViewport/Forest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1369, 0, 0)
