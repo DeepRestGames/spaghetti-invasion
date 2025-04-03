@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bomnjuwvjyv7w"
-path="res://.godot/imported/ForestLoop.wav-a9ccaf5013c5e7190cb66fb5f1121694.sample"
+path="res://.godot/imported/ForestLoop.wav-ffbc6076aecc39653c93a7866786e537.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Forest/ForestLoop.wav"
-dest_files=["res://.godot/imported/ForestLoop.wav-a9ccaf5013c5e7190cb66fb5f1121694.sample"]
+source_file="res://Assets/Audio/SFX/Forest/ForestLoop.wav"
+dest_files=["res://.godot/imported/ForestLoop.wav-ffbc6076aecc39653c93a7866786e537.sample"]
 
 [params]
 

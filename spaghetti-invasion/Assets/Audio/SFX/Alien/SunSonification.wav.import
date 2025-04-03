@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b3tfqjn6tt14w"
-path="res://.godot/imported/SunSonification.wav-39dd5498cba2637d0598c2e70d36c78a.sample"
+path="res://.godot/imported/SunSonification.wav-5d7a47430ef4a1cb60be10ba418fb73a.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Alien/SunSonification.wav"
-dest_files=["res://.godot/imported/SunSonification.wav-39dd5498cba2637d0598c2e70d36c78a.sample"]
+source_file="res://Assets/Audio/SFX/Alien/SunSonification.wav"
+dest_files=["res://.godot/imported/SunSonification.wav-5d7a47430ef4a1cb60be10ba418fb73a.sample"]
 
 [params]
 

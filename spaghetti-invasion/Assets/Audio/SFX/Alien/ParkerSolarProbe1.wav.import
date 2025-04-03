@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c6f7ojlgehq62"
-path="res://.godot/imported/ParkerSolarProbe1.wav-55d0caf1af6dd7eb14e659b6ee0c81ac.sample"
+path="res://.godot/imported/ParkerSolarProbe1.wav-27f00c90074cf6b2ec80d67876c8ffc0.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Alien/ParkerSolarProbe1.wav"
-dest_files=["res://.godot/imported/ParkerSolarProbe1.wav-55d0caf1af6dd7eb14e659b6ee0c81ac.sample"]
+source_file="res://Assets/Audio/SFX/Alien/ParkerSolarProbe1.wav"
+dest_files=["res://.godot/imported/ParkerSolarProbe1.wav-27f00c90074cf6b2ec80d67876c8ffc0.sample"]
 
 [params]
 

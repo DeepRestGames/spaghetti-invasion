@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://mts0ubqwkxig"
-path="res://.godot/imported/VoyagerPlasmaSounds.wav-8f55aa29b22b111dd335c73a1aa31c66.sample"
+path="res://.godot/imported/VoyagerPlasmaSounds.wav-b6523d1c522913a9e4d4ec4893f91409.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Alien/VoyagerPlasmaSounds.wav"
-dest_files=["res://.godot/imported/VoyagerPlasmaSounds.wav-8f55aa29b22b111dd335c73a1aa31c66.sample"]
+source_file="res://Assets/Audio/SFX/Alien/VoyagerPlasmaSounds.wav"
+dest_files=["res://.godot/imported/VoyagerPlasmaSounds.wav-b6523d1c522913a9e4d4ec4893f91409.sample"]
 
 [params]
 

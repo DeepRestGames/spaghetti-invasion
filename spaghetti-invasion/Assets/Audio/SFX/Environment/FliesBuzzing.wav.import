@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cq6rd6jpdvlws"
-path="res://.godot/imported/FliesBuzzing.wav-6fb33c5f20e456c8c23c46c05258636a.sample"
+path="res://.godot/imported/FliesBuzzing.wav-f1bfc13a84729430cb9d0abcc4a88bc1.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Environment/FliesBuzzing.wav"
-dest_files=["res://.godot/imported/FliesBuzzing.wav-6fb33c5f20e456c8c23c46c05258636a.sample"]
+source_file="res://Assets/Audio/SFX/Environment/FliesBuzzing.wav"
+dest_files=["res://.godot/imported/FliesBuzzing.wav-f1bfc13a84729430cb9d0abcc4a88bc1.sample"]
 
 [params]
 
