@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwbaic4qsjqy8"
+path="res://.godot/imported/Phase Sweeper.wav-c1a72d6fd6569abb325c7f8956d3ccba.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Alien/Phase Sweeper.wav"
+dest_files=["res://.godot/imported/Phase Sweeper.wav-c1a72d6fd6569abb325c7f8956d3ccba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
