@@ -1,0 +1,321 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dk4qfa8lygu8m"
+path="res://.godot/imported/LandscapeVeneto.blend-04b30cc3d5aded4dc7457a797cfb1548.scn"
+
+[deps]
+
+source_file="res://Assets/Models/LandscapeVeneto.blend"
+dest_files=["res://.godot/imported/LandscapeVeneto.blend-04b30cc3d5aded4dc7457a797cfb1548.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Rock": {
+"use_external/enabled": true,
+"use_external/path": "uid://1h8kqs2mlhs7"
+},
+"Terrain": {
+"use_external/enabled": true,
+"use_external/path": "uid://dqmft70fp2n6l"
+}
+},
+"nodes": {
+"PATH:Beach": {
+"generate/physics": true
+},
+"PATH:Board": {
+"generate/physics": true
+},
+"PATH:Capanno cacciatori": {
+"generate/physics": true
+},
+"PATH:Casa": {
+"generate/physics": true
+},
+"PATH:Casa_001": {
+"generate/physics": true
+},
+"PATH:Casa_002": {
+"generate/physics": true
+},
+"PATH:Casa_003": {
+"generate/physics": true
+},
+"PATH:Casa_004": {
+"generate/physics": true
+},
+"PATH:Casa_005": {
+"generate/physics": true
+},
+"PATH:Church": {
+"generate/physics": true
+},
+"PATH:Cliff": {
+"generate/physics": true
+},
+"PATH:Cliff_001": {
+"generate/physics": true
+},
+"PATH:Farm": {
+"generate/physics": true
+},
+"PATH:FinalValley": {
+"generate/physics": true
+},
+"PATH:Hill": {
+"generate/physics": true
+},
+"PATH:Human (ref)_001": {
+"generate/physics": true
+},
+"PATH:Human (ref)_002": {
+"generate/physics": true
+},
+"PATH:Lake": {
+"generate/physics": true
+},
+"PATH:Mountain": {
+"generate/physics": true
+},
+"PATH:Mountain_001": {
+"generate/physics": true
+},
+"PATH:Mountain_002": {
+"generate/physics": true
+},
+"PATH:Mountain_003": {
+"generate/physics": true
+},
+"PATH:Mountain_004": {
+"generate/physics": true
+},
+"PATH:Mountain_005": {
+"generate/physics": true
+},
+"PATH:Mountain_006": {
+"generate/physics": true
+},
+"PATH:Mountain_007": {
+"generate/physics": true
+},
+"PATH:Mountain_008": {
+"generate/physics": true
+},
+"PATH:Mountain_009": {
+"generate/physics": true
+},
+"PATH:Mountain_010": {
+"generate/physics": true
+},
+"PATH:Mountain_011": {
+"generate/physics": true
+},
+"PATH:Mountain_012": {
+"generate/physics": true
+},
+"PATH:Mountain_013": {
+"generate/physics": true
+},
+"PATH:Mountain_014": {
+"generate/physics": true
+},
+"PATH:Mountain_015": {
+"generate/physics": true
+},
+"PATH:Mountain_016": {
+"generate/physics": true
+},
+"PATH:Mountain_017": {
+"generate/physics": true
+},
+"PATH:Mountain_018": {
+"generate/physics": true
+},
+"PATH:Mountain_019": {
+"generate/physics": true
+},
+"PATH:Plain": {
+"generate/physics": true
+},
+"PATH:Plain_001": {
+"generate/physics": true
+},
+"PATH:Plain_002": {
+"generate/physics": true
+},
+"PATH:Rock": {
+"generate/physics": true
+},
+"PATH:Rock_001": {
+"generate/physics": true
+},
+"PATH:Rock_002": {
+"generate/physics": true
+},
+"PATH:Rock_003": {
+"generate/physics": true
+},
+"PATH:Rock_004": {
+"generate/physics": true
+},
+"PATH:Rock_005": {
+"generate/physics": true
+},
+"PATH:Rock_006": {
+"generate/physics": true
+},
+"PATH:Rock_007": {
+"generate/physics": true
+},
+"PATH:Rock_008": {
+"generate/physics": true
+},
+"PATH:Rock_009": {
+"generate/physics": true
+},
+"PATH:Rock_010": {
+"generate/physics": true
+},
+"PATH:Rock_011": {
+"generate/physics": true
+},
+"PATH:Rock_012": {
+"generate/physics": true
+},
+"PATH:Rock_013": {
+"generate/physics": true
+},
+"PATH:Rock_014": {
+"generate/physics": true
+},
+"PATH:Rock_015": {
+"generate/physics": true
+},
+"PATH:Rock_016": {
+"generate/physics": true
+},
+"PATH:Rock_017": {
+"generate/physics": true
+},
+"PATH:Rock_018": {
+"generate/physics": true
+},
+"PATH:Rock_019": {
+"generate/physics": true
+},
+"PATH:Rock_020": {
+"generate/physics": true
+},
+"PATH:Rock_021": {
+"generate/physics": true
+},
+"PATH:Rock_022": {
+"generate/physics": true
+},
+"PATH:Rock_023": {
+"generate/physics": true
+},
+"PATH:Rock_024": {
+"generate/physics": true
+},
+"PATH:Rock_025": {
+"generate/physics": true
+},
+"PATH:Rock_026": {
+"generate/physics": true
+},
+"PATH:Rock_027": {
+"generate/physics": true
+},
+"PATH:Rock_028": {
+"generate/physics": true
+},
+"PATH:Rock_029": {
+"generate/physics": true
+},
+"PATH:Rock_030": {
+"generate/physics": true
+},
+"PATH:Rock_031": {
+"generate/physics": true
+},
+"PATH:Rock_032": {
+"generate/physics": true
+},
+"PATH:Rock_033": {
+"generate/physics": true
+},
+"PATH:Rock_034": {
+"generate/physics": true
+},
+"PATH:Rock_035": {
+"generate/physics": true
+},
+"PATH:Rock_036": {
+"generate/physics": true
+},
+"PATH:RockyFormation": {
+"generate/physics": true
+},
+"PATH:Valley": {
+"generate/physics": true
+},
+"PATH:Water": {
+"generate/physics": true
+},
+"PATH:Waterfall": {
+"generate/physics": true
+},
+"PATH:Waterfall2": {
+"generate/physics": true
+},
+"PATH:WaterfallPass": {
+"generate/physics": true
+},
+"PATH:WaterfallTerrain": {
+"generate/physics": true
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
