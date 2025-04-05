@@ -106,11 +106,10 @@ shadow_enabled = true
 [node name="LandscapeVeneto" parent="." instance=ExtResource("2_joc8x")]
 
 [node name="Player" parent="." instance=ExtResource("2_q12u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.877, 34.5384, -96.9973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.877, 32.8994, -96.9973)
 
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
-visible = false
 script = ExtResource("4_6jj8j")
 keep_static_colliders = true
 modifier_stack = SubResource("Resource_0wsr5")

@@ -158,6 +158,9 @@ _subresources={
 "PATH:Mountain_019": {
 "generate/physics": true
 },
+"PATH:Mountain_020": {
+"generate/physics": true
+},
 "PATH:Plain": {
 "generate/physics": true
 },
@@ -168,6 +171,15 @@ _subresources={
 "generate/physics": true
 },
 "PATH:RockyFormation": {
+"generate/physics": true
+},
+"PATH:SmallHill": {
+"generate/physics": true
+},
+"PATH:SpecialRock_029": {
+"generate/physics": true
+},
+"PATH:Tunnel": {
 "generate/physics": true
 },
 "PATH:Valley": {
