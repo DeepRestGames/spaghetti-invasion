@@ -41,6 +41,10 @@ _subresources={
 "Terrain": {
 "use_external/enabled": true,
 "use_external/path": "uid://dqmft70fp2n6l"
+},
+"Tunnel": {
+"use_external/enabled": true,
+"use_external/path": "uid://cguigw76w1sf5"
 }
 },
 "nodes": {
