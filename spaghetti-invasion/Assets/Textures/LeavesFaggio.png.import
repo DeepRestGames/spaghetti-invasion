@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uax7x76f73fx"
-path.s3tc="res://.godot/imported/t_tree_bark.png-7732e2f9079e9ae58b8ccd57e5fc6c8a.s3tc.ctex"
+uid="uid://dx3cy2fr7m4st"
+path.s3tc="res://.godot/imported/LeavesFaggio.png-5ceb0298d87dcb37f9d446a9ad7af8b7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/proton_scatter/demos/assets/textures/t_tree_bark.png"
-dest_files=["res://.godot/imported/t_tree_bark.png-7732e2f9079e9ae58b8ccd57e5fc6c8a.s3tc.ctex"]
+source_file="res://Assets/Textures/LeavesFaggio.png"
+dest_files=["res://.godot/imported/LeavesFaggio.png-5ceb0298d87dcb37f9d446a9ad7af8b7.s3tc.ctex"]
 
 [params]
 

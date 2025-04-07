@@ -41,7 +41,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="Resource" id="Resource_ldl2a"]
+[sub_resource type="Resource" id="Resource_bqx7u"]
 script = ExtResource("8_0al1e")
 amount = 120000
 enabled = true
@@ -50,7 +50,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_a3j6y"]
+[sub_resource type="Resource" id="Resource_xg8pi"]
 script = ExtResource("9_35srd")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -61,7 +61,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4ngdh"]
+[sub_resource type="Resource" id="Resource_pr3a3"]
 script = ExtResource("10_bnbyp")
 iterations = 3
 offset_step = 0.2
@@ -73,7 +73,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_8nw0j"]
+[sub_resource type="Resource" id="Resource_4dgfr"]
 script = ExtResource("11_kn67e")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -89,7 +89,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_pu4g3"]
+[sub_resource type="Resource" id="Resource_5qrfe"]
 script = ExtResource("11_kn67e")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 500.0
@@ -105,9 +105,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_s7yrv"]
+[sub_resource type="Resource" id="Resource_i6d8i"]
 script = ExtResource("6_i6d8i")
-stack = Array[ExtResource("7_no4b4")]([SubResource("Resource_ldl2a"), SubResource("Resource_a3j6y"), SubResource("Resource_4ngdh"), SubResource("Resource_8nw0j"), SubResource("Resource_pu4g3")])
+stack = Array[ExtResource("7_no4b4")]([SubResource("Resource_bqx7u"), SubResource("Resource_xg8pi"), SubResource("Resource_pr3a3"), SubResource("Resource_4dgfr"), SubResource("Resource_5qrfe")])
 
 [sub_resource type="Resource" id="Resource_tqcqb"]
 script = ExtResource("14_53lji")
@@ -149,7 +149,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.975, 86.437, -117.641)
 script = ExtResource("5_5qrfe")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_s7yrv")
+modifier_stack = SubResource("Resource_i6d8i")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"

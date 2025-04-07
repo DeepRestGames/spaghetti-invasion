@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uax7x76f73fx"
-path.s3tc="res://.godot/imported/t_tree_bark.png-7732e2f9079e9ae58b8ccd57e5fc6c8a.s3tc.ctex"
+uid="uid://b2aypmixkarr2"
+path.s3tc="res://.godot/imported/rock_face_03_diff_1k.jpg-218a5fbb7aa0fc437c358738457d2baa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/proton_scatter/demos/assets/textures/t_tree_bark.png"
-dest_files=["res://.godot/imported/t_tree_bark.png-7732e2f9079e9ae58b8ccd57e5fc6c8a.s3tc.ctex"]
+source_file="res://Assets/Textures/rock_face_03_1k/rock_face_03_diff_1k.jpg"
+dest_files=["res://.godot/imported/rock_face_03_diff_1k.jpg-218a5fbb7aa0fc437c358738457d2baa.s3tc.ctex"]
 
 [params]
 

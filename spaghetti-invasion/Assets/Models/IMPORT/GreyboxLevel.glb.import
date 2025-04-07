@@ -1,0 +1,151 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cngo8jqcoi6c0"
+path="res://.godot/imported/GreyboxLevel.glb-2bf922be0833e63bf12eed3966df0808.scn"
+
+[deps]
+
+source_file="res://Assets/Models/IMPORT/GreyboxLevel.glb"
+dest_files=["res://.godot/imported/GreyboxLevel.glb-2bf922be0833e63bf12eed3966df0808.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Capanno cacciatori": {
+"generate/physics": true
+},
+"PATH:Casa": {
+"generate/physics": true
+},
+"PATH:Casa_001": {
+"generate/physics": true
+},
+"PATH:Casa_002": {
+"generate/physics": true
+},
+"PATH:Casa_003": {
+"generate/physics": true
+},
+"PATH:Casa_004": {
+"generate/physics": true
+},
+"PATH:Chiesetta": {
+"generate/physics": true
+},
+"PATH:Cylinder": {
+"generate/physics": true
+},
+"PATH:Human (ref)": {
+"generate/physics": true
+},
+"PATH:Human (ref)_001": {
+"generate/physics": true
+},
+"PATH:Human (ref)_002": {
+"generate/physics": true
+},
+"PATH:Parete Rocciosa": {
+"generate/physics": true
+},
+"PATH:Parete Rocciosa_001": {
+"generate/physics": true
+},
+"PATH:Parete Rocciosa_002": {
+"generate/physics": true
+},
+"PATH:Parete Rocciosa_003": {
+"generate/physics": true
+},
+"PATH:Parete Rocciosa_004": {
+"generate/physics": true
+},
+"PATH:Terreno": {
+"generate/physics": true
+},
+"PATH:Terreno_001": {
+"generate/physics": true
+},
+"PATH:Terreno_002": {
+"generate/physics": true
+},
+"PATH:Terreno_003": {
+"generate/physics": true
+},
+"PATH:Terreno_004": {
+"generate/physics": true
+},
+"PATH:Terreno_005": {
+"generate/physics": true
+},
+"PATH:Terreno_006": {
+"generate/physics": true
+},
+"PATH:Terreno_007": {
+"generate/physics": true
+},
+"PATH:Terreno_008": {
+"generate/physics": true
+},
+"PATH:Terreno_009": {
+"generate/physics": true
+},
+"PATH:Terreno_010": {
+"generate/physics": true
+},
+"PATH:Terreno_011": {
+"generate/physics": true
+},
+"PATH:Terreno_012": {
+"generate/physics": true
+},
+"PATH:Terreno_013": {
+"generate/physics": true
+},
+"PATH:Terreno_014": {
+"generate/physics": true
+},
+"PATH:Terreno_015": {
+"generate/physics": true
+},
+"PATH:Terreno_016": {
+"generate/physics": true
+},
+"PATH:Terreno_017": {
+"generate/physics": true
+},
+"PATH:Terreno_018": {
+"generate/physics": true
+},
+"PATH:Terreno_019": {
+"generate/physics": true
+},
+"PATH:Terreno_021": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
