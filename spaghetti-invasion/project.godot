@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 EventBus="*res://Scripts/Autoloads/EventBus.gd"
 GameManager="*res://Scripts/Autoloads/GameManager.gd"
 SceneManager="*res://Scripts/Autoloads/SceneManager.gd"
+AudioManager="*res://Scenes/Managers/AudioManager.tscn"
 
 [display]
 

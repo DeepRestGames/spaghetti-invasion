@@ -28,3 +28,11 @@ signal clue_interacted(clue_data)
 
 @warning_ignore("unused_signal")
 signal new_area_discovered(area_name)
+
+
+# Audio events
+@warning_ignore("unused_signal")
+signal play_music(music_track: AudioManager.MusicTracks)
+
+@warning_ignore("unused_signal")
+signal play_area_ambience(area: AudioManager.AmbienceTracks)
