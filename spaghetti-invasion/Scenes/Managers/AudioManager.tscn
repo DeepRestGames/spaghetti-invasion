@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://cicvqluapdjhw"]
+
+[ext_resource type="Script" uid="uid://dyudflvc6do82" path="res://Scripts/Autoloads/AudioManager.gd" id="1_tyob0"]
+[ext_resource type="AudioStream" uid="uid://bhrvuwte1blqj" path="res://Assets/Audio/SFX/Alien/BlackHoleSonificationPerseus.wav" id="2_esrla"]
+[ext_resource type="AudioStream" uid="uid://drla3ql62gflr" path="res://Assets/Audio/SFX/Alien/Ghostly Voices RL.wav" id="3_tl3mc"]
+[ext_resource type="AudioStream" uid="uid://c6f7ojlgehq62" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe1.wav" id="4_5t54m"]
+[ext_resource type="AudioStream" uid="uid://rqletg3lfxjh" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe2.wav" id="5_r75qn"]
+[ext_resource type="AudioStream" uid="uid://c2wapnuktpcbf" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe_LangmuirWaves.wav" id="6_3oadr"]
+[ext_resource type="AudioStream" uid="uid://bwbaic4qsjqy8" path="res://Assets/Audio/SFX/Alien/Phase Sweeper.wav" id="7_qj30q"]
+[ext_resource type="AudioStream" uid="uid://c6j5kcqst5qur" path="res://Assets/Audio/SFX/Alien/SaturnRadioEmissions1.wav" id="8_qbmt3"]
+[ext_resource type="AudioStream" uid="uid://b3tfqjn6tt14w" path="res://Assets/Audio/SFX/Alien/SunSonification.wav" id="9_6wyf0"]
+[ext_resource type="AudioStream" uid="uid://mts0ubqwkxig" path="res://Assets/Audio/SFX/Alien/VoyagerPlasmaSounds.wav" id="10_a0sy5"]
+[ext_resource type="AudioStream" uid="uid://colphfwx5ut1g" path="res://Assets/Audio/SFX/Diary/PencilWritingOnPaper.mp3" id="11_s52a5"]
+[ext_resource type="AudioStream" uid="uid://dm2iefko3mec7" path="res://Assets/Audio/SFX/Diary/TurningBookPage.mp3" id="12_w3led"]
+[ext_resource type="AudioStream" uid="uid://b3ehyf4i3dvby" path="res://Assets/Audio/SFX/Environment/CricketsLong.wav" id="13_23fu8"]
+[ext_resource type="AudioStream" uid="uid://b70lv01op704i" path="res://Assets/Audio/SFX/Environment/CricketsShort.wav" id="14_0gyed"]
+[ext_resource type="AudioStream" uid="uid://c7bfplgko55sh" path="res://Assets/Audio/SFX/Environment/SoftWind1.wav" id="15_ubcvk"]
+[ext_resource type="AudioStream" uid="uid://c0m2trm0vprcw" path="res://Assets/Audio/SFX/Environment/SoftWind2.wav" id="16_sh1nl"]
+[ext_resource type="AudioStream" uid="uid://baml10t5tx3u0" path="res://Assets/Audio/SFX/Environment/BirdChirpingVeryFar.wav" id="17_b5wpy"]
+[ext_resource type="AudioStream" uid="uid://jpmex4lvjxq0" path="res://Assets/Audio/SFX/Environment/DogBark1.wav" id="18_ur4lb"]
+[ext_resource type="AudioStream" uid="uid://bt151x706gxdi" path="res://Assets/Audio/SFX/Environment/DogBark2.wav" id="19_sen2l"]
+[ext_resource type="AudioStream" uid="uid://cn8j7lyicdah2" path="res://Assets/Audio/SFX/Environment/DogBark3.wav" id="20_vlxd5"]
+[ext_resource type="AudioStream" uid="uid://fn8utyp2ftu4" path="res://Assets/Audio/SFX/Environment/OwlHooting.wav" id="21_cy7d5"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_tyob0")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Alien" type="Node" parent="SFX"]
+
+[node name="BlackHole" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("2_esrla")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="GhostVoice" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("3_tl3mc")
+volume_db = -80.0
+pitch_scale = 0.5
+autoplay = true
+bus = &"SFX"
+
+[node name="ParkerSolarProbe1" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("4_5t54m")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="ParkerSolarProbe2" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("5_r75qn")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="ParkerSolarProbe_LangmuirWaves" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("6_3oadr")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="PhaseSweeper" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("7_qj30q")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="SaturnRadioEmissions" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("8_qbmt3")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="SunSonification" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("9_6wyf0")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="VoyagerPlasmaSounds" type="AudioStreamPlayer" parent="SFX/Alien"]
+stream = ExtResource("10_a0sy5")
+volume_db = -80.0
+pitch_scale = 0.5
+autoplay = true
+bus = &"SFX"
+
+[node name="Diary" type="Node" parent="SFX"]
+
+[node name="PencilWriting" type="AudioStreamPlayer" parent="SFX/Diary"]
+stream = ExtResource("11_s52a5")
+bus = &"SFX"
+
+[node name="TurnPage" type="AudioStreamPlayer" parent="SFX/Diary"]
+stream = ExtResource("12_w3led")
+bus = &"SFX"
+
+[node name="Natural" type="Node" parent="SFX"]
+
+[node name="CricketsLong" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("13_23fu8")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="CricketsShort" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("14_0gyed")
+bus = &"SFX"
+
+[node name="SoftWind1" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("15_ubcvk")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="SoftWind2" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("16_sh1nl")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="BirdChirpVeryFar" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("17_b5wpy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="DogBark1" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("18_ur4lb")
+volume_db = -20.0
+bus = &"DogBark1"
+
+[node name="DogBark2" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("19_sen2l")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="DogBark3" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("20_vlxd5")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="OwlHooting" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("21_cy7d5")
+volume_db = -10.0
+bus = &"SFX"

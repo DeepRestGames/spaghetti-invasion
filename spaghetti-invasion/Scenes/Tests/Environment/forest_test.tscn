@@ -1,3 +1,4 @@
+[gd_scene load_steps=41 format=3 uid="uid://cw6to5dywwr6b"]
 [gd_scene load_steps=25 format=3 uid="uid://cw6to5dywwr6b"]
 
 [ext_resource type="Material" uid="uid://dqmft70fp2n6l" path="res://Assets/Materials/ground.tres" id="1_442es"]
@@ -34,7 +35,7 @@ volumetric_fog_emission_energy = 0.5
 volumetric_fog_anisotropy = 0.9
 volumetric_fog_ambient_inject = 0.01
 
-[sub_resource type="Resource" id="Resource_3qd1g"]
+[sub_resource type="Resource" id="Resource_nan8v"]
 script = ExtResource("5_i6n6y")
 amount = 600
 enabled = true
@@ -43,7 +44,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_8ljcd"]
+[sub_resource type="Resource" id="Resource_6uxkk"]
 script = ExtResource("6_8jrty")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -54,7 +55,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_nan8v"]
+[sub_resource type="Resource" id="Resource_106c8"]
 script = ExtResource("7_i6bio")
 iterations = 3
 offset_step = 0.2
@@ -66,7 +67,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6uxkk"]
+[sub_resource type="Resource" id="Resource_plrs7"]
 script = ExtResource("8_hdplj")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -82,9 +83,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_106c8"]
+[sub_resource type="Resource" id="Resource_tq4bp"]
 script = ExtResource("3_ajk3i")
-stack = Array[ExtResource("4_6r737")]([SubResource("Resource_3qd1g"), SubResource("Resource_8ljcd"), SubResource("Resource_nan8v"), SubResource("Resource_6uxkk")])
+stack = Array[ExtResource("4_6r737")]([SubResource("Resource_nan8v"), SubResource("Resource_6uxkk"), SubResource("Resource_106c8"), SubResource("Resource_plrs7")])
 
 [sub_resource type="Resource" id="Resource_tqcqb"]
 script = ExtResource("11_ajk3i")
@@ -101,6 +102,7 @@ grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
+audio_listener_enable_3d = true
 audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
