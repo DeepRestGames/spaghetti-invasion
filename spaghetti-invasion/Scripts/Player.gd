@@ -40,6 +40,10 @@ func _physics_process(delta):
 	if !process_inputs:
 		return
 	
+	# Add the gravity
+	if not is_on_floor():
+		velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
+	
 	# Sprint
 	if Input.is_action_pressed("sprint") and is_on_floor():
 		speed = SPRINT_SPEED
