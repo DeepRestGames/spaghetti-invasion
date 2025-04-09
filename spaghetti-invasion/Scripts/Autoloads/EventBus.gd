@@ -22,6 +22,7 @@ signal focus_on_diary(focus)
 @warning_ignore("unused_signal")
 signal looking_at_interactable(is_looking)
 
+
 # Diary entries
 @warning_ignore("unused_signal")
 signal clue_interacted(clue_data)
@@ -36,3 +37,8 @@ signal play_music(music_track: AudioManager.MusicTracks)
 
 @warning_ignore("unused_signal")
 signal play_area_ambience(area: AudioManager.AmbienceTracks)
+
+
+# Hints
+@warning_ignore("unused_signal")
+signal show_open_diary_hint

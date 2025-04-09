@@ -1,3 +1,4 @@
+class_name Diary
 extends Node3D
 
 
@@ -17,8 +18,12 @@ var current_diary_page = 0
 var all_diary_entries_path = "res://Scenes/Diary/DiaryPages/"
 var all_diary_entries: Array
 
-var is_diary_out = false
+static var is_diary_out = false
 @onready var animation_player = $AnimationPlayer
+
+@export var look_at_diary_cooldown = 30
+var current_look_at_diary_cooldown = 2
+var unread_clues = false
 
 
 func _ready() -> void:
@@ -59,23 +64,37 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			put_away()
 		else:
 			pull_out()
-		is_diary_out = !is_diary_out
 	
 	if is_diary_out:
 		if event.is_action_pressed("left"):
 			turn_page(false)
 		if event.is_action_pressed("right"):
 			turn_page(true)
+	
+	if event.is_action_pressed("esc"):
+		if is_diary_out:
+			put_away()
+
+
+func _process(delta: float) -> void:
+	if unread_clues:
+		current_look_at_diary_cooldown -= delta
+		if current_look_at_diary_cooldown <= 0:
+			EventBus.emit_signal("show_open_diary_hint")
+			current_look_at_diary_cooldown = look_at_diary_cooldown
 
 
 func put_away():
 	animation_player.play_backwards("appear")
 	EventBus.emit_signal("focus_on_diary", false)
+	is_diary_out = false
 
 
 func pull_out():
 	animation_player.play("appear")
 	EventBus.emit_signal("focus_on_diary", true)
+	is_diary_out = true
+	unread_clues = false
 
 
 func add_diary_page(area_name: ClueData.DiaryPages):
@@ -97,6 +116,8 @@ func add_diary_page(area_name: ClueData.DiaryPages):
 	elif(last_page_written == LastPageWritten.LEFT):
 		right_page_content.add_child(new_diary_page)
 		last_page_written = LastPageWritten.RIGHT
+	
+	unread_clues = true
 
 
 func add_clue_entry(clue_data: ClueData):
@@ -127,6 +148,8 @@ func add_clue_entry(clue_data: ClueData):
 	# Add entry to diary page
 	diary_page.add_new_entry(new_diary_entry)
 	diary_page.load_page()
+	
+	unread_clues = true
 
 
 func clear_current_pages() -> void:
