@@ -58,6 +58,10 @@ _subresources={
 "PATH:Ceiling": {
 "generate/physics": true
 },
+"PATH:Chair_03": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
 "PATH:Cube": {
 "generate/physics": true
 },
@@ -118,11 +122,17 @@ _subresources={
 "PATH:Drawer_5": {
 "generate/physics": true
 },
+"PATH:FireWoodPile": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
 "PATH:Floor": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Floor_001": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Floor_002": {
 "generate/physics": true
@@ -131,10 +141,12 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Floor_004": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Floor_005": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Floor_006": {
 "generate/physics": true
@@ -148,9 +160,6 @@ _subresources={
 "PATH:Kitchen_3Drawers": {
 "generate/physics": true
 },
-"PATH:Kitchen_Fridge": {
-"generate/physics": true
-},
 "PATH:NightStand_2": {
 "generate/physics": true
 },
@@ -158,31 +167,49 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Pillar": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Pillar_001": {
-"generate/physics": true
+"physics/shape_type": 3
 },
 "PATH:Pillar_002": {
-"generate/physics": true
+"physics/shape_type": 3
 },
 "PATH:Pillar_003": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Pillar_004": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Pillar_005": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Shelf_02": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Shelf_02_001": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Shelf_02_003": {
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Stairs": {
 "generate/physics": true
 },
 "PATH:Table_01": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Wall": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Wall_001": {
 "generate/physics": true
@@ -197,7 +224,8 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Wall_005": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3
 },
 "PATH:Wall_006": {
 "generate/physics": true
