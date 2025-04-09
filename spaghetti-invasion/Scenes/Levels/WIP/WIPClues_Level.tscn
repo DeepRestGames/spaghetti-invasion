@@ -1,0 +1,522 @@
+[gd_scene load_steps=34 format=3 uid="uid://drar41ts8730q"]
+
+[ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_236l8"]
+[ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_ytx6i"]
+[ext_resource type="Texture2D" uid="uid://cnej65u1vi6di" path="res://Assets/Textures/Sky/kloppenheim_02_puresky_4k.hdr" id="3_3qvbi"]
+[ext_resource type="PackedScene" uid="uid://dk4qfa8lygu8m" path="res://Assets/Models/LandscapeVeneto.blend" id="4_ql4oi"]
+[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="5_5n5fi"]
+[ext_resource type="Script" uid="uid://be3n1vh1tumo1" path="res://addons/proton_scatter/src/scatter.gd" id="6_qhbml"]
+[ext_resource type="Script" uid="uid://rdajykhnn7vr" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="7_dwele"]
+[ext_resource type="Script" uid="uid://bb1728oue5d64" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="8_8ayh6"]
+[ext_resource type="Script" uid="uid://dyt02cyvk8pu1" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="9_hb5du"]
+[ext_resource type="Script" uid="uid://l1dxiehambc3" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="10_d6ke0"]
+[ext_resource type="Script" uid="uid://bumurxxndroht" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="11_85cbg"]
+[ext_resource type="Script" uid="uid://dc7utv7vwbiab" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="12_cluln"]
+[ext_resource type="Script" uid="uid://cuusjd28f201i" path="res://addons/proton_scatter/src/scatter_item.gd" id="13_3jdmy"]
+[ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="14_2wl52"]
+[ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="15_u63km"]
+[ext_resource type="PackedScene" uid="uid://fypdfqnu3x63" path="res://Assets/Models/CasaLuiginoAnna.blend" id="16_5y6pj"]
+[ext_resource type="PackedScene" uid="uid://dik4tnuy7uuje" path="res://Scenes/Audio/AudioArea.tscn" id="17_polo7"]
+[ext_resource type="AudioStream" uid="uid://bpypxwruvjcb6" path="res://Assets/Audio/SFX/Environment/Waterfall.wav" id="18_nvmrq"]
+[ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="19_7525w"]
+[ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="20_b7v6a"]
+[ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="21_vcpnh"]
+[ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="22_eouks"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="23_7worj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
+panorama = ExtResource("3_3qvbi")
+energy_multiplier = 0.05
+
+[sub_resource type="Sky" id="Sky_lqpcb"]
+sky_material = SubResource("PanoramaSkyMaterial_i6n6y")
+
+[sub_resource type="Environment" id="Environment_8jrty"]
+background_mode = 2
+sky = SubResource("Sky_lqpcb")
+ambient_light_source = 2
+ambient_light_color = Color(0.424, 0.599467, 0.8, 1)
+tonemap_mode = 3
+tonemap_exposure = 0.5
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0.81, 0.949333, 1, 1)
+volumetric_fog_emission = Color(0, 0.0408333, 0.05, 1)
+volumetric_fog_anisotropy = -0.23
+volumetric_fog_length = 6.0
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="Resource" id="Resource_03od6"]
+script = ExtResource("9_hb5du")
+amount = 3000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_384de"]
+script = ExtResource("10_d6ke0")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(5, 360, 3)
+scale = Vector3(1, 1, 1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_bhaf5"]
+script = ExtResource("11_85cbg")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_o0dvq"]
+script = ExtResource("12_cluln")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 10.0
+ray_offset = 5.0
+remove_points_on_miss = true
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_1nrjw"]
+script = ExtResource("7_dwele")
+stack = Array[ExtResource("8_8ayh6")]([SubResource("Resource_03od6"), SubResource("Resource_384de"), SubResource("Resource_bhaf5"), SubResource("Resource_o0dvq")])
+
+[sub_resource type="Resource" id="Resource_bqkvc"]
+script = ExtResource("15_u63km")
+size = Vector3(182.322, 22.7866, 190.944)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fh0sh"]
+size = Vector3(10, 14.4678, 15.8213)
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+material = ExtResource("1_236l8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Vignette" type="ColorRect" parent="SubViewport"]
+visible = false
+material = ExtResource("2_ytx6i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameWorld" type="Node3D" parent="SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/GameWorld" groups=["WorldEnvironment"]]
+environment = SubResource("Environment_8jrty")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/GameWorld"]
+transform = Transform3D(0.545616, 0.601234, -0.583799, -0.0222108, 0.706758, 0.707107, 0.837741, -0.372842, 0.398972, -809.071, 91.3278, 1150.51)
+light_color = Color(0.811765, 0.870588, 0.980392, 1)
+shadow_enabled = true
+
+[node name="LandscapeVeneto" parent="SubViewport/GameWorld" instance=ExtResource("4_ql4oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25841, -0.334106, 7.53601)
+
+[node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("5_5n5fi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.547, 65.6843, -128.709)
+
+[node name="ProtonScatter" type="Node3D" parent="SubViewport/GameWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
+script = ExtResource("6_qhbml")
+keep_static_colliders = true
+modifier_stack = SubResource("Resource_1nrjw")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://be3n1vh1tumo1"
+
+[node name="ScatterBush" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
+script = ExtResource("13_3jdmy")
+proportion = 20
+path = "uid://b8abs8me7ckgo"
+
+[node name="ScatterBushBig" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
+script = ExtResource("13_3jdmy")
+proportion = 15
+source_scale_multiplier = 1.6
+path = "uid://b8abs8me7ckgo"
+
+[node name="ScatterSmallRocks" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
+script = ExtResource("13_3jdmy")
+proportion = 16
+path = "uid://bltmr2xgs8nq1"
+
+[node name="ScatterBigRocks" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
+script = ExtResource("13_3jdmy")
+proportion = 1
+source_scale_multiplier = 2.0
+path = "uid://8ay5rlrutcmx"
+
+[node name="ScatterPines" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
+script = ExtResource("13_3jdmy")
+proportion = 1
+source_scale_multiplier = 4.0
+path = "uid://caqxfqurbp3ku"
+
+[node name="ScatterFaggio" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
+script = ExtResource("13_3jdmy")
+proportion = 7
+path = "uid://b1r83n3ho5xd3"
+
+[node name="ScatterShape" type="Node3D" parent="SubViewport/GameWorld/ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 12.7159, -46.0527, 0)
+visible = false
+script = ExtResource("14_2wl52")
+shape = SubResource("Resource_bqkvc")
+
+[node name="CasaLuiginoAnna" parent="SubViewport/GameWorld" instance=ExtResource("16_5y6pj")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -262.469, 29.3909, -94.1819)
+
+[node name="AudioAreas" type="Node3D" parent="SubViewport/GameWorld"]
+visible = false
+
+[node name="Lakeside" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(0.933687, 0.343709, 0.100458, -0.341736, 0.939077, -0.0367684, -0.106976, -5.39544e-10, 0.994262, -66.9335, -8.51534, -4.82975)
+area_ambience = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Lakeside"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
+polygon = PackedVector2Array(-35.4398, 40.3015, -37.5362, -5.12171, -10.2823, -40.0626, 22.625, -52.5112, 61.4628, -79.1318, 63.3772, -47.1128, 29.5504, 47.9885)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Lakeside2" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(0.225903, 0, -0.97415, -0.102824, 0.994414, -0.0238447, 0.968708, 0.105553, 0.224641, 73.2574, -24.9571, -103.673)
+area_ambience = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Lakeside2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
+polygon = PackedVector2Array(-42.8728, 47.6949, -8.76337, -4.64011, -7.23502, -42.4918, 36.4645, -78.0094, 73.3381, -76.613, 53.9201, -45.2611, 30.7804, 14.813, -12.8331, 63.4778)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Forest1" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.307, 18.8964, -66.9967)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Forest1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -40, 0, 1, -1.74846e-06, 0, 0, 0)
+polygon = PackedVector2Array(-72.5121, 59.1538, -58.1324, -1.15985, -51.9992, -49.6537, -19.1207, -78.9608, 47.8963, -56.8893, 94.5993, -52.9008, 119.299, -43.2619, 133.757, -29.7073, 104.991, -3.35114, 97.7948, 18.5092, 63.5709, 69.9966, -26.8575, 93.3947)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Forest2" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 0.980955, -0.194234, 0, 0.194234, 0.980955, 68.5245, 5.12773, -202.907)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Forest2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -30, 0, 1, -1.31134e-06, 0, 0, 0)
+polygon = PackedVector2Array(-52.8015, 65.3473, -38.5021, 30.8883, -17.6625, 8.73938, -5.16827, -15.5234, 0.179832, -34.0411, -23.9744, -81.8158, -10.2206, -115.01, -32.801, -184.024, 1.22874, -246.9, 85.1267, -212.501, 49.996, -33.8684, 33.8511, 17.5845, 43.4153, 78.6942, 7.51746, 85.1654)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Forest3" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3588, 41.0157, -256.845)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Forest3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -100, 0, 1, -4.37114e-06, 2.96473, 0, -8.47067)
+polygon = PackedVector2Array(-36.352, 40.1603, -32.0182, 38.6331, -53.2365, -23.821, 7.05133, -59.6005, 21.6959, -45.9856, 19.7742, -19.1462, 45.1492, 31.4257, 26.8758, 69.6693, 10.999, 65.9336, -15.2036, 80.8029)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Forest4" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.51, 64.3075, -195.207)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Forest4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -70, 0, 1, -3.0598e-06, 0, 0, 0)
+polygon = PackedVector2Array(-62.7992, -3.75789, -21.4539, -67.7762, 24.7934, -50.9741, 27.6119, -36.7347, 46.8261, -25.3392, 48.8607, 18.5493, 41.4981, 38.3027, 29.4665, 32.7359, 22.2834, 21.0634, 22.6426, 11.0071, -1.60025, -6.41179, -33.7452, 1.01978)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Forest5" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19418, -9.69127, -714.721)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Forest5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -70, 0, 1, -3.0598e-06, 0, 0, 0)
+polygon = PackedVector2Array(68.8711, -59.5433, 125.781, 0.172485, 51.6239, 109.227, 1.06917, 81.9602, -17.2429, 32.9294, -49.5632, 10.8532, -56.1021, -18.9561, -46.2774, -61.0358)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="AlienForest" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.423, 2.58742, -565.951)
+area_ambience = 1
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/AlienForest"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -70, 0, 1, -3.0598e-06, 0, 0, 0)
+polygon = PackedVector2Array(35.4013, -127.614, 78.3914, 30.3152, 27.9377, 70.0213, -44.3094, 43.451, -80.1345, -33.2743, -3.09618, -147.859)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Cave" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(0.256525, 0, -0.966537, 0, 1, 0, 0.966537, 0, 0.256525, 37.7734, 36.4168, -350.883)
+area_ambience = 3
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Cave"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, 0.0384445, 0.560856, -0.136932)
+polygon = PackedVector2Array(7.82224, -2.41895, 8.9745, 2.25912, -2.41068, 3.62335, -3.34585, -3.03085)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Cave2" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(0.256525, 0, -0.966537, 0, 1, 0, 0.966537, 0, 0.256525, -63.4188, 0.387726, -719.773)
+area_ambience = 3
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Cave2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, 0.0384445, 0.560856, -0.136932)
+polygon = PackedVector2Array(7.82224, -2.41895, 8.9745, 2.25912, -2.41068, 3.62335, -3.34585, -3.03085)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Clearing1" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.565, 35.7382, -92.6734)
+area_ambience = 2
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Clearing1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
+polygon = PackedVector2Array(-84.4302, 69.8672, -70.0856, -7.00362, -90.5195, -72.3882, -39.2535, -77.6226, -14.1406, -104.97, 22.4592, -99.2905, 62.6307, -85.485, 94.5415, -54.8189, 72.7018, -33.4318, 6.88869, -53.7913, -26.7722, -23.8905, -32.8468, 24.4543, -45.9234, 79.6126)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Clearing2" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1401, 88.2118, -166.29)
+area_ambience = 2
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Clearing2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
+polygon = PackedVector2Array(-90.291, -78.9242, -40.6403, -86.6817, 4.10342, -123.065, 23.8399, -65.8056, -48.1084, -42.5008, -87.8005, -66.3161)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Clearing3" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.442, 78.4342, -272.146)
+area_ambience = 2
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Clearing3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
+polygon = PackedVector2Array(-97.3811, -107.789, -67.4179, -117.297, 46.0965, -84.4526, 38.0295, -30.0002, 16.7095, -20.4927, -1.15315, -44.1175, -40.0477, -53.337, -73.7563, -40.3721, -87.2974, -53.0489)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Clearing4" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.19, 25.0675, -133.636)
+area_ambience = 2
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/Clearing4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -100, 0, 1, -4.37114e-06, 0, 0, 0)
+polygon = PackedVector2Array(27.0294, -166.375, 13.9613, -25.7892, 86.6156, 52.7851, 73.9489, 86.2442, 46.2257, 92.9361, 35.4709, 77.6405, 29.4961, 47.5272, 1.5338, 21.2379, -9.45992, -33.0137, 4.68109, -103.932, 2.66959, -157.301)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Clearing5" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4418, 182.211, -75.6104)
+area_ambience = 2
+
+[node name="River1" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5035, 53.7685, -106.618)
+area_ambience = 5
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/River1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
+polygon = PackedVector2Array(-88.8914, -103.222, -31.3197, -118.473, -10.2347, -78.0378, -20.3768, -48.5455, -67.0057, -20.2165, -94.4962, -68.9254)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="River2" parent="SubViewport/GameWorld/AudioAreas" instance=ExtResource("17_polo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0022, 4.08833, -110.743)
+area_ambience = 5
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/AudioAreas/River2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -30, 0, 1, -1.31134e-06, 0, 0, 0)
+polygon = PackedVector2Array(-1.89983, -1.6162, 28.9033, -49.19, 33.8394, -47.7914, 24.5408, -23.0484, 12.7092, 0.272659, -31.192, 40.5584, -61.6641, 56.8247, -56.8612, 40.8693)
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Waterfall" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/AudioAreas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732697, -26.7558, -94.6052)
+stream = ExtResource("18_nvmrq")
+volume_db = 10.0
+autoplay = true
+max_distance = 150.0
+bus = &"SFX"
+
+[node name="Waterfall2" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/AudioAreas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5094, 46.2534, -206.975)
+stream = ExtResource("18_nvmrq")
+volume_db = 10.0
+autoplay = true
+max_distance = 150.0
+bus = &"SFX"
+
+[node name="Aree&Indizi" type="Node3D" parent="SubViewport/GameWorld"]
+
+[node name="ContradaAbbandonata" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.57, 30.8859, -93.2946)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_7525w")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/ContradaAbbandonata"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
+polygon = PackedVector2Array(52.4795, -63.6292, 99.1124, -71.941, 118.895, -54.2511, 103.677, -41.697, 86.368, -56.5337, 56.0935, -53.1675, 13.6759, 0.28257, 7.13301, 74.9252, -22.3501, 64.4634, -21.2373, -62.2785, 4.06116, -66.8436, 23.2727, -25.5672)
+debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
+
+[node name="Cascata" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82069, 10.8254, -107.342)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_7525w")
+area_name = 1
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/Cascata"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -50, 0, 1, -2.18557e-06, 0, 0, 0)
+polygon = PackedVector2Array(-19.3721, 17.5199, -73.6122, 59.5651, -88.3553, 46.0961, -60.6892, 15.6998, -56.5029, -4.68575, 23.9915, -49.9724, 27.8913, -48.596, 20.7799, -26.3443)
+debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
+
+[node name="ValleOscura" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+transform = Transform3D(1, 0, 0, 0, 0.991774, -0.127999, 0, 0.127999, 0.991774, 76.5013, 5.38235, -201.151)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_7525w")
+area_name = 2
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/ValleOscura"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -50, 0, 1, -2.18557e-06, 0, 0, 0)
+polygon = PackedVector2Array(21.9575, 55.0759, -12.286, 68.5065, -44.3204, 49.9411, -14.379, -13.4751, -6.2374, -37.6724, -27.5687, -76.6747, -16.1672, -90.2911, 31.8844, -92.1112, 51.5419, -70.2696, 32.4629, 1.77667)
+debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
+
+[node name="Ponte" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.511, 84.4012, -347.146)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_7525w")
+area_name = 3
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/Ponte"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -30, 0, 1, -1.31134e-06, 0, 0, 0)
+polygon = PackedVector2Array(62.4201, 49.4044, 35.872, 45.2126, -1.01594, 18.6644, -51.3176, 34.0344, -65.2903, 29.2837, -69.7616, -33.314, -47.1258, -42.8154, 73.3188, -5.08914)
+debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
+
+[node name="Abbazia" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7833, 93.0807, -236.72)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_7525w")
+area_name = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/Abbazia"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
+polygon = PackedVector2Array(11.8655, 4.39917, -8.3273, 12.8129, -13.6344, -3.10843, 6.04068, -11.1338)
+debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
+
+[node name="CapannoCacciatori" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7398, 59.9959, -214.969)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_7525w")
+area_name = 5
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/CapannoCacciatori"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
+polygon = PackedVector2Array(13.1891, 4.54906, -4.1295, 6.30798, -9.87983, -6.47804, 10.1449, -10.0636)
+debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
+
+[node name="SpookyEvents" type="Node3D" parent="SubViewport/GameWorld"]
+
+[node name="DisappearingAlien" type="Node3D" parent="SubViewport/GameWorld/SpookyEvents"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.038, 74.3561, -222.068)
+script = ExtResource("20_b7v6a")
+
+[node name="EnterTriggerArea" type="Area3D" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3286, -23.621, 12.6281)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/EnterTriggerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768, -2.23389, -0.752838)
+shape = SubResource("BoxShape3D_fh0sh")
+debug_color = Color(0.12938, 0.520636, 1, 0.42)
+
+[node name="ExitTriggerArea" type="Area3D" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien"]
+transform = Transform3D(0.955742, 0, -0.294207, 0, 1, 0, 0.294207, 0, 0.955742, -38.1279, -1.40428, -6.90149)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/ExitTriggerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768, -2.23389, -0.752838)
+shape = SubResource("BoxShape3D_fh0sh")
+debug_color = Color(0.12938, 0.520636, 1, 0.42)
+
+[node name="ExitTriggerArea2" type="Area3D" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien"]
+transform = Transform3D(0.917692, 0, 1.3051, 0, 1, 0, -0.397292, 0, 3.01462, 89.9305, 16.6677, -28.3851)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/ExitTriggerArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768, -2.23389, -0.752838)
+shape = SubResource("BoxShape3D_fh0sh")
+debug_color = Color(0.12938, 0.520636, 1, 0.42)
+
+[node name="Alien" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" instance=ExtResource("21_vcpnh")]
+transform = Transform3D(1.04415, 0, -1.07692, 0, 1.5, 0, 1.07692, 0, 1.04415, 16.1556, 12.1634, -9.02901)
+visible = false
+
+[node name="CasaLuiginoAnna_v1_0" parent="." instance=ExtResource("22_eouks")]
+transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, -259.797, 30.3506, -73.0635)
+
+[node name="HUD" parent="." instance=ExtResource("23_7worj")]
+layout_mode = 2
+
+[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/ContradaAbbandonata" to="SubViewport/GameWorld/Aree&Indizi/ContradaAbbandonata" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/Cascata" to="SubViewport/GameWorld/Aree&Indizi/Cascata" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/ValleOscura" to="SubViewport/GameWorld/Aree&Indizi/ValleOscura" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/Ponte" to="SubViewport/GameWorld/Aree&Indizi/Ponte" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/Abbazia" to="SubViewport/GameWorld/Aree&Indizi/Abbazia" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/CapannoCacciatori" to="SubViewport/GameWorld/Aree&Indizi/CapannoCacciatori" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/EnterTriggerArea" to="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" method="_on_enter_trigger_area_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/ExitTriggerArea" to="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" method="_on_exit_trigger_area_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/ExitTriggerArea2" to="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" method="_on_exit_trigger_area_body_entered"]
+
+[editable path="SubViewport/GameWorld/AudioAreas/Lakeside"]
+[editable path="SubViewport/GameWorld/AudioAreas/Forest1"]
+[editable path="SubViewport/GameWorld/AudioAreas/Forest2"]
+[editable path="SubViewport/GameWorld/AudioAreas/Forest3"]
+[editable path="SubViewport/GameWorld/AudioAreas/Forest4"]
+[editable path="SubViewport/GameWorld/AudioAreas/Forest5"]
+[editable path="SubViewport/GameWorld/AudioAreas/AlienForest"]
+[editable path="SubViewport/GameWorld/AudioAreas/Cave"]
+[editable path="SubViewport/GameWorld/AudioAreas/Cave2"]
+[editable path="SubViewport/GameWorld/AudioAreas/Clearing1"]
+[editable path="SubViewport/GameWorld/AudioAreas/Clearing2"]
+[editable path="SubViewport/GameWorld/AudioAreas/Clearing3"]
+[editable path="SubViewport/GameWorld/AudioAreas/Clearing4"]
+[editable path="SubViewport/GameWorld/AudioAreas/Clearing5"]
+[editable path="SubViewport/GameWorld/AudioAreas/River1"]
+[editable path="SubViewport/GameWorld/AudioAreas/River2"]
