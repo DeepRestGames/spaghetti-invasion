@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Spaghetti-Invasion"
-run/main_scene="uid://5vab1mwel7y"
+run/main_scene="uid://cj7cs3ybkvqr3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
+
+[global_group]
+
+WorldEnvironment=""
 
 [input]
 
