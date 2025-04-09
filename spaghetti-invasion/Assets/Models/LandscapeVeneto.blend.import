@@ -34,6 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"Cascata": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8kpd4vmdcoho"
+},
 "Rock": {
 "use_external/enabled": true,
 "use_external/path": "uid://1h8kqs2mlhs7"
@@ -58,15 +62,6 @@ _subresources={
 "PATH:Board": {
 "generate/physics": true
 },
-"PATH:Capanno cacciatori": {
-"generate/physics": true
-},
-"PATH:Casa": {
-"generate/physics": true
-},
-"PATH:Casa_002": {
-"generate/physics": true
-},
 "PATH:Casa_005": {
 "generate/physics": true
 },
@@ -87,12 +82,6 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Hill": {
-"generate/physics": true
-},
-"PATH:Human (ref)_001": {
-"generate/physics": true
-},
-"PATH:Human (ref)_002": {
 "generate/physics": true
 },
 "PATH:Lake": {
