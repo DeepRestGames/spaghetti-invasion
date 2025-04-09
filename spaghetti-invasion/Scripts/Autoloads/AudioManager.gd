@@ -1,20 +1,5 @@
 extends Node
 
-
-enum MusicTracks {
-	INTRO,
-	INTRO_LOOP,
-}
-
-
-enum AmbienceTracks {
-	FOREST,
-	HOUSES,
-	CLEARING,
-	CAVE,
-	LAKE
-}
-
 # Music
 @onready var music_stream_player = $Music
 
@@ -56,6 +41,15 @@ enum AmbienceTracks {
 
 @onready var soft_wind2 = $SFX/Natural/SoftWind2
 @export var soft_wind2_target_volume_db = -30
+
+@onready var lakeside = $SFX/Natural/Lakeside
+@export var lakeside_target_volume_db = 5
+
+@onready var river = $SFX/Natural/River
+@export var river_target_volume_db = -30
+
+@onready var cave_droplets_long = $SFX/Natural/CaveDropletsLong
+@export var cave_droplets_long_target_volume_db = -30
 
 @export_category("One Shot SFX")
 @onready var bird_chirp_very_far = $SFX/Natural/BirdChirpVeryFar
@@ -105,6 +99,37 @@ var owl_hooting_panner_effect = AudioServer.get_bus_effect(7, 0)
 var crickets_short_should_play = false
 var crickets_short_current_cooldown = 0
 var crickets_short_panner_effect = AudioServer.get_bus_effect(8, 0)
+
+@onready var cave_droplets_short = $SFX/Natural/CaveDropletsShort
+@export var cave_droplets_short_play_chance = 0.05
+@export var cave_droplets_short_play_cooldown = 5
+@export var cave_droplets_short_volume_db = -15
+var cave_droplets_short_should_play = false
+var cave_droplets_short_current_cooldown = 0
+
+@onready var forest_footsteps = $SFX/Natural/ForestFootsteps
+@export var forest_footsteps_play_chance = 0.05
+@export var forest_footsteps_play_cooldown = 5
+@export var forest_footsteps_volume_db = -15
+var forest_footsteps_should_play = false
+var forest_footsteps_current_cooldown = 0
+var forest_footsteps_panner_effect = AudioServer.get_bus_effect(10, 0)
+
+@onready var twig_snap1 = $SFX/Natural/TwigSnap1
+@export var twig_snap1_play_chance = 0.05
+@export var twig_snap1_play_cooldown = 5
+@export var twig_snap1_volume_db = -15
+var twig_snap1_should_play = false
+var twig_snap1_current_cooldown = 0
+var twig_snap1_panner_effect = AudioServer.get_bus_effect(11, 0)
+
+@onready var twig_snap2 = $SFX/Natural/TwigSnap2
+@export var twig_snap2_play_chance = 0.05
+@export var twig_snap2_play_cooldown = 5
+@export var twig_snap2_volume_db = -15
+var twig_snap2_should_play = false
+var twig_snap2_current_cooldown = 0
+var twig_snap2_panner_effect = AudioServer.get_bus_effect(12, 0)
 
 # General variables
 var min_stream_volume_db = -80.0
@@ -178,10 +203,66 @@ func _process(delta: float) -> void:
 				crickets_short.volume_db = crickets_short_volume_db + randf_range(-5, 1)
 				crickets_short.play()
 				crickets_short_current_cooldown = crickets_short_play_cooldown
+	
+	if(cave_droplets_short_should_play):
+		cave_droplets_short_current_cooldown -= delta
+		if(!cave_droplets_short.playing and cave_droplets_short_current_cooldown <= 0):
+			if randf_range(0, 1) <= cave_droplets_short_play_chance:
+				cave_droplets_short.pitch_scale = randf_range(.85, 1)
+				cave_droplets_short.volume_db = cave_droplets_short_volume_db + randf_range(-5, 1)
+				cave_droplets_short.play()
+				cave_droplets_short_current_cooldown = cave_droplets_short_play_cooldown
+	
+	if(forest_footsteps_should_play):
+		forest_footsteps_current_cooldown -= delta
+		if(!forest_footsteps.playing and forest_footsteps_current_cooldown <= 0):
+			if randf_range(0, 1) <= forest_footsteps_play_chance:
+				forest_footsteps_panner_effect.pan = randf_range(-1, 1)
+				forest_footsteps.pitch_scale = randf_range(.85, 1)
+				forest_footsteps.volume_db = forest_footsteps_volume_db + randf_range(-5, 1)
+				forest_footsteps.play()
+				forest_footsteps_current_cooldown = forest_footsteps_play_cooldown
+	
+	if(twig_snap1_should_play):
+		twig_snap1_current_cooldown -= delta
+		if(!twig_snap1.playing and twig_snap1_current_cooldown <= 0):
+			if randf_range(0, 1) <= twig_snap1_play_chance:
+				twig_snap1_panner_effect.pan = randf_range(-1, 1)
+				#twig_snap1.pitch_scale = randf_range(.85, 1)
+				twig_snap1.volume_db = twig_snap1_volume_db + randf_range(-5, 1)
+				twig_snap1.play()
+				twig_snap1_current_cooldown = twig_snap1_play_cooldown
+	
+	if(twig_snap2_should_play):
+		crickets_short_current_cooldown -= delta
+		if(!crickets_short.playing and crickets_short_current_cooldown <= 0):
+			if randf_range(0, 1) <= crickets_short_play_chance:
+				crickets_short_panner_effect.pan = randf_range(-1, 1)
+				#crickets_short.pitch_scale = randf_range(.85, 1)
+				crickets_short.volume_db = crickets_short_volume_db + randf_range(-5, 1)
+				crickets_short.play()
+				crickets_short_current_cooldown = crickets_short_play_cooldown
+
+
+
+enum MusicTracks {
+	INTRO,
+	INTRO_LOOP,
+}
 
 
 func play_music(music_track: MusicTracks) -> void:
 	pass
+
+
+enum AmbienceTracks {
+	FOREST,
+	ALIEN_FOREST,
+	CLEARING,
+	CAVE,
+	LAKESIDE,
+	RIVER
+}
 
 
 func play_area_ambience(ambience_track: AmbienceTracks) -> void:
@@ -190,8 +271,20 @@ func play_area_ambience(ambience_track: AmbienceTracks) -> void:
 		AmbienceTracks.FOREST:
 			play_forest_sfx()
 		
-		AmbienceTracks.HOUSES:
-			play_houses_sfx()
+		AmbienceTracks.ALIEN_FOREST:
+			play_alien_forest_sfx()
+		
+		AmbienceTracks.CLEARING:
+			play_clearing_sfx()
+		
+		AmbienceTracks.CAVE:
+			play_cave_sfx()
+		
+		AmbienceTracks.LAKESIDE:
+			play_lakeside_sfx()
+		
+		AmbienceTracks.RIVER:
+			play_river_sfx()
 
 
 func play_forest_sfx() -> void:
@@ -201,6 +294,10 @@ func play_forest_sfx() -> void:
 	dog_bark3_should_play = true
 	owl_hooting_should_play = true
 	crickets_short_should_play = true
+	cave_droplets_short_should_play = false
+	forest_footsteps_should_play = true
+	twig_snap1_should_play = true
+	twig_snap2_should_play = true
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", black_hole_target_volume_db, fading_time)
@@ -216,15 +313,22 @@ func play_forest_sfx() -> void:
 	audio_fade_tween.tween_property(crickets_long, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind1, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind2, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(river, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(cave_droplets_long, "volume_db", min_stream_volume_db, fading_time)
 
 
-func play_houses_sfx() -> void:
+func play_alien_forest_sfx() -> void:
 	bird_chirp_very_far_should_play = true
 	dog_bark1_should_play = false
 	dog_bark2_should_play = true
 	dog_bark3_should_play = true
 	owl_hooting_should_play = false
 	crickets_short_should_play = true
+	cave_droplets_short_should_play = false
+	forest_footsteps_should_play = false
+	twig_snap1_should_play = false
+	twig_snap2_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
@@ -240,3 +344,130 @@ func play_houses_sfx() -> void:
 	audio_fade_tween.tween_property(crickets_long, "volume_db", crickets_long_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind2, "volume_db", soft_wind2_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(river, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(cave_droplets_long, "volume_db", min_stream_volume_db, fading_time)
+
+
+func play_clearing_sfx() -> void:
+	bird_chirp_very_far_should_play = true
+	dog_bark1_should_play = false
+	dog_bark2_should_play = false
+	dog_bark3_should_play = false
+	owl_hooting_should_play = true
+	crickets_short_should_play = true
+	cave_droplets_short_should_play = false
+	forest_footsteps_should_play = false
+	twig_snap1_should_play = false
+	twig_snap2_should_play = false
+	
+	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
+	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(ghost_voice, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe1, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe2, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe_langmuir, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(phase_sweeper, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(saturn_radio, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(voyager_plasma, "volume_db", min_stream_volume_db, fading_time)
+	
+	audio_fade_tween.tween_property(crickets_long, "volume_db", crickets_long_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind2, "volume_db", soft_wind2_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(river, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(cave_droplets_long, "volume_db", min_stream_volume_db, fading_time)
+
+
+func play_cave_sfx() -> void:
+	bird_chirp_very_far_should_play = false
+	dog_bark1_should_play = false
+	dog_bark2_should_play = false
+	dog_bark3_should_play = false
+	owl_hooting_should_play = false
+	crickets_short_should_play = false
+	cave_droplets_short_should_play = true
+	forest_footsteps_should_play = false
+	twig_snap1_should_play = false
+	twig_snap2_should_play = false
+	
+	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
+	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(ghost_voice, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe1, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe2, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe_langmuir, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(phase_sweeper, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(saturn_radio, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(voyager_plasma, "volume_db", min_stream_volume_db, fading_time)
+	
+	audio_fade_tween.tween_property(crickets_long, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind2, "volume_db", soft_wind2_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(river, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(cave_droplets_long, "volume_db", cave_droplets_long_target_volume_db, fading_time)
+
+
+func play_lakeside_sfx() -> void:
+	bird_chirp_very_far_should_play = true
+	dog_bark1_should_play = false
+	dog_bark2_should_play = false
+	dog_bark3_should_play = false
+	owl_hooting_should_play = false
+	crickets_short_should_play = true
+	cave_droplets_short_should_play = false
+	forest_footsteps_should_play = false
+	twig_snap1_should_play = false
+	twig_snap2_should_play = false
+	
+	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
+	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(ghost_voice, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe1, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe2, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe_langmuir, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(phase_sweeper, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(saturn_radio, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(voyager_plasma, "volume_db", min_stream_volume_db, fading_time)
+	
+	audio_fade_tween.tween_property(crickets_long, "volume_db", crickets_long_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind2, "volume_db", soft_wind2_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(lakeside, "volume_db", lakeside_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(river, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(cave_droplets_long, "volume_db", min_stream_volume_db, fading_time)
+
+
+func play_river_sfx() -> void:
+	bird_chirp_very_far_should_play = true
+	dog_bark1_should_play = false
+	dog_bark2_should_play = false
+	dog_bark3_should_play = false
+	owl_hooting_should_play = false
+	crickets_short_should_play = false
+	cave_droplets_short_should_play = false
+	forest_footsteps_should_play = false
+	twig_snap1_should_play = false
+	twig_snap2_should_play = false
+	
+	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
+	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(ghost_voice, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe1, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe2, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(parker_probe_langmuir, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(phase_sweeper, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(saturn_radio, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(voyager_plasma, "volume_db", min_stream_volume_db, fading_time)
+	
+	audio_fade_tween.tween_property(crickets_long, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(soft_wind2, "volume_db", soft_wind2_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(river, "volume_db", river_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(cave_droplets_long, "volume_db", min_stream_volume_db, fading_time)

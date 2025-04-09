@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cicvqluapdjhw"]
+[gd_scene load_steps=25 format=3 uid="uid://cicvqluapdjhw"]
 
 [ext_resource type="Script" uid="uid://dyudflvc6do82" path="res://Scripts/Autoloads/AudioManager.gd" id="1_tyob0"]
 [ext_resource type="AudioStream" uid="uid://bhrvuwte1blqj" path="res://Assets/Audio/SFX/Alien/BlackHoleSonificationPerseus.wav" id="2_esrla"]
@@ -21,9 +21,15 @@
 [ext_resource type="AudioStream" uid="uid://bt151x706gxdi" path="res://Assets/Audio/SFX/Environment/DogBark2.wav" id="19_sen2l"]
 [ext_resource type="AudioStream" uid="uid://cn8j7lyicdah2" path="res://Assets/Audio/SFX/Environment/DogBark3.wav" id="20_vlxd5"]
 [ext_resource type="AudioStream" uid="uid://fn8utyp2ftu4" path="res://Assets/Audio/SFX/Environment/OwlHooting.wav" id="21_cy7d5"]
+[ext_resource type="AudioStream" uid="uid://mu63150ai8q" path="res://Assets/Audio/SFX/Environment/Lakeside.mp3" id="22_5t54m"]
+[ext_resource type="AudioStream" uid="uid://dredfbgti3u4" path="res://Assets/Audio/SFX/Environment/River.wav" id="23_3oadr"]
+[ext_resource type="AudioStream" uid="uid://6gldwvkd27kt" path="res://Assets/Audio/SFX/Environment/CaveDroplets.wav" id="24_qj30q"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_tyob0")
+lakeside_target_volume_db = 10
+bird_chirp_very_far_play_cooldown = 40
+bird_chirp_very_far_volume_db = -20
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
@@ -108,7 +114,7 @@ bus = &"SFX"
 
 [node name="CricketsShort" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("14_0gyed")
-bus = &"SFX"
+bus = &"CricketsShort"
 
 [node name="SoftWind1" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("15_ubcvk")
@@ -125,7 +131,7 @@ bus = &"SFX"
 [node name="BirdChirpVeryFar" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("17_b5wpy")
 volume_db = -10.0
-bus = &"SFX"
+bus = &"BirdChirpVeryFar"
 
 [node name="DogBark1" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("18_ur4lb")
@@ -135,14 +141,47 @@ bus = &"DogBark1"
 [node name="DogBark2" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("19_sen2l")
 volume_db = -20.0
-bus = &"SFX"
+bus = &"DogBark2"
 
 [node name="DogBark3" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("20_vlxd5")
 volume_db = -20.0
-bus = &"SFX"
+bus = &"DogBark3"
 
 [node name="OwlHooting" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("21_cy7d5")
 volume_db = -10.0
+bus = &"OwlHooting"
+
+[node name="Lakeside" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("22_5t54m")
+volume_db = -80.0
+autoplay = true
 bus = &"SFX"
+
+[node name="River" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("23_3oadr")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="CaveDropletsLong" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("24_qj30q")
+volume_db = -80.0
+bus = &"SFX"
+
+[node name="CaveDropletsShort" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("24_qj30q")
+bus = &"CaveDropletsShort"
+
+[node name="ForestFootsteps" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("24_qj30q")
+bus = &"ForestFootsteps"
+
+[node name="TwigSnap1" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("24_qj30q")
+bus = &"TwigSnap1"
+
+[node name="TwigSnap2" type="AudioStreamPlayer" parent="SFX/Natural"]
+stream = ExtResource("24_qj30q")
+bus = &"TwigSnap2"

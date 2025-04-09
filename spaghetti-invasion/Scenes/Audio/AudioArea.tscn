@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dik4tnuy7uuje"]
+
+[ext_resource type="Script" uid="uid://cp8pv7yykpyh3" path="res://Scripts/Audio/AudioArea.gd" id="1_ce8t5"]
+
+[node name="AudioArea" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_ce8t5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
