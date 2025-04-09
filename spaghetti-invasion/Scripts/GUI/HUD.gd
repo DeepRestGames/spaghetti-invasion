@@ -6,6 +6,8 @@ extends Control
 @onready var interaction_prompt = $InteractionPrompt
 @onready var pause_menu = $PauseMenu
 @onready var open_diary_hint = $OpenDiaryHint
+@onready var close_diary_hint = $CloseDiaryHint
+@onready var turn_diary_page_hints = $TurnDiaryPageHints
 
 @onready var new_diary_entry_message = $DiaryUpdateMessage/NewDiaryEntryMessage
 @onready var new_area_discovered_message = $DiaryUpdateMessage/NewAreaDiscoveredMessage
@@ -16,6 +18,8 @@ func _ready() -> void:
 	EventBus.connect("clue_interacted", show_new_diary_entry_message)
 	EventBus.connect("new_area_discovered", show_new_area_discovered_message)
 	EventBus.connect("show_open_diary_hint", show_open_diary_hint)
+	EventBus.connect("focus_on_diary", show_close_diary_hint)
+	EventBus.connect("focus_on_diary", show_turn_diary_page_hints)
 
 
 func _process(_delta):
@@ -91,3 +95,22 @@ func show_open_diary_hint() -> void:
 	tween.tween_property(open_diary_hint, "modulate", Color(1, 1, 1, 1), 1)
 	tween.chain().tween_interval(2)
 	tween.tween_property(open_diary_hint, "modulate", Color(1, 1, 1, 0), 1)
+
+
+func show_close_diary_hint(show_hint) -> void:
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel()
+	if show_hint:
+		tween.tween_property(open_diary_hint, "modulate", Color(1, 1, 1, 0), 1)
+		tween.chain().tween_interval(.5)
+		tween.chain().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 1), 1)
+	else:
+		tween.tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 0), 1)
+
+
+func show_turn_diary_page_hints(show_hints: bool) -> void:
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	if show_hints:
+		tween.tween_interval(1)
+		tween.chain().tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 1), 1)
+	else:
+		tween.tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 0), 1)

@@ -77,6 +77,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
+	current_look_at_diary_cooldown -= delta
 	if unread_clues:
 		current_look_at_diary_cooldown -= delta
 		if current_look_at_diary_cooldown <= 0:
@@ -117,6 +118,7 @@ func add_diary_page(area_name: ClueData.DiaryPages):
 		right_page_content.add_child(new_diary_page)
 		last_page_written = LastPageWritten.RIGHT
 	
+	current_look_at_diary_cooldown = 2
 	unread_clues = true
 
 
@@ -149,6 +151,7 @@ func add_clue_entry(clue_data: ClueData):
 	diary_page.add_new_entry(new_diary_entry)
 	diary_page.load_page()
 	
+	current_look_at_diary_cooldown = 2
 	unread_clues = true
 
 
