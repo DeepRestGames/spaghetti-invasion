@@ -79,7 +79,8 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Cliff": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 1
 },
 "PATH:Cliff_001": {
 "generate/physics": true
