@@ -33,12 +33,6 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
-"materials": {
-"Glass.001": {
-"use_external/enabled": true,
-"use_external/path": "uid://ekv5lxrlv2eg"
-}
-},
 "nodes": {
 "PATH:Bathroom_Sink": {
 "generate/physics": true,
@@ -49,6 +43,7 @@ _subresources={
 "physics/shape_type": 1
 },
 "PATH:Bed_Bunk_001": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Bed_King": {
@@ -56,6 +51,7 @@ _subresources={
 "physics/shape_type": 1
 },
 "PATH:Bed_Single": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Bed_Single_001": {
@@ -71,15 +67,19 @@ _subresources={
 "physics/shape_type": 2
 },
 "PATH:Chair_02_002": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_02_003": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_02_005": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_02_006": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_03": {
@@ -87,18 +87,23 @@ _subresources={
 "physics/shape_type": 1
 },
 "PATH:Chair_03_001": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_1": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_1_001": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_3": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Chair_4": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Cube_006": {
@@ -242,12 +247,15 @@ _subresources={
 "physics/shape_type": 1
 },
 "PATH:Shelf_02_003": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Shelf_02_004": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Table_01": {
+"generate/physics": true,
 "physics/shape_type": 1
 },
 "PATH:Wall": {
