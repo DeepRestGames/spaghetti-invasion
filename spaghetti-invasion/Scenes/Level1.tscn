@@ -46,7 +46,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="Resource" id="Resource_03od6"]
+[sub_resource type="Resource" id="Resource_fh0sh"]
 script = ExtResource("7_ug0sv")
 amount = 2500
 enabled = true
@@ -55,7 +55,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_384de"]
+[sub_resource type="Resource" id="Resource_03od6"]
 script = ExtResource("8_0wsr5")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -66,7 +66,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_bhaf5"]
+[sub_resource type="Resource" id="Resource_384de"]
 script = ExtResource("9_jgorv")
 iterations = 3
 offset_step = 0.2
@@ -78,7 +78,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_o0dvq"]
+[sub_resource type="Resource" id="Resource_bhaf5"]
 script = ExtResource("10_q1ws5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 70.0
@@ -94,9 +94,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_1nrjw"]
+[sub_resource type="Resource" id="Resource_o0dvq"]
 script = ExtResource("5_06um6")
-stack = Array[ExtResource("6_ubfni")]([SubResource("Resource_03od6"), SubResource("Resource_384de"), SubResource("Resource_bhaf5"), SubResource("Resource_o0dvq")])
+stack = Array[ExtResource("6_ubfni")]([SubResource("Resource_fh0sh"), SubResource("Resource_03od6"), SubResource("Resource_384de"), SubResource("Resource_bhaf5")])
 
 [sub_resource type="Curve3D" id="Curve3D_fh0sh"]
 _data = {
@@ -162,7 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.6758, 30.5573, -82.6404)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
 script = ExtResource("4_6jj8j")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_1nrjw")
+modifier_stack = SubResource("Resource_o0dvq")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"

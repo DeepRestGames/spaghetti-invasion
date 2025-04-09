@@ -45,6 +45,10 @@ _subresources={
 "Tunnel": {
 "use_external/enabled": true,
 "use_external/path": "uid://cguigw76w1sf5"
+},
+"Water": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8kpd4vmdcoho"
 }
 },
 "nodes": {
@@ -60,16 +64,7 @@ _subresources={
 "PATH:Casa": {
 "generate/physics": true
 },
-"PATH:Casa_001": {
-"generate/physics": true
-},
 "PATH:Casa_002": {
-"generate/physics": true
-},
-"PATH:Casa_003": {
-"generate/physics": true
-},
-"PATH:Casa_004": {
 "generate/physics": true
 },
 "PATH:Casa_005": {
