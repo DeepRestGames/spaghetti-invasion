@@ -100,9 +100,11 @@ func show_open_diary_hint() -> void:
 func show_close_diary_hint(show_hint) -> void:
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel()
 	if show_hint:
-		tween.tween_property(open_diary_hint, "modulate", Color(1, 1, 1, 0), 1)
-		tween.chain().tween_interval(.5)
+		open_diary_hint.hide()
+		tween.chain().tween_interval(1.5)
 		tween.chain().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 1), 1)
+		await tween.chain().tween_interval(5).finished
+		open_diary_hint.show()
 	else:
 		tween.tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 0), 1)
 
