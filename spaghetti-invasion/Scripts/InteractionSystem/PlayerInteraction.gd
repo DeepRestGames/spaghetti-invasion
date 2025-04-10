@@ -13,6 +13,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	if(is_colliding()):
+		if(was_just_colliding):
+			return
+		
 		interactable_clue = get_collider() as InteractableClue
 		
 		if(interactable_clue == null):
@@ -23,3 +26,4 @@ func _process(_delta: float) -> void:
 	
 	elif(was_just_colliding):
 		EventBus.emit_signal("looking_at_interactable", false)
+		was_just_colliding = false
