@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://eh8pciblnvcw"]
+
+[ext_resource type="PackedScene" uid="uid://dkgcme6ilxb5a" path="res://Assets/Models/AlienTreeYoung.blend" id="1_ieu5c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h505a"]
+radius = 14.8905
+height = 34.0442
+
+[node name="TreeAlienTreeYoung" type="Node3D"]
+
+[node name="AlienTreeYoung" parent="." instance=ExtResource("1_ieu5c")]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0.0766399, -0.737969, -0.109722)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AlienTreeYoung"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766399, 3.68984, 1.09722)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="AlienTreeYoung/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0111825, -0.0654008, 0)
+shape = SubResource("CapsuleShape3D_h505a")
