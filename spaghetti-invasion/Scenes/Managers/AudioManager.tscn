@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cicvqluapdjhw"]
+[gd_scene load_steps=36 format=3 uid="uid://cicvqluapdjhw"]
 
 [ext_resource type="Script" uid="uid://dyudflvc6do82" path="res://Scripts/Autoloads/AudioManager.gd" id="1_tyob0"]
 [ext_resource type="AudioStream" uid="uid://bhrvuwte1blqj" path="res://Assets/Audio/SFX/Alien/BlackHoleSonificationPerseus.wav" id="2_esrla"]
@@ -24,6 +24,17 @@
 [ext_resource type="AudioStream" uid="uid://mu63150ai8q" path="res://Assets/Audio/SFX/Environment/Lakeside.mp3" id="22_5t54m"]
 [ext_resource type="AudioStream" uid="uid://dredfbgti3u4" path="res://Assets/Audio/SFX/Environment/River.wav" id="23_3oadr"]
 [ext_resource type="AudioStream" uid="uid://6gldwvkd27kt" path="res://Assets/Audio/SFX/Environment/CaveDroplets.wav" id="24_qj30q"]
+[ext_resource type="AudioStream" uid="uid://diih0i3qq4mj2" path="res://Assets/Audio/SFX/Children/Laugh1.mp3" id="25_qj30q"]
+[ext_resource type="AudioStream" uid="uid://b2cyyx78ysktb" path="res://Assets/Audio/SFX/Environment/WaterDrops.mp3" id="25_ubcvk"]
+[ext_resource type="AudioStream" uid="uid://bnjvhomijjryq" path="res://Assets/Audio/SFX/Children/Laugh2.mp3" id="26_qbmt3"]
+[ext_resource type="AudioStream" uid="uid://dregtujapyd4o" path="res://Assets/Audio/SFX/Forest/FootstepsInForest.mp3" id="26_sh1nl"]
+[ext_resource type="AudioStream" uid="uid://b2nu62tck2m1t" path="res://Assets/Audio/SFX/Children/Laugh3.wav" id="27_6wyf0"]
+[ext_resource type="AudioStream" uid="uid://b6my84lb73ddy" path="res://Assets/Audio/SFX/Forest/TwigSnap1.mp3" id="27_sh1nl"]
+[ext_resource type="AudioStream" uid="uid://dksvs0apsn3lm" path="res://Assets/Audio/SFX/Children/Laugh4.wav" id="28_a0sy5"]
+[ext_resource type="AudioStream" uid="uid://bcvhvm7h3yhl3" path="res://Assets/Audio/SFX/Forest/TwigSnap2.mp3" id="28_b5wpy"]
+[ext_resource type="AudioStream" uid="uid://cfugbibr1107v" path="res://Assets/Audio/SFX/Children/Playing1.wav" id="29_s52a5"]
+[ext_resource type="AudioStream" uid="uid://crfkq5w8nw15t" path="res://Assets/Audio/SFX/Children/Playing2.wav" id="30_w3led"]
+[ext_resource type="AudioStream" uid="uid://d1yw1melid2ys" path="res://Assets/Audio/SFX/Children/Playing3.wav" id="31_23fu8"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_tyob0")
@@ -42,6 +53,8 @@ bus = &"Music"
 stream = ExtResource("2_esrla")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="GhostVoice" type="AudioStreamPlayer" parent="SFX/Alien"]
@@ -49,42 +62,56 @@ stream = ExtResource("3_tl3mc")
 volume_db = -80.0
 pitch_scale = 0.5
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="ParkerSolarProbe1" type="AudioStreamPlayer" parent="SFX/Alien"]
 stream = ExtResource("4_5t54m")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="ParkerSolarProbe2" type="AudioStreamPlayer" parent="SFX/Alien"]
 stream = ExtResource("5_r75qn")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="ParkerSolarProbe_LangmuirWaves" type="AudioStreamPlayer" parent="SFX/Alien"]
 stream = ExtResource("6_3oadr")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="PhaseSweeper" type="AudioStreamPlayer" parent="SFX/Alien"]
 stream = ExtResource("7_qj30q")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="SaturnRadioEmissions" type="AudioStreamPlayer" parent="SFX/Alien"]
 stream = ExtResource("8_qbmt3")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="SunSonification" type="AudioStreamPlayer" parent="SFX/Alien"]
 stream = ExtResource("9_6wyf0")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="VoyagerPlasmaSounds" type="AudioStreamPlayer" parent="SFX/Alien"]
@@ -92,16 +119,20 @@ stream = ExtResource("10_a0sy5")
 volume_db = -80.0
 pitch_scale = 0.5
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="Diary" type="Node" parent="SFX"]
 
 [node name="PencilWriting" type="AudioStreamPlayer" parent="SFX/Diary"]
 stream = ExtResource("11_s52a5")
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="TurnPage" type="AudioStreamPlayer" parent="SFX/Diary"]
 stream = ExtResource("12_w3led")
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="Natural" type="Node" parent="SFX"]
@@ -110,78 +141,155 @@ bus = &"SFX"
 stream = ExtResource("13_23fu8")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="CricketsShort" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("14_0gyed")
+mix_target = 1
+max_polyphony = 10
 bus = &"CricketsShort"
 
 [node name="SoftWind1" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("15_ubcvk")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="SoftWind2" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("16_sh1nl")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="BirdChirpVeryFar" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("17_b5wpy")
 volume_db = -10.0
+mix_target = 1
+max_polyphony = 10
 bus = &"BirdChirpVeryFar"
 
 [node name="DogBark1" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("18_ur4lb")
 volume_db = -20.0
+mix_target = 1
+max_polyphony = 10
 bus = &"DogBark1"
 
 [node name="DogBark2" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("19_sen2l")
 volume_db = -20.0
+mix_target = 1
+max_polyphony = 10
 bus = &"DogBark2"
 
 [node name="DogBark3" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("20_vlxd5")
 volume_db = -20.0
+mix_target = 1
+max_polyphony = 10
 bus = &"DogBark3"
 
 [node name="OwlHooting" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("21_cy7d5")
 volume_db = -10.0
+mix_target = 1
+max_polyphony = 10
 bus = &"OwlHooting"
 
 [node name="Lakeside" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("22_5t54m")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="River" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("23_3oadr")
 volume_db = -80.0
 autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="CaveDropletsLong" type="AudioStreamPlayer" parent="SFX/Natural"]
 stream = ExtResource("24_qj30q")
 volume_db = -80.0
+autoplay = true
+mix_target = 1
+max_polyphony = 10
 bus = &"SFX"
 
 [node name="CaveDropletsShort" type="AudioStreamPlayer" parent="SFX/Natural"]
-stream = ExtResource("24_qj30q")
+stream = ExtResource("25_ubcvk")
+mix_target = 1
+max_polyphony = 10
 bus = &"CaveDropletsShort"
 
 [node name="ForestFootsteps" type="AudioStreamPlayer" parent="SFX/Natural"]
-stream = ExtResource("24_qj30q")
+stream = ExtResource("26_sh1nl")
+mix_target = 1
+max_polyphony = 10
 bus = &"ForestFootsteps"
 
 [node name="TwigSnap1" type="AudioStreamPlayer" parent="SFX/Natural"]
-stream = ExtResource("24_qj30q")
+stream = ExtResource("27_sh1nl")
+mix_target = 1
+max_polyphony = 10
 bus = &"TwigSnap1"
 
 [node name="TwigSnap2" type="AudioStreamPlayer" parent="SFX/Natural"]
-stream = ExtResource("24_qj30q")
+stream = ExtResource("28_b5wpy")
+mix_target = 1
+max_polyphony = 10
 bus = &"TwigSnap2"
+
+[node name="Children" type="Node" parent="SFX"]
+
+[node name="Laugh1" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("25_qj30q")
+mix_target = 1
+max_polyphony = 10
+bus = &"Laugh1"
+
+[node name="Laugh2" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("26_qbmt3")
+mix_target = 1
+max_polyphony = 10
+bus = &"Laugh2"
+
+[node name="Laugh3" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("27_6wyf0")
+mix_target = 1
+max_polyphony = 10
+bus = &"Laugh3"
+
+[node name="Laugh4" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("28_a0sy5")
+mix_target = 1
+max_polyphony = 10
+bus = &"Laugh4"
+
+[node name="Playing1" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("29_s52a5")
+mix_target = 1
+max_polyphony = 10
+bus = &"Playing1"
+
+[node name="Playing2" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("30_w3led")
+mix_target = 1
+max_polyphony = 10
+bus = &"Playing2"
+
+[node name="Playing3" type="AudioStreamPlayer" parent="SFX/Children"]
+stream = ExtResource("31_23fu8")
+mix_target = 1
+max_polyphony = 10
+bus = &"Playing3"

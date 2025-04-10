@@ -49,7 +49,7 @@ extends Node
 @export var river_target_volume_db = -30
 
 @onready var cave_droplets_long = $SFX/Natural/CaveDropletsLong
-@export var cave_droplets_long_target_volume_db = -30
+@export var cave_droplets_long_target_volume_db = -10
 
 @export_category("One Shot SFX")
 @onready var bird_chirp_very_far = $SFX/Natural/BirdChirpVeryFar
@@ -95,15 +95,16 @@ var owl_hooting_panner_effect = AudioServer.get_bus_effect(7, 0)
 @onready var crickets_short = $SFX/Natural/CricketsShort
 @export var crickets_short_play_chance = 0.01
 @export var crickets_short_play_cooldown = 5
-@export var crickets_short_volume_db = -15
+#@export var crickets_short_volume_db = -15
+@export var crickets_short_volume_db = -80
 var crickets_short_should_play = false
 var crickets_short_current_cooldown = 0
 var crickets_short_panner_effect = AudioServer.get_bus_effect(8, 0)
 
 @onready var cave_droplets_short = $SFX/Natural/CaveDropletsShort
-@export var cave_droplets_short_play_chance = 0.05
+@export var cave_droplets_short_play_chance = 0.1
 @export var cave_droplets_short_play_cooldown = 5
-@export var cave_droplets_short_volume_db = -15
+@export var cave_droplets_short_volume_db = -10
 var cave_droplets_short_should_play = false
 var cave_droplets_short_current_cooldown = 0
 
@@ -131,9 +132,66 @@ var twig_snap2_should_play = false
 var twig_snap2_current_cooldown = 0
 var twig_snap2_panner_effect = AudioServer.get_bus_effect(12, 0)
 
+@export_category("Children One Shot SFX")
+@onready var laugh1 = $SFX/Children/Laugh1
+@export var laugh1_play_chance = 0.005
+@export var laugh1_play_cooldown = 5
+@export var laugh1_volume_db = -25
+var laugh1_should_play = false
+var laugh1_current_cooldown = 0
+var laugh1_panner_effect = AudioServer.get_bus_effect(13, 0)
+
+@onready var laugh2 = $SFX/Children/Laugh2
+@export var laugh2_play_chance = 0.005
+@export var laugh2_play_cooldown = 5
+@export var laugh2_volume_db = -25
+var laugh2_should_play = false
+var laugh2_current_cooldown = 0
+var laugh2_panner_effect = AudioServer.get_bus_effect(14, 0)
+
+@onready var laugh3 = $SFX/Children/Laugh3
+@export var laugh3_play_chance = 0.005
+@export var laugh3_play_cooldown = 5
+@export var laugh3_volume_db = -25
+var laugh3_should_play = false
+var laugh3_current_cooldown = 0
+var laugh3_panner_effect = AudioServer.get_bus_effect(15, 0)
+
+@onready var laugh4 = $SFX/Children/Laugh4
+@export var laugh4_play_chance = 0.005
+@export var laugh4_play_cooldown = 5
+@export var laugh4_volume_db = -25
+var laugh4_should_play = false
+var laugh4_current_cooldown = 0
+var laugh4_panner_effect = AudioServer.get_bus_effect(16, 0)
+
+@onready var playing1 = $SFX/Children/Playing1
+@export var playing1_play_chance = 0.005
+@export var playing1_play_cooldown = 5
+@export var playing1_volume_db = -25
+var playing1_should_play = false
+var playing1_current_cooldown = 0
+var playing1_panner_effect = AudioServer.get_bus_effect(17, 0)
+
+@onready var playing2 = $SFX/Children/Playing2
+@export var playing2_play_chance = 0.005
+@export var playing2_play_cooldown = 5
+@export var playing2_volume_db = -25
+var playing2_should_play = false
+var playing2_current_cooldown = 0
+var playing2_panner_effect = AudioServer.get_bus_effect(18, 0)
+
+@onready var playing3 = $SFX/Children/Playing3
+@export var playing3_play_chance = 0.005
+@export var playing3_play_cooldown = 5
+@export var playing3_volume_db = -25
+var playing3_should_play = false
+var playing3_current_cooldown = 0
+var playing3_panner_effect = AudioServer.get_bus_effect(19, 0)
+
 # General variables
 var min_stream_volume_db = -80.0
-var fading_time = 10
+var fading_time = 5
 
 
 func _ready() -> void:
@@ -228,21 +286,85 @@ func _process(delta: float) -> void:
 		if(!twig_snap1.playing and twig_snap1_current_cooldown <= 0):
 			if randf_range(0, 1) <= twig_snap1_play_chance:
 				twig_snap1_panner_effect.pan = randf_range(-1, 1)
-				#twig_snap1.pitch_scale = randf_range(.85, 1)
 				twig_snap1.volume_db = twig_snap1_volume_db + randf_range(-5, 1)
 				twig_snap1.play()
 				twig_snap1_current_cooldown = twig_snap1_play_cooldown
 	
 	if(twig_snap2_should_play):
-		crickets_short_current_cooldown -= delta
-		if(!crickets_short.playing and crickets_short_current_cooldown <= 0):
-			if randf_range(0, 1) <= crickets_short_play_chance:
-				crickets_short_panner_effect.pan = randf_range(-1, 1)
-				#crickets_short.pitch_scale = randf_range(.85, 1)
-				crickets_short.volume_db = crickets_short_volume_db + randf_range(-5, 1)
-				crickets_short.play()
-				crickets_short_current_cooldown = crickets_short_play_cooldown
-
+		twig_snap2_current_cooldown -= delta
+		if(!twig_snap2.playing and twig_snap2_current_cooldown <= 0):
+			if randf_range(0, 1) <= twig_snap2_play_chance:
+				twig_snap2_panner_effect.pan = randf_range(-1, 1)
+				twig_snap2.volume_db = twig_snap2_volume_db + randf_range(-5, 1)
+				twig_snap2.play()
+				twig_snap2_current_cooldown = twig_snap2_play_cooldown
+	
+	if(laugh1_should_play):
+		laugh1_current_cooldown -= delta
+		if(!laugh1.playing and laugh1_current_cooldown <= 0):
+			if randf_range(0, 1) <= laugh1_play_chance:
+				laugh1_panner_effect.pan = randf_range(-1, 1)
+				laugh1.pitch_scale = randf_range(.85, 1)
+				laugh1.volume_db = laugh1_volume_db + randf_range(-5, 1)
+				laugh1.play()
+				laugh1_current_cooldown = laugh1_play_cooldown
+	
+	if(laugh2_should_play):
+		laugh2_current_cooldown -= delta
+		if(!laugh2.playing and laugh2_current_cooldown <= 0):
+			if randf_range(0, 1) <= laugh2_play_chance:
+				laugh2_panner_effect.pan = randf_range(-1, 1)
+				laugh2.pitch_scale = randf_range(.85, 1)
+				laugh2.volume_db = laugh2_volume_db + randf_range(-5, 1)
+				laugh2.play()
+				laugh2_current_cooldown = laugh2_play_cooldown
+	
+	if(laugh3_should_play):
+		laugh3_current_cooldown -= delta
+		if(!laugh3.playing and laugh3_current_cooldown <= 0):
+			if randf_range(0, 1) <= laugh3_play_chance:
+				laugh3_panner_effect.pan = randf_range(-1, 1)
+				laugh3.pitch_scale = randf_range(.85, 1)
+				laugh3.volume_db = laugh3_volume_db + randf_range(-5, 1)
+				laugh3.play()
+				laugh3_current_cooldown = laugh3_play_cooldown
+	
+	if(laugh4_should_play):
+		laugh4_current_cooldown -= delta
+		if(!laugh4.playing and laugh4_current_cooldown <= 0):
+			if randf_range(0, 1) <= laugh4_play_chance:
+				laugh4_panner_effect.pan = randf_range(-1, 1)
+				laugh4.pitch_scale = randf_range(.85, 1)
+				laugh4.volume_db = laugh4_volume_db + randf_range(-5, 1)
+				laugh4.play()
+				laugh4_current_cooldown = laugh4_play_cooldown
+	
+	if(playing1_should_play):
+		playing1_current_cooldown -= delta
+		if(!playing1.playing and playing1_current_cooldown <= 0):
+			if randf_range(0, 1) <= playing1_play_chance:
+				playing1_panner_effect.pan = randf_range(-1, 1)
+				playing1.volume_db = playing1_volume_db + randf_range(-5, 1)
+				playing1.play()
+				playing1_current_cooldown = playing1_play_cooldown
+	
+	if(playing2_should_play):
+		playing2_current_cooldown -= delta
+		if(!playing2.playing and playing2_current_cooldown <= 0):
+			if randf_range(0, 1) <= playing2_play_chance:
+				playing2_panner_effect.pan = randf_range(-1, 1)
+				playing2.volume_db = playing2_volume_db + randf_range(-5, 1)
+				playing2.play()
+				playing2_current_cooldown = playing2_play_cooldown
+	
+	if(playing3_should_play):
+		playing3_current_cooldown -= delta
+		if(!playing3.playing and playing3_current_cooldown <= 0):
+			if randf_range(0, 1) <= playing3_play_chance:
+				playing3_panner_effect.pan = randf_range(-1, 1)
+				playing3.volume_db = playing3_volume_db + randf_range(-5, 1)
+				playing3.play()
+				playing3_current_cooldown = playing3_play_cooldown
 
 
 enum MusicTracks {
@@ -298,6 +420,13 @@ func play_forest_sfx() -> void:
 	forest_footsteps_should_play = true
 	twig_snap1_should_play = true
 	twig_snap2_should_play = true
+	laugh1_should_play = true
+	laugh2_should_play = false
+	laugh3_should_play = false
+	laugh4_should_play = false
+	playing1_should_play = true
+	playing2_should_play = false
+	playing3_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", black_hole_target_volume_db, fading_time)
@@ -310,7 +439,7 @@ func play_forest_sfx() -> void:
 	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(voyager_plasma, "volume_db", voyager_plasma_target_volume_db, fading_time)
 	
-	audio_fade_tween.tween_property(crickets_long, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(crickets_long, "volume_db", crickets_long_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind1, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind2, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)
@@ -329,6 +458,13 @@ func play_alien_forest_sfx() -> void:
 	forest_footsteps_should_play = false
 	twig_snap1_should_play = false
 	twig_snap2_should_play = false
+	laugh1_should_play = false
+	laugh2_should_play = false
+	laugh3_should_play = false
+	laugh4_should_play = false
+	playing1_should_play = false
+	playing2_should_play = false
+	playing3_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
@@ -360,6 +496,13 @@ func play_clearing_sfx() -> void:
 	forest_footsteps_should_play = false
 	twig_snap1_should_play = false
 	twig_snap2_should_play = false
+	laugh1_should_play = false
+	laugh2_should_play = false
+	laugh3_should_play = false
+	laugh4_should_play = true
+	playing1_should_play = false
+	playing2_should_play = false
+	playing3_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
@@ -391,17 +534,24 @@ func play_cave_sfx() -> void:
 	forest_footsteps_should_play = false
 	twig_snap1_should_play = false
 	twig_snap2_should_play = false
+	laugh1_should_play = true
+	laugh2_should_play = true
+	laugh3_should_play = true
+	laugh4_should_play = true
+	playing1_should_play = true
+	playing2_should_play = true
+	playing3_should_play = true
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
-	audio_fade_tween.tween_property(ghost_voice, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(ghost_voice, "volume_db", ghost_voice_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(parker_probe1, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(parker_probe2, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(parker_probe_langmuir, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(phase_sweeper, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(saturn_radio, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
-	audio_fade_tween.tween_property(voyager_plasma, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(voyager_plasma, "volume_db", voyager_plasma_target_volume_db, fading_time)
 	
 	audio_fade_tween.tween_property(crickets_long, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
@@ -422,6 +572,13 @@ func play_lakeside_sfx() -> void:
 	forest_footsteps_should_play = false
 	twig_snap1_should_play = false
 	twig_snap2_should_play = false
+	laugh1_should_play = false
+	laugh2_should_play = false
+	laugh3_should_play = false
+	laugh4_should_play = false
+	playing1_should_play = false
+	playing2_should_play = false
+	playing3_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
@@ -453,6 +610,13 @@ func play_river_sfx() -> void:
 	forest_footsteps_should_play = false
 	twig_snap1_should_play = false
 	twig_snap2_should_play = false
+	laugh1_should_play = false
+	laugh2_should_play = true
+	laugh3_should_play = false
+	laugh4_should_play = false
+	playing1_should_play = false
+	playing2_should_play = false
+	playing3_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
