@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ClueData" load_steps=2 format=3 uid="uid://d4hmrr8qxvv5p"]
+
+[ext_resource type="Script" uid="uid://b8ag16nve3l00" path="res://Scripts/Resources/ClueData.gd" id="1_x6q6t"]
+
+[resource]
+script = ExtResource("1_x6q6t")
+diary_page_ID = 4
+clue_ID = 15
+metadata/_custom_type_script = "uid://b8ag16nve3l00"

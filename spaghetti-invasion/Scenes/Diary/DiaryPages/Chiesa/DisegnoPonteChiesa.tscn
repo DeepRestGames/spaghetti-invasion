@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://3tvr4cmv1n15"]
+
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="1_5g2ly"]
+[ext_resource type="Texture2D" uid="uid://cs16fcuqoxmqq" path="res://Assets/Clues/BloodMark.png" id="2_tjlnd"]
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="3_fgrgg"]
+
+[node name="Content_DisegnoPonteChiesa" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("1_5g2ly")
+clue_ID = 14
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.600794, 1.41986e-06, 6.73831e-07, 1)
+layout_mode = 2
+texture = ExtResource("2_tjlnd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Testo_DisegnoPonteChiesa" type="Label" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_fgrgg")
+theme_override_font_sizes/font_size = 18
+text = "Nella chiesetta ci sono delle macchie di sangue. Sembra quasi che il sangue sia stato usato per dipingere un'immagine."
+vertical_alignment = 1
+autowrap_mode = 2

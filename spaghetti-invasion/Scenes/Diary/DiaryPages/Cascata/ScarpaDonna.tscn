@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://uaj57a0lpong"]
+
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="1_3m353"]
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="2_1ol7d"]
+
+[node name="OcchialiLuigino" type="Label"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_3m353")
+theme_override_font_sizes/font_size = 18
+text = "Dietro alla cascata c'è una scarpa da donna abbandonata. Sembra in buone condizioni, non dev'essere lì da molto."
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_1ol7d")
+clue_ID = 5

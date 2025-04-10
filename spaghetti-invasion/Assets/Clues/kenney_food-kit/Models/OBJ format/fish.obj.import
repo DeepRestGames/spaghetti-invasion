@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cw0u336hkknik"
+path="res://.godot/imported/fish.obj-78643f075ff52d5b5f6c5f345c8f4b70.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fish.obj-78643f075ff52d5b5f6c5f345c8f4b70.mesh"]
+
+source_file="res://Assets/Clues/kenney_food-kit/Models/OBJ format/fish.obj"
+dest_files=["res://.godot/imported/fish.obj-78643f075ff52d5b5f6c5f345c8f4b70.mesh", "res://.godot/imported/fish.obj-78643f075ff52d5b5f6c5f345c8f4b70.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

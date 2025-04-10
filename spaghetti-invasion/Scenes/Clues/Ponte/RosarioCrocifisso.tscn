@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=4 uid="uid://bq1ttslwuawv1"]
+
+[ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_jexiq"]
+[ext_resource type="Resource" uid="uid://dll6iolx63wrq" path="res://Assets/Resources/Clues/Ponte/Rosario.tres" id="2_jexiq"]
+[ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="3_xgj1j"]
+[ext_resource type="Texture2D" uid="uid://d2rmc8pgawgpb" path="res://Assets/Clues/cross/cross_TiledWood_Color.png" id="4_a5pi2"]
+[ext_resource type="Texture2D" uid="uid://bvnbrx6ynx75t" path="res://Assets/Clues/cross/cross_TiledWood_Roughness.png" id="5_1im8u"]
+[ext_resource type="Texture2D" uid="uid://dgnj02jfarn3b" path="res://Assets/Clues/cross/cross_TiledWood_Normal.png" id="6_gt4wm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
+size = Vector3(0.6, 0.2, 0.6)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+transparency = 1
+albedo_texture = ExtResource("3_xgj1j")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
+material = SubResource("StandardMaterial3D_cxrr5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wnpr"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.329216, 0.0797383, 0, 1)
+albedo_texture = ExtResource("4_a5pi2")
+metallic_texture = ExtResource("5_1im8u")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_1im8u")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("6_gt4wm")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m4cpm"]
+_surfaces = [{
+"aabb": AABB(-4.38983, -1, -1, 8.77966, 2.22935, 2),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAQAFAAMABQAEAAMABgACAAQABQAGAAQABwACAAYABwAAAAIABQAIAAYABwAGAAgABQAJAAgACgAIAAkABQAKAAkACgALAAgABwAIAAsABwALAAoABQAMAAoABwAKAAwADQAFAAEAAAANAAEABQAOAAwADwAHAAwADAAOAA8ADwAQAAcADgAQAA8AEQAHABAADgARABAABwASAAAAEgAHABEAEQAOABMABQATAA4AEQATABIABQANABMAAAASABQAFAASABUAAAAUABYAFQAWABQAAAAWAA0AEgAXABUAEgATABcAFQAXABYAEwANABcAFwANABYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("12Jq0///AADXYv//AAAAANdi/////wAAJ53//wAAAAAnnf////8AACedatMAAAAAJ51q0///AAAnnQ63//8AAP//atP//wAA//9q0wAAAAD//w63AAAAAP//Drf//wAAJ50OtwAAAADXYmrTAAAAANdiAAAAAAAAJ50AAAAAAAAnnQAA//8AANdiAAD//wAA12IOt///AADXYg63AAAAAAAAatP//wAAAAAOt///AAAAAGrTAAAAAAAADrcAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v0b7f"]
+resource_name = "cross_Cube"
+_surfaces = [{
+"aabb": AABB(-4.38983, -1, -1, 8.77966, 2.22935, 2),
+"attribute_data": PackedByteArray("OIklQ8Z2Dic4iQ4nxnYlQ8Z2JUM4iQ4nxnYOJziJJUN8cRCLgo7udIKOEIt8ce50go7udLK/EIuCjhCLsr/udIKOEIuyv+50go7udLK/EIuCjmpMsr/5NrK/akyCjvk2fHFFFYKORRV8cfk2fHFqTExA+TZMQGpMfHHQ1oKO0NY4iVjIxnYDVTiJA1XGdljIxnZYyDiJA1XGdgNVOIlYyIKO+Tayv2pMsr/5NoKOakx8cdDWgo7Q1nxxakx8cfk2TEBqTExA+TZ8cUUVgo5FFTiJA1XGdiVDOIklQ8Z2A1XGdgNVOIklQ8Z2JUM4iQNVfHHudExAEIt8cRCLTEDudIKOEIt8ce50fHEQi4KO7nR8ce50TEAQi0xA7nR8cRCL"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAFwAYABkAFAAYABcAFAAaABgAFAAbABoAGgAbABwAHAAbAB0AGwAUAB4AHgAUAB8AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkAKwAsAC0AKAAsACsAKAAuACwAKAAvAC4ALgAvADAAMAAvADEALwAoADIAMgAoADMANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
+"material": SubResource("StandardMaterial3D_5wnpr"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("12Jq0////7/XYv//AAD/v9di//////+/12Jq0wAA/78nnWrTAAAAACed/////wAAJ53//wAAAAAnnWrT//8AANdiAAAAAP+/J50AAP///78nnQAAAAD/v9diAAD///+/J50Ot////7///w63AAD/vyedDrcAAP+///8Ot////78nnWrTAAD/P///atP///8/J51q0////z///2rTAAD/PyedDrf//wCA//9q0///AID//w63//8AgCedatP//wCA12L/////AIAnnf////8AgNdiatP//wCA12IOt///AIAAAGrT//8AgAAADrf//wCA12IAAP//AIAnnQAA//8AgNdiAAD///+/12IOtwAA/7/XYg63////v9diAAAAAP+/J50AAAAAAAAnnQ63//8AACedDrcAAAAAJ50AAP//AAAnnWrTAAAAAP//DrcAAAAA//9q0wAAAAAnnQ63AAAAANdiAAAAAAAAJ50AAAAAAADXYg63AAAAANdiatMAAAAAAAAOtwAAAAAAAGrTAAAAANdi//8AAAAAJ53//wAAAAAAAA63////vwAAatMAAP+/AABq0////78AAA63AAD/v///DrcAAAAA//9q0///AAD//2rTAAAAAP//Drf//wAA12Jq0////z8AAGrTAAD/P9diatMAAP8/AABq0////z8nnf//AAD/P9di//////8/12L//wAA/z8nnf//////P9diDrf///+/AAAOtwAA/78AAA63////v9diDrcAAP+//3////9/////f////3////+//3//v/9//7//f/+//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////7//f/+//3//v/9//7//f////3////9/////f////3////9/////f////3////9/////f////3////9/////f/9/////f////3////9/////v/9//7//f/+//3//v/9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_m4cpm")
+
+[sub_resource type="SphereMesh" id="SphereMesh_a5pi2"]
+material = SubResource("StandardMaterial3D_5wnpr")
+
+[node name="RosarioCrocifisso" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_jexiq")
+clue_data = ExtResource("2_jexiq")
+disappear_when_interacted = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86265e-08, -4.47035e-08, 0.15)
+shape = SubResource("BoxShape3D_wvud3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.62103, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_lcp4q")
+draw_pass_1 = SubResource("QuadMesh_hccsa")
+
+[node name="Rosary" type="Node3D" parent="."]
+
+[node name="Cross" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.017, 0, 0, 0, -4.37114e-09, -0.013, 0, 0.1, -5.68248e-10, 0, 0, 0)
+mesh = SubResource("ArrayMesh_v0b7f")
+skeleton = NodePath("")
+
+[node name="Bead" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.1064, 0, 0.0753407)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead2" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.149304, 0, 0.115385)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead3" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.17028, 0, 0.164963)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead4" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.171233, 0, 0.219309)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead5" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.154071, 0, 0.270794)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead6" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.118794, 0, 0.311792)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead7" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0701694, 0, 0.335628)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead8" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0177306, 0, 0.346115)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead9" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0347082, 0, 0.343255)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead10" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0823797, 0, 0.320373)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead11" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.124353, 0, 0.291069)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead12" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.154808, 0, 0.249348)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead13" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.170863, 0, 0.200647)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead14" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.170994, 0, 0.149238)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead15" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.146128, 0, 0.103112)
+mesh = SubResource("SphereMesh_a5pi2")
+
+[node name="Bead16" type="MeshInstance3D" parent="Rosary"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.10387, 0, 0.0734243)
+mesh = SubResource("SphereMesh_a5pi2")

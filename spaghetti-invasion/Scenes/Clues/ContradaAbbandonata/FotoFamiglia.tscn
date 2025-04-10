@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=4 uid="uid://t6w80wjjcu2c"]
+
+[ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_5ru6g"]
+[ext_resource type="Resource" uid="uid://1n0n5apc0l8f" path="res://Assets/Resources/Clues/ContradaAbbandonata/FotoFamiglia.tres" id="2_lveqk"]
+[ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="2_scir7"]
+[ext_resource type="Texture2D" uid="uid://o4mbgaxu71nn" path="res://Assets/Clues/FamilyPicture.png" id="3_defa1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
+size = Vector3(0.5, 0.7, 0.1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+transparency = 1
+albedo_texture = ExtResource("2_scir7")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
+material = SubResource("StandardMaterial3D_cxrr5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmswa"]
+resource_name = "Frame"
+cull_mode = 2
+albedo_color = Color(0.39332, 0.257147, 0.161113, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rm7p5"]
+_surfaces = [{
+"aabb": AABB(-0.200059, 0, -9.83641e-09, 0.400119, 0.498667, 0.0158483),
+"format": 34896613377,
+"index_count": 150,
+"index_data": PackedByteArray("EwAUABUAFAALABUACwATABUAEwAWABQAFAAFAAsAFgAFABQABwAWABMAFgAHAAUABwATAAAACwAAABMADAALAAUAAAALAAwADAAFAA0ADQAFAAcADgAHAAAADQAHAA4ADgAAAA8AAAAMAA8AFwAMAA0ADwAMABcAFwANABgAGAANAA4AGQAOAA8AGAAOABkAGQAPABoADwAXABoABgAXABgAGgAXAAYABgAYAAgACAAYABkACgAZABoACAAZAAoACgAaAAkAGgAGAAkAEAAGAAgACQAGABAAEQAIAAoAEAAIABEAEgAKAAkAEQAKABIAEgAJABsACQAQABsABAASABsAEAAEABsABAADABIAAwARABIAEAACAAQAAwABABEAAQACABAAAQAQABEA"),
+"lods": [0.00937002, PackedByteArray("AAAFAAsADAALAAUAAAALAAwAAAAHAAUADAAFAA0ADQAFAAcADgAHAAAADQAHAA4ADgAAAA8AAAAMAA8ABgAMAA0ADwAMAAYABgANAAgACAANAA4ACgAOAA8ACAAOAAoACgAPAAkADwAGAAkAEAAGAAgACQAGABAAEQAIAAoAEAAIABEAEgAKAAkAEQAKABIACQAQAAQAEgAJAAQAEAACAAQABAADABIAAwARABIAAQACABAAAwABABEAAQAQABEA"), 0.0107751, PackedByteArray("AAAFAAYAAAAHAAUABgAFAAgACAAFAAcAAgAGAAgAAgAIAAEACQAGAAIAAAAGAAkACQACAAQAAwAJAAQACgAAAAkAAwAKAAkAAQAKAAMAAQAIAAoACgAHAAAACAAHAAoA"), 0.0238618, PackedByteArray("AAAFAAYAAAADAAUAAQAFAAMABgAFAAEAAwAAAAQAAAAGAAQABAAGAAIAAgAGAAEA"), 0.02479, PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAwAAAAQA")],
+"name": "Frame",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("bthRIafTAAAAAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAAAAJAnXd+n0wAAUfUw92L1AACQJ1Ehp9MAAK0KMPdi9QAAUfX9CGL1AACtCv0IYvUAAG7YXd+n0wAADd/T5P7/AADxINPk/v8AAPEgvhv//wAADd++G///AAD/////l6QAAAAA//+XpAAAAAAAAJekAAAy1jMjV7kAAMwpht1XuQAAMtaG3Ve5AADMKTMjV7kAADfqCO5ulwAAxxUI7m6XAADHFVcSbpcAADfqVxJulwAA//8AAJekAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ta78q"]
+resource_name = "PictureFrame_Plane"
+_surfaces = [{
+"aabb": AABB(-0.200059, 0, -9.83641e-09, 0.400119, 0.498667, 0.0158483),
+"attribute_data": PackedByteArray("uai22gAAAABMygAAAAD//07K//97IaIka7/UC3ohttrWCtQLbL/889YK/PO5qKIk763PHkYczx5GHKXg762l4MTHugKEAroChAJE/fymqNg3I6cm/aanJjcjqNi4tkcVgxNHFYITW+q5tlvqxcdE/Q=="),
+"format": 34896613399,
+"index_count": 150,
+"index_data": PackedByteArray("EwAUABUAFAALABUACwATABUAEwAWABQAFAAFAAsAFgAFABQABwAWABMAFgAHAAUABwATAAAACwAAABMADAALAAUAAAALAAwADAAFAA0ADQAFAAcADgAHAAAADQAHAA4ADgAAAA8AAAAMAA8AFwAMAA0ADwAMABcAFwANABgAGAANAA4AGQAOAA8AGAAOABkAGQAPABoADwAXABoABgAXABgAGgAXAAYABgAYAAgACAAYABkACgAZABoACAAZAAoACgAaAAkAGgAGAAkAEAAGAAgACQAGABAAEQAIAAoAEAAIABEAEgAKAAkAEQAKABIAEgAJABsACQAQABsABAASABsAEAAEABsABAADABIAAwARABIAEAACAAQAAwABABEAAQACABAAAQAQABEA"),
+"lods": [0.00937002, PackedByteArray("AAAFAAsADAALAAUAAAALAAwAAAAHAAUADAAFAA0ADQAFAAcADgAHAAAADQAHAA4ADgAAAA8AAAAMAA8ABgAMAA0ADwAMAAYABgANAAgACAANAA4ACgAOAA8ACAAOAAoACgAPAAkADwAGAAkAEAAGAAgACQAGABAAEQAIAAoAEAAIABEAEgAKAAkAEQAKABIACQAQAAQAEgAJAAQAEAACAAQABAADABIAAwARABIAAQACABAAAwABABEAAQAQABEA"), 0.0107751, PackedByteArray("AAAFAAYAAAAHAAUABgAFAAgACAAFAAcAAgAGAAgAAgAIAAEACQAGAAIAAAAGAAkACQACAAQAAwAJAAQACgAAAAkAAwAKAAkAAQAKAAMAAQAIAAoACgAHAAAACAAHAAoA"), 0.0238618, PackedByteArray("AAAFAAYAAAADAAUAAQAFAAMABgAFAAEAAwAAAAQAAAAGAAQABAAGAAIAAgAGAAEA"), 0.02479, PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAwAAAAQA")],
+"material": SubResource("StandardMaterial3D_jmswa"),
+"name": "Frame",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("bthRIafT7IgAAP//AABPwP////8AAE/AAAAAAAAAUMD//wAAAABQwJAnXd+n0wqJUfUw92L1DoSQJ1Ehp9PsiK0KMPdi9Q6EUfX9CGL1/4OtCv0IYvX/g27YXd+n0wqJDd/T5P7/84XxINPk/v/zhfEgvhv//96FDd++G///3oX/////l6ThqQAA//+XpOGpAAAAAJek1qky1jMjV7mEicwpht1XuZuJMtaG3Ve5m4nMKTMjV7mEiTfqCO5ul4OExxUI7m6Xg4THFVcSbpdyhDfqVxJul3KE//8AAJek1qlQyOTHDclxvozBDUlvPuS25TaPQZ42IjjwsylKGbhRSCnKDcz5N1EzrUz4t9xHnrbTtWpJaskqyoFKiLiIOH41V7/7RfvFpsCWQFu6D8ZFx/w4UjmtRvy4uLgPRnhLQrZDNoc07rN/R3/HEMxbOmg/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rm7p5")
+
+[node name="FotoFamiglia" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_5ru6g")
+clue_data = ExtResource("2_lveqk")
+disappear_when_interacted = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_wvud3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.62103, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_lcp4q")
+draw_pass_1 = SubResource("QuadMesh_hccsa")
+
+[node name="Frame" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_ta78q")
+skeleton = NodePath("")
+
+[node name="Picture" type="Sprite3D" parent="Frame"]
+transform = Transform3D(-6.55671e-10, -0.015, 0, 0.015, -6.55671e-10, 0, 0, 0, 0.015, 0, 0.248689, 0)
+texture = ExtResource("3_defa1")

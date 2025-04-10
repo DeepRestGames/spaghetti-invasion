@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjwfw1trolcu2"]
+[gd_scene load_steps=9 format=3 uid="uid://cjwfw1trolcu2"]
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_e7tkw"]
+[ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="2_jmngl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
 
@@ -10,6 +11,34 @@ emission = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e7tkw"]
 material = SubResource("StandardMaterial3D_wvud3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+transparency = 1
+albedo_texture = ExtResource("2_jmngl")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
+material = SubResource("StandardMaterial3D_cxrr5")
 
 [node name="Interactable" type="StaticBody3D"]
 collision_layer = 4
@@ -21,3 +50,11 @@ shape = SubResource("BoxShape3D_wvud3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_e7tkw")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62103, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_lcp4q")
+draw_pass_1 = SubResource("QuadMesh_hccsa")

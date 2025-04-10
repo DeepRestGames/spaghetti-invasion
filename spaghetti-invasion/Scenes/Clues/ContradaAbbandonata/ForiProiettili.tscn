@@ -1,11 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyiab0f4xfpgs"]
+[gd_scene load_steps=9 format=3 uid="uid://dyiab0f4xfpgs"]
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_cc3gd"]
 [ext_resource type="Resource" uid="uid://bhum63nxjn2ib" path="res://Assets/Resources/Clues/ContradaAbbandonata/ForiProiettili.tres" id="2_hi6x3"]
-[ext_resource type="Texture2D" uid="uid://1j28kqppshue" path="res://Assets/2D/Sprites/BulletHole.png" id="2_w8baf"]
+[ext_resource type="Texture2D" uid="uid://1j28kqppshue" path="res://Assets/Clues/BulletHole.png" id="2_w8baf"]
+[ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="4_be0df"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
 size = Vector3(1.2, 1.2, 0.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ccn5g"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e80qp"]
+transparency = 1
+albedo_texture = ExtResource("4_be0df")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ekw8e"]
+material = SubResource("StandardMaterial3D_e80qp")
 
 [node name="ForiProiettili" type="StaticBody3D"]
 collision_layer = 4
@@ -71,3 +100,11 @@ cast_shadow = 0
 modulate = Color(0.87451, 1, 0.686275, 1)
 double_sided = false
 texture = ExtResource("2_w8baf")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.294924, 0.375478)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_ccn5g")
+draw_pass_1 = SubResource("QuadMesh_ekw8e")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://8uikyeogo18b"]
+
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="1_yxr0c"]
+[ext_resource type="Texture2D" uid="uid://cmi3cxua7tsbd" path="res://Assets/Clues/DisegnoBambiniPonte.jpg" id="2_luphx"]
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="3_ox1wu"]
+
+[node name="Content_DisegnoBambiniPonte" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("1_yxr0c")
+clue_ID = 10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_luphx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Testo_DisegnoBambiniPonte" type="Label" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_ox1wu")
+theme_override_font_sizes/font_size = 18
+text = "Un disegno con due gruppi di bambini sotto ad un ponte."
+vertical_alignment = 1
+autowrap_mode = 2

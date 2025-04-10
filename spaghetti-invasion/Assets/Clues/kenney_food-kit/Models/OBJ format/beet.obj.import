@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4jkyli7eki15"
+path="res://.godot/imported/beet.obj-79cb276b43cb08dbb24fce3b5bb1ca3c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/beet.obj-79cb276b43cb08dbb24fce3b5bb1ca3c.mesh"]
+
+source_file="res://Assets/Clues/kenney_food-kit/Models/OBJ format/beet.obj"
+dest_files=["res://.godot/imported/beet.obj-79cb276b43cb08dbb24fce3b5bb1ca3c.mesh", "res://.godot/imported/beet.obj-79cb276b43cb08dbb24fce3b5bb1ca3c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

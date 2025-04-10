@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=4 uid="uid://cjeik7br5352w"]
+
+[ext_resource type="Texture2D" uid="uid://b0agrb3x6yo1i" path="res://Assets/Clues/PSXHuntingRifle[FIXED]/PSXHuntingRifle[FIXED]/Textures/HuntingAmmoText.jpg" id="1_75wac"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4q4m3"]
+resource_name = "Material.068"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_75wac")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ne20f"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.0772254, 0.02, 0.02, 0.118253),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAwAAAAQABAAFAAMABAACAAYABwAFAAQABgAIAAQABAAIAAcACQAIAAYACgAHAAgACAAJAAoACgAJAAsABgALAAkACwAMAAoADAALAAYACgAMAA0ADQAHAAoABgANAAwABwANAA4ADgANAAYADgAPAAcABgAQAA4AEQAPAA4AEgAOABAADgASABEAEAATABIAEQASABMA"),
+"name": "Material.068",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAArXI7wRDCg9CtcjPA+gLrcRDCg9CtcjPA+gLrebQU69CtcjvA+gLrcRDCg9AAAAAArXI7ybQU69CtcjvA+gLrebQU69tqnsOwAAAAAatnW9tqnsuwAAAAAatnW9AAAAAFaIBbwatnW9AAAAAFaIBbxZKJ69tqnsuwAAAABZKJ69tqnsOwAAAABZKJ69AAAAAFaIBTxZKJ69AAAAAFaIBTwatnW9AAAAAArXIzybQU69CtcjvA+gLjebQU69CtcjPA+gLjebQU69CtcjvA+gLjcRDCg9AAAAAArXIzwRDCg9CtcjPA+gLjcRDCg9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pds1y"]
+resource_name = "Cube_014"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.0772254, 0.02, 0.02, 0.118253),
+"attribute_data": PackedByteArray("6IsiPhr+eD9aQ7k+Gv54P1pDuT7+p+w+6IsiPv6n7D4oHns/RANwP6E0Oz+jEV0/Od4+P9Bmfz+GOPs9Gv54P4/Lpj4a/ng/j8umPv6n7D6GOPs9/qfsPijixj5wN8Q+JjGJPnA3xD4mMYk+3tfaPuib3j7e19o+SAAXPnA3xD5cGc893tfaPiYxiT7e19o+JjGJPnA3xD47mS4+iosBPzuZLj5usxk/jOigPm6zGT+M6KA+iosBPzuZLj6KiwE/jOigPm6zGT87mS4+brMZP5UYVD7cgUk/lRhUPsCpYT87qLM+wKlhPzuosz7cgUk/O6izPsCpYT+VGFQ+wKlhPzuosz7cgUk/6IsiPhr+eD/oiyI+/qfsPlpDuT7+p+w+WkO5Phr+eD+hNDs/oxFdPygeez9EA3A/Od4+P9Bmfz+GOPs9Gv54P4Y4+z3+p+w+j8umPv6n7D6Py6Y+Gv54PyYxiT7e19o+JjGJPnA3xD4o4sY+cDfEPuib3j7e19o+SAAXPnA3xD4mMYk+cDfEPiYxiT7e19o+XBnPPd7X2j40XoI9OqxiP8ANFT0woF0/UAcBvW8jYD/Av4q7ei9lPw=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABwAIAAkACQAKAAcACwAMAA0ADQAOAAsADwAQABEAEQASAA8AEwAUABUAFQAWABMAFwAWABgAGAAZABcAGgAbABwAHAAdABoAHgAfABoAGgAgAB4AIQAiACMAIwAkACEAJQAmACcAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"material": SubResource("StandardMaterial3D_4q4m3"),
+"name": "Material.068",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("AAAAAArXI7wRDCg9CtcjPA+gLrcRDCg9CtcjPA+gLrebQU69AAAAAArXI7ybQU69AAAAAArXI7wRDCg9CtcjvA+gLrcRDCg9CtcjPA+gLrcRDCg9CtcjvA+gLrcRDCg9AAAAAArXI7wRDCg9AAAAAArXI7ybQU69CtcjvA+gLrebQU69tqnsOwAAAAAatnW9AAAAAFaIBbwatnW9AAAAAArXI7ybQU69CtcjPA+gLrebQU69tqnsuwAAAAAatnW9CtcjvA+gLrebQU69AAAAAArXI7ybQU69AAAAAFaIBbwatnW9AAAAAFaIBbxZKJ69AAAAAFaIBbwatnW9tqnsOwAAAAAatnW9tqnsOwAAAABZKJ69AAAAAFaIBTxZKJ69tqnsOwAAAAAatnW9AAAAAFaIBTwatnW9tqnsuwAAAABZKJ69tqnsuwAAAAAatnW9AAAAAFaIBbwatnW9AAAAAFaIBbxZKJ69AAAAAFaIBTwatnW9tqnsuwAAAAAatnW9AAAAAFaIBTxZKJ69AAAAAArXIzwRDCg9AAAAAArXIzybQU69CtcjPA+gLjebQU69CtcjPA+gLjcRDCg9CtcjvA+gLjcRDCg9AAAAAArXIzwRDCg9CtcjPA+gLjcRDCg9CtcjvA+gLjcRDCg9CtcjvA+gLjebQU69AAAAAArXIzybQU69AAAAAArXIzwRDCg9AAAAAArXIzybQU69AAAAAFaIBTwatnW9tqnsOwAAAAAatnW9CtcjPA+gLjebQU69tqnsuwAAAAAatnW9AAAAAFaIBTwatnW9AAAAAArXIzybQU69CtcjvA+gLjebQU69tqnsOwAAAABZKJ69AAAAAFaIBTxZKJ69tqnsuwAAAABZKJ69AAAAAFaIBbxZKJ699r/3PwfABCD2v/c/B8AEIPa/9z8HwAQg9r/3PwfABCD/f/9/+nP8ef9//3/6c/x5/3//f/pz/HkIQPc/B8D7XwhA9z8HwPtfCED3PwfA+18IQPc/B8D7X2LIkjpRvi8fYsiSOom+Ax9iyJI6Xr4kH2LIkjoxvksfnDeSOl6+1mCcN5I6lr7mYJw3kjpJvs9gnDeSOga+umCGtAAAJue6IdzD3EMivBEe3MPcQyK8ER7//4y1dJbWmoa0//8m57qh3MMivCK8EJ7cwyK8IrwQngAAjLWttcT0IjzcQyK87mEiPNxDIrzuYYa0AAB1w2tMIjwivCK87eEiPCK8Irzt4Ya0//91w2vM9r8HwAfAA6D2vwfAB8ADoPa/B8AHwAOg9r8HwAfAA6D/f/9/+nP8+f9//3/6c/z5/3//f/pz/PkIQAfAB8D63whAB8AHwPrfCEAHwAfA+t8IQAfAB8D632LIbMVeviSfYshsxYm+Ap9iyGzFUb4un2LIbMUxvkufnDdsxV6+1eCcN2zFBr654Jw3bMVJvs/gnDdsxZa+5uD//4y1kqS1K4a0//9k4uw5AACMtWvXSRKGtAAA2fMyMQ==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ne20f")
+
+[node name="AmmoCasing" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_pds1y")
+skeleton = NodePath("")

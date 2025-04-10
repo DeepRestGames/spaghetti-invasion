@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bnemshu5vkmww"]
+[gd_scene load_steps=40 format=3 uid="uid://bnemshu5vkmww"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_q1nml"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_3bx85"]
@@ -16,13 +16,11 @@
 [ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="14_j6uot"]
 [ext_resource type="Script" uid="uid://ce817t51pnnfd" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="15_13yf1"]
 [ext_resource type="Script" uid="uid://cvw1y25d3rugl" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="16_8vmnk"]
-[ext_resource type="PackedScene" uid="uid://fypdfqnu3x63" path="res://Assets/Models/CasaLuiginoAnna.blend" id="16_sifl5"]
 [ext_resource type="PackedScene" uid="uid://dik4tnuy7uuje" path="res://Scenes/Audio/AudioArea.tscn" id="17_inmp6"]
 [ext_resource type="AudioStream" uid="uid://bpypxwruvjcb6" path="res://Assets/Audio/SFX/Environment/Waterfall.wav" id="18_s6dfs"]
 [ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="19_7nafx"]
 [ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="20_5ma22"]
 [ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="21_xr7ge"]
-[ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="22_02mg1"]
 [ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="23_lx1v5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
@@ -48,7 +46,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="Resource" id="Resource_8vmnk"]
+[sub_resource type="Resource" id="Resource_qa84f"]
 script = ExtResource("9_o64on")
 amount = 3000
 enabled = true
@@ -57,7 +55,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_6epyx"]
+[sub_resource type="Resource" id="Resource_hxptu"]
 script = ExtResource("10_flotd")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -68,7 +66,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_6yfy8"]
+[sub_resource type="Resource" id="Resource_8vmnk"]
 script = ExtResource("11_g20i5")
 iterations = 3
 offset_step = 0.2
@@ -80,7 +78,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_5xe5l"]
+[sub_resource type="Resource" id="Resource_6epyx"]
 script = ExtResource("12_2i1ui")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -96,15 +94,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_g7xs1"]
+[sub_resource type="Resource" id="Resource_6yfy8"]
 script = ExtResource("7_m5elv")
-stack = Array[ExtResource("8_sdicq")]([SubResource("Resource_8vmnk"), SubResource("Resource_6epyx"), SubResource("Resource_6yfy8"), SubResource("Resource_5xe5l")])
+stack = Array[ExtResource("8_sdicq")]([SubResource("Resource_qa84f"), SubResource("Resource_hxptu"), SubResource("Resource_8vmnk"), SubResource("Resource_6epyx")])
 
 [sub_resource type="Resource" id="Resource_bqkvc"]
 script = ExtResource("15_13yf1")
 size = Vector3(182.322, 22.7866, 190.944)
 
-[sub_resource type="Resource" id="Resource_dxb08"]
+[sub_resource type="Resource" id="Resource_5xe5l"]
 script = ExtResource("9_o64on")
 amount = 2500
 enabled = true
@@ -113,7 +111,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_oh63m"]
+[sub_resource type="Resource" id="Resource_g7xs1"]
 script = ExtResource("10_flotd")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -124,7 +122,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_2v2ok"]
+[sub_resource type="Resource" id="Resource_dxb08"]
 script = ExtResource("11_g20i5")
 iterations = 3
 offset_step = 0.2
@@ -136,7 +134,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_3d0ki"]
+[sub_resource type="Resource" id="Resource_oh63m"]
 script = ExtResource("12_2i1ui")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 70.0
@@ -152,9 +150,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_rclnr"]
+[sub_resource type="Resource" id="Resource_2v2ok"]
 script = ExtResource("7_m5elv")
-stack = Array[ExtResource("8_sdicq")]([SubResource("Resource_dxb08"), SubResource("Resource_oh63m"), SubResource("Resource_2v2ok"), SubResource("Resource_3d0ki")])
+stack = Array[ExtResource("8_sdicq")]([SubResource("Resource_5xe5l"), SubResource("Resource_g7xs1"), SubResource("Resource_dxb08"), SubResource("Resource_oh63m")])
 
 [sub_resource type="Curve3D" id="Curve3D_le1a3"]
 _data = {
@@ -219,7 +217,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.8763, -22.5764, -107.008)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
 script = ExtResource("6_f6lyf")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_g7xs1")
+modifier_stack = SubResource("Resource_6yfy8")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -273,7 +271,7 @@ shape = SubResource("Resource_bqkvc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
 script = ExtResource("6_f6lyf")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_rclnr")
+modifier_stack = SubResource("Resource_2v2ok")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -323,9 +321,6 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 249.153,
 visible = false
 script = ExtResource("14_j6uot")
 shape = SubResource("Resource_je8i1")
-
-[node name="CasaLuiginoAnna" parent="SubViewport/GameWorld" instance=ExtResource("16_sifl5")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -262.469, 29.3909, -94.1819)
 
 [node name="AudioAreas" type="Node3D" parent="SubViewport/GameWorld"]
 visible = false
@@ -489,21 +484,22 @@ autoplay = true
 max_distance = 150.0
 bus = &"SFX"
 
-[node name="Aree&Indizi" type="Node3D" parent="SubViewport/GameWorld"]
+[node name="DiscoverableAreas" type="Node3D" parent="SubViewport/GameWorld"]
+visible = false
 
-[node name="ContradaAbbandonata" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+[node name="ContradaAbbandonata" type="Area3D" parent="SubViewport/GameWorld/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.57, 30.8859, -93.2946)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("19_7nafx")
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/ContradaAbbandonata"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/DiscoverableAreas/ContradaAbbandonata"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
 polygon = PackedVector2Array(52.4795, -63.6292, 99.1124, -71.941, 118.895, -54.2511, 103.677, -41.697, 86.368, -56.5337, 56.0935, -53.1675, 13.6759, 0.28257, 7.13301, 74.9252, -22.3501, 64.4634, -21.2373, -62.2785, 4.06116, -66.8436, 23.2727, -25.5672)
 debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
 
-[node name="Cascata" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+[node name="Cascata" type="Area3D" parent="SubViewport/GameWorld/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82069, 10.8254, -107.342)
 collision_layer = 0
 collision_mask = 2
@@ -511,12 +507,12 @@ monitorable = false
 script = ExtResource("19_7nafx")
 area_name = 1
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/Cascata"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/DiscoverableAreas/Cascata"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -50, 0, 1, -2.18557e-06, 0, 0, 0)
 polygon = PackedVector2Array(-19.3721, 17.5199, -73.6122, 59.5651, -88.3553, 46.0961, -60.6892, 15.6998, -56.5029, -4.68575, 23.9915, -49.9724, 27.8913, -48.596, 20.7799, -26.3443)
 debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
 
-[node name="ValleOscura" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+[node name="ValleOscura" type="Area3D" parent="SubViewport/GameWorld/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 0.991774, -0.127999, 0, 0.127999, 0.991774, 76.5013, 5.38235, -201.151)
 collision_layer = 0
 collision_mask = 2
@@ -524,12 +520,12 @@ monitorable = false
 script = ExtResource("19_7nafx")
 area_name = 2
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/ValleOscura"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/DiscoverableAreas/ValleOscura"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -50, 0, 1, -2.18557e-06, 0, 0, 0)
 polygon = PackedVector2Array(21.9575, 55.0759, -12.286, 68.5065, -44.3204, 49.9411, -14.379, -13.4751, -6.2374, -37.6724, -27.5687, -76.6747, -16.1672, -90.2911, 31.8844, -92.1112, 51.5419, -70.2696, 32.4629, 1.77667)
 debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
 
-[node name="Ponte" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+[node name="Ponte" type="Area3D" parent="SubViewport/GameWorld/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.511, 84.4012, -347.146)
 collision_layer = 0
 collision_mask = 2
@@ -537,12 +533,12 @@ monitorable = false
 script = ExtResource("19_7nafx")
 area_name = 3
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/Ponte"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/DiscoverableAreas/Ponte"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -30, 0, 1, -1.31134e-06, 0, 0, 0)
 polygon = PackedVector2Array(62.4201, 49.4044, 35.872, 45.2126, -1.01594, 18.6644, -51.3176, 34.0344, -65.2903, 29.2837, -69.7616, -33.314, -47.1258, -42.8154, 73.3188, -5.08914)
 debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
 
-[node name="Abbazia" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+[node name="Abbazia" type="Area3D" parent="SubViewport/GameWorld/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7833, 93.0807, -236.72)
 collision_layer = 0
 collision_mask = 2
@@ -550,12 +546,12 @@ monitorable = false
 script = ExtResource("19_7nafx")
 area_name = 4
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/Abbazia"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/DiscoverableAreas/Abbazia"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
 polygon = PackedVector2Array(11.8655, 4.39917, -8.3273, 12.8129, -13.6344, -3.10843, 6.04068, -11.1338)
 debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
 
-[node name="CapannoCacciatori" type="Area3D" parent="SubViewport/GameWorld/Aree&Indizi"]
+[node name="CapannoCacciatori" type="Area3D" parent="SubViewport/GameWorld/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7398, 59.9959, -214.969)
 collision_layer = 0
 collision_mask = 2
@@ -563,7 +559,7 @@ monitorable = false
 script = ExtResource("19_7nafx")
 area_name = 5
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/Aree&Indizi/CapannoCacciatori"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/DiscoverableAreas/CapannoCacciatori"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
 polygon = PackedVector2Array(13.1891, 4.54906, -4.1295, 6.30798, -9.87983, -6.47804, 10.1449, -10.0636)
 debug_color = Color(0.892768, 0.000229102, 0.786232, 0.42)
@@ -611,18 +607,15 @@ debug_color = Color(0.12938, 0.520636, 1, 0.42)
 transform = Transform3D(1.04415, 0, -1.07692, 0, 1.5, 0, 1.07692, 0, 1.04415, 16.1556, 12.1634, -9.02901)
 visible = false
 
-[node name="CasaLuiginoAnna_v1_0" parent="." instance=ExtResource("22_02mg1")]
-transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, -259.797, 30.3506, -73.0635)
-
 [node name="HUD" parent="." instance=ExtResource("23_lx1v5")]
 layout_mode = 2
 
-[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/ContradaAbbandonata" to="SubViewport/GameWorld/Aree&Indizi/ContradaAbbandonata" method="_on_body_entered"]
-[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/Cascata" to="SubViewport/GameWorld/Aree&Indizi/Cascata" method="_on_body_entered"]
-[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/ValleOscura" to="SubViewport/GameWorld/Aree&Indizi/ValleOscura" method="_on_body_entered"]
-[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/Ponte" to="SubViewport/GameWorld/Aree&Indizi/Ponte" method="_on_body_entered"]
-[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/Abbazia" to="SubViewport/GameWorld/Aree&Indizi/Abbazia" method="_on_body_entered"]
-[connection signal="body_entered" from="SubViewport/GameWorld/Aree&Indizi/CapannoCacciatori" to="SubViewport/GameWorld/Aree&Indizi/CapannoCacciatori" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/DiscoverableAreas/ContradaAbbandonata" to="SubViewport/GameWorld/DiscoverableAreas/ContradaAbbandonata" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/DiscoverableAreas/Cascata" to="SubViewport/GameWorld/DiscoverableAreas/Cascata" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/DiscoverableAreas/ValleOscura" to="SubViewport/GameWorld/DiscoverableAreas/ValleOscura" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/DiscoverableAreas/Ponte" to="SubViewport/GameWorld/DiscoverableAreas/Ponte" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/DiscoverableAreas/Abbazia" to="SubViewport/GameWorld/DiscoverableAreas/Abbazia" method="_on_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/DiscoverableAreas/CapannoCacciatori" to="SubViewport/GameWorld/DiscoverableAreas/CapannoCacciatori" method="_on_body_entered"]
 [connection signal="body_entered" from="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/EnterTriggerArea" to="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" method="_on_enter_trigger_area_body_entered"]
 [connection signal="body_entered" from="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/ExitTriggerArea" to="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" method="_on_exit_trigger_area_body_entered"]
 [connection signal="body_entered" from="SubViewport/GameWorld/SpookyEvents/DisappearingAlien/ExitTriggerArea2" to="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" method="_on_exit_trigger_area_body_entered"]

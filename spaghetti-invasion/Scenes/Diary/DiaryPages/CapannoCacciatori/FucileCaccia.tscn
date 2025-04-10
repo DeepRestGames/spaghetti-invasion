@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://34d5lesgnqpr"]
+
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="1_lhsje"]
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="2_evaj5"]
+
+[node name="FucileCaccia" type="Label"]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 50.0
+offset_bottom = 5485.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_lhsje")
+theme_override_font_sizes/font_size = 18
+text = "Dentro il capanno c'è un fucile da caccia rotto. Sembra che sia stato usato di recente."
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_evaj5")
+clue_ID = 12

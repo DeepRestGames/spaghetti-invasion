@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2bavnmw7gvq5"]
+
+[ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_cxrr5"]
+[ext_resource type="Resource" uid="uid://u4seur31w8tf" path="res://Assets/Resources/Clues/Cascata/OcchialiLuigino.tres" id="2_4uj3f"]
+[ext_resource type="PackedScene" uid="uid://cl7lvin05kr75" path="res://Assets/Clues/Glasses.obj" id="2_whcvo"]
+[ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="3_4uj3f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
+size = Vector3(5, 2, 5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p4xw3"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+transparency = 1
+albedo_texture = ExtResource("3_4uj3f")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_bg2o6"]
+material = SubResource("StandardMaterial3D_cxrr5")
+
+[node name="OcchialiLuigino" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_cxrr5")
+clue_data = ExtResource("2_4uj3f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.166442, 0)
+shape = SubResource("BoxShape3D_wvud3")
+
+[node name="Glasses" parent="." instance=ExtResource("2_whcvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41449, 0, 18.3363)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62103, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_p4xw3")
+draw_pass_1 = SubResource("QuadMesh_bg2o6")

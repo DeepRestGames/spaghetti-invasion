@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://chpv2dbr7iqha"]
 
 [ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="1_3yu01"]
-[ext_resource type="Texture2D" uid="uid://o4mbgaxu71nn" path="res://Assets/2D/Sprites/FamilyPicture.png" id="1_y3ykq"]
+[ext_resource type="Texture2D" uid="uid://o4mbgaxu71nn" path="res://Assets/Clues/FamilyPicture.png" id="1_y3ykq"]
 [ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="2_3yu01"]
 
 [node name="Content_FotoFamiglia" type="HBoxContainer"]

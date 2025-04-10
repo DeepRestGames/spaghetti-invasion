@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://8cu6w5605rum"]
+
+[ext_resource type="FontFile" uid="uid://52ylib6w7e1g" path="res://Assets/Fonts/NothingYouCouldDo-Regular.ttf" id="1_3lihb"]
+[ext_resource type="Script" uid="uid://ba7ho8pk7ihmn" path="res://Scripts/Diary/DiaryEntry.gd" id="2_cgqg2"]
+
+[node name="SangueValle" type="Label"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_3lihb")
+theme_override_font_sizes/font_size = 18
+text = "Ci sono delle macchie di sangue su dei massi in fondo alla valle. Sembra che una carcassa sia stata trascinata dall'altro lato, ma servirebbe una forza incredibile per farlo."
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_cgqg2")
+clue_ID = 8
