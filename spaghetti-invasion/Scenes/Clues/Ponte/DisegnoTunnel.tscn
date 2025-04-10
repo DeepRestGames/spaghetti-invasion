@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
 size = Vector3(0.8, 0.6, 0.1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bvi1x"]
 lifetime_randomness = 0.5
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
@@ -16,14 +16,9 @@ emission_ring_height = 1.0
 emission_ring_radius = 1.5
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 5.0
-linear_accel_max = 6.0
+gravity = Vector3(0, 9.8, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leawv"]
 transparency = 1
 albedo_texture = ExtResource("3_43t86")
 emission_enabled = true
@@ -33,8 +28,8 @@ backlight_enabled = true
 backlight = Color(1, 1, 1, 1)
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
-material = SubResource("StandardMaterial3D_cxrr5")
+[sub_resource type="QuadMesh" id="QuadMesh_nor68"]
+material = SubResource("StandardMaterial3D_leawv")
 
 [node name="DisegnoTunnel" type="StaticBody3D"]
 collision_layer = 4
@@ -47,14 +42,14 @@ disappear_when_interacted = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.47035e-08, 0)
 shape = SubResource("BoxShape3D_wvud3")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.62103, 0)
-cast_shadow = 0
-amount = 5
-lifetime = 1.5
-process_material = SubResource("ParticleProcessMaterial_lcp4q")
-draw_pass_1 = SubResource("QuadMesh_hccsa")
-
 [node name="Picture" type="Sprite3D" parent="."]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 texture = ExtResource("4_bvi1x")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.415681, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_bvi1x")
+draw_pass_1 = SubResource("QuadMesh_nor68")

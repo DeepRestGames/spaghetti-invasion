@@ -7,34 +7,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
 size = Vector3(0.7, 0.2, 0.6)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
-lifetime_randomness = 0.5
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 1.5
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 5.0
-linear_accel_max = 6.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
-transparency = 1
-albedo_texture = ExtResource("3_qqhj6")
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.5
-backlight_enabled = true
-backlight = Color(1, 1, 1, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
-material = SubResource("StandardMaterial3D_cxrr5")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbbt1"]
 albedo_color = Color(1, 0, 0, 1)
 
@@ -114,6 +86,29 @@ albedo_color = Color(0.665621, 0.000331621, 0.665617, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egcol"]
 albedo_color = Color(0, 0.58093, 3.85046e-07, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nbbt1"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 9.8, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yxec"]
+transparency = 1
+albedo_texture = ExtResource("3_qqhj6")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_6n6xo"]
+material = SubResource("StandardMaterial3D_1yxec")
+
 [node name="Matite" type="StaticBody3D"]
 collision_layer = 4
 collision_mask = 2
@@ -123,14 +118,6 @@ clue_data = ExtResource("2_1yxec")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -4.47035e-08, 0.05)
 shape = SubResource("BoxShape3D_wvud3")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.62103, 0)
-cast_shadow = 0
-amount = 5
-lifetime = 1.5
-process_material = SubResource("ParticleProcessMaterial_lcp4q")
-draw_pass_1 = SubResource("QuadMesh_hccsa")
 
 [node name="Pencil" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.46526e-07, -0.958579, 1.75531, -2, -8.74228e-08, 1.19209e-07, 1.95915e-08, -1.75531, -0.958579, 0.11033, 0, 0.131953)
@@ -160,3 +147,11 @@ transform = Transform3D(1.0122e-07, 0.365604, 1.9663, -2, -8.74228e-08, 1.19209e
 mesh = SubResource("ArrayMesh_1yxec")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_egcol")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.315681, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_nbbt1")
+draw_pass_1 = SubResource("QuadMesh_6n6xo")

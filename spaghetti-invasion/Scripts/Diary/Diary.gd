@@ -98,7 +98,7 @@ func pull_out():
 	unread_clues = false
 
 
-func add_diary_page(area_name: ClueData.DiaryPages):
+func add_diary_page(area_name: ClueData.DiaryPages) -> DiaryPage:
 	# Add page to discovered diary pages
 	var new_diary_page = empty_diary_page_scene.instantiate()
 	new_diary_page.diary_page_number = discovered_diary_pages.size()
@@ -120,6 +120,8 @@ func add_diary_page(area_name: ClueData.DiaryPages):
 	
 	current_look_at_diary_cooldown = 2
 	unread_clues = true
+	
+	return new_diary_page
 
 
 func add_clue_entry(clue_data: ClueData):
@@ -132,8 +134,8 @@ func add_clue_entry(clue_data: ClueData):
 			diary_page = page
 			break
 	if diary_page == null:
-		printerr("No diary page found for new clue!")
-		return
+		#printerr("No diary page found for new clue!")
+		diary_page = add_diary_page(clue_data.diary_page_ID)
 	
 	# Go to found diary page
 	go_to_page(diary_page.diary_page_number)

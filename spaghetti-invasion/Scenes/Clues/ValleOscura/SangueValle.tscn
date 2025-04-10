@@ -6,7 +6,14 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cntii"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jdrcu"]
+material = SubResource("StandardMaterial3D_cntii")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jdrcu"]
 lifetime_randomness = 0.5
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
@@ -14,14 +21,9 @@ emission_ring_height = 1.0
 emission_ring_radius = 1.5
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 5.0
-linear_accel_max = 6.0
+gravity = Vector3(0, 9.8, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_125j1"]
 transparency = 1
 albedo_texture = ExtResource("3_pk2e7")
 emission_enabled = true
@@ -31,15 +33,8 @@ backlight_enabled = true
 backlight = Color(1, 1, 1, 1)
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
-material = SubResource("StandardMaterial3D_cxrr5")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cntii"]
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jdrcu"]
-material = SubResource("StandardMaterial3D_cntii")
+[sub_resource type="QuadMesh" id="QuadMesh_8d12b"]
+material = SubResource("StandardMaterial3D_125j1")
 
 [node name="SangueValle" type="StaticBody3D"]
 collision_layer = 4
@@ -51,13 +46,13 @@ clue_data = ExtResource("2_125j1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49012e-08, 0)
 shape = SubResource("BoxShape3D_wvud3")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jdrcu")
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.62103, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0156811, 0)
 cast_shadow = 0
 amount = 5
 lifetime = 1.5
-process_material = SubResource("ParticleProcessMaterial_lcp4q")
-draw_pass_1 = SubResource("QuadMesh_hccsa")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_jdrcu")
+process_material = SubResource("ParticleProcessMaterial_jdrcu")
+draw_pass_1 = SubResource("QuadMesh_8d12b")

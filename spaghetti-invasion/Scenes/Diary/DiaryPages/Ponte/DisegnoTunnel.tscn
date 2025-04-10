@@ -25,6 +25,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_trbly")
 theme_override_font_sizes/font_size = 18
-text = "Sopra ad un ponte naturale ho trovato dei disegni inquietanti. Sembrano rappresentare una specie di caverna."
+text = "Sopra al ponte ho trovato dei disegni inquietanti. Sembrano rappresentare una specie di caverna."
 vertical_alignment = 1
 autowrap_mode = 2

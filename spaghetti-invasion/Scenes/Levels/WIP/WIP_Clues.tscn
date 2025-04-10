@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b3fwvainuhfcn"]
+[gd_scene load_steps=53 format=4 uid="uid://b3fwvainuhfcn"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_mewtn"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_ugtxj"]
@@ -21,8 +21,17 @@
 [ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="19_ar1k7"]
 [ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="20_ekgkn"]
 [ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="21_ndafw"]
+[ext_resource type="PackedScene" uid="uid://ciedhlfs87lv5" path="res://Scenes/Clues/CapannoCacciatori/DisegnoBambiniPonte.tscn" id="22_5i71l"]
+[ext_resource type="PackedScene" uid="uid://wd8r4cmo4mrk" path="res://Scenes/Clues/DiarioAbbandonato/DiarioAgnese.tscn" id="22_pk5t1"]
+[ext_resource type="PackedScene" uid="uid://b2bavnmw7gvq5" path="res://Scenes/Clues/Cascata/OcchialiLuigino.tscn" id="22_rimb0"]
 [ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="22_x8l4d"]
 [ext_resource type="PackedScene" uid="uid://b7oph2e37i7o6" path="res://Assets/Clues/kenney_food-kit/Models/GLB format/bowl-soup.glb" id="23_6mf88"]
+[ext_resource type="PackedScene" uid="uid://c5xj1ckfnjml4" path="res://Scenes/Clues/CapannoCacciatori/FucileCaccia.tscn" id="23_nwlrw"]
+[ext_resource type="PackedScene" uid="uid://dko52x0qdjtvk" path="res://Scenes/Clues/Cascata/ScarpaDonna.tscn" id="23_rnu2s"]
+[ext_resource type="PackedScene" uid="uid://bcj4723wv04hx" path="res://Scenes/Clues/CapannoCacciatori/PortaSfondata.tscn" id="24_s06fd"]
+[ext_resource type="PackedScene" uid="uid://boptc44dte6q3" path="res://Scenes/Clues/Cascata/SolchiTerreno.tscn" id="24_w7jjr"]
+[ext_resource type="PackedScene" uid="uid://iaai5gqptxsj" path="res://Scenes/Clues/Chiesa/DisegnoPonteChiesa.tscn" id="29_s06fd"]
+[ext_resource type="PackedScene" uid="uid://cmgf0jajmv5pf" path="res://Scenes/Clues/Chiesa/PiantaAliena.tscn" id="30_yug4o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
 panorama = ExtResource("3_duumn")
@@ -47,7 +56,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="Resource" id="Resource_6mf88"]
+[sub_resource type="Resource" id="Resource_rimb0"]
 script = ExtResource("9_6k0gh")
 amount = 3000
 enabled = true
@@ -56,7 +65,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_pk5t1"]
+[sub_resource type="Resource" id="Resource_rnu2s"]
 script = ExtResource("10_cityk")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -67,7 +76,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_w2w6r"]
+[sub_resource type="Resource" id="Resource_w7jjr"]
 script = ExtResource("11_jn8ba")
 iterations = 3
 offset_step = 0.2
@@ -79,7 +88,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_sf0ix"]
+[sub_resource type="Resource" id="Resource_5i71l"]
 script = ExtResource("12_dcoym")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -95,15 +104,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_rimb0"]
+[sub_resource type="Resource" id="Resource_nwlrw"]
 script = ExtResource("7_tixud")
-stack = Array[ExtResource("8_vpwb6")]([SubResource("Resource_6mf88"), SubResource("Resource_pk5t1"), SubResource("Resource_w2w6r"), SubResource("Resource_sf0ix")])
+stack = Array[ExtResource("8_vpwb6")]([SubResource("Resource_rimb0"), SubResource("Resource_rnu2s"), SubResource("Resource_w7jjr"), SubResource("Resource_5i71l")])
 
 [sub_resource type="Resource" id="Resource_bqkvc"]
 script = ExtResource("15_flbpa")
 size = Vector3(182.322, 22.7866, 190.944)
 
-[sub_resource type="Resource" id="Resource_rnu2s"]
+[sub_resource type="Resource" id="Resource_s06fd"]
 script = ExtResource("9_6k0gh")
 amount = 2500
 enabled = true
@@ -112,7 +121,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_w7jjr"]
+[sub_resource type="Resource" id="Resource_yug4o"]
 script = ExtResource("10_cityk")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -123,7 +132,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_5i71l"]
+[sub_resource type="Resource" id="Resource_4c36y"]
 script = ExtResource("11_jn8ba")
 iterations = 3
 offset_step = 0.2
@@ -135,7 +144,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_nwlrw"]
+[sub_resource type="Resource" id="Resource_8d2t6"]
 script = ExtResource("12_dcoym")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 70.0
@@ -151,9 +160,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_s06fd"]
+[sub_resource type="Resource" id="Resource_wxj52"]
 script = ExtResource("7_tixud")
-stack = Array[ExtResource("8_vpwb6")]([SubResource("Resource_rnu2s"), SubResource("Resource_w7jjr"), SubResource("Resource_5i71l"), SubResource("Resource_nwlrw")])
+stack = Array[ExtResource("8_vpwb6")]([SubResource("Resource_s06fd"), SubResource("Resource_yug4o"), SubResource("Resource_4c36y"), SubResource("Resource_8d2t6")])
 
 [sub_resource type="Curve3D" id="Curve3D_le1a3"]
 _data = {
@@ -257,13 +266,13 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25841, -0.334106, 7.53601)
 
 [node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("5_5hbog")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.8763, -22.5764, -107.008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.7236, 18.5911, -86.4619)
 
 [node name="ProtonScatterContradaAbbandonata" type="Node3D" parent="SubViewport/GameWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
 script = ExtResource("6_ilmqv")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_rimb0")
+modifier_stack = SubResource("Resource_nwlrw")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -317,7 +326,7 @@ shape = SubResource("Resource_bqkvc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
 script = ExtResource("6_ilmqv")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_s06fd")
+modifier_stack = SubResource("Resource_wxj52")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -652,6 +661,56 @@ debug_color = Color(0.12938, 0.520636, 1, 0.42)
 [node name="Alien" parent="SubViewport/GameWorld/SpookyEvents/DisappearingAlien" instance=ExtResource("21_ndafw")]
 transform = Transform3D(1.04415, 0, -1.07692, 0, 1.5, 0, 1.07692, 0, 1.04415, 16.1556, 12.1634, -9.02901)
 visible = false
+
+[node name="Clues" type="Node3D" parent="SubViewport/GameWorld"]
+
+[node name="CapannoCacciatori" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3664, 48.6516, -215.49)
+
+[node name="DisegnoBambiniPonte" parent="SubViewport/GameWorld/Clues/CapannoCacciatori" instance=ExtResource("22_5i71l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9595, 3.46874, 16.9527)
+
+[node name="FucileCaccia" parent="SubViewport/GameWorld/Clues/CapannoCacciatori" instance=ExtResource("23_nwlrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4619, 0.613834, 15.6911)
+
+[node name="PortaSfondata" parent="SubViewport/GameWorld/Clues/CapannoCacciatori" instance=ExtResource("24_s06fd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5105, 2.23785, 15.6911)
+
+[node name="Cascata" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0315, 1.20724, -97.2809)
+
+[node name="OcchialiLuigino" parent="SubViewport/GameWorld/Clues/Cascata" instance=ExtResource("22_rimb0")]
+transform = Transform3D(0.086723, 0.0523099, 0.172461, -0.0364193, 0.192528, -0.0400828, -0.176501, -0.014024, 0.0930085, -43.9881, 6.02619, 30.2673)
+
+[node name="ScarpaDonna" parent="SubViewport/GameWorld/Clues/Cascata" instance=ExtResource("23_rnu2s")]
+transform = Transform3D(0.297231, 0.0406628, 0, -0.0406628, 0.297231, 0, 0, 0, 0.3, 19.938, -0.714657, -18.2767)
+
+[node name="SolchiTerreno" parent="SubViewport/GameWorld/Clues/Cascata" instance=ExtResource("24_w7jjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9511, -7.20965, -58.7557)
+
+[node name="DiarioAbbandonato" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7945, 53.1869, -205.193)
+
+[node name="DiarioAgnese" parent="SubViewport/GameWorld/Clues/DiarioAbbandonato" instance=ExtResource("22_pk5t1")]
+transform = Transform3D(0.992646, -0.0146711, 0.120163, -0.121055, -0.120302, 0.985329, 0, -0.992629, -0.121194, -4.53378, 1.45776, 1.58899)
+
+[node name="Chiesa" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3875, 95.1482, -236.26)
+
+[node name="DisegnoPonteChiesa" parent="SubViewport/GameWorld/Clues/Chiesa" instance=ExtResource("29_s06fd")]
+transform = Transform3D(0.912727, 0, 0.408569, 0, 1, 0, -0.408569, 0, 0.912727, -1.60999, -4.57271, 3.30583)
+
+[node name="PiantaAliena" parent="SubViewport/GameWorld/Clues/Chiesa" instance=ExtResource("30_yug4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18053, -5.05311, 5.8468)
+
+[node name="ContradaAbbandonata" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
+
+[node name="Ponte" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6966, 0, -346.342)
+
+[node name="ValleOscura" type="Node3D" parent="SubViewport/GameWorld/Clues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.888, 0, -180.181)
 
 [node name="HUD" parent="." instance=ExtResource("22_x8l4d")]
 layout_mode = 2

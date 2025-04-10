@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_x5kaq"]
 [ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="2_gubim"]
-[ext_resource type="Resource" uid="uid://lbmlqmc7w0kt" path="res://Assets/Resources/Clues/CapannoCacciatori/DiarioAgnese.tres" id="2_qisd6"]
+[ext_resource type="Resource" uid="uid://lbmlqmc7w0kt" path="res://Assets/Resources/Clues/DiarioAbbandonato/DiarioAgnese.tres" id="2_qisd6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
-size = Vector3(0.3, 0.3, 0.1)
+size = Vector3(0.6, 0.6, 0.2)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
 lifetime_randomness = 0.5
@@ -15,14 +15,9 @@ emission_ring_height = 1.0
 emission_ring_radius = 1.5
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 5.0
-linear_accel_max = 6.0
+gravity = Vector3(0, 9.8, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qisd6"]
 transparency = 1
 albedo_texture = ExtResource("2_gubim")
 emission_enabled = true
@@ -33,7 +28,7 @@ backlight = Color(1, 1, 1, 1)
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
-material = SubResource("StandardMaterial3D_cxrr5")
+material = SubResource("StandardMaterial3D_qisd6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpsbn"]
 resource_name = "BookCover"
@@ -124,7 +119,7 @@ disappear_when_interacted = true
 shape = SubResource("BoxShape3D_wvud3")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62103, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0156811, 0)
 cast_shadow = 0
 amount = 5
 lifetime = 1.5

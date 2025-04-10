@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="3_4uj3f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
-size = Vector3(5, 2, 5)
+size = Vector3(8, 4, 8)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p4xw3"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_whcvo"]
 lifetime_randomness = 0.5
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
@@ -16,14 +16,9 @@ emission_ring_height = 1.0
 emission_ring_radius = 1.5
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 5.0
-linear_accel_max = 6.0
+gravity = Vector3(0, 9.8, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uj3f"]
 transparency = 1
 albedo_texture = ExtResource("3_4uj3f")
 emission_enabled = true
@@ -33,14 +28,15 @@ backlight_enabled = true
 backlight = Color(1, 1, 1, 1)
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_bg2o6"]
-material = SubResource("StandardMaterial3D_cxrr5")
+[sub_resource type="QuadMesh" id="QuadMesh_jrsyu"]
+material = SubResource("StandardMaterial3D_4uj3f")
 
 [node name="OcchialiLuigino" type="StaticBody3D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_cxrr5")
 clue_data = ExtResource("2_4uj3f")
+disappear_when_interacted = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.166442, 0)
@@ -50,9 +46,9 @@ shape = SubResource("BoxShape3D_wvud3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41449, 0, 18.3363)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62103, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.0156811, 0)
 cast_shadow = 0
 amount = 5
 lifetime = 1.5
-process_material = SubResource("ParticleProcessMaterial_p4xw3")
-draw_pass_1 = SubResource("QuadMesh_bg2o6")
+process_material = SubResource("ParticleProcessMaterial_whcvo")
+draw_pass_1 = SubResource("QuadMesh_jrsyu")

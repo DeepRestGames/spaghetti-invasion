@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_t4dfe")
 diary_page_ID = 3
-clue_ID = 18
+clue_ID = 16
 metadata/_custom_type_script = "uid://b8ag16nve3l00"

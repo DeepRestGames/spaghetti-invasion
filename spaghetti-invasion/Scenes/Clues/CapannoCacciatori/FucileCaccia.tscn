@@ -9,34 +9,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
 size = Vector3(0.3, 0.3, 0.1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcp4q"]
-lifetime_randomness = 0.5
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 1.5
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 5.0
-linear_accel_max = 6.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxrr5"]
-transparency = 1
-albedo_texture = ExtResource("3_g5jfi")
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.5
-backlight_enabled = true
-backlight = Color(1, 1, 1, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_hccsa"]
-material = SubResource("StandardMaterial3D_cxrr5")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2rd7"]
 resource_name = "Material.065"
 vertex_color_use_as_albedo = true
@@ -187,6 +159,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wvwn0")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g5jfi"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 9.8, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qisd6"]
+transparency = 1
+albedo_texture = ExtResource("3_g5jfi")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_dbcth"]
+material = SubResource("StandardMaterial3D_qisd6")
+
 [node name="FucileCaccia" type="StaticBody3D"]
 collision_layer = 4
 collision_mask = 2
@@ -195,14 +190,6 @@ clue_data = ExtResource("2_g5jfi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_wvud3")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62103, 0)
-cast_shadow = 0
-amount = 5
-lifetime = 1.5
-process_material = SubResource("ParticleProcessMaterial_lcp4q")
-draw_pass_1 = SubResource("QuadMesh_hccsa")
 
 [node name="HuntingRifle" type="Node3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, -0.6, 0, 0.6, -2.62268e-08, 0.774463, 0, -1.54063)
@@ -226,3 +213,11 @@ skeleton = NodePath("")
 transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, -1.65512, 2.24568, 2.59429e-05)
 mesh = SubResource("ArrayMesh_ei680")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0156811, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_g5jfi")
+draw_pass_1 = SubResource("QuadMesh_dbcth")
