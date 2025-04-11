@@ -1,17 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmgf0jajmv5pf"]
+[gd_scene load_steps=9 format=3 uid="uid://cmgf0jajmv5pf"]
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_d14kx"]
 [ext_resource type="Resource" uid="uid://clslv5em010j6" path="res://Assets/Resources/Clues/Chiesa/PiantaAliena.tres" id="2_cntii"]
 [ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="3_ext5y"]
+[ext_resource type="PackedScene" uid="uid://caan0y2dt4t7a" path="res://Assets/Models/AlienTreeSample.blend" id="4_eb3sv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cntii"]
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eb3sv"]
-material = SubResource("StandardMaterial3D_cntii")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cntii"]
 lifetime_randomness = 0.5
@@ -45,9 +39,6 @@ clue_data = ExtResource("2_cntii")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_wvud3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_eb3sv")
-
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0156811, 0)
 cast_shadow = 0
@@ -55,3 +46,6 @@ amount = 5
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_cntii")
 draw_pass_1 = SubResource("QuadMesh_b73uy")
+
+[node name="AlienTreeSample" parent="." instance=ExtResource("4_eb3sv")]
+transform = Transform3D(0.0802797, -0.0596253, 2.05183e-09, 0.0525244, 0.0707189, -0.0473289, 0.02822, 0.0379955, 0.0880907, 0.0780966, -0.355095, -0.0767773)

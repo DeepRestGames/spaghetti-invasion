@@ -1,17 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://boptc44dte6q3"]
+[gd_scene load_steps=9 format=3 uid="uid://boptc44dte6q3"]
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_fxe6v"]
 [ext_resource type="Resource" uid="uid://8tj276gmygoe" path="res://Assets/Resources/Clues/Cascata/SolchiTerreno.tres" id="2_n1elm"]
 [ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="4_5ubma"]
+[ext_resource type="Texture2D" uid="uid://hh1kmtt05ejx" path="res://Assets/2D/Decals/TracksShort.png" id="4_fxe6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cntii"]
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_n1elm"]
-material = SubResource("StandardMaterial3D_cntii")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n1elm"]
 lifetime_randomness = 0.5
@@ -45,9 +39,6 @@ clue_data = ExtResource("2_n1elm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_wvud3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_n1elm")
-
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0156811, 0)
 cast_shadow = 0
@@ -55,3 +46,7 @@ amount = 3
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_n1elm")
 draw_pass_1 = SubResource("QuadMesh_swa2p")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.0608395, 0, 0, 0, -2.65938e-09, 0.0608395, 0, -0.0608395, -2.65938e-09, 0, 0, 0)
+texture = ExtResource("4_fxe6v")
