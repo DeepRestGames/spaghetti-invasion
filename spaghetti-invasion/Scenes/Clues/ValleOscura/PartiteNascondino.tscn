@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctpwgk6d54vip" path="res://Assets/Clues/PartiteNascondino.jpg" id="4_jqqvp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
-size = Vector3(0.6, 0.7, 0.1)
+size = Vector3(1.1, 1.1, 0.5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqqvp"]
 lifetime_randomness = 0.5
@@ -16,7 +16,7 @@ emission_ring_height = 1.0
 emission_ring_radius = 1.5
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-gravity = Vector3(0, 9.8, 0)
+gravity = Vector3(0, 2, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apcko"]
 transparency = 1
@@ -49,7 +49,7 @@ texture = ExtResource("4_jqqvp")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.615681, 0)
 cast_shadow = 0
-amount = 5
+amount = 3
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_jqqvp")
 draw_pass_1 = SubResource("QuadMesh_8un6j")

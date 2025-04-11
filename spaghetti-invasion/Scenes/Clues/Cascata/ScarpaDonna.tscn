@@ -148,7 +148,7 @@ skeleton = NodePath("")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.415681, 0)
 cast_shadow = 0
-amount = 5
+amount = 3
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_xy820")
 draw_pass_1 = SubResource("QuadMesh_iq2vr")

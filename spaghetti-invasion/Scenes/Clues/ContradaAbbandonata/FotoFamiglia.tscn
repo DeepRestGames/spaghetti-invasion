@@ -56,7 +56,7 @@ emission_ring_height = 1.0
 emission_ring_radius = 1.5
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-gravity = Vector3(0, 9.8, 0)
+gravity = Vector3(0, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysdn6"]
 transparency = 1
@@ -94,7 +94,7 @@ texture = ExtResource("3_defa1")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.12103, 0.456317, 0)
 cast_shadow = 0
-amount = 5
+amount = 3
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_lveqk")
 draw_pass_1 = SubResource("QuadMesh_iisvb")

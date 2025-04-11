@@ -48,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41449, 0, 18.3363)
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.0156811, 0)
 cast_shadow = 0
-amount = 5
+amount = 3
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_whcvo")
 draw_pass_1 = SubResource("QuadMesh_jrsyu")
