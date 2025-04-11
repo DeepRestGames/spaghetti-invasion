@@ -87,15 +87,15 @@ func _process(delta: float) -> void:
 
 func put_away():
 	animation_player.play_backwards("appear")
-	EventBus.emit_signal("focus_on_diary", false)
 	is_diary_out = false
+	EventBus.emit_signal("focus_on_diary", false)
 
 
 func pull_out():
 	animation_player.play("appear")
-	EventBus.emit_signal("focus_on_diary", true)
 	is_diary_out = true
 	unread_clues = false
+	EventBus.emit_signal("focus_on_diary", true)
 
 
 func add_diary_page(area_name: ClueData.DiaryPages) -> DiaryPage:
