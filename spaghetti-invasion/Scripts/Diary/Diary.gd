@@ -12,7 +12,7 @@ var last_page_written: LastPageWritten = LastPageWritten.BLANK
 @onready var left_page_content = $Body/LeftCoverPivot/LeftPages/Content/SubViewport
 @onready var right_page_content = $Body/RightCoverPivot/RightPages/Content/SubViewport
 var discovered_diary_pages: Array[DiaryPage]
-@onready var empty_diary_page_scene = preload("res://Scenes/Diary/DiaryPages/EmptyDiaryPage.tscn")
+@onready var empty_diary_page_scene = preload("res://Scenes/Diary/EmptyDiaryPage.tscn")
 var current_diary_page = 0
 
 var all_diary_entries_path = "res://Scenes/Diary/DiaryPages/"
@@ -177,17 +177,17 @@ func go_to_page(page: int) -> void:
 	
 	clear_current_pages()
 	
-	if(discovered_diary_pages[page].get_parent() == null):
+	if(discovered_diary_pages[current_diary_page].get_parent() == null):
 		left_page_content.add_child(discovered_diary_pages[current_diary_page])
 	else:
-		discovered_diary_pages[page].reparent(left_page_content)
+		discovered_diary_pages[current_diary_page].reparent(left_page_content)
 	
 	# This means there's another page to load on the right
 	if discovered_diary_pages.size() >= current_diary_page + 2:
-		if(discovered_diary_pages[page + 1].get_parent() == null):
+		if(discovered_diary_pages[current_diary_page + 1].get_parent() == null):
 			right_page_content.add_child(discovered_diary_pages[current_diary_page + 1])
 		else:
-			discovered_diary_pages[page + 1].reparent(right_page_content)
+			discovered_diary_pages[current_diary_page + 1].reparent(right_page_content)
 
 
 func turn_page(right: bool) -> void:
