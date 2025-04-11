@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://uax7x76f73fx" path="res://addons/proton_scatter/demos/assets/textures/t_tree_bark.png" id="1_fegk0"]
 
 [resource]
-albedo_color = Color(0.470588, 0.376471, 0.309804, 1)
+albedo_color = Color(0.409699, 0.324836, 0.264656, 1)
 albedo_texture = ExtResource("1_fegk0")
 uv1_scale = Vector3(31.945, 6.92, 2.145)
