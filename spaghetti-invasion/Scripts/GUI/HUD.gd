@@ -20,8 +20,7 @@ func _ready() -> void:
 	EventBus.connect("clue_interacted", show_new_diary_entry_message)
 	EventBus.connect("new_area_discovered", show_new_area_discovered_message)
 	EventBus.connect("show_open_diary_hint", show_open_diary_hint)
-	EventBus.connect("focus_on_diary", show_close_diary_hint)
-	EventBus.connect("focus_on_diary", show_turn_diary_page_hints)
+	EventBus.connect("focus_on_diary", show_opened_diary_hints)
 
 
 func _process(_delta):
@@ -73,8 +72,10 @@ func _on_gamma_slider_value_changed(value: float) -> void:
 func show_interaction_prompt(show_prompt) -> void:
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	if(show_prompt):
+		open_diary_hint.hide()
 		tween.tween_property(interaction_prompt, "modulate", Color(1, 1, 1, 1), prompt_fade_time)
 	else:
+		open_diary_hint.show()
 		tween.tween_property(interaction_prompt, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
 
 
@@ -99,22 +100,16 @@ func show_open_diary_hint() -> void:
 	tween.tween_property(open_diary_hint, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
 
 
-func show_close_diary_hint(show_hint) -> void:
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel()
-	if show_hint:
+func show_opened_diary_hints(show_hints: bool) -> void:
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	if show_hints:
 		open_diary_hint.hide()
-		tween.chain().tween_interval(1.5)
-		tween.chain().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 1), prompt_fade_time)
+		tween.tween_interval(1)
+		
+		tween.chain().tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
+		tween.parallel().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
 		await tween.chain().tween_interval(5).finished
 		open_diary_hint.show()
 	else:
-		tween.tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
-
-
-func show_turn_diary_page_hints(show_hints: bool) -> void:
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	if show_hints:
-		tween.tween_interval(1)
-		tween.chain().tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 1), prompt_fade_time)
-	else:
 		tween.tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
+		tween.parallel().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
