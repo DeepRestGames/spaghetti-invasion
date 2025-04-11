@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dsvqny4ttof5o"]
+[gd_scene load_steps=77 format=3 uid="uid://dsvqny4ttof5o"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_wupp8"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_o4etg"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://wd8r4cmo4mrk" path="res://Scenes/Clues/DiarioAbbandonato/DiarioAgnese.tscn" id="32_6equ6"]
 [ext_resource type="PackedScene" uid="uid://iaai5gqptxsj" path="res://Scenes/Clues/Chiesa/DisegnoPonteChiesa.tscn" id="33_t8c6o"]
 [ext_resource type="PackedScene" uid="uid://cmgf0jajmv5pf" path="res://Scenes/Clues/Chiesa/PiantaAliena.tscn" id="34_ow1k1"]
+[ext_resource type="Texture2D" uid="uid://b5gr0bjpg6dh8" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/smoke_08.png" id="37_q4rj2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
 panorama = ExtResource("3_1y33q")
@@ -328,6 +329,38 @@ size = Vector3(10, 14.4678, 15.8213)
 radius = 0.25
 height = 1.0
 
+[sub_resource type="Curve" id="Curve_8ybqs"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 4.0415, 0, 0, Vector2(1, 0), 0.634052, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v7i3q"]
+curve = SubResource("Curve_8ybqs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q4rj2"]
+lifetime_randomness = 0.3
+emission_shape = 1
+emission_sphere_radius = 7.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 1, 0)
+scale_min = 0.6
+scale_max = 1.5
+scale_over_velocity_curve = SubResource("CurveTexture_v7i3q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ybqs"]
+render_priority = 1
+transparency = 1
+albedo_texture = ExtResource("37_q4rj2")
+emission_enabled = true
+emission = Color(0.870881, 0.872559, 1, 1)
+emission_energy_multiplier = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_v7i3q"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_8ybqs")
+
 [node name="SubViewportContainer" type="SubViewportContainer"]
 material = ExtResource("1_wupp8")
 anchors_preset = 15
@@ -356,7 +389,7 @@ grow_vertical = 2
 [node name="GameWorld" type="Node3D" parent="SubViewport"]
 
 [node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("5_sobbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.0898, 31.5172, -370.501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8137, 46.9145, -182.445)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/GameWorld" groups=["WorldEnvironment"]]
 environment = SubResource("Environment_8jrty")
@@ -588,6 +621,7 @@ shape = SubResource("Resource_rpbmo")
 
 [node name="AudioAreas" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
+visible = false
 
 [node name="Lakeside" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
 transform = Transform3D(0.933687, 0.343709, 0.100458, -0.341736, 0.939077, -0.0367684, -0.106976, -5.39544e-10, 0.994262, -66.9335, -8.51534, -4.82975)
@@ -947,12 +981,6 @@ transform = Transform3D(52.84, 0, -1.90735e-06, 0, 52.84, 0, 1.90735e-06, 0, 52.
 transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.0092001, 0.0302807, 0.0023632)
 shape = SubResource("CapsuleShape3D_viuhf")
 
-[node name="BlackParticles" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena" instance=ExtResource("26_viuhf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.451, -84.0796, -301.592)
-
-[node name="BlackParticles2" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena" instance=ExtResource("26_viuhf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.24, -92.5833, -374.662)
-
 [node name="Clues" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 
@@ -1003,6 +1031,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6966, 0, -346.342)
 
 [node name="ValleOscura" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.888, 0, -180.181)
+
+[node name="AmbientParticles" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
+
+[node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles"]
+
+[node name="BlackParticles" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/ValleAliena" instance=ExtResource("26_viuhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.805, 11.4027, -545.388)
+
+[node name="BlackParticles2" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/ValleAliena" instance=ExtResource("26_viuhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.594, 2.89901, -618.458)
+
+[node name="Waterfalls" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles"]
+
+[node name="Waterfall1" type="GPUParticles3D" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/Waterfalls"]
+transform = Transform3D(0.80762, 0, 0.589704, 0, 1, 0, -0.589704, 0, 0.80762, -10.5079, -32.3933, -104.325)
+amount = 1500
+lifetime = 2.0
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_q4rj2")
+draw_pass_1 = SubResource("QuadMesh_v7i3q")
+
+[node name="Waterfall2" type="GPUParticles3D" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/Waterfalls"]
+transform = Transform3D(0.565334, 0, 0.412793, 0, 0.7, 0, -0.412793, 0, 0.565334, -54.2275, 45.0417, -214.45)
+amount = 1500
+lifetime = 2.0
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_q4rj2")
+draw_pass_1 = SubResource("QuadMesh_v7i3q")
 
 [node name="HUD" parent="." instance=ExtResource("22_ojfnr")]
 layout_mode = 2
