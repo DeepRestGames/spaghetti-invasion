@@ -1,56 +1,56 @@
-[gd_scene load_steps=97 format=3 uid="uid://dsvqny4ttof5o"]
+[gd_scene load_steps=97 format=3 uid="uid://d2ml7yh8y0qaf"]
 
-[ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_wupp8"]
-[ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_o4etg"]
-[ext_resource type="Texture2D" uid="uid://cnej65u1vi6di" path="res://Assets/Textures/Sky/kloppenheim_02_puresky_4k.hdr" id="3_1y33q"]
-[ext_resource type="PackedScene" uid="uid://dk4qfa8lygu8m" path="res://Assets/Models/LandscapeVeneto.blend" id="4_5rlcm"]
-[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="5_sobbb"]
-[ext_resource type="Script" uid="uid://be3n1vh1tumo1" path="res://addons/proton_scatter/src/scatter.gd" id="6_os70r"]
-[ext_resource type="PackedScene" uid="uid://cdj7splamempr" path="res://Assets/Models/CapannoCacciatori.blend" id="7_givjc"]
-[ext_resource type="Script" uid="uid://rdajykhnn7vr" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="7_jdha1"]
-[ext_resource type="Script" uid="uid://bb1728oue5d64" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="8_o14nf"]
-[ext_resource type="Script" uid="uid://dyt02cyvk8pu1" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="9_tm0ej"]
-[ext_resource type="Script" uid="uid://l1dxiehambc3" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="10_knuwt"]
-[ext_resource type="Script" uid="uid://bumurxxndroht" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="11_i6md2"]
-[ext_resource type="Script" uid="uid://dc7utv7vwbiab" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="12_pop34"]
-[ext_resource type="Script" uid="uid://cuusjd28f201i" path="res://addons/proton_scatter/src/scatter_item.gd" id="13_nmatp"]
-[ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="14_6o1qj"]
-[ext_resource type="Script" uid="uid://cvw1y25d3rugl" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="16_pcga1"]
-[ext_resource type="PackedScene" uid="uid://dik4tnuy7uuje" path="res://Scenes/Audio/AudioArea.tscn" id="17_6itot"]
-[ext_resource type="AudioStream" uid="uid://bpypxwruvjcb6" path="res://Assets/Audio/SFX/Environment/Waterfall.wav" id="18_ogyar"]
-[ext_resource type="AudioStream" uid="uid://rqletg3lfxjh" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe2.wav" id="18_pw74u"]
-[ext_resource type="AudioStream" uid="uid://drla3ql62gflr" path="res://Assets/Audio/SFX/Alien/Ghostly Voices RL.wav" id="19_rd50r"]
-[ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="19_ukxr0"]
-[ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="20_ddye3"]
-[ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="21_dm1v7"]
-[ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="22_jh7si"]
-[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="22_ojfnr"]
-[ext_resource type="PackedScene" uid="uid://it05y804ul0r" path="res://Assets/Models/AbandonedHouse.blend" id="23_4fia2"]
-[ext_resource type="PackedScene" uid="uid://bkd8ksq15m8c6" path="res://Assets/Models/AlienTree.blend" id="25_snue3"]
-[ext_resource type="PackedScene" uid="uid://ciedhlfs87lv5" path="res://Scenes/Clues/CapannoCacciatori/DisegnoBambiniPonte.tscn" id="26_312y5"]
-[ext_resource type="PackedScene" uid="uid://f7hgbht3qm0e" path="res://Scenes/Particles/TreeParticles.tscn" id="26_viuhf"]
-[ext_resource type="PackedScene" uid="uid://c5xj1ckfnjml4" path="res://Scenes/Clues/CapannoCacciatori/FucileCaccia.tscn" id="27_pw74u"]
-[ext_resource type="PackedScene" uid="uid://bcj4723wv04hx" path="res://Scenes/Clues/CapannoCacciatori/PortaSfondata.tscn" id="28_rd50r"]
-[ext_resource type="PackedScene" uid="uid://cjeik7br5352w" path="res://Scenes/Clues/CapannoCacciatori/AmmoCasing.tscn" id="29_ow1k1"]
-[ext_resource type="PackedScene" uid="uid://b2bavnmw7gvq5" path="res://Scenes/Clues/Cascata/OcchialiLuigino.tscn" id="29_q4rj2"]
-[ext_resource type="PackedScene" uid="uid://dko52x0qdjtvk" path="res://Scenes/Clues/Cascata/ScarpaDonna.tscn" id="30_8ybqs"]
-[ext_resource type="PackedScene" uid="uid://boptc44dte6q3" path="res://Scenes/Clues/Cascata/SolchiTerreno.tscn" id="31_v7i3q"]
-[ext_resource type="PackedScene" uid="uid://wd8r4cmo4mrk" path="res://Scenes/Clues/DiarioAbbandonato/DiarioAgnese.tscn" id="32_6equ6"]
-[ext_resource type="PackedScene" uid="uid://iaai5gqptxsj" path="res://Scenes/Clues/Chiesa/DisegnoPonteChiesa.tscn" id="33_t8c6o"]
-[ext_resource type="PackedScene" uid="uid://cmgf0jajmv5pf" path="res://Scenes/Clues/Chiesa/PiantaAliena.tscn" id="34_ow1k1"]
-[ext_resource type="PackedScene" uid="uid://dk8ux2auf32k2" path="res://Scenes/Clues/ContradaAbbandonata/DipintoCascata.tscn" id="36_t8c6o"]
-[ext_resource type="PackedScene" uid="uid://dyiab0f4xfpgs" path="res://Scenes/Clues/ContradaAbbandonata/ForiProiettili.tscn" id="37_ow1k1"]
-[ext_resource type="Texture2D" uid="uid://b5gr0bjpg6dh8" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/smoke_08.png" id="37_q4rj2"]
-[ext_resource type="PackedScene" uid="uid://t6w80wjjcu2c" path="res://Scenes/Clues/ContradaAbbandonata/FotoFamiglia.tscn" id="38_8w2so"]
-[ext_resource type="PackedScene" uid="uid://cv1jtbgpc7467" path="res://Scenes/Clues/ContradaAbbandonata/LiquidoGiallo.tscn" id="39_hdh0v"]
-[ext_resource type="PackedScene" uid="uid://cw7u50cofxd7x" path="res://Scenes/Clues/Ponte/DisegnoTunnel.tscn" id="41_kexn8"]
-[ext_resource type="PackedScene" uid="uid://hoose4aocad4" path="res://Scenes/Clues/Ponte/Matite.tscn" id="42_vudbr"]
-[ext_resource type="PackedScene" uid="uid://bq1ttslwuawv1" path="res://Scenes/Clues/ValleOscura/RosarioCrocifisso.tscn" id="43_a51fr"]
-[ext_resource type="PackedScene" uid="uid://b4t08cyuf11tg" path="res://Scenes/Clues/ValleOscura/PartiteNascondino.tscn" id="44_a51fr"]
-[ext_resource type="PackedScene" uid="uid://yj1b04xffgbu" path="res://Scenes/Clues/ValleOscura/SangueValle.tscn" id="45_onjdg"]
+[ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_v1twv"]
+[ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_oppib"]
+[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Player.tscn" id="3_dug5k"]
+[ext_resource type="Texture2D" uid="uid://cnej65u1vi6di" path="res://Assets/Textures/Sky/kloppenheim_02_puresky_4k.hdr" id="4_o4pvs"]
+[ext_resource type="PackedScene" uid="uid://dk4qfa8lygu8m" path="res://Assets/Models/LandscapeVeneto.blend" id="5_gj7ca"]
+[ext_resource type="Script" uid="uid://be3n1vh1tumo1" path="res://addons/proton_scatter/src/scatter.gd" id="6_2m5tp"]
+[ext_resource type="Script" uid="uid://rdajykhnn7vr" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="7_sk4hm"]
+[ext_resource type="Script" uid="uid://bb1728oue5d64" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="8_8yq5j"]
+[ext_resource type="Script" uid="uid://dyt02cyvk8pu1" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="9_7fajp"]
+[ext_resource type="Script" uid="uid://l1dxiehambc3" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="10_okvem"]
+[ext_resource type="Script" uid="uid://bumurxxndroht" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="11_e74g5"]
+[ext_resource type="Script" uid="uid://dc7utv7vwbiab" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="12_hde2d"]
+[ext_resource type="Script" uid="uid://cuusjd28f201i" path="res://addons/proton_scatter/src/scatter_item.gd" id="13_oen3x"]
+[ext_resource type="Script" uid="uid://c7lg8qlnsjcu5" path="res://addons/proton_scatter/src/scatter_shape.gd" id="14_p6t5d"]
+[ext_resource type="Script" uid="uid://cvw1y25d3rugl" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="15_ui4am"]
+[ext_resource type="PackedScene" uid="uid://dik4tnuy7uuje" path="res://Scenes/Audio/AudioArea.tscn" id="16_x74en"]
+[ext_resource type="AudioStream" uid="uid://bpypxwruvjcb6" path="res://Assets/Audio/SFX/Environment/Waterfall.wav" id="17_8x31f"]
+[ext_resource type="AudioStream" uid="uid://rqletg3lfxjh" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe2.wav" id="18_qxolp"]
+[ext_resource type="AudioStream" uid="uid://drla3ql62gflr" path="res://Assets/Audio/SFX/Alien/Ghostly Voices RL.wav" id="19_1gisa"]
+[ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="20_7fb16"]
+[ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="21_ix6rq"]
+[ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="22_kceji"]
+[ext_resource type="PackedScene" uid="uid://cdj7splamempr" path="res://Assets/Models/CapannoCacciatori.blend" id="23_hhxng"]
+[ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="24_ykgxx"]
+[ext_resource type="PackedScene" uid="uid://it05y804ul0r" path="res://Assets/Models/AbandonedHouse.blend" id="25_15lo5"]
+[ext_resource type="PackedScene" uid="uid://bkd8ksq15m8c6" path="res://Assets/Models/AlienTree.blend" id="26_4vjpg"]
+[ext_resource type="PackedScene" uid="uid://ciedhlfs87lv5" path="res://Scenes/Clues/CapannoCacciatori/DisegnoBambiniPonte.tscn" id="27_74ai5"]
+[ext_resource type="PackedScene" uid="uid://cjeik7br5352w" path="res://Scenes/Clues/CapannoCacciatori/AmmoCasing.tscn" id="28_fd33r"]
+[ext_resource type="PackedScene" uid="uid://c5xj1ckfnjml4" path="res://Scenes/Clues/CapannoCacciatori/FucileCaccia.tscn" id="29_fysti"]
+[ext_resource type="PackedScene" uid="uid://bcj4723wv04hx" path="res://Scenes/Clues/CapannoCacciatori/PortaSfondata.tscn" id="30_0tujy"]
+[ext_resource type="PackedScene" uid="uid://b2bavnmw7gvq5" path="res://Scenes/Clues/Cascata/OcchialiLuigino.tscn" id="31_elvov"]
+[ext_resource type="PackedScene" uid="uid://dko52x0qdjtvk" path="res://Scenes/Clues/Cascata/ScarpaDonna.tscn" id="32_syn51"]
+[ext_resource type="PackedScene" uid="uid://boptc44dte6q3" path="res://Scenes/Clues/Cascata/SolchiTerreno.tscn" id="33_ftenf"]
+[ext_resource type="PackedScene" uid="uid://wd8r4cmo4mrk" path="res://Scenes/Clues/DiarioAbbandonato/DiarioAgnese.tscn" id="34_is7dx"]
+[ext_resource type="PackedScene" uid="uid://iaai5gqptxsj" path="res://Scenes/Clues/Chiesa/DisegnoPonteChiesa.tscn" id="35_3v5wo"]
+[ext_resource type="PackedScene" uid="uid://cmgf0jajmv5pf" path="res://Scenes/Clues/Chiesa/PiantaAliena.tscn" id="36_rb17v"]
+[ext_resource type="PackedScene" uid="uid://dk8ux2auf32k2" path="res://Scenes/Clues/ContradaAbbandonata/DipintoCascata.tscn" id="37_iu4ut"]
+[ext_resource type="PackedScene" uid="uid://dyiab0f4xfpgs" path="res://Scenes/Clues/ContradaAbbandonata/ForiProiettili.tscn" id="38_vsfgc"]
+[ext_resource type="PackedScene" uid="uid://t6w80wjjcu2c" path="res://Scenes/Clues/ContradaAbbandonata/FotoFamiglia.tscn" id="39_fj32x"]
+[ext_resource type="PackedScene" uid="uid://cv1jtbgpc7467" path="res://Scenes/Clues/ContradaAbbandonata/LiquidoGiallo.tscn" id="40_l4ssp"]
+[ext_resource type="PackedScene" uid="uid://cw7u50cofxd7x" path="res://Scenes/Clues/Ponte/DisegnoTunnel.tscn" id="41_kbicn"]
+[ext_resource type="PackedScene" uid="uid://hoose4aocad4" path="res://Scenes/Clues/Ponte/Matite.tscn" id="42_814wl"]
+[ext_resource type="PackedScene" uid="uid://b4t08cyuf11tg" path="res://Scenes/Clues/ValleOscura/PartiteNascondino.tscn" id="43_wdtlf"]
+[ext_resource type="PackedScene" uid="uid://yj1b04xffgbu" path="res://Scenes/Clues/ValleOscura/SangueValle.tscn" id="44_nqehx"]
+[ext_resource type="PackedScene" uid="uid://bq1ttslwuawv1" path="res://Scenes/Clues/ValleOscura/RosarioCrocifisso.tscn" id="45_ggbbk"]
+[ext_resource type="PackedScene" uid="uid://f7hgbht3qm0e" path="res://Scenes/Particles/TreeParticles.tscn" id="46_jltwk"]
+[ext_resource type="Texture2D" uid="uid://b5gr0bjpg6dh8" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/smoke_08.png" id="47_yc02m"]
+[ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="48_tc01f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i6n6y"]
-panorama = ExtResource("3_1y33q")
+panorama = ExtResource("4_o4pvs")
 energy_multiplier = 0.05
 
 [sub_resource type="Sky" id="Sky_lqpcb"]
@@ -73,7 +73,7 @@ volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.5
 
 [sub_resource type="Resource" id="Resource_a51fr"]
-script = ExtResource("9_tm0ej")
+script = ExtResource("9_7fajp")
 amount = 2500
 enabled = true
 override_global_seed = false
@@ -82,7 +82,7 @@ restrict_height = true
 reference_frame = 1
 
 [sub_resource type="Resource" id="Resource_onjdg"]
-script = ExtResource("10_knuwt")
+script = ExtResource("10_okvem")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
 scale = Vector3(1.5, 1.5, 1.5)
@@ -93,7 +93,7 @@ restrict_height = false
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_6vkam"]
-script = ExtResource("11_i6md2")
+script = ExtResource("11_e74g5")
 iterations = 3
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
@@ -105,7 +105,7 @@ restrict_height = true
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_wfwg3"]
-script = ExtResource("12_pop34")
+script = ExtResource("12_hde2d")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
 ray_offset = 5.0
@@ -121,8 +121,8 @@ restrict_height = false
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_e8y77"]
-script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_a51fr"), SubResource("Resource_onjdg"), SubResource("Resource_6vkam"), SubResource("Resource_wfwg3")])
+script = ExtResource("7_sk4hm")
+stack = Array[ExtResource("8_8yq5j")]([SubResource("Resource_a51fr"), SubResource("Resource_onjdg"), SubResource("Resource_6vkam"), SubResource("Resource_wfwg3")])
 
 [sub_resource type="Curve3D" id="Curve3D_q4rj2"]
 _data = {
@@ -132,7 +132,7 @@ _data = {
 point_count = 17
 
 [sub_resource type="Resource" id="Resource_rd50r"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_q4rj2")
@@ -145,7 +145,7 @@ _data = {
 point_count = 9
 
 [sub_resource type="Resource" id="Resource_sif0e"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = false
 thickness = 6.0
 curve = SubResource("Curve3D_8ybqs")
@@ -159,7 +159,7 @@ _data = {
 point_count = 10
 
 [sub_resource type="Resource" id="Resource_pciys"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = false
 thickness = 6.0
 curve = SubResource("Curve3D_v7i3q")
@@ -173,7 +173,7 @@ _data = {
 point_count = 7
 
 [sub_resource type="Resource" id="Resource_283ds"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_6equ6")
@@ -187,7 +187,7 @@ _data = {
 point_count = 7
 
 [sub_resource type="Resource" id="Resource_2cold"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_t8c6o")
@@ -200,13 +200,13 @@ _data = {
 point_count = 7
 
 [sub_resource type="Resource" id="Resource_jt8ng"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_4r5au")
 
 [sub_resource type="Resource" id="Resource_3jxh8"]
-script = ExtResource("9_tm0ej")
+script = ExtResource("9_7fajp")
 amount = 2500
 enabled = true
 override_global_seed = false
@@ -215,7 +215,7 @@ restrict_height = true
 reference_frame = 1
 
 [sub_resource type="Resource" id="Resource_4a466"]
-script = ExtResource("10_knuwt")
+script = ExtResource("10_okvem")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
 scale = Vector3(1.5, 1.5, 1.5)
@@ -226,7 +226,7 @@ restrict_height = false
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_b5puh"]
-script = ExtResource("11_i6md2")
+script = ExtResource("11_e74g5")
 iterations = 3
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
@@ -238,7 +238,7 @@ restrict_height = true
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_spog4"]
-script = ExtResource("12_pop34")
+script = ExtResource("12_hde2d")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 70.0
 ray_offset = 5.0
@@ -254,8 +254,8 @@ restrict_height = false
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_oarhj"]
-script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_3jxh8"), SubResource("Resource_4a466"), SubResource("Resource_b5puh"), SubResource("Resource_spog4")])
+script = ExtResource("7_sk4hm")
+stack = Array[ExtResource("8_8yq5j")]([SubResource("Resource_3jxh8"), SubResource("Resource_4a466"), SubResource("Resource_b5puh"), SubResource("Resource_spog4")])
 
 [sub_resource type="Curve3D" id="Curve3D_rd50r"]
 _data = {
@@ -265,13 +265,13 @@ _data = {
 point_count = 79
 
 [sub_resource type="Resource" id="Resource_q4rj2"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_rd50r")
 
 [sub_resource type="Resource" id="Resource_eufv3"]
-script = ExtResource("9_tm0ej")
+script = ExtResource("9_7fajp")
 amount = 1500
 enabled = true
 override_global_seed = false
@@ -280,7 +280,7 @@ restrict_height = true
 reference_frame = 1
 
 [sub_resource type="Resource" id="Resource_dmsta"]
-script = ExtResource("10_knuwt")
+script = ExtResource("10_okvem")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
 scale = Vector3(1.5, 1.5, 1.5)
@@ -291,7 +291,7 @@ restrict_height = false
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_4r5au"]
-script = ExtResource("11_i6md2")
+script = ExtResource("11_e74g5")
 iterations = 3
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
@@ -303,7 +303,7 @@ restrict_height = true
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_8yk0a"]
-script = ExtResource("12_pop34")
+script = ExtResource("12_hde2d")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
 ray_offset = 5.0
@@ -319,8 +319,8 @@ restrict_height = false
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_nkhet"]
-script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_eufv3"), SubResource("Resource_dmsta"), SubResource("Resource_4r5au"), SubResource("Resource_8yk0a")])
+script = ExtResource("7_sk4hm")
+stack = Array[ExtResource("8_8yq5j")]([SubResource("Resource_eufv3"), SubResource("Resource_dmsta"), SubResource("Resource_4r5au"), SubResource("Resource_8yk0a")])
 
 [sub_resource type="Curve3D" id="Curve3D_ow1k1"]
 _data = {
@@ -330,13 +330,13 @@ _data = {
 point_count = 15
 
 [sub_resource type="Resource" id="Resource_8w2so"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_ow1k1")
 
 [sub_resource type="Resource" id="Resource_fg0sb"]
-script = ExtResource("9_tm0ej")
+script = ExtResource("9_7fajp")
 amount = 1500
 enabled = true
 override_global_seed = true
@@ -345,7 +345,7 @@ restrict_height = true
 reference_frame = 1
 
 [sub_resource type="Resource" id="Resource_40hki"]
-script = ExtResource("10_knuwt")
+script = ExtResource("10_okvem")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
 scale = Vector3(1.5, 1.5, 1.5)
@@ -356,7 +356,7 @@ restrict_height = false
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_acviy"]
-script = ExtResource("11_i6md2")
+script = ExtResource("11_e74g5")
 iterations = 3
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
@@ -368,7 +368,7 @@ restrict_height = true
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_51xnj"]
-script = ExtResource("12_pop34")
+script = ExtResource("12_hde2d")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 30.0
 ray_offset = 5.0
@@ -384,8 +384,8 @@ restrict_height = false
 reference_frame = 0
 
 [sub_resource type="Resource" id="Resource_ykrx8"]
-script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_fg0sb"), SubResource("Resource_40hki"), SubResource("Resource_acviy"), SubResource("Resource_51xnj")])
+script = ExtResource("7_sk4hm")
+stack = Array[ExtResource("8_8yq5j")]([SubResource("Resource_fg0sb"), SubResource("Resource_40hki"), SubResource("Resource_acviy"), SubResource("Resource_51xnj")])
 
 [sub_resource type="Curve3D" id="Curve3D_6vkam"]
 _data = {
@@ -395,7 +395,7 @@ _data = {
 point_count = 17
 
 [sub_resource type="Resource" id="Resource_rpbmo"]
-script = ExtResource("16_pcga1")
+script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_6vkam")
@@ -430,7 +430,7 @@ scale_over_velocity_curve = SubResource("CurveTexture_v7i3q")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ybqs"]
 render_priority = 1
 transparency = 1
-albedo_texture = ExtResource("37_q4rj2")
+albedo_texture = ExtResource("47_yc02m")
 emission_enabled = true
 emission = Color(0.870881, 0.872559, 1, 1)
 emission_energy_multiplier = 0.1
@@ -440,7 +440,7 @@ lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_8ybqs")
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
-material = ExtResource("1_wupp8")
+material = ExtResource("1_v1twv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -457,7 +457,7 @@ render_target_update_mode = 4
 
 [node name="Vignette" type="ColorRect" parent="SubViewport"]
 visible = false
-material = ExtResource("2_o4etg")
+material = ExtResource("2_oppib")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -466,7 +466,7 @@ grow_vertical = 2
 
 [node name="GameWorld" type="Node3D" parent="SubViewport"]
 
-[node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("5_sobbb")]
+[node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("3_dug5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.3311, -19.3779, -145.7)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/GameWorld" groups=["WorldEnvironment"]]
@@ -479,7 +479,7 @@ light_energy = 0.5
 light_volumetric_fog_energy = 4.0
 shadow_enabled = true
 
-[node name="LandscapeVeneto" parent="SubViewport/GameWorld" instance=ExtResource("4_5rlcm")]
+[node name="LandscapeVeneto" parent="SubViewport/GameWorld" instance=ExtResource("5_gj7ca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25841, -0.334106, 7.53601)
 
 [node name="Foliage" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
@@ -487,7 +487,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 
 [node name="ProtonScatterVillaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -481.368, 37.1462, -38.2498)
-script = ExtResource("6_os70r")
+script = ExtResource("6_2m5tp")
 global_seed = 100
 keep_static_colliders = true
 modifier_stack = SubResource("Resource_e8y77")
@@ -497,81 +497,81 @@ metadata/_custom_type_script = "uid://be3n1vh1tumo1"
 
 [node name="ScatterBush" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 20
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterBushBig" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 15
 source_scale_multiplier = 1.6
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterSmallRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 16
 path = "uid://bltmr2xgs8nq1"
 
 [node name="ScatterBigRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 2.0
 path = "uid://8ay5rlrutcmx"
 
 [node name="ScatterPines" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 4.0
 path = "uid://caqxfqurbp3ku"
 
 [node name="ScatterFaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 7
 path = "uid://b1r83n3ho5xd3"
 
 [node name="ScatterShape" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 249.153, -1.04124, -98.8419)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 shape = SubResource("Resource_rd50r")
 
 [node name="ScatterShapePath" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 249.153, -1.04124, -98.8419)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 negative = true
 shape = SubResource("Resource_sif0e")
 
 [node name="ScatterShapePath2" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 249.153, -1.04124, -98.8419)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 negative = true
 shape = SubResource("Resource_pciys")
 
 [node name="ScatterShapeClearing" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 249.153, -1.04124, -98.8419)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 negative = true
 shape = SubResource("Resource_283ds")
 
 [node name="ScatterShapeClearing2" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 362.333, -1.04124, -211.104)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 negative = true
 shape = SubResource("Resource_2cold")
 
 [node name="ScatterShapeClearing3" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 248.235, -1.04124, -204.676)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 negative = true
 shape = SubResource("Resource_jt8ng")
 
 [node name="ProtonScatterValleOscura" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
-script = ExtResource("6_os70r")
+script = ExtResource("6_2m5tp")
 keep_static_colliders = true
 modifier_stack = SubResource("Resource_oarhj")
 Performance/use_chunks = true
@@ -580,51 +580,51 @@ metadata/_custom_type_script = "uid://be3n1vh1tumo1"
 
 [node name="ScatterBush" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 20
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterBushBig" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 15
 source_scale_multiplier = 1.6
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterSmallRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 16
 path = "uid://bltmr2xgs8nq1"
 
 [node name="ScatterBigRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 2.0
 path = "uid://8ay5rlrutcmx"
 
 [node name="ScatterPines" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 4.0
 path = "uid://caqxfqurbp3ku"
 
 [node name="ScatterFaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 7
 path = "uid://b1r83n3ho5xd3"
 
 [node name="ScatterShape" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleOscura"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 249.153, -1.04124, -98.8419)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 shape = SubResource("Resource_q4rj2")
 
 [node name="ProtonScatterValleFinale" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90646, 0, -552.367)
-script = ExtResource("6_os70r")
+script = ExtResource("6_2m5tp")
 keep_static_colliders = true
 modifier_stack = SubResource("Resource_nkhet")
 Performance/use_chunks = true
@@ -633,51 +633,51 @@ metadata/_custom_type_script = "uid://be3n1vh1tumo1"
 
 [node name="ScatterBush" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 20
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterBushBig" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 15
 source_scale_multiplier = 1.3
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterSmallRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 16
 path = "uid://bltmr2xgs8nq1"
 
 [node name="ScatterBigRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 2.0
 path = "uid://8ay5rlrutcmx"
 
 [node name="ScatterPines" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 4
 source_scale_multiplier = 4.0
 path = "uid://caqxfqurbp3ku"
 
 [node name="ScatterFaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 7
 path = "uid://b1r83n3ho5xd3"
 
 [node name="ScatterShape" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -244.37, 0, 420.741)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 shape = SubResource("Resource_8w2so")
 
 [node name="ProtonScatterValleFinale2" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90646, 16.1025, -552.367)
-script = ExtResource("6_os70r")
+script = ExtResource("6_2m5tp")
 keep_static_colliders = true
 modifier_stack = SubResource("Resource_ykrx8")
 Performance/use_chunks = true
@@ -686,53 +686,53 @@ metadata/_custom_type_script = "uid://be3n1vh1tumo1"
 
 [node name="ScatterBush" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 20
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterBushBig" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 15
 source_scale_multiplier = 1.6
 path = "uid://b8abs8me7ckgo"
 
 [node name="ScatterSmallRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 16
 path = "uid://bltmr2xgs8nq1"
 
 [node name="ScatterBigRocks" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 2.0
 path = "uid://8ay5rlrutcmx"
 
 [node name="ScatterAlien" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 1
 source_scale_multiplier = 0.15
 path = "uid://eh8pciblnvcw"
 
 [node name="ScatterFaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
-script = ExtResource("13_nmatp")
+script = ExtResource("13_oen3x")
 proportion = 9
 path = "uid://b1r83n3ho5xd3"
 
 [node name="ScatterShape" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterValleFinale2"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -244.37, 0, 420.741)
-script = ExtResource("14_6o1qj")
+script = ExtResource("14_p6t5d")
 shape = SubResource("Resource_rpbmo")
 
 [node name="AudioAreas" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 visible = false
 
-[node name="Lakeside" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Lakeside" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(0.933687, 0.343709, 0.100458, -0.341736, 0.939077, -0.0367684, -0.106976, -5.39544e-10, 0.994262, -66.9335, -8.51534, -4.82975)
 area_ambience = 4
 
@@ -741,7 +741,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0,
 polygon = PackedVector2Array(-35.4398, 40.3015, -37.5362, -5.12171, -10.2823, -40.0626, 22.625, -52.5112, 61.4628, -79.1318, 63.3772, -47.1128, 29.5504, 47.9885)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Lakeside2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Lakeside2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(0.225903, 0, -0.97415, -0.102824, 0.994414, -0.0238447, 0.968708, 0.105553, 0.224641, 73.2574, 113.029, -103.673)
 area_ambience = 4
 
@@ -750,7 +750,7 @@ transform = Transform3D(1, 1.49012e-08, -3.9081e-14, 0, -4.37114e-08, -60, -1.49
 polygon = PackedVector2Array(-42.8728, 47.6949, -8.76337, -4.64011, -7.23502, -42.4918, -37.6718, -84.5268, 60.1319, -145.233, 97.4272, -101.353, 53.9201, -45.2611, 30.7804, 14.813, -12.8331, 63.4778)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Forest1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Forest1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.307, 18.8964, -66.9967)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Forest1"]
@@ -758,7 +758,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -40, 0, 1, -1.74846e-06, 0, 0,
 polygon = PackedVector2Array(-72.5121, 59.1538, -58.1324, -1.15985, -51.9992, -49.6537, -19.1207, -78.9608, 47.8963, -56.8893, 94.5993, -52.9008, 119.299, -43.2619, 133.757, -29.7073, 104.991, -3.35114, 97.7948, 18.5092, 63.5709, 69.9966, -26.8575, 93.3947)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Forest2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Forest2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 0.980955, -0.194234, 0, 0.194234, 0.980955, 68.5245, 5.12773, -202.907)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Forest2"]
@@ -766,7 +766,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -30, 0, 1, -1.31134e-06, 0, 0,
 polygon = PackedVector2Array(-52.8015, 65.3473, -38.5021, 30.8883, -17.6625, 8.73938, -5.16827, -15.5234, 0.179832, -34.0411, -23.9744, -81.8158, -10.2206, -115.01, -32.801, -184.024, 1.22874, -246.9, 85.1267, -212.501, 49.996, -33.8684, 33.8511, 17.5845, 43.4153, 78.6942, 7.51746, 85.1654)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Forest3" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Forest3" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3588, 41.0157, -256.845)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Forest3"]
@@ -774,7 +774,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -100, 0, 1, -4.37114e-06, 2.96
 polygon = PackedVector2Array(-36.352, 40.1603, -32.0182, 38.6331, -53.2365, -23.821, 7.05133, -59.6005, 21.6959, -45.9856, 19.7742, -19.1462, 45.1492, 31.4257, 26.8758, 69.6693, 10.999, 65.9336, -15.2036, 80.8029)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Forest4" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Forest4" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.51, 64.3075, -195.207)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Forest4"]
@@ -782,7 +782,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -70, 0, 1, -3.0598e-06, 0, 0, 
 polygon = PackedVector2Array(-62.7992, -3.75789, -21.4539, -67.7762, 24.7934, -50.9741, 27.6119, -36.7347, 46.8261, -25.3392, 48.8607, 18.5493, 41.4981, 38.3027, 29.4665, 32.7359, 22.2834, 21.0634, 22.6426, 11.0071, -1.60025, -6.41179, -33.7452, 1.01978)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Forest5" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Forest5" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19418, -9.69127, -714.721)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Forest5"]
@@ -790,7 +790,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -70, 0, 1, -3.0598e-06, 0, 0, 
 polygon = PackedVector2Array(68.8711, -59.5433, 125.781, 0.172485, 51.6239, 109.227, 1.06917, 81.9602, -17.2429, 32.9294, -49.5632, 10.8532, -56.1021, -18.9561, -46.2774, -61.0358)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="AlienForest" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="AlienForest" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.423, 2.58742, -565.951)
 area_ambience = 1
 
@@ -799,7 +799,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -70, 0, 1, -3.0598e-06, 0, 0, 
 polygon = PackedVector2Array(35.4013, -127.614, 78.3914, 30.3152, 27.9377, 70.0213, -44.3094, 43.451, -80.1345, -33.2743, -3.09618, -147.859)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Cave" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Cave" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(0.256525, 0, -0.966537, 0, 1, 0, 0.966537, 0, 0.256525, 37.7734, 36.4168, -350.883)
 area_ambience = 3
 
@@ -808,7 +808,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, 0.0384
 polygon = PackedVector2Array(7.82224, -2.41895, 8.9745, 2.25912, -2.41068, 3.62335, -3.34585, -3.03085)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Cave2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Cave2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(0.256525, 0, -0.966537, 0, 1, 0, 0.966537, 0, 0.256525, -63.4188, 0.387726, -719.773)
 area_ambience = 3
 
@@ -817,7 +817,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, 0.0384
 polygon = PackedVector2Array(7.82224, -2.41895, 8.9745, 2.25912, -2.41068, 3.62335, -3.34585, -3.03085)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Clearing1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Clearing1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.565, 35.7382, -92.6734)
 area_ambience = 2
 
@@ -826,7 +826,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0,
 polygon = PackedVector2Array(-84.4302, 69.8672, -70.0856, -7.00362, -90.5195, -72.3882, -39.2535, -77.6226, -14.1406, -104.97, 22.4592, -99.2905, 62.6307, -85.485, 94.5415, -54.8189, 72.7018, -33.4318, 6.88869, -53.7913, -26.7722, -23.8905, -32.8468, 24.4543, -45.9234, 79.6126)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Clearing2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Clearing2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1401, 88.2118, -166.29)
 area_ambience = 2
 
@@ -835,7 +835,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0,
 polygon = PackedVector2Array(-90.291, -78.9242, -40.6403, -86.6817, 4.10342, -123.065, 23.8399, -65.8056, -48.1084, -42.5008, -87.8005, -66.3161)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Clearing3" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Clearing3" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.442, 78.4342, -272.146)
 area_ambience = 2
 
@@ -844,7 +844,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0,
 polygon = PackedVector2Array(-97.3811, -107.789, -67.4179, -117.297, 46.0965, -84.4526, 38.0295, -30.0002, 16.7095, -20.4927, -1.15315, -44.1175, -40.0477, -53.337, -73.7563, -40.3721, -87.2974, -53.0489)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Clearing4" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="Clearing4" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.19, 48.1463, -133.636)
 area_ambience = 2
 
@@ -853,7 +853,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -100, 0, 1, -4.37114e-06, 0, 0
 polygon = PackedVector2Array(27.0294, -166.375, 13.9613, -25.7892, -5.70872, -6.06909, -8.17625, -61.0275, 4.68109, -103.932, 2.66959, -157.301)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="River1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="River1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5035, 53.7685, -106.618)
 area_ambience = 5
 
@@ -862,7 +862,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0,
 polygon = PackedVector2Array(-88.8914, -103.222, -31.3197, -118.473, -10.2347, -78.0378, -20.3768, -48.5455, -67.0057, -20.2165, -94.4962, -68.9254)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="River2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
+[node name="River2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("16_x74en")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0022, 4.08833, -110.743)
 area_ambience = 5
 
@@ -873,7 +873,7 @@ debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Waterfall1" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732697, -26.7558, -94.6052)
-stream = ExtResource("18_ogyar")
+stream = ExtResource("17_8x31f")
 volume_db = 10.0
 autoplay = true
 max_distance = 150.0
@@ -881,7 +881,7 @@ bus = &"SFX"
 
 [node name="Waterfall2" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5094, 46.2534, -206.975)
-stream = ExtResource("18_ogyar")
+stream = ExtResource("17_8x31f")
 volume_db = 10.0
 autoplay = true
 max_distance = 150.0
@@ -889,7 +889,7 @@ bus = &"SFX"
 
 [node name="CaveEntrance1Wind" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(0.257285, 0, -0.966336, 0, 1, 0, 0.966336, 0, 0.257285, 37.42, 36.784, -349.89)
-stream = ExtResource("18_pw74u")
+stream = ExtResource("18_qxolp")
 attenuation_model = 2
 max_db = -5.0
 autoplay = true
@@ -900,7 +900,7 @@ emission_angle_degrees = 30.0
 
 [node name="CaveEntrance1Voice" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(0.257285, 0, -0.966336, 0, 1, 0, 0.966336, 0, 0.257285, 37.42, 36.784, -349.89)
-stream = ExtResource("19_rd50r")
+stream = ExtResource("19_1gisa")
 attenuation_model = 2
 max_db = -5.0
 autoplay = true
@@ -911,7 +911,7 @@ emission_angle_degrees = 30.0
 
 [node name="CaveEntrance2Wind" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(-0.105101, 0, -0.994462, 0, 1, 0, 0.994462, 0, -0.105101, -67.8921, 1.5775, -719.669)
-stream = ExtResource("18_pw74u")
+stream = ExtResource("18_qxolp")
 attenuation_model = 2
 volume_db = -5.0
 autoplay = true
@@ -922,7 +922,7 @@ emission_angle_degrees = 30.0
 
 [node name="CaveEntrance2Voice" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(-0.105101, 0, -0.994462, 0, 1, 0, 0.994462, 0, -0.105101, -67.8921, 1.5775, -719.669)
-stream = ExtResource("19_rd50r")
+stream = ExtResource("19_1gisa")
 attenuation_model = 2
 volume_db = -5.0
 autoplay = true
@@ -940,7 +940,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.57, 30.8859, -93.2946)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("19_ukxr0")
+script = ExtResource("20_7fb16")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/ContradaAbbandonata"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0, 0, 0)
@@ -952,7 +952,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82069, 10.8254, -107.342)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("19_ukxr0")
+script = ExtResource("20_7fb16")
 area_name = 1
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/Cascata"]
@@ -965,7 +965,7 @@ transform = Transform3D(1, 0, 0, 0, 0.991774, -0.127999, 0, 0.127999, 0.991774, 
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("19_ukxr0")
+script = ExtResource("20_7fb16")
 area_name = 2
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/ValleOscura"]
@@ -978,7 +978,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.511, 84.4012, -347.146)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("19_ukxr0")
+script = ExtResource("20_7fb16")
 area_name = 3
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/Ponte"]
@@ -991,7 +991,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7833, 93.0807, -236.72)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("19_ukxr0")
+script = ExtResource("20_7fb16")
 area_name = 4
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/Abbazia"]
@@ -1004,7 +1004,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7398, 59.9959, -214.969)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("19_ukxr0")
+script = ExtResource("20_7fb16")
 area_name = 5
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/CapannoCacciatori"]
@@ -1017,7 +1017,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 
 [node name="DisappearingAlien" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.038, 74.3561, -222.068)
-script = ExtResource("20_ddye3")
+script = ExtResource("21_ix6rq")
 
 [node name="EnterTriggerArea" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3286, -23.621, 12.6281)
@@ -1052,7 +1052,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768, -2.23389, -0.752838)
 shape = SubResource("BoxShape3D_fh0sh")
 debug_color = Color(0.12938, 0.520636, 1, 0.42)
 
-[node name="Alien" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("21_dm1v7")]
+[node name="Alien" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("22_kceji")]
 transform = Transform3D(1.04415, 0, -1.07692, 0, 1.5, 0, 1.07692, 0, 1.04415, 16.1556, 12.1634, -9.02901)
 visible = false
 
@@ -1062,7 +1062,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 [node name="CapannoCacciatori" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3664, 48.6516, -215.49)
 
-[node name="CapannoCacciatori" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori" instance=ExtResource("7_givjc")]
+[node name="CapannoCacciatori" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori" instance=ExtResource("23_hhxng")]
 transform = Transform3D(-0.175337, -0.114533, 1.38536, -0.0251523, 1.59583, 0.0978287, -1.38875, -0.0144424, -0.17668, 0.8361, 7.4242, -2.724)
 
 [node name="Chiesa" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
@@ -1071,16 +1071,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3875, 95.1482, -236.26)
 [node name="ContradaAbbandonata" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
 
-[node name="CasaLuiginoAnna_v1_0" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ContradaAbbandonata" instance=ExtResource("22_jh7si")]
+[node name="CasaLuiginoAnna_v1_0" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ContradaAbbandonata" instance=ExtResource("24_ykgxx")]
 transform = Transform3D(-0.0409473, 0, 1.29936, 0, 1.3, 0, -1.29936, 0, -0.0409473, -24.022, 32.0756, 50.5006)
 
-[node name="AbandonedHouse" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ContradaAbbandonata" instance=ExtResource("23_4fia2")]
+[node name="AbandonedHouse" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ContradaAbbandonata" instance=ExtResource("25_15lo5")]
 transform = Transform3D(-0.952757, 0, 0.303734, 0, 1, 0, -0.303734, 0, -0.952757, -18.308, 26.015, -53.8247)
 
 [node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3875, 95.1482, -236.26)
 
-[node name="AlienTree" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena" instance=ExtResource("25_snue3")]
+[node name="AlienTree" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena" instance=ExtResource("26_4vjpg")]
 transform = Transform3D(0.916363, 0, 0.400349, 0, 1, 0, -0.400349, 0, 0.916363, 196.665, -102.256, -301.785)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/AlienTree"]
@@ -1096,98 +1096,98 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 [node name="CapannoCacciatori" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3664, 48.6516, -215.49)
 
-[node name="DisegnoBambiniPonte" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("26_312y5")]
+[node name="DisegnoBambiniPonte" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("27_74ai5")]
 transform = Transform3D(-0.863786, -0.499676, 0.0647856, -0.0447392, -0.0520094, -0.997644, 0.501868, -0.86465, 0.0225699, -1.05559, 7.33793, -5.62973)
 
-[node name="AmmoCasing" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("29_ow1k1")]
+[node name="AmmoCasing" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("28_fd33r")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.827757, 7.54562, -2.04597)
 
-[node name="AmmoCasing2" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("29_ow1k1")]
+[node name="AmmoCasing2" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("28_fd33r")]
 transform = Transform3D(-0.583951, 0, 1.38167, 0, 1.5, 0, -1.38167, 0, -0.583951, 0.462902, 7.63441, -0.221176)
 
-[node name="AmmoCasing3" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("29_ow1k1")]
+[node name="AmmoCasing3" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("28_fd33r")]
 transform = Transform3D(-1.48138, 0, 0.235634, 0, 1.5, 0, -0.235634, 0, -1.48138, 0.980677, 7.56066, 0.805328)
 
-[node name="AmmoCasing4" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("29_ow1k1")]
+[node name="AmmoCasing4" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("28_fd33r")]
 transform = Transform3D(-1.48138, 0, 0.235634, 0, 1.5, 0, -0.235634, 0, -1.48138, 0.127815, 7.47367, 0.901993)
 
-[node name="FucileCaccia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("27_pw74u")]
+[node name="FucileCaccia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("29_fysti")]
 transform = Transform3D(0.357614, -0.0384919, 0.175016, 0.0303098, 0.398027, 0.0256068, -0.176617, -0.00963159, 0.358767, 1.80256, 7.63713, 0.120865)
 
-[node name="PortaSfondata" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("28_rd50r")]
+[node name="PortaSfondata" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("30_0tujy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09752, 8.42905, -3.92245)
 
 [node name="Cascata" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0315, 1.20724, -97.2809)
 
-[node name="OcchialiLuigino" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("29_q4rj2")]
+[node name="OcchialiLuigino" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("31_elvov")]
 transform = Transform3D(0.086723, 0.0523099, 0.172461, -0.0364193, 0.192528, -0.0400828, -0.176501, -0.014024, 0.0930085, -43.9881, 6.02619, 30.2673)
 
-[node name="ScarpaDonna" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("30_8ybqs")]
+[node name="ScarpaDonna" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("32_syn51")]
 transform = Transform3D(0.297231, 0.0406628, 0, -0.0406628, 0.297231, 0, 0, 0, 0.3, 19.938, -0.714657, -18.2767)
 
-[node name="SolchiTerreno" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("31_v7i3q")]
+[node name="SolchiTerreno" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("33_ftenf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9511, -7.20965, -58.7557)
 
 [node name="DiarioAbbandonato" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7945, 53.1869, -205.193)
 
-[node name="DiarioAgnese" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/DiarioAbbandonato" instance=ExtResource("32_6equ6")]
+[node name="DiarioAgnese" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/DiarioAbbandonato" instance=ExtResource("34_is7dx")]
 transform = Transform3D(0.992646, -0.0146711, 0.120163, -0.121055, -0.120302, 0.985329, 0, -0.992629, -0.121194, -4.53378, 1.45776, 1.58899)
 
 [node name="Chiesa" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3875, 95.1482, -236.26)
 
-[node name="DisegnoPonteChiesa" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("33_t8c6o")]
+[node name="DisegnoPonteChiesa" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("35_3v5wo")]
 transform = Transform3D(0.912727, 0, 0.408569, 0, 1, 0, -0.408569, 0, 0.912727, -1.60999, -4.57271, 3.30583)
 
-[node name="PiantaAliena" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("34_ow1k1")]
+[node name="PiantaAliena" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("36_rb17v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18053, -5.05311, 5.8468)
 
 [node name="ContradaAbbandonata" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
 
-[node name="DipintoCascata" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("36_t8c6o")]
+[node name="DipintoCascata" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("37_iu4ut")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -29.3652, 37.5033, 54.0449)
 
-[node name="ForiProiettili" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("37_ow1k1")]
+[node name="ForiProiettili" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("38_vsfgc")]
 transform = Transform3D(0.817638, 0, 0.575733, 0, 1, 0, -0.575733, 0, 0.817638, -5.15248, 28.4558, -55.2459)
 
-[node name="FotoFamiglia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("38_8w2so")]
+[node name="FotoFamiglia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("39_fj32x")]
 transform = Transform3D(-0.99267, -0.0378113, -0.114787, -0.00266139, 0.956406, -0.292029, 0.120825, -0.289583, -0.949496, -27.6777, 32.9488, 51.0363)
 
-[node name="LiquidoGiallo" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("39_hdh0v")]
+[node name="LiquidoGiallo" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("40_l4ssp")]
 transform = Transform3D(0.817638, 0, 0.575733, 0, 1, 0, -0.575733, 0, 0.817638, -11.5021, 28.4558, -46.9981)
 
 [node name="Ponte" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6966, 0, -346.342)
 
-[node name="DisegnoTunnel" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Ponte" instance=ExtResource("41_kexn8")]
+[node name="DisegnoTunnel" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Ponte" instance=ExtResource("41_kbicn")]
 transform = Transform3D(-0.745883, -0.666077, -2.91152e-08, 0, -4.37114e-08, 1, -0.666077, 0.745883, 3.26036e-08, -0.766228, 78.1498, 18.3268)
 
-[node name="Matite" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Ponte" instance=ExtResource("42_vudbr")]
+[node name="Matite" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Ponte" instance=ExtResource("42_814wl")]
 transform = Transform3D(0.997493, 0.0707663, 0, -0.0698908, 0.985152, -0.156814, -0.0110971, 0.156421, 0.987628, 12.6623, 77.5395, 23.2671)
 
 [node name="ValleOscura" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.888, 0, -180.181)
 
-[node name="PartiteNascondino" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("44_a51fr")]
+[node name="PartiteNascondino" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("43_wdtlf")]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0.920975, -8.16202, -5.96091)
 
-[node name="SangueValle" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("45_onjdg")]
+[node name="SangueValle" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("44_nqehx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3406, 32.3337, -235.106)
 
-[node name="RosarioCrocifisso" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("43_a51fr")]
+[node name="RosarioCrocifisso" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("45_ggbbk")]
 transform = Transform3D(1, 0, 0, 0, 0.982852, 0.184397, 0, -0.184397, 0.982852, 13.1078, 27.9486, -130.476)
 
 [node name="AmbientParticles" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 
 [node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles"]
 
-[node name="BlackParticles" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/ValleAliena" instance=ExtResource("26_viuhf")]
+[node name="BlackParticles" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/ValleAliena" instance=ExtResource("46_jltwk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.805, 11.4027, -545.388)
 
-[node name="BlackParticles2" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/ValleAliena" instance=ExtResource("26_viuhf")]
+[node name="BlackParticles2" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles/ValleAliena" instance=ExtResource("46_jltwk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.594, 2.89901, -618.458)
 
 [node name="Waterfalls" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/AmbientParticles"]
@@ -1208,7 +1208,7 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_q4rj2")
 draw_pass_1 = SubResource("QuadMesh_v7i3q")
 
-[node name="HUD" parent="." instance=ExtResource("22_ojfnr")]
+[node name="HUD" parent="." instance=ExtResource("48_tc01f")]
 layout_mode = 2
 
 [connection signal="body_entered" from="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/ContradaAbbandonata" to="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas/ContradaAbbandonata" method="_on_body_entered"]
