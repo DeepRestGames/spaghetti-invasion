@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bta2u40j4krca"]
+[gd_scene load_steps=71 format=3 uid="uid://dsvqny4ttof5o"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_wupp8"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_o4etg"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://cvw1y25d3rugl" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="16_pcga1"]
 [ext_resource type="PackedScene" uid="uid://dik4tnuy7uuje" path="res://Scenes/Audio/AudioArea.tscn" id="17_6itot"]
 [ext_resource type="AudioStream" uid="uid://bpypxwruvjcb6" path="res://Assets/Audio/SFX/Environment/Waterfall.wav" id="18_ogyar"]
+[ext_resource type="AudioStream" uid="uid://rqletg3lfxjh" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe2.wav" id="18_pw74u"]
+[ext_resource type="AudioStream" uid="uid://drla3ql62gflr" path="res://Assets/Audio/SFX/Alien/Ghostly Voices RL.wav" id="19_rd50r"]
 [ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="19_ukxr0"]
 [ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="20_ddye3"]
 [ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="21_dm1v7"]
@@ -59,7 +61,7 @@ volumetric_fog_anisotropy = -0.23
 volumetric_fog_length = 6.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="Resource" id="Resource_snue3"]
+[sub_resource type="Resource" id="Resource_312y5"]
 script = ExtResource("9_tm0ej")
 amount = 2500
 enabled = true
@@ -68,7 +70,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_viuhf"]
+[sub_resource type="Resource" id="Resource_pw74u"]
 script = ExtResource("10_knuwt")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -79,7 +81,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ka2jw"]
+[sub_resource type="Resource" id="Resource_8ybqs"]
 script = ExtResource("11_i6md2")
 iterations = 3
 offset_step = 0.2
@@ -91,7 +93,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jft44"]
+[sub_resource type="Resource" id="Resource_v7i3q"]
 script = ExtResource("12_pop34")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -107,9 +109,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jr6bc"]
+[sub_resource type="Resource" id="Resource_6equ6"]
 script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_snue3"), SubResource("Resource_viuhf"), SubResource("Resource_ka2jw"), SubResource("Resource_jft44")])
+stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_312y5"), SubResource("Resource_pw74u"), SubResource("Resource_8ybqs"), SubResource("Resource_v7i3q")])
 
 [sub_resource type="Curve3D" id="Curve3D_pw74u"]
 _data = {
@@ -124,7 +126,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_pw74u")
 
-[sub_resource type="Resource" id="Resource_gsyiq"]
+[sub_resource type="Resource" id="Resource_t8c6o"]
 script = ExtResource("9_tm0ej")
 amount = 2500
 enabled = true
@@ -133,7 +135,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_wqn66"]
+[sub_resource type="Resource" id="Resource_ow1k1"]
 script = ExtResource("10_knuwt")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -144,7 +146,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_1883c"]
+[sub_resource type="Resource" id="Resource_hdh0v"]
 script = ExtResource("11_i6md2")
 iterations = 3
 offset_step = 0.2
@@ -156,7 +158,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_0n3mj"]
+[sub_resource type="Resource" id="Resource_kexn8"]
 script = ExtResource("12_pop34")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 70.0
@@ -172,9 +174,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_312y5"]
+[sub_resource type="Resource" id="Resource_vudbr"]
 script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_gsyiq"), SubResource("Resource_wqn66"), SubResource("Resource_1883c"), SubResource("Resource_0n3mj")])
+stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_t8c6o"), SubResource("Resource_ow1k1"), SubResource("Resource_hdh0v"), SubResource("Resource_kexn8")])
 
 [sub_resource type="Curve3D" id="Curve3D_rd50r"]
 _data = {
@@ -189,7 +191,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_rd50r")
 
-[sub_resource type="Resource" id="Resource_pw74u"]
+[sub_resource type="Resource" id="Resource_a51fr"]
 script = ExtResource("9_tm0ej")
 amount = 1500
 enabled = true
@@ -198,7 +200,7 @@ custom_seed = 1
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_8ybqs"]
+[sub_resource type="Resource" id="Resource_onjdg"]
 script = ExtResource("10_knuwt")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -209,7 +211,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_v7i3q"]
+[sub_resource type="Resource" id="Resource_6vkam"]
 script = ExtResource("11_i6md2")
 iterations = 3
 offset_step = 0.2
@@ -221,7 +223,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6equ6"]
+[sub_resource type="Resource" id="Resource_wfwg3"]
 script = ExtResource("12_pop34")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -237,9 +239,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_t8c6o"]
+[sub_resource type="Resource" id="Resource_e8y77"]
 script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_pw74u"), SubResource("Resource_8ybqs"), SubResource("Resource_v7i3q"), SubResource("Resource_6equ6")])
+stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_a51fr"), SubResource("Resource_onjdg"), SubResource("Resource_6vkam"), SubResource("Resource_wfwg3")])
 
 [sub_resource type="Curve3D" id="Curve3D_ow1k1"]
 _data = {
@@ -254,7 +256,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_ow1k1")
 
-[sub_resource type="Resource" id="Resource_hdh0v"]
+[sub_resource type="Resource" id="Resource_3jxh8"]
 script = ExtResource("9_tm0ej")
 amount = 1500
 enabled = true
@@ -263,7 +265,7 @@ custom_seed = 2
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_kexn8"]
+[sub_resource type="Resource" id="Resource_4a466"]
 script = ExtResource("10_knuwt")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(5, 360, 3)
@@ -274,7 +276,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_vudbr"]
+[sub_resource type="Resource" id="Resource_b5puh"]
 script = ExtResource("11_i6md2")
 iterations = 3
 offset_step = 0.2
@@ -286,7 +288,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_a51fr"]
+[sub_resource type="Resource" id="Resource_spog4"]
 script = ExtResource("12_pop34")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 30.0
@@ -302,9 +304,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_onjdg"]
+[sub_resource type="Resource" id="Resource_oarhj"]
 script = ExtResource("7_jdha1")
-stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_hdh0v"), SubResource("Resource_kexn8"), SubResource("Resource_vudbr"), SubResource("Resource_a51fr")])
+stack = Array[ExtResource("8_o14nf")]([SubResource("Resource_3jxh8"), SubResource("Resource_4a466"), SubResource("Resource_b5puh"), SubResource("Resource_spog4")])
 
 [sub_resource type="Curve3D" id="Curve3D_6vkam"]
 _data = {
@@ -354,7 +356,7 @@ grow_vertical = 2
 [node name="GameWorld" type="Node3D" parent="SubViewport"]
 
 [node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("5_sobbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.62338, 0.0715089, -719.529)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.0898, 31.5172, -370.501)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/GameWorld" groups=["WorldEnvironment"]]
 environment = SubResource("Environment_8jrty")
@@ -376,7 +378,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -481.368, 29.8921, -38.2498)
 script = ExtResource("6_os70r")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_jr6bc")
+modifier_stack = SubResource("Resource_6equ6")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -429,7 +431,7 @@ shape = SubResource("Resource_rd50r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.82, 74.4114, -98.2114)
 script = ExtResource("6_os70r")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_312y5")
+modifier_stack = SubResource("Resource_vudbr")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -482,7 +484,7 @@ shape = SubResource("Resource_q4rj2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90646, 0, -552.367)
 script = ExtResource("6_os70r")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_t8c6o")
+modifier_stack = SubResource("Resource_e8y77")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -535,7 +537,7 @@ shape = SubResource("Resource_8w2so")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90646, 16.1025, -552.367)
 script = ExtResource("6_os70r")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_onjdg")
+modifier_stack = SubResource("Resource_oarhj")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://be3n1vh1tumo1"
@@ -586,7 +588,6 @@ shape = SubResource("Resource_rpbmo")
 
 [node name="AudioAreas" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
-visible = false
 
 [node name="Lakeside" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
 transform = Transform3D(0.933687, 0.343709, 0.100458, -0.341736, 0.939077, -0.0367684, -0.106976, -5.39544e-10, 0.994262, -66.9335, -8.51534, -4.82975)
@@ -598,12 +599,12 @@ polygon = PackedVector2Array(-35.4398, 40.3015, -37.5362, -5.12171, -10.2823, -4
 debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Lakeside2" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
-transform = Transform3D(0.225903, 0, -0.97415, -0.102824, 0.994414, -0.0238447, 0.968708, 0.105553, 0.224641, 73.2574, -24.9571, -103.673)
+transform = Transform3D(0.225903, 0, -0.97415, -0.102824, 0.994414, -0.0238447, 0.968708, 0.105553, 0.224641, 73.2574, 113.029, -103.673)
 area_ambience = 4
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Lakeside2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 0, 0)
-polygon = PackedVector2Array(-42.8728, 47.6949, -8.76337, -4.64011, -7.23502, -42.4918, 36.4645, -78.0094, 73.3381, -76.613, 53.9201, -45.2611, 30.7804, 14.813, -12.8331, 63.4778)
+transform = Transform3D(1, 1.49012e-08, -3.9081e-14, 0, -4.37114e-08, -60, -1.49012e-08, 1, -2.62268e-06, 12.2494, -118.463, 2.8406)
+polygon = PackedVector2Array(-42.8728, 47.6949, -8.76337, -4.64011, -7.23502, -42.4918, -37.6718, -84.5268, 60.1319, -145.233, 97.4272, -101.353, 53.9201, -45.2611, 30.7804, 14.813, -12.8331, 63.4778)
 debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Forest1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
@@ -701,17 +702,13 @@ polygon = PackedVector2Array(-97.3811, -107.789, -67.4179, -117.297, 46.0965, -8
 debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Clearing4" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.19, 25.0675, -133.636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.19, 48.1463, -133.636)
 area_ambience = 2
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Clearing4"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -100, 0, 1, -4.37114e-06, 0, 0, 0)
-polygon = PackedVector2Array(27.0294, -166.375, 13.9613, -25.7892, 86.6156, 52.7851, 73.9489, 86.2442, 46.2257, 92.9361, 35.4709, 77.6405, 29.4961, 47.5272, 1.5338, 21.2379, -9.45992, -33.0137, 4.68109, -103.932, 2.66959, -157.301)
+polygon = PackedVector2Array(27.0294, -166.375, 13.9613, -25.7892, -5.70872, -6.06909, -8.17625, -61.0275, 4.68109, -103.932, 2.66959, -157.301)
 debug_color = Color(1, 1, 0, 0.419608)
-
-[node name="Clearing5" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4418, 182.211, -75.6104)
-area_ambience = 2
 
 [node name="River1" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas" instance=ExtResource("17_6itot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5035, 53.7685, -106.618)
@@ -731,7 +728,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -30, 0, 1, -1.31134e-06, 0, 0,
 polygon = PackedVector2Array(-1.89983, -1.6162, 28.9033, -49.19, 33.8394, -47.7914, 24.5408, -23.0484, 12.7092, 0.272659, -31.192, 40.5584, -61.6641, 56.8247, -56.8612, 40.8693)
 debug_color = Color(1, 1, 0, 0.419608)
 
-[node name="Waterfall" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
+[node name="Waterfall1" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732697, -26.7558, -94.6052)
 stream = ExtResource("18_ogyar")
 volume_db = 10.0
@@ -746,6 +743,50 @@ volume_db = 10.0
 autoplay = true
 max_distance = 150.0
 bus = &"SFX"
+
+[node name="CaveEntrance1Wind" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
+transform = Transform3D(0.257285, 0, -0.966336, 0, 1, 0, 0.966336, 0, 0.257285, 37.42, 36.784, -349.89)
+stream = ExtResource("18_pw74u")
+attenuation_model = 2
+max_db = -5.0
+autoplay = true
+max_distance = 100.0
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 30.0
+
+[node name="CaveEntrance1Voice" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
+transform = Transform3D(0.257285, 0, -0.966336, 0, 1, 0, 0.966336, 0, 0.257285, 37.42, 36.784, -349.89)
+stream = ExtResource("19_rd50r")
+attenuation_model = 2
+max_db = -5.0
+autoplay = true
+max_distance = 100.0
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 30.0
+
+[node name="CaveEntrance2Wind" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
+transform = Transform3D(-0.105101, 0, -0.994462, 0, 1, 0, 0.994462, 0, -0.105101, -67.8921, 1.5775, -719.669)
+stream = ExtResource("18_pw74u")
+attenuation_model = 2
+volume_db = -5.0
+autoplay = true
+max_distance = 100.0
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 30.0
+
+[node name="CaveEntrance2Voice" type="AudioStreamPlayer3D" parent="SubViewport/GameWorld/LandscapeVeneto/AudioAreas"]
+transform = Transform3D(-0.105101, 0, -0.994462, 0, 1, 0, 0.994462, 0, -0.105101, -67.8921, 1.5775, -719.669)
+stream = ExtResource("19_rd50r")
+attenuation_model = 2
+volume_db = -5.0
+autoplay = true
+max_distance = 100.0
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 30.0
 
 [node name="DiscoverableAreas" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
@@ -989,6 +1030,5 @@ layout_mode = 2
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Clearing2"]
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Clearing3"]
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Clearing4"]
-[editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Clearing5"]
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/River1"]
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/River2"]
