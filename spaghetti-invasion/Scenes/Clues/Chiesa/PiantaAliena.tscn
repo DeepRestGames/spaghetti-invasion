@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmgf0jajmv5pf"]
+[gd_scene load_steps=15 format=4 uid="uid://cmgf0jajmv5pf"]
 
 [ext_resource type="Script" uid="uid://tc1eogryh1j8" path="res://Scripts/InteractionSystem/InteractableClue.gd" id="1_d14kx"]
 [ext_resource type="Resource" uid="uid://clslv5em010j6" path="res://Assets/Resources/Clues/Chiesa/PiantaAliena.tres" id="2_cntii"]
 [ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="3_ext5y"]
-[ext_resource type="PackedScene" uid="uid://caan0y2dt4t7a" path="res://Assets/Models/AlienTreeSample.blend" id="4_eb3sv"]
+[ext_resource type="Texture2D" uid="uid://bud2tuvba6arm" path="res://Assets/Models/textures/Image_4.png" id="4_b73uy"]
+[ext_resource type="Material" uid="uid://cuh620m7dy245" path="res://Assets/Materials/ShaderMaterials/AlienTreeEgg.tres" id="5_u4nmb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
+size = Vector3(1.48145, 1, 1.43359)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cntii"]
 lifetime_randomness = 0.5
@@ -30,6 +32,927 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_b73uy"]
 material = SubResource("StandardMaterial3D_eb3sv")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfsfd"]
+resource_name = "leaves.002"
+transparency = 2
+alpha_scissor_threshold = 0.478261
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.415686, 0.262745, 0.858823, 1)
+albedo_texture = ExtResource("4_b73uy")
+metallic = 0.5
+roughness = 0.5
+texture_repeat = false
+metadata/extras = {
+"shader": {
+"alphaHash": false,
+"alphaMap": false,
+"alphaMapUv": false,
+"alphaTest": true,
+"alphaToCoverage": false,
+"anisotropy": false,
+"anisotropyMap": false,
+"anisotropyMapUv": false,
+"aoMap": false,
+"aoMapUv": false,
+"batching": false,
+"batchingColor": false,
+"bumpMap": false,
+"bumpMapUv": false,
+"clearcoat": false,
+"clearcoatMap": false,
+"clearcoatMapUv": false,
+"clearcoatNormalMap": false,
+"clearcoatNormalMapUv": false,
+"clearcoatRoughnessMap": false,
+"clearcoatRoughnessMapUv": false,
+"combine": 0.0,
+"customProgramCacheKey": "n=>{n.uniforms.uTime={value:0},n.uniforms.uWindStrength={value:new N(.5,0,.5)},n.uniforms.uWindFrequency={value:.5},n.uniforms.uWindScale={value:70},n.vertexShader=`
+        uniform float uTime;
+        uniform vec3 uWindStrength;
+        uniform float uWindFrequency;
+        uniform float uWindScale;
+        `+n.vertexShader,n.vertexShader=n.vertexShader.replace(\"void main() {\",`
+        // GLSL Simplex Noise 3D
+        // Source: https://github.com/ashima/webgl-noise
+
+        vec3 mod289(vec3 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+
+        vec4 mod289(vec4 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+
+        vec4 permute(vec4 x) {
+            return mod289(((x*34.0)+1.0)*x);
+        }
+
+        vec4 taylorInvSqrt(vec4 r) {
+            return 1.79284291400159 - 0.85373472095314 * r;
+        }
+
+        vec3 fade(vec3 t) {
+            return t*t*t*(t*(t*6.0-15.0)+10.0);
+        }
+
+        // Classic Simplex Noise 3D
+        float simplex3(vec3 v) {
+            const vec2  C = vec2(1.0/6.0, 1.0/3.0);
+            const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+
+            // First corner
+            vec3 i  = floor(v + dot(v, C.yyy) );
+            vec3 x0 = v - i + dot(i, C.xxx);
+
+            // Other corners
+            vec3 g = step(x0.yzx, x0.xyz);
+            vec3 l = 1.0 - g;
+            vec3 i1 = min( g.xyz, l.zxy );
+            vec3 i2 = max( g.xyz, l.zxy );
+
+            //  x0 = x0 - 0. + 0.0 * C 
+            vec3 x1 = x0 - i1 + C.xxx;
+            vec3 x2 = x0 - i2 + C.yyy; // 2.0 * C.x = 1/3 = C.y
+            vec3 x3 = x0 - D.yyy;      // -1.0 + 3.0 * C.x = -0.5
+
+            // Permutations
+            i = mod289(i);
+            vec4 p = permute( permute( permute( 
+                        i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+                      + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+                      + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+
+            // Gradients: 7x7 points over a square, mapped onto an octahedron.
+            // The ring size 17*17 = 289 is close to the mapping's singularity.
+            float n_ = 0.142857142857; // 1.0/7.0
+            vec3  ns = n_ * D.wyz - D.xzx;
+
+            vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)
+
+            vec4 x_ = floor(j * ns.z);
+            vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)
+
+            vec4 x = x_ *ns.x + ns.yyyy;
+            vec4 y = y_ *ns.x + ns.yyyy;
+            vec4 h = 1.0 - abs(x) - abs(y);
+
+            vec4 b0 = vec4( x.xy, y.xy );
+            vec4 b1 = vec4( x.zw, y.zw );
+
+            vec4 s0 = floor(b0)*2.0 + 1.0;
+            vec4 s1 = floor(b1)*2.0 + 1.0;
+            vec4 sh = -step(h, vec4(0.0));
+
+            vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+            vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+
+            vec3 g0 = vec3(a0.xy,h.x);
+            vec3 g1 = vec3(a0.zw,h.y);
+            vec3 g2 = vec3(a1.xy,h.z);
+            vec3 g3 = vec3(a1.zw,h.w);
+
+            // Normalise gradients
+            vec4 norm = taylorInvSqrt(vec4(dot(g0,g0), dot(g1,g1), dot(g2,g2), dot(g3,g3)));
+            g0 *= norm.x;
+            g1 *= norm.y;
+            g2 *= norm.z;
+            g3 *= norm.w;
+
+            // Mix contributions from the four corners
+            vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+            m = m * m;
+            return 42.0 * dot( m*m, vec4( dot(g0,x0), dot(g1,x1), 
+                                          dot(g2,x2), dot(g3,x3) ) );
+        }
+          
+        void main() {`),n.vertexShader=n.vertexShader.replace(\"#include <project_vertex>\",`
+        vec4 mvPosition = vec4(transformed, 1.0);
+
+        float windOffset = 2.0 * 3.14 * simplex3(mvPosition.xyz / uWindScale);
+        vec3 windSway = uv.y * uWindStrength * (
+          0.5 * sin(uTime * uWindFrequency + windOffset) +
+          0.3 * sin(2.0 * uTime * uWindFrequency + 1.3 * windOffset) +
+          0.2 * sin(5.0 * uTime * uWindFrequency + 1.5 * windOffset)
+        );
+        mvPosition.xyz += windSway;
+
+        mvPosition = modelViewMatrix * mvPosition;
+        gl_Position = projectionMatrix * mvPosition;
+        `),e.userData.shader=n}",
+"decodeVideoTexture": false,
+"depthPacking": 0.0,
+"dispersion": false,
+"displacementMap": false,
+"displacementMapUv": false,
+"dithering": true,
+"doubleSided": true,
+"emissiveMap": false,
+"emissiveMapUv": false,
+"envMap": false,
+"envMapCubeUVHeight": null,
+"envMapMode": false,
+"extensionClipCullDistance": false,
+"extensionMultiDraw": false,
+"flatShading": false,
+"flipSided": false,
+"fog": true,
+"fogExp2": true,
+"fragmentShader": "#define PHONG
+uniform vec3 diffuse;
+uniform vec3 emissive;
+uniform vec3 specular;
+uniform float shininess;
+uniform float opacity;
+#include <common>
+#include <packing>
+#include <dithering_pars_fragment>
+#include <color_pars_fragment>
+#include <uv_pars_fragment>
+#include <map_pars_fragment>
+#include <alphamap_pars_fragment>
+#include <alphatest_pars_fragment>
+#include <alphahash_pars_fragment>
+#include <aomap_pars_fragment>
+#include <lightmap_pars_fragment>
+#include <emissivemap_pars_fragment>
+#include <envmap_common_pars_fragment>
+#include <envmap_pars_fragment>
+#include <fog_pars_fragment>
+#include <bsdfs>
+#include <lights_pars_begin>
+#include <normal_pars_fragment>
+#include <lights_phong_pars_fragment>
+#include <shadowmap_pars_fragment>
+#include <bumpmap_pars_fragment>
+#include <normalmap_pars_fragment>
+#include <specularmap_pars_fragment>
+#include <logdepthbuf_pars_fragment>
+#include <clipping_planes_pars_fragment>
+void main() {
+	vec4 diffuseColor = vec4( diffuse, opacity );
+	#include <clipping_planes_fragment>
+	ReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );
+	vec3 totalEmissiveRadiance = emissive;
+	#include <logdepthbuf_fragment>
+	#include <map_fragment>
+	#include <color_fragment>
+	#include <alphamap_fragment>
+	#include <alphatest_fragment>
+	#include <alphahash_fragment>
+	#include <specularmap_fragment>
+	#include <normal_fragment_begin>
+	#include <normal_fragment_maps>
+	#include <emissivemap_fragment>
+	#include <lights_phong_fragment>
+	#include <lights_fragment_begin>
+	#include <lights_fragment_maps>
+	#include <lights_fragment_end>
+	#include <aomap_fragment>
+	vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse + reflectedLight.directSpecular + reflectedLight.indirectSpecular + totalEmissiveRadiance;
+	#include <envmap_fragment>
+	#include <opaque_fragment>
+	#include <tonemapping_fragment>
+	#include <colorspace_fragment>
+	#include <fog_fragment>
+	#include <premultiplied_alpha_fragment>
+	#include <dithering_fragment>
+}",
+"gradientMap": false,
+"instancing": false,
+"instancingColor": false,
+"instancingMorph": false,
+"iridescence": false,
+"iridescenceMap": false,
+"iridescenceMapUv": false,
+"iridescenceThicknessMap": false,
+"iridescenceThicknessMapUv": false,
+"isRawShaderMaterial": false,
+"lightMap": false,
+"lightMapUv": false,
+"logarithmicDepthBuffer": false,
+"map": true,
+"mapUv": "uv",
+"matcap": false,
+"metalnessMap": false,
+"metalnessMapUv": false,
+"morphColors": false,
+"morphNormals": false,
+"morphTargets": false,
+"morphTargetsCount": 0.0,
+"morphTextureStride": 0.0,
+"normalMap": false,
+"normalMapObjectSpace": false,
+"normalMapTangentSpace": false,
+"normalMapUv": false,
+"numClipIntersection": 0.0,
+"numClippingPlanes": 0.0,
+"numDirLightShadows": 1.0,
+"numDirLights": 1.0,
+"numHemiLights": 0.0,
+"numLightProbes": 0.0,
+"numPointLightShadows": 0.0,
+"numPointLights": 0.0,
+"numRectAreaLights": 0.0,
+"numSpotLightMaps": 0.0,
+"numSpotLightShadows": 0.0,
+"numSpotLightShadowsWithMaps": 0.0,
+"numSpotLights": 0.0,
+"opaque": true,
+"outputColorSpace": "srgb-linear",
+"pointsUvs": false,
+"precision": "highp",
+"premultipliedAlpha": false,
+"rendererExtensionParallelShaderCompile": true,
+"roughnessMap": false,
+"roughnessMapUv": false,
+"shaderID": "phong",
+"shaderName": "leaves",
+"shaderType": "MeshPhongMaterial",
+"shadowMapEnabled": true,
+"shadowMapType": 1.0,
+"sheen": false,
+"sheenColorMap": false,
+"sheenColorMapUv": false,
+"sheenRoughnessMap": false,
+"sheenRoughnessMapUv": false,
+"sizeAttenuation": false,
+"skinning": false,
+"specularColorMap": false,
+"specularColorMapUv": false,
+"specularIntensityMap": false,
+"specularIntensityMapUv": false,
+"specularMap": false,
+"specularMapUv": false,
+"supportsVertexTextures": true,
+"thicknessMap": false,
+"thicknessMapUv": false,
+"toneMapping": 0.0,
+"transmission": false,
+"transmissionMap": false,
+"transmissionMapUv": false,
+"uniforms": {
+"alphaMap": {
+"value": null
+},
+"alphaMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"alphaTest": {
+"value": 0.478261
+},
+"ambientLightColor": {
+"needsUpdate": true,
+"value": [0.4, 0.4, 0.4]
+},
+"aoMap": {
+"value": null
+},
+"aoMapIntensity": {
+"value": 1.0
+},
+"aoMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"bumpMap": {
+"value": null
+},
+"bumpMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"bumpScale": {
+"value": 1.0
+},
+"clippingPlanes": {
+"needsUpdate": false,
+"value": null
+},
+"diffuse": {
+"value": 6.96419e+06
+},
+"directionalLightShadows": {
+"needsUpdate": true,
+"properties": {
+"shadowBias": {},
+"shadowIntensity": 1.0,
+"shadowMapSize": {},
+"shadowNormalBias": {},
+"shadowRadius": {}
+},
+"value": [{
+"shadowBias": -0.001,
+"shadowIntensity": 1.0,
+"shadowMapSize": {
+"x": 512.0,
+"y": 512.0
+},
+"shadowNormalBias": 0.2,
+"shadowRadius": 1.0
+}]
+},
+"directionalLights": {
+"needsUpdate": true,
+"properties": {
+"color": {},
+"direction": {}
+},
+"value": [{
+"color": 1.67772e+07,
+"direction": {
+"x": -0.404572,
+"y": 0.406583,
+"z": 0.819153
+}
+}]
+},
+"directionalShadowMap": {
+"value": [{
+"anisotropy": 1.0,
+"center": [0.0, 0.0],
+"channel": 0.0,
+"colorSpace": "",
+"flipY": false,
+"format": 1023.0,
+"generateMipmaps": false,
+"image": "5eb0e12a-2b06-4ffc-a27a-73e7a050dc4b",
+"internalFormat": null,
+"magFilter": 1003.0,
+"mapping": 300.0,
+"metadata": {
+"generator": "Texture.toJSON",
+"type": "Texture",
+"version": 4.6
+},
+"minFilter": 1003.0,
+"name": ".shadowMap",
+"offset": [0.0, 0.0],
+"premultiplyAlpha": false,
+"repeat": [1.0, 1.0],
+"rotation": 0.0,
+"type": 1009.0,
+"unpackAlignment": 4.0,
+"uuid": "6f915b1b-c4b5-42b2-8019-1369cc66abbd",
+"wrap": [1001.0, 1001.0]
+}]
+},
+"directionalShadowMatrix": {
+"value": [{
+"elements": [2.08167e-19, -0.0025, -0.00173378, 0.0, -3.60556e-19, 0.00433013, -0.001001, 0.0, -0.005, -1.57371e-19, -2.20272e-19, 0.0, 0.5, 0.5, 0.199199, 1.0]
+}]
+},
+"displacementBias": {
+"value": 0.0
+},
+"displacementMap": {
+"value": null
+},
+"displacementMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"displacementScale": {
+"value": 1.0
+},
+"emissive": {
+"value": 0.0
+},
+"emissiveMap": {
+"value": null
+},
+"emissiveMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"envMap": {
+"value": null
+},
+"envMapRotation": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"flipEnvMap": {
+"value": -1.0
+},
+"fogColor": {
+"value": 9.74694e+06
+},
+"fogDensity": {
+"value": 0.0015
+},
+"fogFar": {
+"value": 2000.0
+},
+"fogNear": {
+"value": 1.0
+},
+"hemisphereLights": {
+"needsUpdate": true,
+"properties": {
+"direction": {},
+"groundColor": {},
+"skyColor": {}
+},
+"value": []
+},
+"ior": {
+"value": 1.5
+},
+"lightMap": {
+"value": null
+},
+"lightMapIntensity": {
+"value": 1.0
+},
+"lightMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"lightProbe": {
+"needsUpdate": true,
+"value": [{
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}, {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}]
+},
+"ltc_1": {
+"value": null
+},
+"ltc_2": {
+"value": null
+},
+"map": {
+"value": {
+"anisotropy": 1.0,
+"center": [0.0, 0.0],
+"channel": 0.0,
+"colorSpace": "srgb",
+"flipY": true,
+"format": 1023.0,
+"generateMipmaps": true,
+"image": "46d7ca33-1b2f-4d6c-8ac5-879a105a6afe",
+"internalFormat": null,
+"magFilter": 1006.0,
+"mapping": 300.0,
+"metadata": {
+"generator": "Texture.toJSON",
+"type": "Texture",
+"version": 4.6
+},
+"minFilter": 1008.0,
+"name": "",
+"offset": [0.0, 0.0],
+"premultiplyAlpha": true,
+"repeat": [1.0, 1.0],
+"rotation": 0.0,
+"type": 1009.0,
+"unpackAlignment": 4.0,
+"uuid": "0ed109f0-5120-4e2b-b3cd-57417791f4d1",
+"wrap": [1001.0, 1001.0]
+}
+},
+"mapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"normalMap": {
+"value": null
+},
+"normalMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"normalScale": {
+"value": {
+"x": 1.0,
+"y": 1.0
+}
+},
+"opacity": {
+"value": 1.0
+},
+"pointLightShadows": {
+"needsUpdate": true,
+"properties": {
+"shadowBias": {},
+"shadowCameraFar": {},
+"shadowCameraNear": {},
+"shadowIntensity": 1.0,
+"shadowMapSize": {},
+"shadowNormalBias": {},
+"shadowRadius": {}
+},
+"value": []
+},
+"pointLights": {
+"needsUpdate": true,
+"properties": {
+"color": {},
+"decay": {},
+"distance": {},
+"position": {}
+},
+"value": []
+},
+"pointShadowMap": {
+"value": []
+},
+"pointShadowMatrix": {
+"value": []
+},
+"rectAreaLights": {
+"needsUpdate": true,
+"properties": {
+"color": {},
+"height": {},
+"position": {},
+"width": {}
+},
+"value": []
+},
+"reflectivity": {
+"value": 1.0
+},
+"refractionRatio": {
+"value": 0.98
+},
+"shininess": {
+"value": 30.0
+},
+"specular": {
+"value": 1.11848e+06
+},
+"specularMap": {
+"value": null
+},
+"specularMapTransform": {
+"value": {
+"elements": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+}
+},
+"spotLightMap": {
+"value": []
+},
+"spotLightMatrix": {
+"value": []
+},
+"spotLightShadows": {
+"needsUpdate": true,
+"properties": {
+"shadowBias": {},
+"shadowIntensity": 1.0,
+"shadowMapSize": {},
+"shadowNormalBias": {},
+"shadowRadius": {}
+},
+"value": []
+},
+"spotLights": {
+"needsUpdate": true,
+"properties": {
+"color": {},
+"coneCos": {},
+"decay": {},
+"direction": {},
+"distance": {},
+"penumbraCos": {},
+"position": {}
+},
+"value": []
+},
+"spotShadowMap": {
+"value": []
+},
+"uTime": {
+"value": 51.1753
+},
+"uWindFrequency": {
+"value": 0.5
+},
+"uWindScale": {
+"value": 70.0
+},
+"uWindStrength": {
+"value": {
+"x": 0.5,
+"y": 0.0,
+"z": 0.5
+}
+}
+},
+"useDepthPacking": false,
+"useFog": true,
+"vertexAlphas": false,
+"vertexColors": false,
+"vertexShader": "
+        uniform float uTime;
+        uniform vec3 uWindStrength;
+        uniform float uWindFrequency;
+        uniform float uWindScale;
+        #define PHONG
+varying vec3 vViewPosition;
+#include <common>
+#include <batching_pars_vertex>
+#include <uv_pars_vertex>
+#include <displacementmap_pars_vertex>
+#include <envmap_pars_vertex>
+#include <color_pars_vertex>
+#include <fog_pars_vertex>
+#include <normal_pars_vertex>
+#include <morphtarget_pars_vertex>
+#include <skinning_pars_vertex>
+#include <shadowmap_pars_vertex>
+#include <logdepthbuf_pars_vertex>
+#include <clipping_planes_pars_vertex>
+
+        // GLSL Simplex Noise 3D
+        // Source: https://github.com/ashima/webgl-noise
+
+        vec3 mod289(vec3 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+
+        vec4 mod289(vec4 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+
+        vec4 permute(vec4 x) {
+            return mod289(((x*34.0)+1.0)*x);
+        }
+
+        vec4 taylorInvSqrt(vec4 r) {
+            return 1.79284291400159 - 0.85373472095314 * r;
+        }
+
+        vec3 fade(vec3 t) {
+            return t*t*t*(t*(t*6.0-15.0)+10.0);
+        }
+
+        // Classic Simplex Noise 3D
+        float simplex3(vec3 v) {
+            const vec2  C = vec2(1.0/6.0, 1.0/3.0);
+            const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+
+            // First corner
+            vec3 i  = floor(v + dot(v, C.yyy) );
+            vec3 x0 = v - i + dot(i, C.xxx);
+
+            // Other corners
+            vec3 g = step(x0.yzx, x0.xyz);
+            vec3 l = 1.0 - g;
+            vec3 i1 = min( g.xyz, l.zxy );
+            vec3 i2 = max( g.xyz, l.zxy );
+
+            //  x0 = x0 - 0. + 0.0 * C 
+            vec3 x1 = x0 - i1 + C.xxx;
+            vec3 x2 = x0 - i2 + C.yyy; // 2.0 * C.x = 1/3 = C.y
+            vec3 x3 = x0 - D.yyy;      // -1.0 + 3.0 * C.x = -0.5
+
+            // Permutations
+            i = mod289(i);
+            vec4 p = permute( permute( permute( 
+                        i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+                      + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+                      + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+
+            // Gradients: 7x7 points over a square, mapped onto an octahedron.
+            // The ring size 17*17 = 289 is close to the mapping's singularity.
+            float n_ = 0.142857142857; // 1.0/7.0
+            vec3  ns = n_ * D.wyz - D.xzx;
+
+            vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)
+
+            vec4 x_ = floor(j * ns.z);
+            vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)
+
+            vec4 x = x_ *ns.x + ns.yyyy;
+            vec4 y = y_ *ns.x + ns.yyyy;
+            vec4 h = 1.0 - abs(x) - abs(y);
+
+            vec4 b0 = vec4( x.xy, y.xy );
+            vec4 b1 = vec4( x.zw, y.zw );
+
+            vec4 s0 = floor(b0)*2.0 + 1.0;
+            vec4 s1 = floor(b1)*2.0 + 1.0;
+            vec4 sh = -step(h, vec4(0.0));
+
+            vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+            vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+
+            vec3 g0 = vec3(a0.xy,h.x);
+            vec3 g1 = vec3(a0.zw,h.y);
+            vec3 g2 = vec3(a1.xy,h.z);
+            vec3 g3 = vec3(a1.zw,h.w);
+
+            // Normalise gradients
+            vec4 norm = taylorInvSqrt(vec4(dot(g0,g0), dot(g1,g1), dot(g2,g2), dot(g3,g3)));
+            g0 *= norm.x;
+            g1 *= norm.y;
+            g2 *= norm.z;
+            g3 *= norm.w;
+
+            // Mix contributions from the four corners
+            vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+            m = m * m;
+            return 42.0 * dot( m*m, vec4( dot(g0,x0), dot(g1,x1), 
+                                          dot(g2,x2), dot(g3,x3) ) );
+        }
+          
+        void main() {
+	#include <uv_vertex>
+	#include <color_vertex>
+	#include <morphcolor_vertex>
+	#include <batching_vertex>
+	#include <beginnormal_vertex>
+	#include <morphinstance_vertex>
+	#include <morphnormal_vertex>
+	#include <skinbase_vertex>
+	#include <skinnormal_vertex>
+	#include <defaultnormal_vertex>
+	#include <normal_vertex>
+	#include <begin_vertex>
+	#include <morphtarget_vertex>
+	#include <skinning_vertex>
+	#include <displacementmap_vertex>
+	
+        vec4 mvPosition = vec4(transformed, 1.0);
+
+        float windOffset = 2.0 * 3.14 * simplex3(mvPosition.xyz / uWindScale);
+        vec3 windSway = uv.y * uWindStrength * (
+          0.5 * sin(uTime * uWindFrequency + windOffset) +
+          0.3 * sin(2.0 * uTime * uWindFrequency + 1.3 * windOffset) +
+          0.2 * sin(5.0 * uTime * uWindFrequency + 1.5 * windOffset)
+        );
+        mvPosition.xyz += windSway;
+
+        mvPosition = modelViewMatrix * mvPosition;
+        gl_Position = projectionMatrix * mvPosition;
+        
+	#include <logdepthbuf_vertex>
+	#include <clipping_planes_vertex>
+	vViewPosition = - mvPosition.xyz;
+	#include <worldpos_vertex>
+	#include <envmap_vertex>
+	#include <shadowmap_vertex>
+	#include <fog_vertex>
+}",
+"vertexTangents": false,
+"vertexUv1s": false,
+"vertexUv2s": false,
+"vertexUv3s": false
+}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8dw5r"]
+_surfaces = [{
+"aabb": AABB(-3.04317, -1.57718, -6.42742, 6.35034, 2.7322, 10.055),
+"format": 34359742465,
+"index_count": 204,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkAfAB9AH4AfAB/AH0AgACBAIIAgACDAIEAhACFAIYAhACHAIUA"),
+"name": "leaves.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 136,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l0bg8"]
+resource_name = "AlienTreeSample_Mesh_1_002"
+_surfaces = [{
+"aabb": AABB(-3.04317, -1.57718, -6.42742, 6.35034, 2.7322, 10.055),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAAAA="),
+"format": 34359742487,
+"index_count": 204,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGwAcAB0AHgAfACAAHgAhAB8AIgAjACQAIgAlACMAJgAnACgAJgApACcAKgArACwAKgAtACsALgAvADAALgAxAC8AMgAzADQAMgA1ADMANgA3ADgAOQA6ADsAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVwBYAFkAWgBbAFwAXQBeAF8AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdwB4AHkAegB7AHwAegB9AHsAfgB/AIAAfgCBAH8AggCDAIQAggCFAIMAhgCHAIgAhgCJAIcAigCLAIwAigCNAIsAjgCPAJAAkQCSAJMA"),
+"material": SubResource("StandardMaterial3D_bfsfd"),
+"name": "leaves.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 148,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8dw5r")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_51c0t"]
+_surfaces = [{
+"aabb": AABB(-2.5589, -1.00967, -5.41266, 5.67821, 2.18417, 9.25505),
+"format": 34359742465,
+"index_count": 288,
+"index_data": PackedByteArray("AAABAAIAAQAVAAIAAQADABUAAwAAABYAAAACABYAAwAWABUAFgACABcAAgAVAAQAAgAEABcAFQAWABgAFQAYAAQAFgAXABgAFwAEABkABAAYAAUABAAFABkAGAAXABoAGAAaAAUAFwAZABoAGQAFABsABQAaAAYABQAGABsAGgAZABwAGgAcAAYAGQAbABwAGwAGAB0ABgAcAAcABgAHAB0AHAAbAB4AHAAeAAcAGwAdAB4AHQAHAB8ABwAeAAgABwAIAB8AHgAdACAAHgAgAAgAHQAfACAAHwAIACEACAAgAAkACAAJACEAIAAfACIAIAAiAAkAHwAhACIAIQAJACMACQAiAAoACQAKACMAIgAhACQAIgAkAAoAIQAjACQAIwAKACUACgAkAAsACgALACUAJAAjACYAJAAmAAsAIwAlACYAJQALACcACwAmAAwACwAMACcAJgAlACgAJgAoAAwAJQAnACgAJwAMACkADAAoAA0ADAANACkAKAAnACoAKAAqAA0AJwApACoAKQANACsADQAqAA4ADQAOACsAKgApACwAKgAsAA4AKQArACwAKwAOAC0ADgAsAA8ADgAPAC0ALAArAC4ALAAuAA8AKwAtAC4ALQAPAC8ADwAuABAADwAQAC8ALgAtADAALgAwABAALQAvADAALwAQADEAEAAwABEAEAARADEAMAAvADIAMAAyABEALwAxADIAMQARABQAEQATABQAEQAyABMAMQAUABIAMgASABMAMgAxABIA"),
+"lods": [0.096461, PackedByteArray("AAABAAIAAwAAAAIAAQADAAIAAQACAAIAAgACAAQAAgAEAAQABAAEAAUABAAFAAUABQAFAAYABQAGAAYABgAGAAcABgAHAAcABwAHAAgABwAIAAgACAAIAAkACAAJAAkACQAJAAoACQAKAAoACgAKAAsACgALAAsACwALAAwACwAMAAwADAAMAA0ADAANAA0ADQANAA4ADQAOAA4ADgAOAA8ADgAPAA8ADwAPABAADwAQABAAEAAQABEAEAARABEAEQASABMAEQAUABIAEQATABQAEQARABQA")],
+"name": "branches.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 51,
+"vertex_data": PackedByteArray("Ols9QIzDMr+j6XVApaJHQJxbP7/H3nBA1j8mQD5bVb/3cE1At7ZDQCizEr/F4m9AJRMMQCKiWL8itSVAwnLeP0w9Wb8E9wFAt0yYPwW/Gb8WTcs/35cjPwgWoL7Gb5I/W1G8PZAXOb545Ck/os/PvqCg+j3Q7Eg+Lmlpv0C7nD6wja6+Mt2xv5D5Jz8isk2/i+Xsv+h2fz/ilqC/9dcLwNgViz9L+vS/jV4awIBCgD8NUCjA7SkgwLDIXD/j9VbAFcUjwAQl7T5+aoDAkScVwED74T4aEJfAArQdwMjKMD6CLa3AM7AdwAhQMj6INK3AyZkdwLhZMT6MMK3A4EEtQP1vdL/rIElAvuQuQIOPSL+330ZA48sTQOPSZL893B5AjA8OQLw8gb+1JSRAffHkP64XcL8KUfQ/CLjXPxmKf7875wBARv6YP3pXN7/+774/QaeNPx9IOb/YhM4/Mn0bPxTS5r7wOJE/EOQLP7jNvb6mDZ4/mLYUPAjKkb7UdCw/AImoOUBRPL6UrkI/qHL/vsCamj3ogIc+3IruvpCkRz6QRI4+EQ+Av3jMkz7AXom+RkZvv9BixD6o84O+e0q6v4DZLj8BIzm/l+mvv4h1Pz9CA0C/9Fjzv6y8iT8oaZy/Fevnv3RJiz8hhqG/u/MMwCZWlj/94PW/OrcHwPRQkj+TbPi/fVoZwNgqij+hgCnAdHoVwARGgz89NCnAK7cdwACbaT9FQFnAzoobwER3Wz+cLVfAJ9ogwBafAT9cDoDARREgwIBy4z4mnX/A7bURwAxl4D78bJfAXmETwMA1yj5OupbA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1i8ls"]
+resource_name = "AlienTreeSample_Mesh_0_003"
+_surfaces = [{
+"aabb": AABB(-2.5589, -1.00967, -5.41266, 5.67821, 2.18417, 9.25505),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqqo+AAAAAAAAAAAAAIA/AACAPwAAgD+rqio/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/q6qqPgAAAAAAAAAAAAAAAKuqKj8AAAAAAACAPwAAgD8AAIA/AAAAAKuqqj4AAIA/q6oqPwAAgD+rqqo+AACAP6uqqj4AAAAAq6oqPwAAgD+rqio/AAAAAKuqqj4AAAAAq6qqPgAAgD+rqio/AAAAAKuqKj8AAIA/q6qqPgAAgD+rqqo+AAAAAKuqKj8AAIA/q6oqPwAAAACrqqo+AAAAAKuqqj4AAIA/q6oqPwAAAACrqio/AACAP6uqqj4AAIA/q6qqPgAAAACrqio/AACAP6uqKj8AAAAAq6qqPgAAAACrqqo+AACAP6uqKj8AAAAAq6oqPwAAgD+rqqo+AACAP6uqqj4AAAAAq6oqPwAAgD+rqio/AAAAAKuqqj4AAAAAq6qqPgAAgD+rqio/AAAAAKuqKj8AAIA/q6qqPgAAgD+rqqo+AAAAAKuqKj8AAIA/q6oqPwAAAACrqqo+AAAAAKuqqj4AAIA/q6oqPwAAAACrqio/AACAP6uqqj4AAIA/q6qqPgAAAACrqio/AACAP6uqKj8AAAAAq6qqPgAAAACrqqo+AACAP6uqKj8AAAAAq6oqPwAAgD+rqqo+AACAP6uqqj4AAAAAq6oqPwAAgD+rqio/AAAAAKuqqj4AAAAAq6qqPgAAgD+rqio/AAAAAKuqKj8AAIA/q6qqPgAAgD+rqio/AACAPw=="),
+"format": 34359742487,
+"index_count": 288,
+"index_data": PackedByteArray("AAABAAIAAQBEAAIAAQAEAEQABABFAEQABAAFAEUABQADAEUABgBGAAgARgBHAAgARgBIAEcASABJAEcASAAHAEkABwAJAEkACgBKAAwASgBLAAwASgBMAEsATABNAEsATAANAE0ADQALAE0ADgBOABAATgBPABAATgBQAE8AUABRAE8AUAAPAFEADwARAFEAEgBSABQAUgBTABQAUgBUAFMAVABVAFMAVAATAFUAEwAVAFUAFgBWABgAVgBXABgAVgBYAFcAWABZAFcAWAAZAFkAGQAXAFkAGgBaABwAWgBbABwAWgBcAFsAXABdAFsAXAAbAF0AGwAdAF0AHgBeACAAXgBfACAAXgBgAF8AYABhAF8AYAAhAGEAIQAfAGEAIgBiACQAYgBjACQAYgBkAGMAZABlAGMAZAAjAGUAIwAlAGUAJgBmACgAZgBnACgAZgBoAGcAaABpAGcAaAAnAGkAJwApAGkAKgBqACwAagBrACwAagBsAGsAbABtAGsAbAArAG0AKwAtAG0ALgBuADAAbgBvADAAbgBwAG8AcABxAG8AcAAxAHEAMQAvAHEAMgByADQAcgBzADQAcgB0AHMAdAB1AHMAdAAzAHUAMwA1AHUANgB2ADgAdgB3ADgAdgB4AHcAeAB5AHcAeAA5AHkAOQA3AHkAOgB6ADwAegB7ADwAegB8AHsAfAB9AHsAfAA7AH0AOwA9AH0APgB+AEAAfgA/AEAAfgB/AD8AfwBBAD8AfwBCAEEAQgBDAEEA"),
+"lods": [0.096461, PackedByteArray("AAABAAIAAQADAAIAAQAEAAMABAAFAAMABgAHAAgABwAJAAgACgALAAwACgANAAsADgAPABAADwARABAAEgATABQAEwAVABQAFgAXABgAFgAZABcAGgAbABwAGwAdABwAHgAfACAAHgAhAB8AIgAjACQAIwAlACQAJgAnACgAJwApACgAKgArACwAKwAtACwALgAvADAALgAxAC8AMgAzADQAMwA1ADQANgA3ADgANgA5ADcAOgA7ADwAOwA9ADwAPgA/AEAAPgBBAD8APgBCAEEAQgBDAEEA")],
+"material": ExtResource("5_u4nmb"),
+"name": "branches.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 128,
+"vertex_data": PackedByteArray("Ols9QIzDMr+j6XVApaJHQJxbP7/H3nBA1j8mQD5bVb/3cE1A1j8mQD5bVb/3cE1At7ZDQCizEr/F4m9AOls9QIzDMr+j6XVA1j8mQD5bVb/3cE1A1j8mQD5bVb/3cE1AJRMMQCKiWL8itSVAJRMMQCKiWL8itSVAJRMMQCKiWL8itSVAwnLeP0w9Wb8E9wFAwnLeP0w9Wb8E9wFAJRMMQCKiWL8itSVAwnLeP0w9Wb8E9wFAwnLeP0w9Wb8E9wFAt0yYPwW/Gb8WTcs/t0yYPwW/Gb8WTcs/t0yYPwW/Gb8WTcs/t0yYPwW/Gb8WTcs/35cjPwgWoL7Gb5I/35cjPwgWoL7Gb5I/35cjPwgWoL7Gb5I/W1G8PZAXOb545Ck/W1G8PZAXOb545Ck/35cjPwgWoL7Gb5I/W1G8PZAXOb545Ck/W1G8PZAXOb545Ck/os/PvqCg+j3Q7Eg+os/PvqCg+j3Q7Eg+os/PvqCg+j3Q7Eg+Lmlpv0C7nD6wja6+Lmlpv0C7nD6wja6+os/PvqCg+j3Q7Eg+Lmlpv0C7nD6wja6+Lmlpv0C7nD6wja6+Mt2xv5D5Jz8isk2/Mt2xv5D5Jz8isk2/Mt2xv5D5Jz8isk2/Mt2xv5D5Jz8isk2/i+Xsv+h2fz/ilqC/i+Xsv+h2fz/ilqC/i+Xsv+h2fz/ilqC/i+Xsv+h2fz/ilqC/9dcLwNgViz9L+vS/9dcLwNgViz9L+vS/9dcLwNgViz9L+vS/jV4awIBCgD8NUCjAjV4awIBCgD8NUCjA9dcLwNgViz9L+vS/jV4awIBCgD8NUCjAjV4awIBCgD8NUCjA7SkgwLDIXD/j9VbA7SkgwLDIXD/j9VbA7SkgwLDIXD/j9VbAFcUjwAQl7T5+aoDAFcUjwAQl7T5+aoDA7SkgwLDIXD/j9VbAFcUjwAQl7T5+aoDAFcUjwAQl7T5+aoDAkScVwED74T4aEJfAkScVwED74T4aEJfAkScVwED74T4aEJfAArQdwMjKMD6CLa3AM7AdwAhQMj6INK3AyZkdwLhZMT6MMK3AkScVwED74T4aEJfAM7AdwAhQMj6INK3A4EEtQP1vdL/rIElAvuQuQIOPSL+330ZA4EEtQP1vdL/rIElAjA8OQLw8gb+1JSRAvuQuQIOPSL+330ZA48sTQOPSZL893B5AjA8OQLw8gb+1JSRACLjXPxmKf7875wBA48sTQOPSZL893B5AffHkP64XcL8KUfQ/CLjXPxmKf7875wBAQaeNPx9IOb/YhM4/ffHkP64XcL8KUfQ/Rv6YP3pXN7/+774/QaeNPx9IOb/YhM4/EOQLP7jNvb6mDZ4/Rv6YP3pXN7/+774/Mn0bPxTS5r7wOJE/EOQLP7jNvb6mDZ4/AImoOUBRPL6UrkI/Mn0bPxTS5r7wOJE/mLYUPAjKkb7UdCw/AImoOUBRPL6UrkI/3IruvpCkRz6QRI4+mLYUPAjKkb7UdCw/qHL/vsCamj3ogIc+3IruvpCkRz6QRI4+RkZvv9BixD6o84O+qHL/vsCamj3ogIc+EQ+Av3jMkz7AXom+RkZvv9BixD6o84O+l+mvv4h1Pz9CA0C/EQ+Av3jMkz7AXom+e0q6v4DZLj8BIzm/l+mvv4h1Pz9CA0C/Fevnv3RJiz8hhqG/e0q6v4DZLj8BIzm/9Fjzv6y8iT8oaZy/Fevnv3RJiz8hhqG/OrcHwPRQkj+TbPi/9Fjzv6y8iT8oaZy/u/MMwCZWlj/94PW/OrcHwPRQkj+TbPi/dHoVwARGgz89NCnAu/MMwCZWlj/94PW/fVoZwNgqij+hgCnAdHoVwARGgz89NCnAzoobwER3Wz+cLVfAfVoZwNgqij+hgCnAK7cdwACbaT9FQFnAzoobwER3Wz+cLVfARREgwIBy4z4mnX/AK7cdwACbaT9FQFnAJ9ogwBafAT9cDoDARREgwIBy4z4mnX/AXmETwMA1yj5OupbAJ9ogwBafAT9cDoDA7bURwAxl4D78bJfAXmETwMA1yj5OupbA7bURwAxl4D78bJfAoD7ebDyfiZPAx843z80n7IA/pJKRcrWQpz/2kshx35A9qhn18Tjryn4+BG0un8eTgD+kkhFyXW+nP/aSMXIPb6BYiLaoWMpZtVittixYu1mgWIi2PVgxpr6AqNDWTrWxXIDC0KpPb7G1WK22FVlKplyAwtCpTl5OvoCo0GJPY06EmcLOm0x3QsWZ0M7zSyJChJnCzvRLr73FmdDOFksRvlPBb9gOXzbVoMFd2MJfUNVTwW/YnV/TKtbcesZueg0fj9yKxrp6UB+gwV3YVWC6Ko/cisYfesjg1tx6xlJ69uAr9rc7mZnU7fz1kjuCmSHuK/a3O1uZ3xGJ6KErK7GJHIvonyuWsLob/PWSO5OZ8RGL6J8rKrF244nooSs7sV3j6M1jFfvP4uHizV0V8s/34ejNYxXszwUe4s1dFQDQGx48l1QH5/S1KPiWLAcJ9W0oPJdUB9v0ptf4liwHCvWH11pl3S3y4WenOGUNLsvhVadaZd0t9OGiWKtLxEYVwfNcq0vERkTBHF04ZQ0ux+GUWKtLxEYVwQyjq0vERvDALaN5N1Ji3aMQo1U3cWK/o+uieTdSYt+jD12AE+dT9ZJ0cKIT1VM9k3hwVTdxYsKjPl2iE9VTGJOej4AT51OYksuPwzDor/1b8aEiMfyvSFt4ocMw6K95W3deylEWTXm+i1U/Px/iwi4HTm3tbXHvtbUFIjH8r0hbh15aP1rifi7mTVekRxrK6RPifMlz2CBRCtpXpEcaxun6HQ9twCXa6QFkfMlz2OxQ8iVY7X/GsW0yEA9twCXb6dibIVTdRHPUSYxY7X/Gn23N7832HjAannvsIVTdRHDUsHMST8FaAbxsfs32HjDGnioUGd+gHMa72hYST8Fa/rubgWRKtIc+YmSLGd+gHAu8y+jNsX0KU+E752RKtIdNYp50Vl7AoIlK3WHNsX0KHeFXGLNJqhqI/UYeVl7AoM1JPJ4ldUjOgEajsbNJqhoj/inhllG+QonUEZIldUjOVUd1TqKRmccvQW1GllG+QsLUQ27eQ0ZUE8oXeKKRmcdrQMO5G6y2x0dP8MneQ0ZU/sn6h50/V28bSRqGG6y2xzRPBjam0PLE3FcMIZ0/V28RSeF57z9enkVbWmqm0PLE01f13knxKqprZCH27z9enlxbqZUjSQXCFkiGp0nxKqqGZNsJBepLYzanHAkjSQXCDkh7WFhUSOP6KUVNBepLY1en5vaoxXFYDsxO7FhUSOPlKbKy+7Pk/OsM88OoxXFYJ8yuEzqyp0Xaulsk+7Pk/FoOxjsangTfYBndJjqyp0V3uo/b7oEsI3n6mLIangTfOxli2UveK73rRQrr7oEsI3D6d01L3iu9O0b3FA==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_51c0t")
+
 [node name="PiantaAliena" type="StaticBody3D"]
 collision_layer = 4
 collision_mask = 2
@@ -47,5 +970,17 @@ lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_cntii")
 draw_pass_1 = SubResource("QuadMesh_b73uy")
 
-[node name="AlienTreeSample" parent="." instance=ExtResource("4_eb3sv")]
-transform = Transform3D(0.0802797, -0.0596253, 2.05183e-09, 0.0525244, 0.0707189, -0.0473289, 0.02822, 0.0379955, 0.0880907, 0.0780966, -0.355095, -0.0767773)
+[node name="AlienTreeSample" type="Node3D" parent="."]
+transform = Transform3D(0.0802797, -0.0596253, 2.05183e-09, 0.0525244, 0.0707189, -0.0473289, 0.02822, 0.0379955, 0.0880907, 0.0275115, -0.233653, -0.0767773)
+
+[node name="Tree_001" type="Node3D" parent="AlienTreeSample"]
+
+[node name="Mesh_1" type="MeshInstance3D" parent="AlienTreeSample"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.269625, 1.29336, 1.50687)
+mesh = SubResource("ArrayMesh_l0bg8")
+skeleton = NodePath("")
+
+[node name="Mesh_0" type="MeshInstance3D" parent="AlienTreeSample"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0884487, 1.45683, 1.37157)
+mesh = SubResource("ArrayMesh_1i8ls")
+skeleton = NodePath("")

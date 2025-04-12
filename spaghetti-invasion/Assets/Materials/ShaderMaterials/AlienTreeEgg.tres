@@ -39,8 +39,8 @@ noise = SubResource("FastNoiseLite_xajfy")
 [resource]
 render_priority = 0
 shader = ExtResource("1_uhbex")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/deep_water = Color(0.531503, 0.195507, 0.122201, 1)
+shader_parameter/color = Color(0.2, 0, 1, 1)
+shader_parameter/deep_water = Color(0.75, 0, 0.5125, 1)
 shader_parameter/roughness = 0.268
 shader_parameter/metallic = 0.582
 shader_parameter/speed = 0.05

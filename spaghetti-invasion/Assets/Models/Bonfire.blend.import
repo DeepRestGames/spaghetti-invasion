@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://caoecbxu1i0mu"
-path="res://.godot/imported/Chiesa.blend-952097c1bb25b3c996b79c0a2443b7ea.scn"
+uid="uid://cqjl6qaxloj8o"
+path="res://.godot/imported/Bonfire.blend-fb1c26e95f76c51194d62cc36a380c04.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Chiesa.blend"
-dest_files=["res://.godot/imported/Chiesa.blend-952097c1bb25b3c996b79c0a2443b7ea.scn"]
+source_file="res://Assets/Models/Bonfire.blend"
+dest_files=["res://.godot/imported/Bonfire.blend-fb1c26e95f76c51194d62cc36a380c04.scn"]
 
 [params]
 
@@ -32,20 +32,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Glass": {
-"use_external/enabled": true,
-"use_external/path": "uid://ekv5lxrlv2eg"
-}
-},
-"nodes": {
-"PATH:Layer0_001": {
-"generate/physics": true,
-"physics/shape_type": 0
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

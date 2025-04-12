@@ -42,7 +42,7 @@ shape = SubResource("BoxShape3D_wvud3")
 
 [node name="Picture" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-modulate = Color(0.571422, 1.44392e-06, 4.81307e-07, 1)
+modulate = Color(0.388925, 5.65536e-07, 1.20327e-07, 1)
 texture = ExtResource("4_0486x")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
