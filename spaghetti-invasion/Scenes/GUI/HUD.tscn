@@ -407,10 +407,10 @@ size_flags_vertical = 4
 focus_mode = 0
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yx2xf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_x6svr")
-min_value = 0.5
-max_value = 5.0
+min_value = 0.8
+max_value = 2.0
 step = 0.1
-value = 2.0
+value = 1.0
 
 [node name="OPTIONSButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
 visible = false
