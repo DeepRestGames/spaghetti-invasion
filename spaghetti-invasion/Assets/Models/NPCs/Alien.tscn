@@ -1,4 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://0qjxuytgwpwb"]
+[gd_scene load_steps=13 format=4 uid="uid://0qjxuytgwpwb"]
+
+[ext_resource type="Script" uid="uid://5pwd3sg5id5l" path="res://Scripts/SpookyEvents/Alien.gd" id="1_f0jay"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0u5c"]
 resource_name = "Alpha_Body_MAT"
@@ -219,6 +221,8 @@ emission = Color(1, 1, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_vxhoo"]
 material = SubResource("StandardMaterial3D_f0jay")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f0jay"]
 
 [sub_resource type="Animation" id="Animation_fjgo1"]
 resource_name = "Take 001"
@@ -977,8 +981,14 @@ _data = {
 }
 
 [node name="Alien" type="Node3D"]
+script = ExtResource("1_f0jay")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="Skeleton3D" type="Skeleton3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -8.72665e-05, -3.49066e-06, 8.72665e-05, 1, -3.04617e-10, 3.49066e-06, 0, 1, -6.75701e-08, 0.997919, 4.84474e-07)
@@ -1435,24 +1445,28 @@ bones/64/position = Vector3(3.18806e-11, 0.1, 5.68753e-11)
 bones/64/rotation = Quaternion(-3.10996e-10, -1.66018e-16, -1.73472e-18, 1)
 bones/64/scale = Vector3(1, 1, 1)
 
-[node name="Alpha_Surface" type="MeshInstance3D" parent="Skeleton3D"]
+[node name="Alpha_Surface" type="MeshInstance3D" parent="StaticBody3D/Skeleton3D"]
 mesh = SubResource("ArrayMesh_f0jay")
 skin = SubResource("Skin_3vn5i")
 
-[node name="Alpha_Joints" type="MeshInstance3D" parent="Skeleton3D"]
+[node name="Alpha_Joints" type="MeshInstance3D" parent="StaticBody3D/Skeleton3D"]
 mesh = SubResource("ArrayMesh_gmwpo")
 skin = SubResource("Skin_3vn5i")
 
-[node name="Eyes" type="Node3D" parent="Skeleton3D"]
+[node name="Eyes" type="Node3D" parent="StaticBody3D/Skeleton3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00826625, 1.66, 0.1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Skeleton3D/Eyes"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/Skeleton3D/Eyes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0487457, 0, 0)
 mesh = SubResource("SphereMesh_vxhoo")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Skeleton3D/Eyes"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D/Skeleton3D/Eyes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0469092, 0, 0)
 mesh = SubResource("SphereMesh_vxhoo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933462, 0)
+shape = SubResource("CapsuleShape3D_f0jay")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

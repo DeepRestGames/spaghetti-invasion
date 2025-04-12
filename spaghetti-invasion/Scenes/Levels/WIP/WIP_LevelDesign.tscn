@@ -1057,7 +1057,7 @@ grow_vertical = 2
 
 [node name="GameWorld" type="Node3D" parent="SubViewport"]
 
-[node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("3_dug5k")]
+[node name="Player" parent="SubViewport/GameWorld" groups=["Player"] instance=ExtResource("3_dug5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.386, -2.57746, -554.593)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/GameWorld" groups=["WorldEnvironment"]]
