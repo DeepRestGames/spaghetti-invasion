@@ -1,6 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://0qjxuytgwpwb"]
+[gd_scene load_steps=17 format=4 uid="uid://0qjxuytgwpwb"]
 
 [ext_resource type="Script" uid="uid://5pwd3sg5id5l" path="res://Scripts/SpookyEvents/Alien.gd" id="1_f0jay"]
+[ext_resource type="AudioStream" uid="uid://diih0i3qq4mj2" path="res://Assets/Audio/SFX/Children/Laugh1.mp3" id="2_d8por"]
+[ext_resource type="AudioStream" uid="uid://bnjvhomijjryq" path="res://Assets/Audio/SFX/Children/Laugh2.mp3" id="3_xg6d2"]
+[ext_resource type="AudioStream" uid="uid://b2nu62tck2m1t" path="res://Assets/Audio/SFX/Children/Laugh3.wav" id="4_kutr1"]
+[ext_resource type="AudioStream" uid="uid://dksvs0apsn3lm" path="res://Assets/Audio/SFX/Children/Laugh4.wav" id="5_jtblx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0u5c"]
 resource_name = "Alpha_Body_MAT"
@@ -982,6 +986,7 @@ _data = {
 
 [node name="Alien" type="Node3D"]
 script = ExtResource("1_f0jay")
+children_laugh_sfx = Array[AudioStream]([ExtResource("2_d8por"), ExtResource("3_xg6d2"), ExtResource("4_kutr1"), ExtResource("5_jtblx")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 axis_lock_angular_x = true
@@ -1472,3 +1477,8 @@ shape = SubResource("CapsuleShape3D_f0jay")
 libraries = {
 &"": SubResource("AnimationLibrary_y3pax")
 }
+
+[node name="LaughSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61381, -0.233986)
+bus = &"Laugh1"
+emission_angle_enabled = true
