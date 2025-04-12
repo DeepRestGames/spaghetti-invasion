@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=3 uid="uid://d2ml7yh8y0qaf"]
+[gd_scene load_steps=182 format=3 uid="uid://d2ml7yh8y0qaf"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_v1twv"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_oppib"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cdj7splamempr" path="res://Assets/Models/CapannoCacciatori.blend" id="23_hhxng"]
 [ext_resource type="Texture2D" uid="uid://ct0hcdflyf2iw" path="res://Assets/2D/Decals/BloodSplatter3.png" id="24_5v60t"]
 [ext_resource type="PackedScene" uid="uid://b2y33xf6aegnd" path="res://Assets/Models/textures/CasaLuiginoAnna_v1.0.blend" id="24_ofemi"]
+[ext_resource type="Script" uid="uid://uwhh0i8aesjq" path="res://Scripts/SpookyEvents/Final.gd" id="24_qrn02"]
 [ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="24_ykgxx"]
 [ext_resource type="PackedScene" uid="uid://it05y804ul0r" path="res://Assets/Models/AbandonedHouse.blend" id="25_15lo5"]
 [ext_resource type="Texture2D" uid="uid://b8b2uaokopmck" path="res://Assets/2D/Decals/BloodSplatterThin.png" id="25_h8tix"]
@@ -982,7 +983,10 @@ size = Vector3(10, 14.4678, 15.8213)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7v18o"]
 height = 10.0
-radius = 15.0
+radius = 10.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrn02"]
+size = Vector3(100, 43.4376, 5)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_p2kxc"]
 material = ExtResource("28_iq7km")
@@ -2051,7 +2055,7 @@ script = ExtResource("21_ix6rq")
 aliens = [NodePath("Alien"), NodePath("Alien11"), NodePath("Alien12"), NodePath("Alien13"), NodePath("Alien14"), NodePath("Alien15"), NodePath("Alien16"), NodePath("Alien17"), NodePath("Alien18"), NodePath("Alien19"), NodePath("Alien2"), NodePath("Alien3"), NodePath("Alien4"), NodePath("Alien5"), NodePath("Alien6"), NodePath("Alien7"), NodePath("Alien8"), NodePath("Alien9"), NodePath("Alien10")]
 
 [node name="EnterTriggerArea" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/DisappearingAliens"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.105, -94.9427, -302.404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.105, -94.9427, -300.653)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -2135,6 +2139,35 @@ visible = false
 [node name="Alien10" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/DisappearingAliens" instance=ExtResource("22_kceji")]
 transform = Transform3D(-0.155676, 0, 0.987808, 0, 1, 0, -0.987808, 0, -0.155676, 154.74, -86.8057, -295.347)
 visible = false
+
+[node name="Final" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena"]
+script = ExtResource("24_qrn02")
+
+[node name="Area3D" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5781, 4.55631, -26.0872)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37788, 2.95384, 3.26001)
+shape = SubResource("BoxShape3D_qrn02")
+debug_color = Color(0.940403, 9.72241e-06, 0.615161, 0.42)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final/Area3D"]
+transform = Transform3D(0.463296, 0, 0.886204, 0, 1, 0, -0.886204, 0, 0.463296, 25.9084, 2.95384, 31.2273)
+shape = SubResource("BoxShape3D_qrn02")
+debug_color = Color(0.940403, 9.72241e-06, 0.615161, 0.42)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final/Area3D"]
+transform = Transform3D(0.427452, 0, 0.904038, 0, 1, 0, -0.904038, 0, 0.427452, -38.4491, 2.95384, 21.5817)
+shape = SubResource("BoxShape3D_qrn02")
+debug_color = Color(0.940403, 9.72241e-06, 0.615161, 0.42)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final/Area3D"]
+transform = Transform3D(0.626209, 0, -0.779655, 0, 1, 0, 0.779655, 0, 0.626209, 22.1181, 2.95384, 24.327)
+shape = SubResource("BoxShape3D_qrn02")
+debug_color = Color(0.940403, 9.72241e-06, 0.615161, 0.42)
 
 [node name="Props&Buildings" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
@@ -2562,6 +2595,7 @@ layout_mode = 2
 [connection signal="body_entered" from="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien/ExitTriggerArea" to="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" method="_on_exit_trigger_area_body_entered"]
 [connection signal="body_entered" from="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien/ExitTriggerArea2" to="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" method="_on_exit_trigger_area_body_entered"]
 [connection signal="body_entered" from="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/DisappearingAliens/EnterTriggerArea" to="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/DisappearingAliens" method="_on_enter_trigger_area_body_entered"]
+[connection signal="body_entered" from="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final/Area3D" to="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/ValleAliena/Final" method="_on_area_3d_body_entered"]
 
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Lakeside"]
 [editable path="SubViewport/GameWorld/LandscapeVeneto/AudioAreas/Forest1"]

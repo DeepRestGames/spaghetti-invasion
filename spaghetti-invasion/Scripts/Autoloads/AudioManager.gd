@@ -193,13 +193,20 @@ var playing3_panner_effect = AudioServer.get_bus_effect(19, 0)
 var min_stream_volume_db = -80.0
 var fading_time = 5
 
+var final_buildup = false
 
 func _ready() -> void:
 	EventBus.connect("play_music", play_music)
 	EventBus.connect("play_area_ambience", play_area_ambience)
+	EventBus.connect("buildup", buildup)
 
 
 func _process(delta: float) -> void:
+	if final_buildup:
+		var master_bus = AudioServer.get_bus_index("Master")
+		var master_current_db = AudioServer.get_bus_volume_db(master_bus)
+		AudioServer.set_bus_volume_db(master_bus, master_current_db + delta * .1)
+		
 	
 	# Calculate SFX play chance
 	if(bird_chirp_very_far_should_play):
@@ -367,6 +374,10 @@ func _process(delta: float) -> void:
 				playing3_current_cooldown = playing3_play_cooldown
 
 
+func buildup() -> void:
+	final_buildup = true
+
+
 enum MusicTracks {
 	INTRO,
 	INTRO_LOOP,
@@ -448,12 +459,12 @@ func play_forest_sfx() -> void:
 
 
 func play_alien_forest_sfx() -> void:
-	bird_chirp_very_far_should_play = true
+	bird_chirp_very_far_should_play = false
 	dog_bark1_should_play = false
-	dog_bark2_should_play = true
-	dog_bark3_should_play = true
+	dog_bark2_should_play = false
+	dog_bark3_should_play = false
 	owl_hooting_should_play = false
-	crickets_short_should_play = true
+	crickets_short_should_play = false
 	cave_droplets_short_should_play = false
 	forest_footsteps_should_play = false
 	twig_snap1_should_play = false
@@ -467,17 +478,17 @@ func play_alien_forest_sfx() -> void:
 	playing3_should_play = false
 	
 	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
-	audio_fade_tween.tween_property(black_hole, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(black_hole, "volume_db", black_hole_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(ghost_voice, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(parker_probe1, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(parker_probe2, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(parker_probe_langmuir, "volume_db", min_stream_volume_db, fading_time)
-	audio_fade_tween.tween_property(phase_sweeper, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(phase_sweeper, "volume_db", phase_sweeper_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(saturn_radio, "volume_db", min_stream_volume_db, fading_time)
-	audio_fade_tween.tween_property(sun_sonification, "volume_db", min_stream_volume_db, fading_time)
+	audio_fade_tween.tween_property(sun_sonification, "volume_db", sun_sonification_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(voyager_plasma, "volume_db", min_stream_volume_db, fading_time)
 	
-	audio_fade_tween.tween_property(crickets_long, "volume_db", crickets_long_target_volume_db, fading_time)
+	audio_fade_tween.tween_property(crickets_long, "volume_db", min_stream_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind1, "volume_db", soft_wind1_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(soft_wind2, "volume_db", soft_wind2_target_volume_db, fading_time)
 	audio_fade_tween.tween_property(lakeside, "volume_db", min_stream_volume_db, fading_time)

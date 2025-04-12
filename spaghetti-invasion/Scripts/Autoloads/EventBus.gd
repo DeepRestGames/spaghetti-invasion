@@ -38,6 +38,9 @@ signal play_music(music_track: AudioManager.MusicTracks)
 @warning_ignore("unused_signal")
 signal play_area_ambience(area: AudioManager.AmbienceTracks)
 
+@warning_ignore("unused_signal")
+signal buildup
+
 
 # Hints
 @warning_ignore("unused_signal")
