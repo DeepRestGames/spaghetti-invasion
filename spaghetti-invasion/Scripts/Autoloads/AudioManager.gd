@@ -499,7 +499,7 @@ func play_clearing_sfx() -> void:
 	laugh1_should_play = false
 	laugh2_should_play = false
 	laugh3_should_play = false
-	laugh4_should_play = true
+	laugh4_should_play = false
 	playing1_should_play = false
 	playing2_should_play = false
 	playing3_should_play = false
