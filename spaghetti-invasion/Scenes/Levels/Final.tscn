@@ -21,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://rqletg3lfxjh" path="res://Assets/Audio/SFX/Alien/ParkerSolarProbe2.wav" id="18_pw74u"]
 [ext_resource type="AudioStream" uid="uid://drla3ql62gflr" path="res://Assets/Audio/SFX/Alien/Ghostly Voices RL.wav" id="19_rd50r"]
 [ext_resource type="Script" uid="uid://dyuoscvjxsbw6" path="res://Scripts/InteractionSystem/DiscoverableArea.gd" id="19_ukxr0"]
-[ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAlien.gd" id="20_ddye3"]
+[ext_resource type="Script" uid="uid://cdopw301j464n" path="res://Scripts/SpookyEvents/DisappearingAliens.gd" id="20_ddye3"]
 [ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="21_dm1v7"]
 [ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="22_jh7si"]
 [ext_resource type="PackedScene" uid="uid://b4uhany0u32p5" path="res://Scenes/GUI/HUD.tscn" id="22_ojfnr"]

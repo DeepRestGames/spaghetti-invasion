@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@onready var alien = $Alien
+@export var aliens: Array[Node3D]
 
 var already_triggered = false
 
@@ -11,10 +11,13 @@ func _on_enter_trigger_area_body_entered(body: Node3D) -> void:
 		return
 	
 	if(body.name == "Player"):
-		alien.show()
+		for alien in aliens:
+			alien.show()
+		
 		already_triggered = true
 
 
 func _on_exit_trigger_area_body_entered(body: Node3D) -> void:
 	if(body.name == "Player"):
-		alien.hide()
+		for alien in aliens:
+			alien.hide()
