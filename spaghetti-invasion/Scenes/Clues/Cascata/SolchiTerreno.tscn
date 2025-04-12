@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hh1kmtt05ejx" path="res://Assets/2D/Decals/TracksShort.png" id="4_fxe6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
+size = Vector3(1.65454, 1, 1.96582)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n1elm"]
 lifetime_randomness = 0.5
@@ -48,5 +49,5 @@ process_material = SubResource("ParticleProcessMaterial_n1elm")
 draw_pass_1 = SubResource("QuadMesh_swa2p")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.0608395, 0, 0, 0, -2.65938e-09, 0.0608395, 0, -0.0608395, -2.65938e-09, 0, 0, 0)
+transform = Transform3D(0.0967846, 0, 0, 0, -4.23059e-09, 0.0967846, 0, -0.0967846, -4.23059e-09, 0, 0, 0)
 texture = ExtResource("4_fxe6v")

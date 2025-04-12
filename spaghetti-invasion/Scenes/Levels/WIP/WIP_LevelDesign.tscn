@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://0qjxuytgwpwb" path="res://Assets/Models/NPCs/Alien.tscn" id="22_kceji"]
 [ext_resource type="PackedScene" uid="uid://cdj7splamempr" path="res://Assets/Models/CapannoCacciatori.blend" id="23_hhxng"]
 [ext_resource type="Texture2D" uid="uid://ct0hcdflyf2iw" path="res://Assets/2D/Decals/BloodSplatter3.png" id="24_5v60t"]
-[ext_resource type="PackedScene" uid="uid://b2y33xf6aegnd" path="res://Assets/Models/textures/CasaLuiginoAnna_v1.0.blend" id="24_ofemi"]
 [ext_resource type="Script" uid="uid://uwhh0i8aesjq" path="res://Scripts/SpookyEvents/Final.gd" id="24_qrn02"]
 [ext_resource type="PackedScene" uid="uid://c1aekkppruowy" path="res://Assets/Models/CasaLuiginoAnna_v1.0.blend" id="24_ykgxx"]
 [ext_resource type="PackedScene" uid="uid://it05y804ul0r" path="res://Assets/Models/AbandonedHouse.blend" id="25_15lo5"]
@@ -38,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://bcj4723wv04hx" path="res://Scenes/Clues/CapannoCacciatori/PortaSfondata.tscn" id="30_0tujy"]
 [ext_resource type="Texture2D" uid="uid://d1wc0mg1ds84p" path="res://Assets/2D/Decals/TracksLong.png" id="30_4iyl5"]
 [ext_resource type="PackedScene" uid="uid://b2bavnmw7gvq5" path="res://Scenes/Clues/Cascata/OcchialiLuigino.tscn" id="31_elvov"]
+[ext_resource type="PackedScene" uid="uid://cqjl6qaxloj8o" path="res://Assets/Models/Bonfire.blend" id="31_qrn02"]
 [ext_resource type="PackedScene" uid="uid://dko52x0qdjtvk" path="res://Scenes/Clues/Cascata/ScarpaDonna.tscn" id="32_syn51"]
 [ext_resource type="PackedScene" uid="uid://boptc44dte6q3" path="res://Scenes/Clues/Cascata/SolchiTerreno.tscn" id="33_ftenf"]
 [ext_resource type="PackedScene" uid="uid://5powc3jyroli" path="res://Assets/Models/AlienTreeSprouts.blend" id="33_h8tix"]
@@ -75,13 +75,14 @@ sky_material = SubResource("PanoramaSkyMaterial_i6n6y")
 background_mode = 2
 sky = SubResource("Sky_lqpcb")
 ambient_light_source = 2
-ambient_light_color = Color(0.424, 0.599467, 0.8, 1)
+ambient_light_color = Color(0.279632, 0.44633, 0.634319, 1)
 ambient_light_energy = 2.0
 tonemap_mode = 3
 glow_normalized = true
 fog_enabled = true
 fog_aerial_perspective = 1.0
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.93, 0.981333, 1, 1)
 volumetric_fog_emission = Color(0, 0.0408333, 0.05, 1)
 volumetric_fog_anisotropy = -0.23
@@ -140,9 +141,9 @@ reference_frame = 0
 script = ExtResource("7_sk4hm")
 stack = Array[ExtResource("8_8yq5j")]([SubResource("Resource_7v18o"), SubResource("Resource_qrn02"), SubResource("Resource_sxvog"), SubResource("Resource_qxjiv")])
 
-[sub_resource type="Curve3D" id="Curve3D_ofemi"]
+[sub_resource type="Curve3D" id="Curve3D_sxvog"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -52.9482, -2.86102e-05, 111.746, 0, 0, 0, 0, 0, 0, -34.7494, -2.86102e-05, 75.1264, 0, 0, 0, 0, 0, 0, -37.2093, -2.86102e-05, 47.2741, 0, 0, 0, 0, 0, 0, -39.5706, -2.86102e-05, 28.3837, 0, 0, 0, 0, 0, 0, -37.6386, -2.86102e-05, 13.7865, 0, 0, 0, 0, 0, 0, -54.7108, -2.86102e-05, -25.5728, 0, 0, 0, 0, 0, 0, 14.9816, 2.28882e-05, -13.4505, 0, 0, 0, 0, 0, 0, 38.7385, 2.28882e-05, -45.0208, 0, 0, 0, 0, 0, 0, 53.7167, -2.86102e-05, -53.2378, 0, 0, 0, 0, 0, 0, 90.2728, -2.86102e-05, -41.4697, 0, 0, 0, 0, 0, 0, 122.322, -2.86102e-05, -9.92137, 0, 0, 0, 0, 0, 0, 86.7674, -2.86102e-05, 35.6485, 0, 0, 0, 0, 0, 0, 102.792, -2.86102e-05, 44.9127, 0, 0, 0, 0, 0, 0, 87.618, -2.86102e-05, 98.2731, 0, 0, 0, 0, 0, 0, 117.313, -2.86102e-05, 139.038, 0, 0, 0, 0, 0, 0, 75.4986, -2.86102e-05, 152.558, 0, 0, 0, 0, 0, 0, 23.1189, -2.86102e-05, 146.73),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -52.9482, -2.86102e-05, 111.746, 0, 0, 0, 0, 0, 0, -34.7494, -2.86102e-05, 75.1264, 0, 0, 0, 0, 0, 0, -37.2093, -2.86102e-05, 47.2741, 0, 0, 0, 0, 0, 0, -39.5706, -2.86102e-05, 28.3837, 0, 0, 0, 0, 0, 0, -37.6386, -2.86102e-05, 13.7865, 0, 0, 0, 0, 0, 0, -54.7108, -2.86102e-05, -25.5728, 0, 0, 0, 0, 0, 0, 14.9816, 2.28882e-05, -13.4505, 0, 0, 0, 0, 0, 0, 38.7385, 2.28882e-05, -45.0208, 0, 0, 0, 0, 0, 0, 53.7167, -2.86102e-05, -53.2378, 0, 0, 0, 0, 0, 0, 90.2728, -2.86102e-05, -41.4697, 0, 0, 0, 0, 0, 0, 122.322, -2.86102e-05, -9.92137, 0, 0, 0, 0, 0, 0, 86.7674, -2.86102e-05, 35.6485, 0, 0, 0, 0, 0, 0, 102.792, -2.86102e-05, 44.9127, 0, 0, 0, 0, 0, 0, 87.618, -2.86102e-05, 98.2731, 0, 0, 0, 0, 0, 0, 114.224, 0, 139.031, 0, 0, 0, 0, 0, 0, 75.4986, -2.86102e-05, 152.558, 0, 0, 0, 0, 0, 0, 23.1189, -2.86102e-05, 146.73),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 17
@@ -151,7 +152,7 @@ point_count = 17
 script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
-curve = SubResource("Curve3D_ofemi")
+curve = SubResource("Curve3D_sxvog")
 
 [sub_resource type="Curve3D" id="Curve3D_8ybqs"]
 _data = {
@@ -197,10 +198,10 @@ metadata/_custom_type_script = "uid://cvw1y25d3rugl"
 
 [sub_resource type="Curve3D" id="Curve3D_6rwth"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26.2342, 2.28882e-05, 119.858, 0, 0, 0, 0, 0, 0, -11.7256, 2.28882e-05, 91.5592, 0, 0, 0, 0, 0, 0, -22.0683, 2.28882e-05, 72.1666, 0, 0, 0, 0, 0, 0, -44.4637, -1.14441e-05, 77.986, 0, 0, 0, 0, 0, 0, -65.2018, -1.14441e-05, 102.738, 0, 0, 0, 0, 0, 0, -54.102, 2.28882e-05, 119.283, 0, 0, 0, 0, 0, 0, -30.9505, -1.14441e-05, 125.884),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26.2342, 2.28882e-05, 119.858, 0, 0, 0, 0, 0, 0, -11.7256, 2.28882e-05, 91.5592, 0, 0, 0, 0, 0, 0, -22.0683, 2.28882e-05, 72.1666, 0, 0, 0, 0, 0, 0, -44.4637, -1.14441e-05, 77.986, 0, 0, 0, 0, 0, 0, -65.2018, -1.14441e-05, 102.738, 0, 0, 0, 0, 0, 0, -54.102, 2.28882e-05, 119.283, 0, 0, 0, 0, 0, 0, -30.9505, -1.14441e-05, 125.884, 0, 0, 0, 0, 0, 0, -31.1127, -3.43323e-05, 152.28, 0, 0, 0, 0, 0, 0, -31.2554, -3.43323e-05, 160.559, 0, 0, 0, 0, 0, 0, -25.5457, -3.43323e-05, 155.991, 0, 0, 0, 0, 0, 0, -24.1182, -3.43323e-05, 141.146, 0, 0, 0, 0, 0, 0, -22.4053, -3.43323e-05, 122.018),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 7
+point_count = 12
 
 [sub_resource type="Resource" id="Resource_2cold"]
 script = ExtResource("15_ui4am")
@@ -339,9 +340,9 @@ reference_frame = 0
 script = ExtResource("7_sk4hm")
 stack = Array[ExtResource("8_8yq5j")]([SubResource("Resource_oju06"), SubResource("Resource_g01af"), SubResource("Resource_7kjy8"), SubResource("Resource_r4jeq")])
 
-[sub_resource type="Curve3D" id="Curve3D_7n53s"]
+[sub_resource type="Curve3D" id="Curve3D_qrn02"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 370.559, 3.43323e-05, -175.821, 0, 0, 0, 0, 0, 0, 371.009, 3.43323e-05, -186.323, 0, 0, 0, 0, 0, 0, 353.788, 0, -186.939, 0, 0, 0, 0, 0, 0, 315.57, 3.43323e-05, -201.477, 0, 0, 0, 0, 0, 0, 330.949, 3.43323e-05, -200.127, 0, 0, 0, 0, 0, 0, 334.099, 3.43323e-05, -200.877, 0, 0, 0, 0, 0, 0, 352.095, 3.43323e-05, -196.708, 0, 0, 0, 0, 0, 0, 371.525, 3.43323e-05, -193.482, 0, 0, 0, 0, 0, 0, 387.879, 3.43323e-05, -193.182, 0, 0, 0, 0, 0, 0, 394.556, 3.43323e-05, -197.458, 0, 0, 0, 0, 0, 0, 391.33, 3.43323e-05, -202.26, 0, 0, 0, 0, 0, 0, 385.937, -3.05176e-05, -208.203, 0, 0, 0, 0, 0, 0, 355.25, -3.05176e-05, -205.981, 0, 0, 0, 0, 0, 0, 329.277, 0, -213.388, 0, 0, 0, 0, 0, 0, 307.346, -3.05176e-05, -220.422, 0, 0, 0, 0, 0, 0, 300.681, -3.05176e-05, -210.841, 0, 0, 0, 0, 0, 0, 284.214, 3.43323e-05, -191.004, 0, 0, 0, 0, 0, 0, 309.795, 3.43323e-05, -189.879, 0, 0, 0, 0, 0, 0, 332.075, 3.43323e-05, -185.078, 0, 0, 0, 0, 0, 0, 347.904, 3.43323e-05, -181.327, 0, 0, 0, 0, 0, 0, 355.6, 3.43323e-05, -181.448, 0, 0, 0, 0, 0, 0, 360.851, 3.43323e-05, -176.572),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 370.559, 3.43323e-05, -175.821, 0, 0, 0, 0, 0, 0, 371.009, 3.43323e-05, -186.323, 0, 0, 0, 0, 0, 0, 353.788, 0, -186.939, 0, 0, 0, 0, 0, 0, 315.57, 3.43323e-05, -201.477, 0, 0, 0, 0, 0, 0, 330.949, 3.43323e-05, -200.127, 0, 0, 0, 0, 0, 0, 334.099, 3.43323e-05, -200.877, 0, 0, 0, 0, 0, 0, 352.549, 0, -197.279, 0, 0, 0, 0, 0, 0, 371.525, 3.43323e-05, -193.482, 0, 0, 0, 0, 0, 0, 387.879, 3.43323e-05, -193.182, 0, 0, 0, 0, 0, 0, 394.556, 3.43323e-05, -197.458, 0, 0, 0, 0, 0, 0, 391.33, 3.43323e-05, -202.26, 0, 0, 0, 0, 0, 0, 385.937, -3.05176e-05, -208.203, 0, 0, 0, 0, 0, 0, 355.25, -3.05176e-05, -205.981, 0, 0, 0, 0, 0, 0, 329.277, 0, -213.388, 0, 0, 0, 0, 0, 0, 307.346, -3.05176e-05, -220.422, 0, 0, 0, 0, 0, 0, 300.681, -3.05176e-05, -210.841, 0, 0, 0, 0, 0, 0, 284.214, 3.43323e-05, -191.004, 0, 0, 0, 0, 0, 0, 309.795, 3.43323e-05, -189.879, 0, 0, 0, 0, 0, 0, 332.075, 3.43323e-05, -185.078, 0, 0, 0, 0, 0, 0, 347.904, 3.43323e-05, -181.327, 0, 0, 0, 0, 0, 0, 355.6, 3.43323e-05, -181.448, 0, 0, 0, 0, 0, 0, 360.851, 3.43323e-05, -176.572),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 22
@@ -350,7 +351,7 @@ point_count = 22
 script = ExtResource("15_ui4am")
 closed = true
 thickness = 0.0
-curve = SubResource("Curve3D_7n53s")
+curve = SubResource("Curve3D_qrn02")
 metadata/_custom_type_script = "uid://cvw1y25d3rugl"
 
 [sub_resource type="Curve3D" id="Curve3D_hgn6n"]
@@ -1036,7 +1037,7 @@ lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_8ybqs")
 
 [sub_resource type="FogMaterial" id="FogMaterial_7v18o"]
-density = -0.25
+density = -0.2
 albedo = Color(0.83, 0.875333, 1, 1)
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
@@ -1074,7 +1075,7 @@ environment = SubResource("Environment_8jrty")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/GameWorld"]
 transform = Transform3D(0.545616, 0.601234, -0.583799, -0.0222108, 0.706758, 0.707107, 0.837741, -0.372842, 0.398972, -809.071, 91.3278, 1150.51)
 light_color = Color(0.4355, 0.45695, 0.65, 1)
-light_energy = 0.5
+light_volumetric_fog_energy = 3.0
 light_specular = 4.0
 shadow_enabled = true
 
@@ -1085,7 +1086,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25841, -0.334106, 7.53601)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 
 [node name="ProtonScatterVillaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -481.368, 37.1462, -38.2498)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -481.368, 24.7538, -38.2498)
 script = ExtResource("6_2m5tp")
 global_seed = 100
 keep_static_colliders = true
@@ -1130,7 +1131,7 @@ path = "uid://caqxfqurbp3ku"
 [node name="ScatterFaggio" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98278, 0)
 script = ExtResource("13_oen3x")
-proportion = 16
+proportion = 20
 path = "uid://b1r83n3ho5xd3"
 
 [node name="ScatterShape" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Foliage/ProtonScatterVillaggio"]
@@ -1922,7 +1923,6 @@ emission_angle_degrees = 30.0
 
 [node name="DiscoverableAreas" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
-visible = false
 
 [node name="ContradaAbbandonata" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/DiscoverableAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.57, 30.8859, -93.2946)
@@ -2021,7 +2021,7 @@ shape = SubResource("BoxShape3D_fh0sh")
 debug_color = Color(0.12938, 0.520636, 1, 0.42)
 
 [node name="ExitTriggerArea" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien"]
-transform = Transform3D(0.955742, 0, -0.294207, 0, 1, 0, 0.294207, 0, 0.955742, -38.1279, -1.40428, -6.90149)
+transform = Transform3D(0.955742, 0, -0.294207, 0, 1, 0, 0.294207, 0, 0.955742, -47.6061, -1.40428, -10.6249)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -2043,7 +2043,7 @@ shape = SubResource("BoxShape3D_fh0sh")
 debug_color = Color(0.12938, 0.520636, 1, 0.42)
 
 [node name="Alien" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("22_kceji")]
-transform = Transform3D(1.04415, 0, -1.07692, 0, 1.5, 0, 1.07692, 0, 1.04415, 16.1556, 12.1634, -9.02901)
+transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, -3.52694, 7.7897, -12.2028)
 visible = false
 
 [node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents"]
@@ -2211,13 +2211,64 @@ texture = ExtResource("30_4iyl5")
 [node name="Chiesa" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.3958, 92.4426, -231.854)
 
+[node name="Chiesa2" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("40_xe2hs")]
+transform = Transform3D(0.956956, 0, 0.290235, 0, 1, 0, -0.290235, 0, 0.956956, 2.93176, -2.86684, -2.49472)
+
+[node name="pine_tree" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("51_skfch")]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, -18.9759, -5.53224, 1.16615)
+
+[node name="pine_tree2" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("51_skfch")]
+transform = Transform3D(0.256886, 0, 4.9934, 0, 5, 0, -4.9934, 0, 0.256886, -13.9806, -5.53224, -9.44313)
+
+[node name="pine_tree3" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("51_skfch")]
+transform = Transform3D(5.39803, 0, 2.6194, 0, 6, 0, -2.6194, 0, 5.39803, -18.708, -5.53224, -12.5465)
+
+[node name="TavoloConPanche" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("42_4iyl5")]
+transform = Transform3D(0.941952, 0, -0.335748, 0, 1, 0, 0.335748, 0, 0.941952, -9.7724, -2.7199, 9.85721)
+
+[node name="TavoloConPanche5" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("42_4iyl5")]
+transform = Transform3D(0.996266, 0, 0.086338, 0.00206875, 0.999713, -0.0238716, -0.0863132, 0.0239611, 0.99598, -83.7467, -65.7313, 81.6169)
+
+[node name="TavoloConPanche6" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("42_4iyl5")]
+transform = Transform3D(0.894381, 0, -0.447307, -0.0029276, 0.999979, -0.00585367, 0.447297, 0.00654494, 0.894362, -88.3197, -65.6694, 81.1632)
+
+[node name="TavoloConPanche2" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("42_4iyl5")]
+transform = Transform3D(0.99448, 0, -0.104928, 0, 1, 0, 0.104928, 0, 0.99448, -5.0496, -2.7199, 10.8003)
+
+[node name="TavoloConPanche3" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("42_4iyl5")]
+transform = Transform3D(0.936617, 0, 0.350355, 0, 1, 0, -0.350355, 0, 0.936617, 0.911903, -2.7199, 10.1913)
+
+[node name="TavoloConPanche4" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("42_4iyl5")]
+transform = Transform3D(-0.144351, -0.0660649, 0.987319, -0.00955742, 0.997815, 0.0653699, -0.989481, -2.30449e-09, -0.144667, 47.4183, -36.3557, 10.8054)
+
+[node name="Bonfire" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("31_qrn02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9758, -65.5834, 74.6987)
+
 [node name="CasaPrete" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa" instance=ExtResource("52_welny")]
 transform = Transform3D(0.746314, 0, -0.808093, 0, 1.1, 0, 0.808093, 0, 0.746314, 10.8281, -2.9324, -8.82822)
 
+[node name="Blood4" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa"]
+transform = Transform3D(0.027998, -5.26208e-05, 0.000331006, -0.000331497, -0.00027332, 0.0279967, -4.93835e-05, -0.0279986, -0.000273922, 3.52734, -2.96464, -6.92503)
+modulate = Color(0.3, 0.3, 0.3, 1)
+texture = ExtResource("24_5v60t")
+
+[node name="Tracks4" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa"]
+transform = Transform3D(0.10761, -0.0693108, -0.000199857, 0.000120212, -0.000182536, 0.128, -0.0693106, -0.107611, -8.84016e-05, 4.69306, -2.99351, -8.39725)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks5" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa"]
+transform = Transform3D(0.0827497, -0.042431, -0.00105048, 0.000104023, -0.0020989, 0.0929763, -0.0424439, -0.0827297, -0.00182009, 6.736, -2.98544, -10.7824)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks6" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/Chiesa"]
+transform = Transform3D(-0.0822864, 0.0431192, -0.00432291, 0.000301711, 0.00984696, 0.0924767, 0.0433343, 0.0818093, -0.00885246, 8.6418, -2.9884, -12.8777)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
 [node name="ContradaAbbandonata" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
-
-[node name="CasaLuiginoAnna_v1_1" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ContradaAbbandonata" instance=ExtResource("24_ofemi")]
 
 [node name="CasaLuiginoAnna_v1_0" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ContradaAbbandonata" instance=ExtResource("24_ykgxx")]
 transform = Transform3D(-0.0409473, 0, 1.29936, 0, 1.3, 0, -1.29936, 0, -0.0409473, -24.022, 32.0756, 50.5006)
@@ -2438,13 +2489,38 @@ texture = ExtResource("37_c6niw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0315, 1.20724, -97.2809)
 
 [node name="OcchialiLuigino" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("31_elvov")]
-transform = Transform3D(0.0903424, 0.0297726, 0.175931, -0.0261819, 0.197274, -0.0199397, -0.176501, -0.014024, 0.0930085, -43.9881, 7.04618, 30.2673)
+transform = Transform3D(0.0903424, 0.0297726, 0.175931, -0.0261819, 0.197274, -0.0199397, -0.176501, -0.014024, 0.0930085, -44.4433, 6.55749, 28.49)
+
+[node name="Blood5" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata"]
+transform = Transform3D(0.0278475, -0.000772167, 0.00281411, -0.00291782, -0.00775257, 0.0267466, 4.15587e-05, -0.0268942, -0.00779082, -44.4124, 6.14785, 27.8671)
+modulate = Color(0.193154, 0.193154, 0.193153, 1)
+texture = ExtResource("24_5v60t")
+
+[node name="Blood6" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata"]
+transform = Transform3D(0.00478331, 0.0224457, 0.0238316, -0.0318248, 0.00883597, -0.00193448, -0.00767701, -0.022644, 0.0228681, -45.3997, 7.13305, 26.6893)
+modulate = Color(0.193154, 0.193154, 0.193153, 1)
+texture = ExtResource("24_5v60t")
 
 [node name="ScarpaDonna" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("32_syn51")]
 transform = Transform3D(0.297231, 0.0406628, 0, -0.0406628, 0.297231, 0, 0, 0, 0.3, 19.938, -0.714657, -18.2767)
 
 [node name="SolchiTerreno" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata" instance=ExtResource("33_ftenf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9511, -7.53291, -58.7557)
+transform = Transform3D(0.874738, 0, 0.484596, 0, 1, 0, -0.484596, 0, 0.874738, 42.9511, -7.53291, -58.7557)
+
+[node name="Tracks7" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata"]
+transform = Transform3D(0.122691, -0.0333769, 0.0147264, -0.0219318, -0.0261934, 0.123357, -0.0291524, -0.120764, -0.0308258, -42.7751, 5.52665, 26.4421)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks8" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata"]
+transform = Transform3D(0.0910926, -0.0156101, 0.0103663, -0.0139866, -0.022402, 0.0891713, -0.0124704, -0.0889015, -0.0242903, -40.1245, 4.83341, 24.9071)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks9" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Cascata"]
+transform = Transform3D(-0.0908738, 0.017439, 0.00931864, 0.0145968, 0.029603, 0.0869459, 0.0133376, 0.0864206, -0.0316633, -37.6919, 4.21083, 23.5964)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
 
 [node name="DiarioAbbandonato" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7945, 53.1869, -205.193)
@@ -2459,31 +2535,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3875, 95.1482, -236.26)
 transform = Transform3D(-0.95489, 0, -0.296958, 0, 1, 0, 0.296958, 0, -0.95489, -2.21755, -4.57271, -1.8325)
 
 [node name="PiantaAliena" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("36_rb17v")]
-transform = Transform3D(-0.323215, 0.139804, -0.354947, 0.242537, 0.434396, -0.0497578, 0.294462, -0.20434, -0.348622, 6.04478, -4.56615, -3.97708)
-
-[node name="Chiesa" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("40_xe2hs")]
-transform = Transform3D(0.956956, 0, 0.290235, 0, 1, 0, -0.290235, 0, 0.956956, -3.07654, -5.57244, 1.91127)
-
-[node name="pine_tree" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("51_skfch")]
-transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, -24.9842, -8.23785, 5.57214)
-
-[node name="pine_tree2" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("51_skfch")]
-transform = Transform3D(0.256886, 0, 4.9934, 0, 5, 0, -4.9934, 0, 0.256886, -19.9889, -8.23785, -5.03714)
-
-[node name="pine_tree3" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("51_skfch")]
-transform = Transform3D(5.39803, 0, 2.6194, 0, 6, 0, -2.6194, 0, 5.39803, -24.7163, -8.23785, -8.14055)
-
-[node name="TavoloConPanche" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("42_4iyl5")]
-transform = Transform3D(0.941952, 0, -0.335748, 0, 1, 0, 0.335748, 0, 0.941952, -15.7807, -5.42551, 14.2632)
-
-[node name="TavoloConPanche2" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("42_4iyl5")]
-transform = Transform3D(0.99448, 0, -0.104928, 0, 1, 0, 0.104928, 0, 0.99448, -11.0579, -5.42551, 15.2063)
-
-[node name="TavoloConPanche3" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("42_4iyl5")]
-transform = Transform3D(0.936617, 0, 0.350355, 0, 1, 0, -0.350355, 0, 0.936617, -5.0964, -5.42551, 14.5973)
-
-[node name="TavoloConPanche4" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/Chiesa" instance=ExtResource("42_4iyl5")]
-transform = Transform3D(-0.144351, -0.0660649, 0.987319, -0.00955742, 0.997815, 0.0653699, -0.989481, -2.30449e-09, -0.144667, 41.41, -39.0613, 15.2114)
+transform = Transform3D(-0.354591, 0.0762131, -0.344176, 0.273269, 0.367815, -0.200091, 0.222686, -0.330006, -0.302501, 6.04478, -4.53215, -3.97708)
 
 [node name="ContradaAbbandonata" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
@@ -2492,13 +2544,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -29.3652, 37.5033, 54.0449)
 
 [node name="ForiProiettili" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("38_vsfgc")]
-transform = Transform3D(0.817638, 0, 0.575733, 0, 1, 0, -0.575733, 0, 0.817638, -5.15248, 28.4558, -55.2459)
+transform = Transform3D(0.472546, 0.0677276, -0.655894, 0.0158992, 0.805528, 0.0946336, 0.65919, -0.0679799, 0.467901, -6.30165, 28.4558, -62.3057)
 
 [node name="FotoFamiglia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("39_fj32x")]
 transform = Transform3D(-0.99267, -0.0378113, -0.114787, -0.00266139, 0.956406, -0.292029, 0.120825, -0.289583, -0.949496, -27.6777, 32.9488, 51.0363)
 
 [node name="LiquidoGiallo" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("40_l4ssp")]
-transform = Transform3D(0.817638, 0, 0.575733, 0, 1, 0, -0.575733, 0, 0.817638, -11.5021, 28.4558, -46.9981)
+transform = Transform3D(0.916124, 0.138406, 0.376245, -0.126652, 0.990369, -0.0559311, -0.380363, 0.00358739, 0.92483, -6.67517, 25.997, -62.6822)
 
 [node name="Ponte" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6966, 0, -346.342)
@@ -2516,10 +2568,100 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.888, 0, -180.181)
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0.920975, -8.16202, -5.96091)
 
 [node name="SangueValle" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("44_nqehx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3406, 32.3337, -235.106)
+transform = Transform3D(0.180431, -0.42572, 0.886683, 0.817157, 0.566629, 0.105771, -0.547449, 0.705475, 0.450117, 30.3406, 32.3337, -236.143)
 
 [node name="RosarioCrocifisso" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura" instance=ExtResource("45_ggbbk")]
-transform = Transform3D(1, 0, 0, 0, 0.982852, 0.184397, 0, -0.184397, 0.982852, 13.1078, 27.9486, -130.476)
+transform = Transform3D(-0.0290839, 0.145588, -0.988918, -0.0597358, 0.987315, 0.147109, 0.997791, 0.0633523, -0.0200182, -38.4451, 34.5101, -203.764)
+
+[node name="Blood7" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0210706, -0.0183871, 0.00139426, -0.00348137, -0.00188763, 0.0277185, -0.0181082, -0.0210322, -0.00370664, 27.768, 31.2456, -227.357)
+modulate = Color(0.193154, 0.193154, 0.193153, 1)
+texture = ExtResource("24_5v60t")
+
+[node name="Blood8" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0153222, -0.0204597, -0.0114293, 0.0130567, -0.0187922, 0.0161362, -0.0194615, 0.00350049, 0.0198241, 30.6024, 36.1166, -239.067)
+modulate = Color(0.193154, 0.193154, 0.193153, 1)
+texture = ExtResource("24_5v60t")
+
+[node name="Blood10" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0245265, -0.059783, 0.0078462, 0.00895296, 0.00476575, 0.0642982, -0.0596273, 0.0253062, 0.00642689, -38.2932, 34.4575, -203.717)
+modulate = Color(0.193154, 0.193154, 0.193153, 1)
+texture = ExtResource("24_5v60t")
+
+[node name="Blood9" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.00493771, -0.0183833, -0.0205346, 0.0125692, -0.0170639, 0.0182986, -0.0245282, -0.0124449, 0.00524313, 21.7162, 33.0824, -243.338)
+modulate = Color(0.193154, 0.193154, 0.193153, 1)
+texture = ExtResource("24_5v60t")
+
+[node name="Tracks10" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0733333, -0.104339, 0.0109342, -0.018022, 0.0006133, 0.126723, -0.103351, -0.0741418, -0.0143394, 28.0568, 30.9025, -229.57)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks11" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0604631, -0.0703678, 0.00644836, -0.0130707, -0.00279702, 0.0920345, -0.0694433, -0.0607416, -0.0117083, 29.0485, 30.4896, -232.521)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks12" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0596662, 0.0713328, 0.000747432, 0.0134792, 0.0103166, 0.0914378, 0.0700517, 0.0587723, -0.0169576, 30.0214, 30.1033, -235.152)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks21" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.105278, -0.0711756, 0.0153167, -0.0055652, 0.0189825, 0.126462, -0.0725916, -0.10468, 0.0125182, -37.5216, 34.4147, -204.113)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks22" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0811967, -0.0441848, 0.0101886, -0.00707344, 0.0082986, 0.0923586, -0.0447891, -0.0814115, 0.00388476, -35.5459, 34.4973, -206.519)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks23" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0865554, 0.0327884, 0.00906008, 0.0033064, -0.0165431, 0.091457, 0.0338561, 0.0854414, 0.014231, -33.693, 34.3956, -208.189)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks13" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0398386, -0.110389, -0.0511007, 0.104797, 0.00384552, 0.0733941, -0.0617604, -0.0646811, 0.091575, 30.5348, 33.1267, -236.662)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks14" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0366738, -0.0761708, -0.0387563, 0.0755027, 0.00911673, 0.0535278, -0.0400422, -0.0525728, 0.0654349, 30.6935, 35.621, -238.563)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks15" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0360015, 0.0730787, -0.0448596, -0.0753764, -0.0037749, 0.0543428, 0.0408814, 0.0573954, 0.0606916, 30.9178, 37.8811, -240.256)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks16" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0323662, -0.0783572, -0.0382305, 0.0760184, 0.00539415, 0.053302, -0.0426922, -0.0498, 0.0659266, 31.4043, 40.2615, -241.979)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks17" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0263085, -0.0868768, 0.0902459, -0.0548591, -0.0749113, -0.0881067, 0.112615, -0.0567876, -0.0218371, 25.7557, 38.2897, -246.867)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks18" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0389813, -0.0442833, 0.0718919, -0.057878, -0.0436401, -0.0582638, 0.0614784, -0.069163, -0.00926754, 23.8097, 36.1131, -245.03)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks19" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(0.0397569, 0.0496858, 0.0678211, 0.0581093, 0.0379782, -0.0618866, -0.0607593, 0.0688329, -0.0148098, 22.2373, 33.9856, -244.018)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
+
+[node name="Tracks20" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ValleOscura"]
+transform = Transform3D(-0.0411646, -0.0415312, 0.0723162, -0.0603162, -0.0408641, -0.0578021, 0.0575885, -0.0724864, -0.00884783, 20.6161, 31.8504, -242.721)
+modulate = Color(0.509804, 0, 0, 1)
+texture = ExtResource("30_4iyl5")
 
 [node name="AmbientParticles" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto"]
 

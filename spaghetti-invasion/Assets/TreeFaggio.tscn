@@ -18,9 +18,11 @@ height = 0.327629
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 
 [node name="Trunk" parent="Faggio" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354406, 0)
 surface_material_override/0 = ExtResource("2_ew2gj")
 
 [node name="Leaves" parent="Faggio" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354406, 0)
 surface_material_override/0 = ExtResource("3_ew2gj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Faggio"]
