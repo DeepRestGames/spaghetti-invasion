@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=3 uid="uid://d2ml7yh8y0qaf"]
+[gd_scene load_steps=179 format=3 uid="uid://d2ml7yh8y0qaf"]
 
 [ext_resource type="Material" uid="uid://cw4ajqmc2xpxu" path="res://Assets/Materials/ShaderMaterials/psx.tres" id="1_v1twv"]
 [ext_resource type="Material" uid="uid://e1ucwsqmov58" path="res://Assets/Materials/ShaderMaterials/Vignette.tres" id="2_oppib"]
@@ -1027,6 +1027,10 @@ emission_energy_multiplier = 0.1
 lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_8ybqs")
 
+[sub_resource type="FogMaterial" id="FogMaterial_7v18o"]
+density = -0.25
+albedo = Color(0.83, 0.875333, 1, 1)
+
 [node name="SubViewportContainer" type="SubViewportContainer"]
 material = ExtResource("1_v1twv")
 anchors_preset = 15
@@ -1054,7 +1058,7 @@ grow_vertical = 2
 [node name="GameWorld" type="Node3D" parent="SubViewport"]
 
 [node name="Player" parent="SubViewport/GameWorld" instance=ExtResource("3_dug5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.881, 40.3979, -36.8242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.386, -2.57746, -554.593)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/GameWorld" groups=["WorldEnvironment"]]
 environment = SubResource("Environment_8jrty")
@@ -2092,6 +2096,65 @@ transform = Transform3D(-0.952757, 0, 0.303734, 0, 1, 0, -0.303734, 0, -0.952757
 [node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3875, 95.1482, -236.26)
 
+[node name="Aliens" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena"]
+
+[node name="Alien" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.300906, 0, 0.953654, 0, 1, 0, -0.953654, 0, 0.300906, 155.667, -94.8793, -316.864)
+
+[node name="Alien11" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.185344, 0, 0.778234, 0, 0.8, 0, -0.778234, 0, 0.185344, 155.667, -94.8515, -315.794)
+
+[node name="Alien12" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(-0.114545, 0, 0.791757, 0, 0.8, 0, -0.791757, 0, -0.114545, 155.373, -94.627, -310.59)
+
+[node name="Alien13" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.412868, 0, 0.68523, 0, 0.8, 0, -0.68523, 0, 0.412868, 167.143, -96.5482, -323.377)
+
+[node name="Alien14" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.412868, 0, 0.68523, 0, 0.8, 0, -0.68523, 0, 0.412868, 170.552, -97.3716, -327.343)
+
+[node name="Alien15" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.691995, 0, 0.401426, 0, 0.8, 0, -0.401426, 0, 0.691995, 179.091, -99.177, -334.606)
+
+[node name="Alien16" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.786556, 0, -0.146049, 0, 0.8, 0, 0.146049, 0, 0.786556, 196.227, -98.9859, -339.412)
+
+[node name="Alien17" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.763087, 0, 0.240205, 0, 0.8, 0, -0.240205, 0, 0.763087, 182.872, -99.8403, -342.114)
+
+[node name="Alien18" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.793569, 0, -0.101236, 0, 0.8, 0, 0.101236, 0, 0.793569, 192.891, -100.015, -342.853)
+
+[node name="Alien19" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.694275, 0, -0.39747, 0, 0.8, 0, 0.39747, 0, 0.694275, 199.182, -98.393, -341.39)
+
+[node name="Alien2" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.395289, 0, 0.918557, 0, 1, 0, -0.918557, 0, 0.395289, 161.587, -95.8684, -323.006)
+
+[node name="Alien3" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.877356, 0, 0.479841, 0, 1, 0, -0.479841, 0, 0.877356, 173.79, -98.7754, -338.09)
+
+[node name="Alien4" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.872462, 0, -0.488682, 0, 1, 0, 0.488682, 0, 0.872462, 214.872, -94.3565, -343.86)
+
+[node name="Alien5" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(0.691425, 0, -0.722448, 0, 1, 0, 0.722448, 0, 0.691425, 228.056, -89.0316, -330.141)
+
+[node name="Alien6" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(-0.0523185, 0, -0.99863, 0, 1, 0, 0.99863, 0, -0.0523185, 238.677, -86.9843, -308.964)
+
+[node name="Alien7" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(-0.0523185, 0, -0.99863, 0, 1, 0, 0.99863, 0, -0.0523185, 240.986, -87.6053, -304.702)
+
+[node name="Alien8" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(-0.938161, 0, 0.346199, 0, 1, 0, -0.346199, 0, -0.938161, 169.661, -59.5533, -267.863)
+
+[node name="Alien9" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(-0.841605, 0, 0.540093, 0, 1, 0, -0.540093, 0, -0.841605, 167.125, -59.7115, -268.695)
+
+[node name="Alien10" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena/Aliens" instance=ExtResource("22_kceji")]
+transform = Transform3D(-0.155676, 0, 0.987808, 0, 1, 0, -0.987808, 0, -0.155676, 154.74, -86.8057, -295.347)
+
 [node name="AlienTree" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/ValleAliena" instance=ExtResource("26_4vjpg")]
 transform = Transform3D(0.916363, 0, 0.400349, 0, 1, 0, -0.400349, 0, 0.916363, 196.665, -102.256, -301.785)
 
@@ -2426,9 +2489,14 @@ size = Vector3(2.24637, 2.0971, 7.12885)
 material = ExtResource("49_g8p8k")
 
 [node name="FogVolume3" type="FogVolume" parent="SubViewport/GameWorld/LandscapeVeneto/FogAreas"]
-transform = Transform3D(37.868, 0, 29.6017, 0, 48.065, 0, -29.6017, 0, 37.868, 100.844, 11.9187, -626.044)
-size = Vector3(4.12568, 0.840724, 6.4243)
+transform = Transform3D(37.868, 0, 29.6017, 0, 48.065, 0, -29.6017, 0, 37.868, 95.592, 11.9187, -632.763)
+size = Vector3(4.12568, 0.840724, 6.06945)
 material = ExtResource("49_g8p8k")
+
+[node name="FogVolumeNegative" type="FogVolume" parent="SubViewport/GameWorld/LandscapeVeneto/FogAreas"]
+transform = Transform3D(37.868, 0, 29.6017, 0, 48.065, 0, -29.6017, 0, 37.868, 122.453, 11.9187, -548.071)
+size = Vector3(0.687048, 0.840724, 0.749644)
+material = SubResource("FogMaterial_7v18o")
 
 [node name="FogVolume4" type="FogVolume" parent="SubViewport/GameWorld/LandscapeVeneto/FogAreas"]
 transform = Transform3D(5.89845, 0, 47.7017, 0, 48.065, 0, -47.7017, 0, 5.89845, -89.7072, 32.6625, -455.804)
