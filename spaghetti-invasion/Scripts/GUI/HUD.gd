@@ -106,8 +106,8 @@ func show_opened_diary_hints(show_hints: bool) -> void:
 		open_diary_hint.hide()
 		tween.tween_interval(1)
 		
-		tween.chain().tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
-		tween.parallel().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 0), prompt_fade_time)
+		tween.chain().tween_property(turn_diary_page_hints, "modulate", Color(1, 1, 1, 1), prompt_fade_time)
+		tween.parallel().tween_property(close_diary_hint, "modulate", Color(1, 1, 1, 1), prompt_fade_time)
 		await tween.chain().tween_interval(5).finished
 		open_diary_hint.show()
 	else:
