@@ -36,6 +36,7 @@ mouse_filter = 1
 script = ExtResource("1_sd512")
 
 [node name="FPSLabel" type="Label" parent="."]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
