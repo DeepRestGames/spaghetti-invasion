@@ -1,7 +1,6 @@
 class_name Diary
 extends Node3D
 
-
 # Diary entries addition
 enum LastPageWritten {
 	BLANK,
@@ -15,7 +14,27 @@ var discovered_diary_pages: Array[DiaryPage]
 @onready var empty_diary_page_scene = preload("res://Scenes/Diary/EmptyDiaryPage.tscn")
 var current_diary_page = 0
 
-var all_diary_entries_path = "res://Scenes/Diary/DiaryPages/"
+var all_diary_entries_packed_scenes = [
+	preload("res://Scenes/Diary/DiaryPages/CapannoCacciatori/DisegnoBambiniPonte.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/CapannoCacciatori/FucileCaccia.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/CapannoCacciatori/PortaSfondata.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Cascata/OcchialiLuigino.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Cascata/ScarpaDonna.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Cascata/SolchiTerreno.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Chiesa/DisegnoPonteChiesa.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Chiesa/PiantaAliena.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ContradaAbbandonata/FotoFamiglia.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ContradaAbbandonata/DipintoCascata.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ContradaAbbandonata/ForiProiettili.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ContradaAbbandonata/LiquidoGiallo.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/DiarioAbbandonato/DiarioAgnese.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Ponte/DisegnoTunnel.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/Ponte/Matite.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ContradaAbbandonata/DipintoCascata.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ValleOscura/PartiteNascondino.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ValleOscura/RosarioCrocifisso.tscn"),
+	preload("res://Scenes/Diary/DiaryPages/ValleOscura/SangueValle.tscn"),
+]
 var all_diary_entries: Array
 
 static var is_diary_out = false
@@ -27,35 +46,16 @@ var unread_clues = false
 
 
 func _ready() -> void:
-	# Load all clues entries scenes from folder
-	all_diary_entries = load_clues_entries(all_diary_entries_path)
+	instantiate_diary_entries()
 	
 	EventBus.connect("clue_interacted", add_clue_entry)
 	EventBus.connect("new_area_discovered", add_diary_page)
 
 
-func load_clues_entries(path):
-	var scene_loads = []
-
-	var dir = DirAccess.open(path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				var subdirectory_path = path + "/" + file_name
-				scene_loads.append_array(load_clues_entries(subdirectory_path))
-			else:
-				if file_name.get_extension() == "tscn":
-					var full_path = path.path_join(file_name)
-					var packed_scene = load(full_path)
-					var instance = packed_scene.instantiate() as DiaryEntry
-					scene_loads.append(instance)
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
-	
-	return scene_loads
+func instantiate_diary_entries() -> void:
+	for packed_scene in all_diary_entries_packed_scenes:
+		var instance = packed_scene.instantiate() as DiaryEntry
+		all_diary_entries.append(instance)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
