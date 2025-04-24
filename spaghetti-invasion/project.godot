@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Spaghetti-Invasion"
-run/main_scene="uid://dsvqny4ttof5o"
+config/name="Gente di Montagna"
+run/main_scene="uid://dwoeewx1yny2k"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
