@@ -62,20 +62,10 @@ _subresources={
 "PATH:Board": {
 "generate/physics": true
 },
-"PATH:Casa_005": {
-"generate/physics": true
-},
-"PATH:Church": {
-"generate/physics": true
-},
 "PATH:Cliff": {
-"generate/physics": true,
-"physics/shape_type": 1
+"generate/physics": true
 },
 "PATH:Cliff_001": {
-"generate/physics": true
-},
-"PATH:Farm": {
 "generate/physics": true
 },
 "PATH:FinalValley": {
