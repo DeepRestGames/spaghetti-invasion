@@ -1,7 +1,7 @@
 extends Node
 
 
-const main_menu_path = "res://Scenes/UI/MainMenu.tscn"
+const main_menu_path = "res://Scenes/GUI/MainMenu.tscn"
 
 var path_to_new_scene := ""
 
