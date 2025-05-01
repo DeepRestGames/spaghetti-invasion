@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://x7wldn6xra56" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="4_be0df"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvud3"]
-size = Vector3(1.2, 1.2, 0.2)
+size = Vector3(1.2, 1.2, 0.642224)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_be0df"]
 lifetime_randomness = 0.5
@@ -38,63 +38,80 @@ script = ExtResource("1_cc3gd")
 clue_data = ExtResource("2_hi6x3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0264221)
 shape = SubResource("BoxShape3D_wvud3")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.0878499, -0.0661996, 0, 0.0661996, 0.0878499, 0, 0, 0, 0.11, 0, 0, 0.0981258)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal" type="Decal" parent="."]
+transform = Transform3D(-0.470442, 5.9136e-08, 0.882431, 0.882431, -1.80086e-08, 0.470442, 4.37114e-08, 1, -4.37114e-08, -0.00497434, 0.220523, 0.0441091)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0282082, -0.0814605, -0.0258549, 0.0850454, -0.0294496, -8.53578e-10, -0.00846019, -0.0244316, 0.0862063, -0.340908, 0.267725, -0.0351298)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal2" type="Decal" parent="."]
+transform = Transform3D(0.520771, -2.56906e-09, 0.853696, 0.853696, -6.14387e-08, -0.520771, 4.79392e-08, 1, -5.96046e-08, -0.194707, 0.08263, 0.0441091)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
-[node name="Sprite3D3" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0499562, 0.0257843, -0.0209654, -0.027519, -0.053317, 5.12581e-10, -0.0186302, 0.00961575, 0.0562179, -0.280863, -0.100702, 0.0115375)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal3" type="Decal" parent="."]
+transform = Transform3D(0.910272, -3.66232e-08, 0.41401, 0.41401, -4.9397e-08, -0.910272, 4.79392e-08, 1, -5.96046e-08, -0.0161424, -0.00346063, 0.0441091)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
-[node name="Sprite3D8" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0494103, 0.0255025, -0.0225443, -0.027519, -0.053317, 3.74899e-10, -0.0200333, 0.01034, 0.0556035, -0.372295, -0.362714, -0.00958508)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal4" type="Decal" parent="."]
+transform = Transform3D(0.965844, -5.96732e-08, -0.259122, -0.259122, -1.48467e-08, -0.965845, 4.79392e-08, 1, -5.96046e-08, 0.161872, 0.073979, 0.0441091)
+size = Vector3(0.35, 0.35, 0.35)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
-[node name="Sprite3D4" type="Sprite3D" parent="."]
-transform = Transform3D(0.0765819, -0.0642598, 0.00242577, 0.0642788, 0.0766044, 0, -0.00185825, 0.00155925, 0.0999706, 0.0565171, -0.317038, 0.0867447)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal5" type="Decal" parent="."]
+transform = Transform3D(0.559034, -5.47797e-08, -0.829145, -0.829145, 2.79375e-08, -0.559034, 4.79392e-08, 1, -5.96046e-08, 0.14052, -0.215297, 0.0441091)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
-[node name="Sprite3D5" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0493377, 0.0326559, 0.00996895, -0.0331162, -0.0500331, 4.6597e-10, 0.00831297, -0.00550223, 0.059166, 0.359522, -0.0311946, 0.0262791)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal6" type="Decal" parent="."]
+transform = Transform3D(0.0421024, -3.20405e-08, -0.999113, -0.999113, 5.24854e-08, -0.0421024, 4.79392e-08, 1, -5.96046e-08, -0.130496, -0.232064, 0.0441091)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
-[node name="Sprite3D6" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0835034, -0.0803572, 0.0311432, 0.0832082, -0.0864661, -1.54987e-09, 0.0224403, 0.0215948, 0.115888, 0.301088, 0.310818, 0.0127623)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal7" type="Decal" parent="."]
+transform = Transform3D(-0.617269, 9.75459e-09, -0.786752, -0.786752, 6.07138e-08, 0.617269, 4.79392e-08, 1, -5.96046e-08, -0.282924, -0.232063, 0.120621)
+size = Vector3(0.35, 0.35, 0.35)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.551854, 0.245071, 0, 1)
 
-[node name="Sprite3D7" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0397908, -0.0675513, 0.0159221, 0.0689303, -0.040603, -7.56291e-10, 0.00808106, 0.0137189, 0.0783995, 0.399395, -0.399976, 0.0165941)
-cast_shadow = 0
-modulate = Color(0.87451, 1, 0.686275, 1)
-double_sided = false
-texture = ExtResource("2_w8baf")
+[node name="BulletHoleDecal8" type="Decal" parent="."]
+transform = Transform3D(-0.984805, 4.77949e-08, -0.173665, -0.173665, 3.86905e-08, 0.984805, 4.79392e-08, 1, -5.96046e-08, -0.277665, 0.340548, 0.120621)
+size = Vector3(0.25, 0.25, 0.25)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
+
+[node name="BulletHoleDecal9" type="Decal" parent="."]
+transform = Transform3D(-0.752104, 6.00951e-08, 0.659044, 0.659044, -1.30341e-08, 0.752105, 4.79392e-08, 1, -5.96046e-08, 0.326814, 0.319815, 0.120621)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
+
+[node name="BulletHoleDecal10" type="Decal" parent="."]
+transform = Transform3D(-0.477818, 5.18809e-08, 0.878459, 0.878459, -3.30103e-08, 0.477818, 4.79392e-08, 1, -5.96046e-08, 0.406188, -0.134885, 0.120621)
+size = Vector3(0.25, 0.25, 0.25)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
+
+[node name="BulletHoleDecal11" type="Decal" parent="."]
+transform = Transform3D(0.473842, 7.57241e-10, 0.88061, 0.88061, -6.14877e-08, -0.473842, 4.79392e-08, 1, -5.96046e-08, 0.118742, -0.0828452, 0.120621)
+size = Vector3(0.3, 0.3, 0.3)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
+
+[node name="BulletHoleDecal12" type="Decal" parent="."]
+transform = Transform3D(0.544741, -4.30814e-09, 0.838604, 0.838604, -6.13413e-08, -0.544741, 4.79392e-08, 1, -5.96046e-08, 0.0253901, -0.385039, 0.120621)
+size = Vector3(0.25, 0.25, 0.25)
+texture_albedo = ExtResource("2_w8baf")
+modulate = Color(0.552941, 0.243137, 0, 1)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0156811, 0)

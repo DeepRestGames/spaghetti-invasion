@@ -1075,7 +1075,7 @@ grow_vertical = 2
 [node name="GameWorld" type="Node3D" parent="SubViewport"]
 
 [node name="Player" type="CharacterBody3D" parent="SubViewport/GameWorld" groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6391, -26.9019, 11.0421)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4756, 58.6567, -219.703)
 collision_layer = 2
 floor_stop_on_slope = false
 script = ExtResource("3_67wb6")
@@ -2221,37 +2221,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3664, 48.6516, -215.49)
 
 [node name="CapannoCacciatori" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori" instance=ExtResource("25_g0574")]
-transform = Transform3D(-0.175337, -0.114533, 1.38536, -0.0251523, 1.59583, 0.0978287, -1.38875, -0.0144424, -0.17668, 0.8361, 7.4242, -2.724)
+transform = Transform3D(-0.175695, -0.09054, 1.38667, -0.0225147, 1.59737, 0.0770002, -1.38875, -0.0144424, -0.17668, 0.8361, 7.37857, -2.724)
 
-[node name="Blood" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
-transform = Transform3D(0.0279209, -2.86765e-05, -0.00210253, 0.00210215, -0.000276858, 0.0279196, -4.93835e-05, -0.0279986, -0.000273922, 1.30657, 7.52613, -1.9007)
-modulate = Color(0.3, 0.3, 0.3, 1)
-texture = ExtResource("26_yanmk")
+[node name="Blood" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
+transform = Transform3D(0.986951, 0, 0.161018, 0, 1, 0, -0.161018, 0, 0.986951, 1.43122, 7.43832, -1.66422)
+size = Vector3(3.29837, 0.600098, 2)
+texture_albedo = ExtResource("26_yanmk")
 
-[node name="Blood2" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
-transform = Transform3D(-0.00741629, -0.00191424, 0.0675673, 0.00665238, 0.0676221, 0.00264597, -0.0672662, 0.00689862, -0.0071878, -1.66826, 8.76552, -1.45624)
-modulate = Color(0.51, 0, 0, 1)
-texture = ExtResource("27_e4pep")
+[node name="Blood2" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
+transform = Transform3D(0.825921, 0, 0.563786, 0, 1, 0, -0.563786, 0, 0.825921, 0.913506, 8.05066, -2.75838)
+size = Vector3(2.53076, 2, 2)
+texture_albedo = ExtResource("27_e4pep")
+modulate = Color(1, 0, 0, 1)
 
-[node name="Blood3" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
-transform = Transform3D(0.067808, -6.96437e-05, -0.00510616, 0.00510523, -0.00067237, 0.0678048, -0.000119932, -0.0679967, -0.000665243, 1.30657, 7.52613, -3.03192)
-modulate = Color(0.509804, 0, 0, 1)
-texture = ExtResource("27_e4pep")
+[node name="Blood3" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
+transform = Transform3D(0.02922, 0.991902, 0.123601, -0.998446, 0.0348347, -0.0435111, -0.0474644, -0.122137, 0.991378, -1.00685, 8.96377, -2.09233)
+size = Vector3(2.79614, 1.55884, 2.30811)
+texture_albedo = ExtResource("27_e4pep")
+modulate = Color(1, 0, 0, 1)
+lower_fade = 0.0630672
+distance_fade_begin = 2.0
+distance_fade_length = 2.0
 
-[node name="Tracks" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
-transform = Transform3D(0.125114, 4.37236e-05, -0.0270256, 0.0270247, -0.00127166, 0.125108, -0.00022576, -0.127994, -0.00125222, 5.46956, 7.84415, -2.4122)
-modulate = Color(0.509804, 0, 0, 1)
-texture = ExtResource("28_238ac")
+[node name="Tracks" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
+transform = Transform3D(-0.86252, 0.00629202, 0.505985, -0.0121659, -0.999891, -0.0083046, 0.505877, -0.0133186, 0.862502, 5.75501, 8.66112, -2.26985)
+size = Vector3(3.07373, 2, 2.73779)
+texture_albedo = ExtResource("28_238ac")
+texture_orm = ExtResource("28_238ac")
 
-[node name="Tracks2" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
-transform = Transform3D(0.0904608, 0.0093664, -0.0194453, 0.0196351, -0.000923937, 0.0908989, 0.0089616, -0.0925225, -0.00287624, 8.43746, 8.34773, -3.31532)
-modulate = Color(0.509804, 0, 0, 1)
-texture = ExtResource("28_238ac")
+[node name="Tracks2" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
+transform = Transform3D(-0.67066, 0.00199939, 0.741762, -0.0121659, -0.999891, -0.0083046, 0.741665, -0.0145938, 0.670612, 7.98972, 8.66112, -2.69041)
+size = Vector3(3.07373, 2, 2.73779)
+texture_albedo = ExtResource("28_238ac")
+texture_orm = ExtResource("28_238ac")
 
-[node name="Tracks3" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
-transform = Transform3D(-0.0899751, -0.00915629, -0.0216714, -0.0221211, 0.00376261, 0.0902524, -0.008009, 0.0924716, -0.00581815, 11.1101, 8.93125, -4.04988)
-modulate = Color(0.509804, 0, 0, 1)
-texture = ExtResource("28_238ac")
+[node name="Tracks3" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings/CapannoCacciatori"]
+transform = Transform3D(-0.67066, 0.00199939, 0.741762, -0.0121659, -0.999891, -0.0083046, 0.741665, -0.0145938, 0.670612, 10.4382, 8.66112, -3.765)
+size = Vector3(3.07373, 2, 2.73779)
+texture_albedo = ExtResource("28_238ac")
+texture_orm = ExtResource("28_238ac")
 
 [node name="Chiesa" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Props&Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.3958, 92.4426, -231.854)
@@ -2505,30 +2513,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3664, 48.6516, -215.49)
 transform = Transform3D(-0.274481, 0.958686, 0.0747127, -0.0106402, 0.0746641, -0.997152, -0.961533, -0.274494, -0.0102933, -0.173361, 8.33069, -5.62973)
 
 [node name="AmmoCasing" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("41_408dt")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.827757, 7.54562, -2.04597)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.827757, 7.45098, -2.04597)
 
 [node name="AmmoCasing2" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("41_408dt")]
-transform = Transform3D(-0.583951, 0, 1.38167, 0, 1.5, 0, -1.38167, 0, -0.583951, 0.462902, 7.63441, -0.221176)
+transform = Transform3D(-0.583951, 0, 1.38167, 0, 1.5, 0, -1.38167, 0, -0.583951, 0.462902, 7.45537, -0.221176)
 
 [node name="AmmoCasing3" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("41_408dt")]
-transform = Transform3D(-1.48138, 0, 0.235634, 0, 1.5, 0, -0.235634, 0, -1.48138, 0.980677, 7.56066, 0.805328)
+transform = Transform3D(-1.48138, 0, 0.235634, 0, 1.5, 0, -0.235634, 0, -1.48138, 0.980677, 7.48517, 0.805328)
 
 [node name="AmmoCasing4" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("41_408dt")]
-transform = Transform3D(-1.48138, 0, 0.235634, 0, 1.5, 0, -0.235634, 0, -1.48138, 0.127815, 7.47367, 0.901993)
+transform = Transform3D(-1.48138, 0, 0.235634, 0, 1.5, 0, -0.235634, 0, -1.48138, 0.127815, 7.44005, 0.901993)
 
 [node name="FucileCaccia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("42_u1cxu")]
-transform = Transform3D(0.357614, -0.0384919, 0.175016, 0.0303098, 0.398027, 0.0256068, -0.176617, -0.00963159, 0.358767, 1.80256, 7.63713, 0.120865)
+transform = Transform3D(0.358586, -0.0213584, 0.175954, 0.0149199, 0.399313, 0.018065, -0.176617, -0.00963159, 0.358767, 1.80256, 7.56109, 0.120865)
 
 [node name="PortaSfondata" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori" instance=ExtResource("43_r4lth")]
-transform = Transform3D(-0.81503, 0.575664, -0.0658639, 0.578275, 0.801009, -0.154864, -0.036392, -0.164306, -0.985738, -0.716074, 8.65749, -0.409225)
+transform = Transform3D(-0.81503, 0.575664, -0.0658639, 0.578275, 0.801009, -0.154864, -0.036392, -0.164306, -0.985738, -0.716074, 8.63816, -0.409225)
 
-[node name="Sprite3D" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori/PortaSfondata"]
-transform = Transform3D(0.0955145, -0.0828529, 0.00241573, 0.00454307, 0.00891321, 0.126069, -0.0827634, -0.0951283, 0.00970818, -0.144936, -0.200768, 0.0388184)
-texture = ExtResource("44_henu4")
+[node name="Scratches" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori/PortaSfondata"]
+transform = Transform3D(0.910862, 0.139451, 0.388439, -0.0153848, 0.952004, -0.305698, -0.412425, 0.272472, 0.869289, -0.0939674, -0.078537, 0.476288)
+texture_albedo = ExtResource("44_henu4")
 
-[node name="Sprite3D2" type="Sprite3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori/PortaSfondata"]
-transform = Transform3D(-0.0487711, -0.0645055, -0.00462838, 0.0193253, -0.0200686, 0.0760577, -0.0617164, 0.0446911, 0.0274735, -0.0104752, 0.0170288, -1.10902)
-texture = ExtResource("44_henu4")
+[node name="Scratches2" type="Decal" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/CapannoCacciatori/PortaSfondata"]
+transform = Transform3D(-0.244472, 0.0190745, 0.969468, 0.101994, 0.994765, 0.00614794, -0.964277, 0.100383, -0.245138, 0.0246696, -0.0593414, -0.824066)
+texture_albedo = ExtResource("44_henu4")
 
 [node name="Cascata" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/Clues"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0315, 1.20724, -97.2809)
@@ -2589,7 +2597,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.645, 0, -86.7153)
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -29.3652, 37.5033, 54.0449)
 
 [node name="ForiProiettili" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("52_qxgpr")]
-transform = Transform3D(0.313906, 0.0248021, -0.246674, -0.0221734, 0.399207, 0.0119218, 0.246924, 0.00431823, 0.314658, -5.9837, 27.6042, -62.4836)
+transform = Transform3D(0.304042, 0.0246149, -0.258752, -0.0221734, 0.399207, 0.0119218, 0.258973, 0.00528175, 0.304803, -5.95763, 27.6042, -62.5429)
 
 [node name="FotoFamiglia" parent="SubViewport/GameWorld/LandscapeVeneto/Clues/ContradaAbbandonata" instance=ExtResource("53_hbbsv")]
 transform = Transform3D(-0.99267, -0.0378113, -0.114787, -0.00266139, 0.956406, -0.292029, 0.120825, -0.289583, -0.949496, -27.6777, 32.9488, 51.0363)
