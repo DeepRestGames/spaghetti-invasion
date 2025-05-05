@@ -253,6 +253,7 @@ size = Vector2i(510, 680)
 [node name="Sprite3D" type="Sprite3D" parent="Body/LeftCoverPivot/LeftPages/Content"]
 transform = Transform3D(-0.135, 1.18021e-08, 0, 5.15885e-16, 5.90104e-09, 0.135, 1.18021e-08, 0.135, -5.90104e-09, 0, 0, 0)
 no_depth_test = true
+render_priority = 50
 texture = SubResource("ViewportTexture_kau8f")
 
 [node name="Stipite" type="MeshInstance3D" parent="Body"]
@@ -286,6 +287,7 @@ size = Vector2i(510, 680)
 transform = Transform3D(-0.135, -1.18021e-08, -5.15885e-16, 0, -5.90104e-09, 0.135, -1.18021e-08, 0.135, 5.90104e-09, 0, 0, 0)
 flip_h = true
 no_depth_test = true
+render_priority = 50
 texture = SubResource("ViewportTexture_v7la2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
