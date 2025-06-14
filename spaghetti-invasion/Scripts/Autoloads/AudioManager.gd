@@ -199,6 +199,9 @@ func _ready() -> void:
 	EventBus.connect("play_music", play_music)
 	EventBus.connect("play_area_ambience", play_area_ambience)
 	EventBus.connect("buildup", buildup)
+	
+	EventBus.connect("sfx_volume_value_changed", on_sfx_volume_changed)
+	EventBus.connect("music_volume_value_changed", on_music_volume_changed)
 
 
 func _process(delta: float) -> void:
@@ -376,6 +379,14 @@ func _process(delta: float) -> void:
 
 func buildup() -> void:
 	final_buildup = true
+
+
+func on_sfx_volume_changed(new_value) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), new_value)
+
+
+func on_music_volume_changed(new_value) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), new_value)
 
 
 enum MusicTracks {

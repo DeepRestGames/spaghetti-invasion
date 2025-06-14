@@ -7,10 +7,22 @@ extends Node
 @warning_ignore("unused_signal")
 signal splash_screen_end
 
+@warning_ignore("unused_signal")
+signal go_to_main_menu
+
 
 # Game options
 @warning_ignore("unused_signal")
 signal gamma_value_changed(new_value)
+
+@warning_ignore("unused_signal")
+signal fov_value_changed(new_value)
+
+@warning_ignore("unused_signal")
+signal sfx_volume_value_changed(new_value)
+
+@warning_ignore("unused_signal")
+signal music_volume_value_changed(new_value)
 
 
 # Input management

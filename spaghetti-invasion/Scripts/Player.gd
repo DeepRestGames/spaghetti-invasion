@@ -16,7 +16,7 @@ const BOB_FREQUENCY = 1.8
 const BOB_AMPLITUDE = 0.04
 var t_bob = 0.0
 # FOV
-const BASE_FOV = 75.0
+var base_fov = 75.0
 const FOV_CHANGE = 1.8
 
 var process_inputs = true
@@ -26,6 +26,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	EventBus.connect("focus_on_diary", focus_on_diary)
+	EventBus.connect("fov_value_changed", on_fov_value_changed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -86,3 +87,8 @@ func focus_on_diary(focus: bool) -> void:
 		process_inputs = false
 	else:
 		process_inputs = true
+
+
+func on_fov_value_changed(new_value: float) -> void:
+	base_fov = new_value
+	camera.fov = new_value

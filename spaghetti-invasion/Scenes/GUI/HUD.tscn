@@ -1,8 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4uhany0u32p5"]
+[gd_scene load_steps=11 format=3 uid="uid://b4uhany0u32p5"]
 
 [ext_resource type="Script" uid="uid://huiybrknlxs1" path="res://Scripts/GUI/HUD.gd" id="1_sd512"]
 [ext_resource type="FontFile" uid="uid://bjpn4hdnj0h8n" path="res://Assets/Fonts/Spectral-LightItalic.ttf" id="2_x6svr"]
 [ext_resource type="Texture2D" uid="uid://dt6gpi7c3q0tl" path="res://Assets/2D/Sprites/UI_Arrow_White.png" id="3_x6svr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x6svr"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w8iss"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_x6svr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evmi8"]
+texture = SubResource("NoiseTexture2D_w8iss")
+modulate_color = Color(0.511558, 0.511558, 0.511558, 0.784314)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b7j0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -346,36 +358,29 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="PauseMenu"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.326389
-anchor_top = 0.191358
-anchor_right = 0.673611
-anchor_bottom = 0.808642
-offset_left = 200.0
-offset_top = 200.0
-offset_right = -200.0
-offset_bottom = -200.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_evmi8")
+metadata/_edit_use_anchors_ = true
+
+[node name="LEFTVBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+custom_minimum_size = Vector2(576, 648)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RESUMEButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+[node name="RESUMEButton" type="Button" parent="PauseMenu/Panel/LEFTVBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.857534, 2.40654e-06, 0.511057, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.564706, 0, 0.329412, 1)
-theme_override_colors/font_pressed_color = Color(0.403494, 2.88785e-07, 0.22941, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
 theme_override_font_sizes/font_size = 44
 theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
@@ -384,23 +389,64 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
 text = "RESUME"
 
-[node name="GAMMASliderContainer" type="VBoxContainer" parent="PauseMenu/Panel/VBoxContainer"]
+[node name="MAIN_MENUButton" type="Button" parent="PauseMenu/Panel/LEFTVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
+text = "MAIN MENU"
+
+[node name="QUITButton" type="Button" parent="PauseMenu/Panel/LEFTVBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
+text = "QUIT"
+
+[node name="RIGHTVBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+custom_minimum_size = Vector2(576, 648)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 405.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GAMMASliderContainer" type="VBoxContainer" parent="PauseMenu/Panel/RIGHTVBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="GAMMA_Label" type="Label" parent="PauseMenu/Panel/VBoxContainer/GAMMASliderContainer"]
+[node name="GAMMA_Label" type="Label" parent="PauseMenu/Panel/RIGHTVBoxContainer/GAMMASliderContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.564706, 0, 0.329412, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_tnqb4")
 text = "GAMMA"
 horizontal_alignment = 1
 
-[node name="GAMMASlider" type="HSlider" parent="PauseMenu/Panel/VBoxContainer/GAMMASliderContainer"]
+[node name="GAMMASlider" type="HSlider" parent="PauseMenu/Panel/RIGHTVBoxContainer/GAMMASliderContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -413,57 +459,98 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
-[node name="OPTIONSButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
-visible = false
+[node name="FOVSliderContainer" type="VBoxContainer" parent="PauseMenu/Panel/RIGHTVBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 44
-theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
-text = "OPTIONS"
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="MAINMENUButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
-visible = false
+[node name="FOV_Label" type="Label" parent="PauseMenu/Panel/RIGHTVBoxContainer/FOVSliderContainer"]
 layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 44
-theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
-text = "MAIN MENU"
-
-[node name="QUITButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_hover_color = Color(0.857534, 2.40654e-06, 0.511057, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.564706, 0, 0.329412, 1)
-theme_override_colors/font_pressed_color = Color(0.403494, 2.88785e-07, 0.22941, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
 theme_override_font_sizes/font_size = 44
-theme_override_styles/focus = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8b7j0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8b7j0")
-text = "QUIT"
+theme_override_styles/normal = SubResource("StyleBoxFlat_tnqb4")
+text = "FOV"
+horizontal_alignment = 1
 
-[connection signal="focus_entered" from="PauseMenu/Panel/VBoxContainer/RESUMEButton" to="." method="_on_resume_button_focus_entered"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/RESUMEButton" to="." method="_on_resume_button_pressed"]
-[connection signal="value_changed" from="PauseMenu/Panel/VBoxContainer/GAMMASliderContainer/GAMMASlider" to="." method="_on_gamma_slider_value_changed"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/OPTIONSButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MAINMENUButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/QUITButton" to="." method="_on_close_button_pressed"]
+[node name="FOVSlider" type="HSlider" parent="PauseMenu/Panel/RIGHTVBoxContainer/FOVSliderContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yx2xf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_x6svr")
+min_value = 50.0
+value = 75.0
+
+[node name="SFXSliderContainer" type="VBoxContainer" parent="PauseMenu/Panel/RIGHTVBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SFX_Label" type="Label" parent="PauseMenu/Panel/RIGHTVBoxContainer/SFXSliderContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_tnqb4")
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="PauseMenu/Panel/RIGHTVBoxContainer/SFXSliderContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yx2xf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_x6svr")
+min_value = -30.0
+max_value = 5.0
+step = 0.5
+
+[node name="MUSICSliderContainer" type="VBoxContainer" parent="PauseMenu/Panel/RIGHTVBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MUSIC_Label" type="Label" parent="PauseMenu/Panel/RIGHTVBoxContainer/MUSICSliderContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_x6svr")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_tnqb4")
+text = "MUSIC"
+horizontal_alignment = 1
+
+[node name="MUSICSlider" type="HSlider" parent="PauseMenu/Panel/RIGHTVBoxContainer/MUSICSliderContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_yx2xf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_x6svr")
+min_value = -30.0
+max_value = 5.0
+step = 0.5
+
+[connection signal="focus_entered" from="PauseMenu/Panel/LEFTVBoxContainer/RESUMEButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="pressed" from="PauseMenu/Panel/LEFTVBoxContainer/RESUMEButton" to="." method="_on_resume_button_pressed"]
+[connection signal="focus_entered" from="PauseMenu/Panel/LEFTVBoxContainer/MAIN_MENUButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="pressed" from="PauseMenu/Panel/LEFTVBoxContainer/MAIN_MENUButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/LEFTVBoxContainer/QUITButton" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="PauseMenu/Panel/RIGHTVBoxContainer/GAMMASliderContainer/GAMMASlider" to="." method="_on_gamma_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenu/Panel/RIGHTVBoxContainer/FOVSliderContainer/FOVSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenu/Panel/RIGHTVBoxContainer/SFXSliderContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenu/Panel/RIGHTVBoxContainer/MUSICSliderContainer/MUSICSlider" to="." method="_on_music_slider_value_changed"]

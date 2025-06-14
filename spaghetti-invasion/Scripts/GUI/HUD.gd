@@ -50,7 +50,7 @@ func _on_resume_button_pressed():
 
 
 func _on_main_menu_button_pressed():
-	_on_resume_button_pressed()
+	EventBus.emit_signal("go_to_main_menu")
 
 
 func _on_options_button_pressed():
@@ -67,6 +67,18 @@ func _on_options_back_button_pressed():
 
 func _on_gamma_slider_value_changed(value: float) -> void:
 	EventBus.emit_signal("gamma_value_changed", value)
+
+
+func _on_fov_slider_value_changed(value: float) -> void:
+	EventBus.emit_signal("fov_value_changed", value)
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	EventBus.emit_signal("sfx_volume_value_changed", value)
+
+
+func _on_music_slider_value_changed(value: float) -> void:
+	EventBus.emit_signal("music_volume_value_changed", value)
 
 
 func show_interaction_prompt(show_prompt) -> void:
