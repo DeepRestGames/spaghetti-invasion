@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_esyaj"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 floor_stop_on_slope = false
 script = ExtResource("1_6d860")
@@ -25,7 +25,6 @@ shape = SubResource("CapsuleShape3D_esyaj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-fov = 50.0
 
 [node name="Diary" parent="Head/Camera3D" instance=ExtResource("2_gntrk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
