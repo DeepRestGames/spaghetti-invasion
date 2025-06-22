@@ -2010,7 +2010,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 [node name="DisappearingAlien" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents" node_paths=PackedStringArray("aliens")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.038, 74.3561, -222.068)
 script = ExtResource("22_a3p00")
-aliens = [NodePath("Alien")]
+aliens = [NodePath("Alien"), NodePath("Alien2"), NodePath("Alien3")]
 
 [node name="EnterTriggerArea" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3286, -23.621, 12.6281)
@@ -2047,6 +2047,14 @@ debug_color = Color(0.12938, 0.520636, 1, 0.42)
 
 [node name="Alien" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
 transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, -3.52694, 7.7897, -12.2028)
+visible = false
+
+[node name="Alien2" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
+transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, 19.9677, 7.50473, 12.8224)
+visible = false
+
+[node name="Alien3" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
+transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, 17.5057, 5.96806, 1.121)
 visible = false
 
 [node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents"]
