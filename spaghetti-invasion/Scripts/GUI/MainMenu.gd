@@ -10,7 +10,7 @@ func _ready():
 	animation_player.play("loading_screen", -1, -1, true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	#EventBus.emit_signal("play_music")
+	EventBus.emit_signal("play_music", AudioManager.MusicTracks.INTRO)
 
 
 func _on_credits_button_pressed():

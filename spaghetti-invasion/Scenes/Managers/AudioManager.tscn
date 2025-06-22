@@ -43,6 +43,8 @@ bird_chirp_very_far_play_cooldown = 40
 bird_chirp_very_far_volume_db = -20
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+max_polyphony = 4
 bus = &"Music"
 
 [node name="SFX" type="Node" parent="."]

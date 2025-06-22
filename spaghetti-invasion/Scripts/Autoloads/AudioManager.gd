@@ -195,6 +195,7 @@ var fading_time = 5
 
 var final_buildup = false
 
+
 func _ready() -> void:
 	EventBus.connect("play_music", play_music)
 	EventBus.connect("play_area_ambience", play_area_ambience)
@@ -388,6 +389,12 @@ func on_sfx_volume_changed(new_value) -> void:
 func on_music_volume_changed(new_value) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), new_value)
 
+var music_track_intro = preload("res://Assets/Audio/Music/Intro.wav")
+var music_track_intro_loop = preload("res://Assets/Audio/Music/Intro_LOOP.wav")
+
+var min_music_volume_db = -30.0
+var target_music_volume_db = 0.0
+var music_fading_time = 5
 
 enum MusicTracks {
 	INTRO,
@@ -396,7 +403,24 @@ enum MusicTracks {
 
 
 func play_music(music_track: MusicTracks) -> void:
-	pass
+	
+	match music_track:
+		MusicTracks.INTRO:
+			play_music_intro()
+		
+		MusicTracks.INTRO_LOOP:
+			music_stream_player.stream = music_track_intro_loop
+
+
+func play_music_intro():
+	music_stream_player.stream = music_track_intro
+	music_stream_player.play(-4)
+	
+	var audio_fade_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	audio_fade_tween.tween_property(music_stream_player, "volume_db", target_music_volume_db, music_fading_time)
+
+
+
 
 
 enum AmbienceTracks {

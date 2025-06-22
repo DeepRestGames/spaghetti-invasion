@@ -30,11 +30,11 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(550, 550)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.27459
-anchor_top = 0.15625
-anchor_right = 0.72541
-anchor_bottom = 0.84375
-offset_right = -6.10352e-05
+anchor_left = 0.261285
+anchor_top = 0.0756173
+anchor_right = 0.738715
+anchor_bottom = 0.924383
+offset_left = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -44,6 +44,7 @@ custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 texture = ExtResource("2_hae2p")
 expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="GodotLogo_TextureRect" type="TextureRect" parent="Logos"]
