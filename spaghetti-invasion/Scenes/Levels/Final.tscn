@@ -2010,7 +2010,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25841, 0.334106, -7.53601)
 [node name="DisappearingAlien" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents" node_paths=PackedStringArray("aliens")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.038, 74.3561, -222.068)
 script = ExtResource("22_a3p00")
-aliens = [NodePath("Alien"), NodePath("Alien2"), NodePath("Alien3")]
+aliens = [NodePath("Alien"), NodePath("Alien2"), NodePath("Alien3"), NodePath("Alien4"), NodePath("Alien5")]
 
 [node name="EnterTriggerArea" type="Area3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3286, -23.621, 12.6281)
@@ -2046,16 +2046,34 @@ shape = SubResource("BoxShape3D_fh0sh")
 debug_color = Color(0.12938, 0.520636, 1, 0.42)
 
 [node name="Alien" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
-transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, -3.52694, 7.7897, -12.2028)
+transform = Transform3D(0.997263, 0, -0.0739364, 0, 1, 0, 0.0739364, 0, 0.997263, -3.52694, 7.7897, -12.2028)
 visible = false
+laugh_sfx_play_chance = 0.02
+laugh_sfx_volume_db = -5
 
 [node name="Alien2" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
-transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, 19.9677, 7.50473, 12.8224)
+transform = Transform3D(0.997263, 0, -0.0739364, 0, 1, 0, 0.0739364, 0, 0.997263, 23.9838, 12.9828, -1.50282)
 visible = false
+laugh_sfx_play_chance = 0.02
+laugh_sfx_volume_db = -5
 
 [node name="Alien3" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
-transform = Transform3D(1.4959, 0, -0.110905, 0, 1.5, 0, 0.110905, 0, 1.4959, 17.5057, 5.96806, 1.121)
+transform = Transform3D(0.997263, 0, -0.0739364, 0, 1, 0, 0.0739364, 0, 0.997263, 24.5973, 12.2008, 6.6295)
 visible = false
+laugh_sfx_play_chance = 0.02
+laugh_sfx_volume_db = -5
+
+[node name="Alien4" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
+transform = Transform3D(0.997263, 0, -0.0739364, 0, 1, 0, 0.0739364, 0, 0.997263, 18.64, 8.90646, -3.00191)
+visible = false
+laugh_sfx_play_chance = 0.02
+laugh_sfx_volume_db = -5
+
+[node name="Alien5" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents/DisappearingAlien" instance=ExtResource("23_glku0")]
+transform = Transform3D(0.997263, 0, -0.0739364, 0, 1, 0, 0.0739364, 0, 0.997263, 20.7733, 9.96192, 3.63461)
+visible = false
+laugh_sfx_play_chance = 0.02
+laugh_sfx_volume_db = -5
 
 [node name="ValleAliena" type="Node3D" parent="SubViewport/GameWorld/LandscapeVeneto/SpookyEvents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.362, 0, -541.182)
